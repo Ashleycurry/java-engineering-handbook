@@ -1,0 +1,632 @@
+SOURCE: docs/002-阶段二-Java核心与AI开发进阶/005-第十六章：常用API.pptx
+
+=== Slide 1 ===
+第十六章：常用 API
+=== Slide 2 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 3 ===
+Math 类
+1
+=== Slide 4 ===
+Math 类的常用方法
+包含执行基本数字运算的方法
+方法名
+说明
+public static int abs​(int a)
+获取参数绝对值
+public static double ceil​(double a)
+向上取整
+public static double floor​(double a)
+向下取整
+public static int round​(float a)
+四舍五入
+public static int max​(int a,int b)
+获取两个int值中的较大值
+public static double pow​(double a,double b)
+返回a的b次幂的值
+public static double random​()
+返回值为double的随机值，范围[0.0,1.0)
+Math 类
+=== Slide 5 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 6 ===
+System 类
+2
+=== Slide 7 ===
+System的功能是静态的，都是直接用类名调用即可
+常用方法
+方法名
+说明
+public static void exit​(int status)
+终止当前运行的 Java 虚拟机，非零表示异常终止
+public static long currentTimeMillis​()
+返回当前系统的时间毫秒值形式
+public static void arraycopy(数据源数组, 起始索引, 目的地数组, 起始索引, 拷贝个数)
+数组拷贝
+System 类概述
+=== Slide 8 ===
+1970年1月1日 	   00:00:00
+原因：
+1969年8月，贝尔实验室的程序员肯汤普逊利用妻儿离开一个月的机会。
+开始着手创造一个全新的革命性的操作系统。
+他使用B编译语言在老旧的PDP-7机器上开发出了Unix的一个版本。
+随后，汤普逊和同事丹尼斯里奇改进了B语言，开发出了C语言，重写了UNIX。
+1970年1月1日 算C语言的生日
+计算机中的时间原点
+System也是一个工具类，提供了一些与系统相关的方法
+方法名
+说明
+public static void exit​(int status)
+终止当前运行的 Java 虚拟机
+public static long currentTimeMillis​()
+返回当前系统的时间毫秒值形式
+public static void arraycopy(数据源数组, 起始索引, 目的地数组, 起始索引, 拷贝个数)
+数组拷贝
+1970年1月1日 	   08:00:00
+=== Slide 9 ===
+原因：
+1969年8月，贝尔实验室的程序员肯汤普逊利用妻儿离开一个月的机会。
+开始着手创造一个全新的革命性的操作系统。
+他使用B编译语言在老旧的PDP-7机器上开发出了Unix的一个版本。
+随后，汤普逊和同事丹尼斯里奇改进了B语言，开发出了C语言，重写了UNIX。
+1970年1月1日 算C语言的生日
+计算机中的时间原点
+System也是一个工具类，提供了一些与系统相关的方法
+方法名
+说明
+public static void exit​(int status)
+终止当前运行的 Java 虚拟机
+public static long currentTimeMillis​()
+返回当前系统的时间毫秒值形式
+public static void arraycopy(数据源数组, 起始索引, 目的地数组, 起始索引, 拷贝个数)
+数组拷贝
+1970年1月1日 	   08:00:00
+=== Slide 10 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 11 ===
+包装类
+3
+=== Slide 12 ===
+将基本数据类型, 包装成类 (变成引用数据类型)
+变成类, 就可以创建对象了
+对象就可以调用方法方便的解决问题了
+public class IntegerDemo {    public static void main(String[] args) {        String s = "123";        System.out.println(s + 100);      // 223
+// 转换为十六进制, 八进制, 二进制...        int num = 666;                               }}
+包装类
+=== Slide 13 ===
+基本数据类型
+引用数据类型
+byte
+Byte
+short
+Short
+int
+Integer
+long
+Long
+char
+Character
+float
+Float
+double
+Double
+boolean
+Boolean
+怎么包 ?
+怎么用 ?
+包装类
+将基本数据类型, 包装成类 (变成引用数据类型)
+=== Slide 14 ===
+将基本数据类型, 手动包装为类
+public Integer(int value)
+public static Integer valueOf(int i)
+Integer 类
+=== Slide 15 ===
+自动装箱：基本类型的数据和变量可以直接赋值给包装类型的变量
+自动拆箱：包装类型的变量可以直接赋值给基本数据类型的变量
+简单记
+有了自动拆装箱, 基本数据类型和对应的包装类, 可以直接运算, 操作起来非常便捷
+Integer 类
+=== Slide 16 ===
+包装类练习
+已知字符串   String s = "10,50,30,20,40";
+请将该字符串转换为整数并存入数组
+随后求出最大值打印在控制台
+=== Slide 17 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 18 ===
+BigDecimal 类
+4
+=== Slide 19 ===
+用于解决小数运算中, 出现的不精确问题
+public class BigDecimalDemo {    public static void main(String[] args) {        double num1 = 0.1;        double num2 = 0.2;        System.out.println(num1 + num2);    }}
+BigDecimal 类介绍
+=== Slide 20 ===
+BigDecimal 类使用
+创建对象
+public BigDecimal(double val)
+public BigDecimal(String val)
+public static BigDecimal valueOf(double val)
+=== Slide 21 ===
+创建对象
+BigDecimal 类使用
+常用方法
+方法名
+说明
+public BigDecimal add(BigDecimal b)
+加法
+public BigDecimal subtract(BigDecimal b)
+减法
+public BigDecimal multiply(BigDecimal b)
+乘法
+public BigDecimal divide(BigDecimal b)
+除法
+public BigDecimal divide (另一个BigDecimal对象，精确几位，舍入模式)
+除法
+public BigDecimal(double val)
+public BigDecimal(String val)
+public static BigDecimal valueOf(double val)
+=== Slide 22 ===
+divide 除法细节
+BigDecimal divide = bd1.divide(参与运算的对象, 小数点后精确到多少位, 舍入模式);
+参数1 ，表示参与运算的BigDecimal 对象。参数2 ，表示小数点后面精确到多少位参数3 ，舍入模式
+RoundingMode.UP  进一法RoundingMode.DOWN  去尾法
+RoundingMode.HALF_UP 四舍五入
+BigDecimal 类使用
+=== Slide 23 ===
+BigDecimal 解决小数运算的精度损失问题
+创建对象：
+BigDecimal(String val)
+static BigDecimal valueOf(double val)
+除法运算需要注意除不尽的情况
+=== Slide 24 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 25 ===
+Arrays 类
+5
+=== Slide 26 ===
+数组操作工具类，专门用于操作数组元素
+方法名
+说明
+public static String toString​(类型[] a)
+将数组元素拼接为带有格式的字符串
+public static boolean equals​(类型[] a, 类型[] b)
+比较两个数组内容是否相同
+public static int binarySearch​(int[] a, int key)
+查找元素在数组中的索引 (二分查找法)
+public static void sort​(类型[] a)
+对数组进行默认升序排序
+Arrays 类
+=== Slide 27 ===
+11
+22
+33
+44
+55
+66
+77
+88
+查找元素 : 88
+0
+1
+2
+3
+4
+5
+6
+7
+99
+100
+8
+9
+不是 88
+那就比大小
+=== Slide 28 ===
+66
+77
+88
+查找元素 : 88
+0
+1
+2
+3
+4
+5
+6
+7
+99
+100
+8
+9
+=== Slide 29 ===
+66
+77
+88
+查找元素 : 88
+0
+1
+2
+3
+4
+5
+6
+7
+99
+100
+8
+9
+找到了
+二分查找的前提 : 必须是排好序的数据
+=== Slide 30 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 35 ===
+JDK8(-) 时间API
+JDK8(+) 时间API
+Date
+SimpleDateFormat
+DateTimeFormatter
+LocalDate
+LocalTime
+LocalDateTime
+ChronUnit
+=== Slide 36 ===
+Date 类
+6
+=== Slide 37 ===
+代表的是日期和时间
+构造器
+说明
+public Date()
+创建一个Date对象，代表的是系统当前此刻日期时间。
+public Date(long time)
+把时间毫秒值转换成Date日期对象。
+常见方法
+说明
+public long getTime()
+返回从1970年1月1日    00:00:00走到此刻的总的毫秒数
+public void setTime(long time)
+设置日期对象的时间为当前时间毫秒值对应的时间
+Date 类
+=== Slide 38 ===
+1、日期对象如何创建，如何获取时间毫秒值？
+public Date();
+public long getTime();
+2、时间毫秒值怎么转成日期对象?
+public Date(long time);
+public void setTime(long time);
+=== Slide 39 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 40 ===
+SimpleDateFormat 类
+7
+=== Slide 41 ===
+用于日期格式化
+SimpleDateFormat 类
+=== Slide 42 ===
+用于日期格式化
+构造器
+说明
+public SimpleDateFormat​()
+构造一个SimpleDateFormat，使用默认格式
+public SimpleDateFormat​(String pattern)
+构造一个SimpleDateFormat，使用指定的格式
+格式化方法
+说明
+public final String format(Date date)
+将日期格式化成日期/时间字符串
+public final Date parse(String source)
+将字符串解析为日期类型
+SimpleDateFormat 类
+=== Slide 43 ===
+1、SimpleDateFormat 代表什么，有什么作用？
+可以把日期对象格式化成我们想要的形式；
+可以把字符串的时间形式解析成Date日期对象。
+2、SimpleDateFormat 的对象如何创建？
+public SimpleDateFormat​(String pattern)
+3、SimpleDateFormat 格式化，以及解析时间的方法是哪些？
+public final String format(Date d):格式化日期对象
+public Date parse​(String source)：解析字符串时间
+=== Slide 44 ===
+新增的时间API
+JDK8开始之后
+1、设计更合理，功能丰富，使用更方便。
+2、都是不可变对象，修改后会返回新的时间对象，不会丢失最开始的时间。
+3、线程安全。
+4、能精确到毫秒、纳秒。
+DateTimeFormatter
+LocalDate：年、月、日
+LocalTime：时、分、秒
+LocalDateTime：
+：用于时间的格式化和解析
+年、月、日
+时、分、秒
+ChronoUnit ：计算时间间隔的工具类
+=== Slide 45 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 46 ===
+LocaldateTime 类
+8
+=== Slide 47 ===
+方法名
+示例
+public static Xxxx now(): 获取系统当前时间对应的该对象
+LocaDate ld = LocalDate.now();LocalTime lt = LocalTime.now();LocalDateTime ldt = LocalDateTime.now();
+LocalDate：代表本地日期(年、月、日、星期)
+LocalTime：代表本地时间(时、分、秒、纳秒)
+LocalDateTime：代表本地日期、时间(年、月、日、星期、时、分、秒、纳秒)
+获取对象
+public static Xxxx of(…)：获取指定时间的对象
+LocalDate localDate1 = LocalDate.of(2099 , 11,11);LocalTime localTime1 = LocalTime.of(9,  8, 59);LocalDateTime localDateTime1 = LocalDateTime.of(2025, 11, 16, 14, 30, 01);
+LocalDateTime、LocalDate、LocalTime
+=== Slide 48 ===
+获取年月日时分秒的相关方法
+方法名
+功能
+int getYear()
+获取年份字段
+Month getMonth()
+使用 Month 枚举获取年份字段
+int getMonthValue()
+获取1到12之间的月份字段
+int getDayOfMonth()
+获取日期字段
+DayOfWeek getDayOfWeek()
+获取星期几字段，即枚举 DayOfWeek
+int getHour()
+获取当日时间字段
+int getMinute()
+获取分钟字段
+int getSecond()
+获取第二分钟字段
+获取年月日时分秒相关的方法
+=== Slide 49 ===
+方法名
+说明
+withHour、withMinute、withSecond、withNano
+修改时间，返回新时间对象
+plusHours、plusMinutes、plusSeconds、plusNanos
+把某个信息加多少，返回新时间对象
+minusHours、minusMinutes、minusSeconds、minusNanos
+把某个信息减多少，返回新时间对象
+equals isBefore isAfter
+判断2个时间对象，是否相等，在前还是在后
+LocalDateTime 、LocalDate 、LocalTime 都是不可变的,  下列方法返回的是一个新的对象
+修改年月日时分秒相关的方法
+=== Slide 50 ===
+LocalDate LocalTime LocalDateTime 对象如何创建?
+now : 当前时间
+of : 指定时间
+获取的相关方法是 ?
+getXxx();
+getYear() getMonth() getMonthValue() ...
+修改的相关方法是 ?
+withXxx：修改
+minusXxx：减
+plusXxx: 加
+注意点：
+LocalDateTime 、LocalDate 、LocalTime 都是不可变的
+调用修改的相关方法, 返回的都是新的对象
+=== Slide 51 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 52 ===
+DateTimeFormatter 类
+8
+=== Slide 53 ===
+用于时间的格式化和解析
+方法名
+说明
+static DateTimeFormatter ofPattern​(格式)
+获取格式对象
+String format​(时间对象)
+按照指定方式格式化
+DateTimeFormatter 类
+=== Slide 54 ===
+Math 类
+System 类
+包装类
+BigDecimal 类
+Arrays 类
+Date 类
+SimpleDateFormat 类
+LocalDateTime、LocalDate、LocalTime 类
+DateTimeFormatter 类
+ChronoUnit 类
+=== Slide 55 ===
+ChronoUnit 类
+9
+=== Slide 56 ===
+Period
+Duration
+ChronoUnit
+、
+、
+Period
+Duration
+ChronoUnit
+、
+、
+=== Slide 57 ===
+Period
+Duration
+ChronoUnit
+Period
+Duration
+ChronoUnit
+、
+、
+用于计算两个“时间”间隔（秒，纳秒）
+用于计算两个“日期”间隔（年、月、日）
+用于计算两个“日期”间隔
+计算时间间隔的工具类
+=== Slide 58 ===
+案例：计算用户年龄
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+2
+--- notesSlide 2 ---
+4
+--- notesSlide 3 ---
+5
+--- notesSlide 4 ---
+7
+--- notesSlide 5 ---
+8
+--- notesSlide 6 ---
+9
+--- notesSlide 7 ---
+10
+--- notesSlide 8 ---
+12
+--- notesSlide 9 ---
+13
+--- notesSlide 10 ---
+14
+--- notesSlide 11 ---
+15
+--- notesSlide 12 ---
+16
+--- notesSlide 13 ---
+17
+--- notesSlide 14 ---
+19
+--- notesSlide 15 ---
+20
+--- notesSlide 16 ---
+21
+--- notesSlide 17 ---
+22
+--- notesSlide 18 ---
+23
+--- notesSlide 19 ---
+24
+--- notesSlide 20 ---
+26
+--- notesSlide 21 ---
+27
+--- notesSlide 22 ---
+28
+--- notesSlide 23 ---
+29
+--- notesSlide 24 ---
+30
+--- notesSlide 25 ---
+31
+--- notesSlide 26 ---
+32
+--- notesSlide 27 ---
+33
+--- notesSlide 28 ---
+34
+--- notesSlide 29 ---
+35
+--- notesSlide 30 ---
+37
+--- notesSlide 31 ---
+39
+--- notesSlide 32 ---
+41
+--- notesSlide 33 ---
+42
+--- notesSlide 34 ---
+44
+--- notesSlide 35 ---
+45
+--- notesSlide 36 ---
+47
+--- notesSlide 37 ---
+48
+--- notesSlide 38 ---
+49
+--- notesSlide 39 ---
+51
+--- notesSlide 40 ---
+53
+--- notesSlide 41 ---
+54
+--- notesSlide 42 ---
+56
+--- notesSlide 43 ---
+57
+--- notesSlide 44 ---
+58

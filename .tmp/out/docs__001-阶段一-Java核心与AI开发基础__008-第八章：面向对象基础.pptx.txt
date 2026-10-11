@@ -1,0 +1,1005 @@
+SOURCE: docs/001-阶段一-Java核心与AI开发基础/008-第八章：面向对象基础.pptx
+
+=== Slide 1 ===
+第八章：面向对象基础
+万物皆对象
+=== Slide 2 ===
+面向对象介绍
+这是个什么玩意儿？
+我干嘛要学这个？
+=== Slide 3 ===
+面向对象介绍
+面向对象：
+并不是一个技术，而是一种编程的指导思想
+以什么形式 组织代码
+以什么思路 解决问题
+为什么要学习面向对象？
+因为生活中，我们解决问题时，就是采用这种指导思想去解决的
+所以，我们写程序去解决问题时，如果也能采用这种指导思想
+就会使编程变得非常简单，程序也便于人理解
+=== Slide 4 ===
+面向对象介绍
+=== Slide 5 ===
+面向对象介绍
+=== Slide 6 ===
+面向对象介绍
+=== Slide 7 ===
+面向对象介绍
+面向对象：
+并不是一个技术，而是一种编程的指导思想
+以什么形式 组织代码
+以什么思路 解决问题
+为什么要学习面向对象？
+因为生活中，我们解决问题时，就是采用这种指导思想去解决的
+所以，我们写程序去解决问题时，如果也能采用这种指导思想
+就会使编程变得非常简单，程序也便于人理解
+=== Slide 8 ===
+面向对象介绍
+public class Test {    public static void main(String[] args) {
+}}
+Scanner sc = new Scanner(System.in);
+Random r = new Random();
+int randomNum = r.nextInt(100) + 1;
+System.out.println("请输入:");int scNum = sc.nextInt();
+if (scNum > randomNum) {     System.out.println("猜大了");} else if (scNum < randomNum) {     System.out.println("猜小了");} else {     System.out.println("猜中了");}
+=== Slide 9 ===
+面向对象介绍
+Scanner 和 Random  都是 Java 已经写好的..
+那我要解决的问题
+人家 Java 没提供怎么办?
+=== Slide 10 ===
+面向对象介绍
+学习自己如何设计对象
+学习已有的对象如何使用
+=== Slide 11 ===
+面向对象是一种思想，这种思想可以让我们写代码的思路更贴切于生活
+学习目标
+自己设计对象使用
+掌握已有对象的使用
+=== Slide 12 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 13 ===
+类和对象
+2
+=== Slide 14 ===
+类和对象介绍
+Java 中想要创建对象，必须先要有类的存在
+类指的是一组相关属性和行为的集合，我们将其理解为是一张对象的设计图
+=== Slide 15 ===
+类和对象的关系
+Java 中需要根据类，创建对象
+一个类，可以创建出多个对象
+=== Slide 16 ===
+public class Student {    String name = "张三";    int age = 23;    public void study(){        System.out.println("学习Java");    }    public void eat(){        System.out.println("吃饭");    }}
+类的组成
+成员变量:
+跟之前定义变量的格式一样
+只不过位置需要放在
+方法的外面
+成员方法:
+跟之前定义方法的格式一样
+只不过需要
+去掉static关键字
+=== Slide 17 ===
+创建对象、使用对象
+创建对象
+类名 对象名 = new 类名();
+2. 变量的使用格式
+对象名.变量名;
+3. 方法的使用格式
+对象名.方法名(实际参数);
+public class TestStudent {    public static void main(String[] args) {
+}}
+// 使用成员方法格式:// 对象名.方法名(实际参数);stu.study();stu.eat();
+// 创建对象格式:// 类名 对象名 = new 类名();Student stu = new Student();
+// 使用成员变量格式:// 对象名.变量名System.out.println(stu.name);System.out.println(stu.age);
+stu.name = "李四";stu.age = 24;
+=== Slide 18 ===
+类的组成：属性、行为
+属性：成员变量，指描述事物的名词
+行为：成员方法，指描述事物的动词
+创建对象格式：类名 对象名 = new 类名();
+使用对象格式：对象名.变量名;  对象名.方法名();
+=== Slide 19 ===
+定义一个手机类 (Phone)
+属性: (品牌 brand，颜色 color, 价格 price)
+行为:
+打电话 (call)
+- 输出给 xxx 打电话
+发短信 (sendMessage)
+- 输出群发短信
+编写一个手机测试类 (PhoneTest)
+创建两个手机对象,  并给属性赋值
+1. 小米,  白色,  4999
+2. 华为,  黑色,  6999
+赋值之后, 校验自己有没有赋值成功, 使用打印语句校验, 调用两个对象各自的成员方法
+类的定义与对象的创建和使用
+=== Slide 20 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 21 ===
+类和对象内存图
+3
+=== Slide 22 ===
+类和对象内存图
+单个对象内存图
+堆内存
+栈内存
+public class Student {    String name;    int age;    public void study(){        System.out.println("学习Java");    }    public void eat(){        System.out.println("吃饭");    }}
+public class TestStudent {    public static void main(String[] args) {        Student stu = new Student();        System.out.println(stu);
+System.out.println(stu.name);        System.out.println(stu.age);        stu.name = "张三";        stu.age = 23;        System.out.println(stu.name);        System.out.println(stu.age);
+stu.study();        stu.eat();    }}
+方法区
+TestStudent.class
+main
+main
+Student.class
+成员变量
+成员方法
+Student stu
+7ef20235
+String name
+int age
+null
+0
+成员方法引用地址
+7ef20235
+System.out.println(stu);
+7ef20235
+null
+0
+张三
+23
+学习Java
+吃饭
+System.out.println(stu.name);System.out.println(stu.age);
+张三
+23
+System.out.println(stu.name);System.out.println(stu.age);
+stu.study();
+study
+System.out.println("学习Java");
+stu.eat();
+eat
+System.out.println("吃饭");
+=== Slide 23 ===
+类和对象内存图
+两个对象内存图
+堆内存
+栈内存
+public class Student {    String name;    int age;    public void study(){        System.out.println("学习Java");    }    public void eat(){        System.out.println("吃饭");    }}
+public class Test {    public static void main(String[] args) {        Student stu1 = new Student();        stu1.name = "张三";        stu1.age = 23;        Student stu2 = new Student();        stu2.name = "李四";        stu2.age = 24;        System.out.println(stu1.name);        System.out.println(stu2.age);        stu1.study();        stu2.study();    }}
+方法区
+Test.class
+main
+main
+Student.class
+成员变量
+成员方法
+Student stu1
+7ef20235
+String name
+int age
+null
+0
+成员方法引用地址
+7ef20235
+张三
+23
+Student stu2
+27d6c5e0
+成员方法引用地址
+String name
+int age
+null
+0
+27d6c5e0
+李四
+24
+张三
+张三
+24
+study
+System.out.println("学习Java");
+学习Java
+stu1.study();
+stu2.study();
+study
+System.out.println("学习Java");
+学习Java
+=== Slide 24 ===
+类和对象内存图
+两个引用指向相同内存图
+堆内存
+栈内存
+public class Student {    String name;    int age;    public void study(){        System.out.println("学习Java");    }    public void eat(){        System.out.println("吃饭");    }}
+public class Test {    public static void main(String[] args) {        Student stu1 = new Student();        stu1.name = "钢门吹雪";        Student stu2 = stu1;        stu2.name = "西域狂鸭";        System.out.println(stu1.name);        System.out.println(stu2.name);    }}
+方法区
+Test.class
+main
+main
+Student.class
+成员变量
+成员方法
+Student stu1
+7ef20235
+String name
+int age
+null
+0
+成员方法引用地址
+7ef20235
+Student stu2
+钢门吹雪
+7ef20235
+西域狂鸭
+西域狂鸭
+西域狂鸭
+=== Slide 25 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 26 ===
+成员变量和局部变量区别
+4
+=== Slide 27 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+初始化值不同
+内存位置不同
+生命周期不同
+作用域
+=== Slide 28 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+方法外
+方法中
+初始化值不同
+内存位置不同
+生命周期不同
+作用域
+public class Student {    String name;    int age;
+}
+public class Test {    public static void main(String[] args) {        int num1 = 10;    }}public class Student {    public void method(){        int num2 = 20;    }}
+=== Slide 29 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+方法外
+方法中
+初始化值不同
+有默认初始化值
+没有，使用之前需要完成赋值
+内存位置不同
+生命周期不同
+作用域
+=== Slide 30 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+方法外
+方法中
+初始化值不同
+有默认初始化值
+没有，使用之前需要完成赋值
+内存位置不同
+堆内存
+栈内存
+生命周期不同
+作用域
+=== Slide 31 ===
+成员变量的局部变量区别
+public class Student {    String name = "张三";    public void method(){        int age = 23;    }}
+堆内存
+栈内存
+7ef20235
+String name
+张三
+method
+int age = 23;
+=== Slide 32 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+方法外
+方法中
+初始化值不同
+有默认初始化值
+没有，使用之前需要完成赋值
+内存位置不同
+堆内存
+栈内存
+生命周期不同
+作用域
+=== Slide 33 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+方法外
+方法中
+初始化值不同
+有默认初始化值
+没有，使用之前需要完成赋值
+内存位置不同
+堆内存
+栈内存
+生命周期不同
+随着对象的创建而存在，随着对象的消失而消失
+随着方法的调用而存在，随着方法的运行结束而消失
+作用域
+=== Slide 34 ===
+成员变量的局部变量区别
+public class Student {    String name;}
+堆内存
+栈内存
+7ef20235
+String name
+main
+public class StudentTest {    public static void main(String[] args) {        System.out.println("开始");        method();        System.out.println("结束");    }    public static void method() {        Student stu = new Student();        stu.name = "钢门吹雪";    }}
+System.out.println("开始");
+method();
+System.out.println("结束");
+method
+Student stu
+7ef20235
+钢门吹雪
+=== Slide 35 ===
+成员变量的局部变量区别
+区别
+成员变量
+局部变量
+类中位置不同
+方法外
+方法中
+初始化值不同
+有默认初始化值
+没有，使用之前需要完成赋值
+内存位置不同
+堆内存
+栈内存
+生命周期不同
+随着对象的创建而存在，随着对象的消失而消失
+随着方法的调用而存在，随着方法的运行结束而消失
+作用域
+在自己所归属的大括号中
+=== Slide 36 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 37 ===
+this 关键字
+5
+=== Slide 38 ===
+this 可以解决的问题
+public class Student {    String name;    int age;    public void sayHello(String name) {        System.out.println(name);    }}
+Student stu = new Student();stu.name = "钢门吹雪";stu.age = 23;stu.sayHello("西域狂鸭");
+用哪个?
+=== Slide 39 ===
+this 可以解决的问题
+public class Student {    String name;    int age;    public void sayHello(String name) {        System.out.println(name);    }}
+Student stu = new Student();stu.name = "钢门吹雪";stu.age = 23;stu.sayHello("西域狂鸭");
+当局部变量和成员变量出现了重名的情况
+Java 使用的是 就近原则
+=== Slide 40 ===
+this 可以解决的问题
+public class Student {    String name;    int age;    public void sayHello(String name) {        System.out.println(this.name);    }}
+Student stu = new Student();stu.name = "钢门吹雪";stu.age = 23;stu.sayHello("西域狂鸭");
+=== Slide 41 ===
+this 介绍
+this 代表当前类对象的引用（地址）
+=== Slide 42 ===
+this 内存图
+堆内存
+栈内存
+public static void main(String[] args) {    Student stu = new Student();    stu.name = "钢门吹雪";    stu.age = 23;    stu.sayHello("西域狂鸭");}
+方法：main()
+方法：main()
+Student
+name
+age
+null
+0
+0011
+方法：main()
+Student stu
+0011
+class Student {    String name;    int age;    public void sayHello(String name){        sout("局部变量:" + name);        sout("成员变量:" + this.name);    }}
+this
+0011
+=== Slide 43 ===
+this 内存图
+堆内存
+栈内存
+public static void main(String[] args) {    Student stu = new Student();    stu.name = "钢门吹雪";    stu.age = 23;    stu.sayHello("西域狂鸭");}
+Student
+name
+age
+0011
+"钢门吹雪"
+23
+this
+0011
+方法：main()
+Student stu
+0011
+=== Slide 44 ===
+this 内存图
+堆内存
+栈内存
+public static void main(String[] args) {    Student stu = new Student();    stu.name = "钢门吹雪";    stu.age = 23;    stu.sayHello("西域狂鸭");}
+方法：main()
+Student stu
+0011
+class Student {    String name;    int age;    public void sayHello(String name){        sout("局部变量:" + name);        sout("成员变量:" + this.name);    }}
+方法：sayHello()
+String name
+方法：sayHello()
+String name
+"西域狂鸭"
+Student
+name
+age
+0011
+"钢门吹雪"
+23
+this
+0011
+=== Slide 45 ===
+this 内存图
+堆内存
+栈内存
+public static void main(String[] args) {    Student stu = new Student();    stu.name = "钢门吹雪";    stu.age = 23;    stu.sayHello("西域狂鸭");}
+方法：main()
+Student stu
+0011
+class Student {    String name;    int age;    public void sayHello(String name){        sout("局部变量:" + name);        sout("成员变量:" + this.name);    }}
+方法：sayHello()
+String name
+"西域狂鸭"
+Student
+name
+age
+0011
+"钢门吹雪"
+23
+this
+0011
+方法：sayHello()
+调用者：stu
+String name
+"西域狂鸭"
+0011
+方法：sayHello()
+调用者：stu
+String name
+"西域狂鸭"
+0011
+局部变量：西域狂鸭
+=== Slide 46 ===
+this 内存图
+堆内存
+栈内存
+public static void main(String[] args) {    Student stu = new Student();    stu.name = "钢门吹雪";    stu.age = 23;    stu.sayHello("西域狂鸭");}
+方法：main()
+Student stu
+0011
+class Student {    String name;    int age;    public void sayHello(String name){        sout("局部变量:" + name);        sout("成员变量:" + this.name);    }}
+Student
+name
+age
+0011
+"钢门吹雪"
+23
+this
+0011
+局部变量：西域狂鸭
+成员变量：钢门吹雪
+方法：sayHello()
+调用者：stu
+String name
+"西域狂鸭"
+0011
+方法：sayHello()
+this       ：stu
+String name
+"西域狂鸭"
+0011
+name
+=== Slide 47 ===
+1.当局部变量和成员变量重名的时候, Java 使用的是 ?
+就近原则
+this 关键字的作用是 ?
+调用本类成员
+this.本类成员变量;
+如果不涉及变量重复, this.可以省略
+this.本类成员方法();
+没有前提条件  this.可以直接省略
+this 代表什么呢 ?
+代表当前类对象的引用 (地址)
+=== Slide 48 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 49 ===
+构造方法
+6
+=== Slide 50 ===
+构造器
+初始化一个新建的对象
+构建、创造对象的时候，所调用的方法
+格式：
+方法名与类名相同，大小写也要一致
+没有返回值类型，连void都没有
+没有具体的返回值（不能由return带回结果数据）
+执行时机：
+创建对象的时候调用，每创建一次对象，就会执行一次构造方法
+不能手动调用构造方法
+public class Test {    public static void main(String[] args) {        Student stu = new Student();    }}
+构造方法介绍
+=== Slide 51 ===
+构造方法作用
+本质作用：创建对象
+结合构造方法执行时机：给对象中的属性（成员变量）进行初始化
+=== Slide 52 ===
+构造方法注意事项
+构造方法的创建
+如果没有定义构造方法，系统将给出一个默认的无参数构造方法
+如果定义了构造方法，系统将不再提供默认的构造方法
+构造方法的重载
+构造方法也是方法，允许重载关系出现
+推荐的使用方式
+无参数构造方法，和带参数构造方法，都自己手动给出
+class Student {    int age;    public Student() {            }    public Student(int age) {        this.age = 18;    }}
+=== Slide 53 ===
+构造方法执行流程
+堆内存
+栈内存
+public static void main(String[] args) {    Student stu = new Student("钢门吹雪",23);    stu.show();}
+方法：main()
+方法：main()
+public class Student {    String name;    int age;    public Student() {    }    public Student(String name, int age) {        this.name = name;        this.age = age;    }    public void show() {        sout(name + "---" + age);    }}
+方法：main()
+Student  stu
+Student
+0011
+name
+age
+null
+0
+this
+0011
+=== Slide 54 ===
+构造方法执行流程
+堆内存
+栈内存
+Student
+0011
+name
+age
+null
+0
+this
+0011
+构造方法：Student()
+String name
+int    age
+方法：main()
+Student  stu
+构造方法：Student()
+String name
+int    age
+public static void main(String[] args) {    Student stu = new Student("钢门吹雪",23);    stu.show();}
+public class Student {    String name;    int age;    public Student() {    }    public Student(String name, int age) {        this.name = name;        this.age = age;    }    public void show() {        sout(name + "---" + age);    }}
+构造方法：Student()
+调用者 this ：0011
+String name
+int    age
+构造方法：Student()
+调用者 this ：0011
+String name"钢门吹雪"
+int    age  23
+=== Slide 55 ===
+构造方法执行流程
+堆内存
+栈内存
+Student
+0011
+name
+age
+null
+0
+this
+0011
+方法：main()
+Student  stu
+public static void main(String[] args) {    Student stu = new Student("钢门吹雪",23);    stu.show();}
+public class Student {    String name;    int age;    public Student() {    }    public Student(String name, int age) {        this.name = name;        this.age = age;    }    public void show() {        sout(name + "---" + age);    }}
+构造方法：Student()
+调用者 this ：0011
+String name"钢门吹雪"
+int    age  23
+"钢门吹雪"
+"钢门吹雪"
+23
+23
+=== Slide 56 ===
+构造方法执行流程
+堆内存
+栈内存
+Student
+0011
+name
+age
+this
+0011
+方法：main()
+Student  stu
+public static void main(String[] args) {    Student stu = new Student("钢门吹雪",23);    stu.show();}
+public class Student {    String name;    int age;    public Student() {    }    public Student(String name, int age) {        this.name = name;        this.age = age;    }    public void show() {        sout(name + "---" + age);    }}
+构造方法：Student()
+调用者 this ：0011
+String name"钢门吹雪"
+int    age  23
+"钢门吹雪"
+23
+0011
+=== Slide 57 ===
+构造方法的作用：
+创建对象
+给成员变量初始化
+构造方法的格式：
+方法名与类名相同，大小写也要一致
+没有返回值类型，连 void 都没有
+没有具体的返回值
+构造方法的注意事项：
+如果一个类中没写构造方法，系统会提供一个默认的无参构造方法
+如果手动编写了构造方法，系统将不会提供默认的那个无参构造
+建议：无参构造，带参构造全部手动给出
+=== Slide 58 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 59 ===
+封装
+7
+=== Slide 60 ===
+面向对象三大特征
+封装
+继承
+多态
+=== Slide 61 ===
+封装思想
+封装
+封装就是将数据（属性）和 操作数据的方法 捆绑在一起
+组成一个整体，也就是类
+同时，通过访问修饰符来控制对类中属性和方法的访问权限，从而实现信息隐藏
+id
+姓名
+年龄
+1
+张三
+23
+2
+李四
+24
+数学成绩
+90
+69
+语文成绩
+87
+91
+使用类设计对象时
+将需要处理的数据
+以及处理这些数据的方法, 设计到对象中
+=== Slide 62 ===
+封装思想
+id
+姓名
+年龄
+1
+张三
+23
+2
+李四
+24
+数学成绩
+90
+69
+语文成绩
+87
+91
+计算出每一名学生的总成绩
+展示学生的所有信息
+int id1 = 1;
+String name1 = "张三";
+double chineseScore1 = 87;
+double mathScore1 = 90;
+int age1 = 23;
+int id2 = 2;
+String name2 = "李四";
+double chineseScore2 = 91;
+double mathScore2 = 69;
+int age2 = 24;
+public class Student {    int id;    String name;    int age;    double mathScore;    double chineseScore;    public Student(int id, String name, int age, double mathScore, double chineseScore) {        this.id = id;        this.name = name;        this.age = age;        this.mathScore = mathScore;        this.chineseScore = chineseScore;    }}
+Student stu1 = new Student(1, "张三", 23,90,87);Student stu2 = new Student(2, "李四", 24,69,91);
+=== Slide 63 ===
+封装思想
+计算出每一名学生的总成绩
+展示学生的所有信息
+public class Student {    int id;    String name;    int age;    double mathScore;    double chineseScore;    // 省略构造方法    public double getTotalScore() {        return mathScore + chineseScore;    }        public void showStudentInfos(){        System.out.println("学号: " + id);        System.out.println("姓名: " + name);        System.out.println("年龄:" + age);        System.out.println("数学成绩:" + mathScore);        System.out.println("语文成绩:" + chineseScore);    }}
+public class Test {    public static void main(String[] args) {        Student stu1 = new Student(1, "张三", 23,90,87);        stu1.showStudentInfos();        Student stu2 = new Student(2, "李四", 24,69,91);        stu2.showStudentInfos();    }}
+更好的维护数据
+使用者无需关心内部实现, 只要知道如何使用即可
+=== Slide 64 ===
+封装思想
+Random r = new Random();
+int num = r.nextInt(100) + 1;
+Scanner sc = new Scanner(System.in);
+int num = sc.nextInt();
+=== Slide 65 ===
+封装思想
+封装
+id
+姓名
+年龄
+1
+张三
+23
+2
+李四
+24
+数学成绩
+90
+69
+语文成绩
+87
+91
+使用类设计对象时
+将需要处理的数据
+以及处理这些数据的方法, 设计到对象中
+更好的维护数据
+使用者无需关心内部实现, 只要知道如何使用即可
+封装就是将数据（属性）和 操作数据的方法 捆绑在一起
+组成一个整体，也就是类
+同时，通过访问修饰符来控制对类中属性和方法的访问权限，从而实现信息隐藏
+=== Slide 66 ===
+封装思想
+合理隐藏, 合理暴露
+=== Slide 67 ===
+封装思想
+=== Slide 68 ===
+封装思想
+=== Slide 69 ===
+封装思想
+public class Phone {    public void call(String name) {        System.out.println("给" + name + "打电话");        saveLog();    }    public void saveLog(){        System.out.println("通话记录");        System.out.println("将联系人-时间-通话时长保存到本地");    }}
+public class Test {    public static void main(String[] args) {        Phone p = new Phone();        p.saveLog();
+}}
+=== Slide 70 ===
+封装思想
+public class Phone {    public void call(String name) {        System.out.println("给" + name + "打电话");        saveLog();    }    private void saveLog(){        System.out.println("通话记录");        System.out.println("将联系人-时间-通话时长保存到本地");    }}
+public class Test {    public static void main(String[] args) {        Phone p = new Phone();        p.saveLog();
+}}
+~~~~~~~~~
+public class Test {    public static void main(String[] args) {        Phone p = new Phone();        p.call();
+}}
+=== Slide 71 ===
+权限修饰符
+权限修饰符
+private
+(defalut)
+protected
+public
+成员变量
+成员方法
+构造方法
+=== Slide 72 ===
+封装：一种思想
+封装就是将数据（属性）和 操作数据的方法 捆绑在一起
+组成一个整体，也就是类
+通过访问修饰符来控制对类中属性和方法的访问权限，从而实现信息隐藏
+使用封装设计类的时候，要做到合理隐藏，合理暴露
+权限修饰符：
+private、（default）、protected、public
+=== Slide 73 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 74 ===
+JavaBean
+8
+=== Slide 75 ===
+标准 JavaBean
+public class StudentOperator {    private Student s;    public StudentOperator(Student s){
+this.Student = s;
+}
+}
+类中提供无参, 带参构造方法。
+02
+实体类只负责数据存取，而对数据的处理交给其他类来完成，以实现数据和数据业务处理相分离。
+实体类的应用场景是什么？
+这个类中的成员变量都要私有，并且要对	    外提供相应的getXxx ，setXxx方法
+01
+public class Student {    private String name;    private double score;
+// getter setter方法
+}
+// 计算学生总成绩
+// 展示学生所有信息
+// ...
+=== Slide 76 ===
+面向对象思想
+类和对象
+类和对象内存图
+成员变量和局部变量的区别
+this 关键字
+构造方法
+封装
+JavaBean
+static 关键字
+=== Slide 77 ===
+static 关键字
+9
+=== Slide 78 ===
+static 是静态的意思，可以修饰成员变量，也可以修饰成员方法
+static 关键字
+=== Slide 79 ===
+被其修饰的成员, 被该类的所有对象所共享
+多了一种调用方式, 可以通过类名调用
+随着类的加载而加载, 优先于对象存在
+static 修饰成员的特点
+=== Slide 80 ===
+7ef20235
+class User {    String name;    int age;    static int onLineNumber;}public class StaticTest1 {    public static void main(String[] args) {        User.onLineNumber++;        User u1 = new User();        u1.name = "张三";        u1.age = 23;        sout(u1.name + "---" + u1.age
++ "---" + u1.onLineNumber);        User.onLineNumber++;        User u2 = new User();        u2.name = "李四";        u2.age = 24;        sout(u2.name + "---" + u2.age
++ "---" + u2.onLineNumber);    }}
+堆内存
+栈内存
+方法区
+StaticTest1.class
+main
+main
+User.class
+User u1
+int onLineNumber = 0;
+User 静态成员变量区
+int onLineNumber = 1;
+String name
+int age
+7ef20235
+null
+0
+张三---23---1
+张三
+23
+int onLineNumber = 2;
+User u2
+String name
+int age
+李四
+24
+null
+0
+27d6c5e0
+27d6c5e0
+李四---24---2
+static 内存图
+=== Slide 81 ===
+static 修饰成员的特点
+被其修饰的成员, 被该类的所有对象所共享
+多了一种调用方式, 可以通过类名调用
+随着类的加载而加载, 优先于对象存在
+static 成员变量
+共享数据
+static 成员方法
+常用于工具类
+static 关键字
+=== Slide 82 ===
+数组工具类
+编写一个类 ArrayTools 内部编写三个方法
+从数组中找最大值
+从数组中找最小值
+打印出数组中所有的元素
+=== Slide 83 ===
+static 修饰成员的特点
+被其修饰的成员, 被该类的所有对象所共享
+多了一种调用方式, 可以通过类名调用
+随着类的加载而加载, 优先于对象存在
+static 成员变量
+共享数据
+static 成员方法
+常用于工具类
+static 关键字
+static 方法中,  只能访问静态成员 (直接访问)
+static 中不允许使用 this 关键字
+注意事项
+=== Slide 84 ===
+static : 静态修饰符，可用来修饰成员变量、成员方法
+修饰成员的特点：
+被其修饰的成员, 被该类的所有对象所共享
+多了一种调用方式, 可以通过类名调用
+随着类的加载而加载, 优先于对象存在
+使用场景：
+成员变量：需要共享的数据
+成员方法：工具类的方法大多数是 static 的
+注意事项：静态方法中只能访问静态成员（直接访问），静态中没有 this 关键字
+=== Slide 85 ===
+public class HelloWorld {    public static void main(String[] args) {	System.out.println("HelloWorld");
+}}
+public：	被JVM调用，访问权限足够大
+static：	被JVM调用，不用创建对象
+因为main方法是静态的，所以测试类中其他方法也需要是静态的
+void：	被JVM调用，不需要给JVM返回值
+main：	一个通用的名称，虽然不是关键字，但是被JVM识别
+String[] args: 	以前用于接收键盘录入数据的，现在没用
+重新认识 main 方法
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+78
+--- notesSlide 2 ---
+79
+--- notesSlide 4 ---
+81
+--- notesSlide 5 ---
+82
+--- notesSlide 6 ---
+83
+--- notesSlide 7 ---
+84

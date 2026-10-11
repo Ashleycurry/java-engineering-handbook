@@ -1,0 +1,753 @@
+SOURCE: docs/002-阶段二-Java核心与AI开发进阶/009-第二十章-Java高级技术.pptx
+
+=== Slide 1 ===
+第二十章：Java高级技术
+=== Slide 2 ===
+枚举
+类加载器
+反射
+注解
+动态代理
+=== Slide 3 ===
+枚举
+1
+=== Slide 4 ===
+枚举是 Java 中的一种特殊类型，一般用来做信息的标记和分类
+使用标记来区分春、夏、秋、冬四个季节
+枚举介绍
+=== Slide 5 ===
+枚举是 Java 中的一种特殊类型，一般用来做信息的标记和分类
+枚举介绍
+=== Slide 6 ===
+枚举是 Java 中的一种特殊类型，一般用来做信息的标记和分类
+确保这个类的对象只有四个
+枚举介绍
+=== Slide 7 ===
+枚举介绍
+=== Slide 8 ===
+修饰符 enum 枚举类名 {
+枚举项1, 枚举项2, 枚举项3...
+}
+enum Season {    SPRING, SUMMER, AUTUMN, WINTER;}
+枚举定义格式
+=== Slide 9 ===
+每一个枚举项其实就是该枚举的一个对象
+通过枚举类名去访问指定的枚举项
+所有枚举类都是 Enum 的子类
+枚举也是类,  可以定义成员变量
+枚举类的第一行上必须是枚举项，最后一个枚举项后的分号是可以省略的
+但是如果枚举类有其他的东西，这个分号就不能省略 (建议不要省略)
+枚举类可以有构造器，但必须是 private 的，它默认也是 private
+枚举类也可以有抽象方法，但是枚举项必须重写该方法
+枚举的特点
+=== Slide 10 ===
+用来做信息的标记和分类
+需要个变量标记商品预售
+需要个变量标记商品在售
+需要个变量标记商品售罄
+枚举的使用场景
+=== Slide 11 ===
+用来做信息的标记和分类
+…
+枚举的使用场景
+=== Slide 12 ===
+用来做信息的标记和分类
+干脆搞个枚举
+枚举的使用场景
+=== Slide 13 ===
+使用枚举做信息的标记和分类
+代码可读性更高，入参约束严谨，代码优雅
+=== Slide 14 ===
+枚举
+类加载器
+反射
+注解
+动态代理
+=== Slide 15 ===
+类加载器
+2
+=== Slide 16 ===
+将类的字节码载入方法区中
+Java 文件
+Java 文件
+方法区
+class 文件
+类加载器介绍
+=== Slide 17 ===
+将类的字节码载入方法区中
+Java 文件
+Java 文件
+方法区
+class 文件
+类加载器介绍
+=== Slide 18 ===
+将类的字节码载入方法区中
+加载时机: 用到就加载
+创建对象
+类加载器介绍
+=== Slide 19 ===
+将类的字节码载入方法区中
+加载时机: 用到就加载
+调用类的静态成员
+创建对象
+类加载器介绍
+=== Slide 20 ===
+将类的字节码载入方法区中
+加载时机: 用到就加载
+调用类的静态成员
+创建对象
+初始化继承体系
+类加载器介绍
+=== Slide 21 ===
+将类的字节码载入方法区中
+加载时机: 用到就加载
+调用类的静态成员
+创建对象
+初始化继承体系
+使用反射加载类的字节码
+类加载器介绍
+=== Slide 22 ===
+将类的字节码载入方法区中
+加载时机: 用到就加载
+加载过程
+类加载器介绍
+=== Slide 23 ===
+加载
+链接
+初始化
+通过包名 + 类名, 获取这个类, 准备用流进行传输
+将类加载到内存中
+加载完毕创建一个 class 对象
+硬盘
+方法区
+类加载器的加载过程
+=== Slide 24 ===
+加载
+链接
+初始化
+通过包名 + 类名, 获取这个类, 准备用流进行传输
+将类加载到内存中
+加载完毕创建一个 class 对象
+硬盘
+方法区
+类加载器的加载过程
+=== Slide 25 ===
+加载
+链接
+初始化
+通过包名 + 类名, 获取这个类, 准备用流进行传输
+将类加载到内存中
+加载完毕创建一个 class 对象
+硬盘
+方法区
+类加载器的加载过程
+=== Slide 26 ===
+加载
+链接
+初始化
+通过包名 + 类名, 获取这个类, 准备用流进行传输
+将类加载到内存中
+加载完毕创建一个 class 对象
+硬盘
+方法区
+Student.class
+成员变量
+成员方法
+类加载器的加载过程
+=== Slide 27 ===
+准备
+链接
+验证
+解析
+验证类是否符合 JVM规范，安全性检查
+为 static 变量分配空间，设置默认值
+静态区
+String school = null;
+类加载器的加载过程
+=== Slide 28 ===
+准备
+链接
+验证
+解析
+验证类是否符合 JVM规范，安全性检查
+为 static 变量分配空间，设置默认值
+将常量池中的符号引用解析为直接引用
+类加载器的加载过程
+=== Slide 29 ===
+jps: jps是jdk提供的一个查看当前java进程的小工具
+HSDB（Hotspot Debugger)
+是一款内置于 SA 中的 GUI 调试工具
+可用于调试 JVM 运行时数据
+命令:
+java -cp ./lib/sa-jdi.jar sun.jvm.hotspot.HSDB
+=== Slide 30 ===
+准备
+链接
+验证
+解析
+验证类是否符合 JVM规范，安全性检查
+为 static 变量分配空间，设置默认值
+将常量池中的符号引用解析为直接引用
+类加载器的加载过程
+=== Slide 32 ===
+加载
+链接
+初始化
+准备
+验证
+解析
+初始化:根据程序员程序编码制定的主观计划去初始化类变量和其他资源
+静态区
+String school = null;
+类加载器的加载过程
+=== Slide 33 ===
+加载
+链接
+初始化
+准备
+验证
+解析
+初始化:根据程序员程序编码制定的主观计划去初始化类变量和其他资源
+静态区
+String school = "传智大学";
+类加载器的加载过程
+=== Slide 34 ===
+类加载器负责将类的字节码载入到方法区中
+加载时机：用到就加载
+加载过程：加载 – 链接（验证、准备、解析） – 初始化
+=== Slide 35 ===
+将类的字节码载入方法区中
+加载时机: 用到就加载
+加载过程
+类加载器的分类
+类加载器介绍
+=== Slide 36 ===
+方法
+功能
+public Classloader getClassLoader()
+获取该类的, 类加载器对象.
+Bootstrap class loader：启动类加载器，虚拟机的内置类加载器，通常表示为null
+C++ 实现,  获取到的只能是 null
+Platform class loader：平台类加载器,负责加载 JDK中一些特殊的模块
+负责加载 lib\modules 内部的类
+JDK9 之前是:（Extension Class Loader） 扩展类加载器
+负责加载 jre\lib\ext 目录下的类
+Application class loader：应用程序类加载器
+负责加载自己写的类
+自定义类加载器: 上级为 Application
+目前不做讲解
+类加载器的分类
+=== Slide 37 ===
+如果一个类加载器收到了类加载请求，它并不会自己先去加载
+而是把这个请求委托给父类的加载器去执行
+如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归
+请求最终将到达顶层的启动类加载器
+如果父类加载器可以完成类加载任务，就成功返回
+倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式
+双亲委派模式
+=== Slide 38 ===
+已
+经
+加
+载
+过
+不
+再
+加
+载
+自己加载
+此类
+AppClassLoader
+开始
+是否加载过
+PlatformClassLoader
+是否加载过
+BootStrapClassLoader
+是否加载过
+是
+否
+是
+否
+是
+否
+是否可以加载
+是
+否
+是否可以加载
+是
+否
+是否可以加载
+是
+否
+ClassNotFoundException
+双亲委派模式
+=== Slide 39 ===
+如果一个类加载器收到了类加载请求，它并不会自己先去加载
+而是把这个请求委托给父类的加载器去执行
+如果父类加载器还存在其父类加载器，则进一步向上委托，依次递归
+请求最终将到达顶层的启动类加载器
+如果父类加载器可以完成类加载任务，就成功返回
+倘若父类加载器无法完成此加载任务，子加载器才会尝试自己去加载，这就是双亲委派模式
+避免类的重复加载
+=== Slide 40 ===
+枚举
+类加载器
+反射
+注解
+动态代理
+=== Slide 41 ===
+反射
+3
+=== Slide 42 ===
+框架技术的灵魂
+是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法
+对于任意一个对象，都能够调用它的任意属性和方法
+这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制
+反射介绍
+=== Slide 43 ===
+字节码
+字节码对象
+框架技术的灵魂
+是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法
+对于任意一个对象，都能够调用它的任意属性和方法
+这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制
+构造方法
+成员变量
+成员方法
+反射介绍
+=== Slide 44 ===
+字节码
+字节码对象
+框架技术的灵魂
+是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法
+对于任意一个对象，都能够调用它的任意属性和方法
+这种动态获取信息以及动态调用对象方法的功能称为Java语言的反射机制
+构造方法对象
+成员变量对象
+成员方法对象
+创建对象
+赋值,获取
+调用
+解剖
+反射介绍
+=== Slide 45 ===
+字节码
+字节码对象
+获取类的字节码对象
+反射类中的构造方法, 随后创建对象
+反射类中的成员变量, 完成赋值和获取
+反射类中的成员方法, 调用成员方法
+构造方法对象
+成员变量对象
+成员方法对象
+创建对象
+赋值,获取
+调用
+解剖
+反射技术的学习路径
+=== Slide 46 ===
+Class.forName("全类名");
+类名.class
+对象.getClass();
+获取类的字节码对象
+=== Slide 47 ===
+反射是框架技术的灵魂
+在运行状态中，可以操作到任意类中的任意属性任意方法
+反射操作的是字节码对象
+获取字节码对象的三种方式
+Class.forName(全类名)
+类名.class
+对象名.getClass();
+=== Slide 48 ===
+方法
+功能
+Constructor<?>[] getConstructors()
+返回所有公共构造方法对象的数组
+Constructor<?>[] getDeclaredConstructors()
+返回所有构造方法对象的数组
+Constructor<T> getConstructor(Class<?>... parameterTypes)
+返回单个公共构造方法对象
+Constructor<T> getDeclaredConstructor(Class<?>... parameterTypes)
+返回单个构造方法对象
+反射类中的构造方法
+=== Slide 49 ===
+方法
+功能
+T newInstance(Object...initargs)
+根据指定的构造方法创建对象
+setAccessible(boolean flag)
+设置为true,表示取消访问检查
+Constructor类用于创建对象的方法
+=== Slide 50 ===
+方法
+功能
+Field[] getFields()
+返回所有公共成员变量对象的数组
+Field[] getDeclaredFields()
+返回所有成员变量对象的数组
+Field getField(String name)
+返回单个公共成员变量对象
+Field getDeclaredField(String name)
+返回单个成员变量对象
+反射类中的成员变量
+=== Slide 51 ===
+方法
+功能
+void set(Object obj, Object value)
+赋值
+Object get(Object obj)
+获取值
+Student 类的name
+都归我管
+你要操作哪个对象?
+Student stu1
+name : null
+Student stu2
+name : null
+Field类的设置和获取方法
+=== Slide 52 ===
+禁止暴力反射操作
+反射建议
+=== Slide 53 ===
+方法
+功能
+Method[] getMethods()
+返回所有公共成员方法对象的数组，包括继承的
+Method[] getDeclaredMethods()
+返回所有成员方法对象的数组，不包括继承的
+Method getMethod(String name, Class<?>... parameterTypes)
+返回单个公共成员方法对象
+Method getDeclaredMethod
+(String name, Class<?>... parameterTypes)
+返回单个成员方法对象
+Method类用于执行方法的方法
+方法
+功能
+Object invoke(Object obj, Object... args)
+运行方法
+反射类中的成员方法
+=== Slide 54 ===
+反射练习（伪泛型）
+需求: 请向一个泛型为 Integer 的集合，添加一个 String 字符串
+思路: Java 中的泛型是假的，只在编译的时候有效
+=== Slide 55 ===
+反射练习
+编写三个任意的Javabean类，Student类，Teacher类，Worker类。
+属性均为：name，age
+方法要求：
+Student里面写学习study和吃饭eat的方法（方法无参无返回）
+Teacher里面写上课teach和吃饭eat的方法（方法无参无返回）
+Worker里面写工作work和睡觉sleep的方法（方法无参无返回）
+本地新建配置文件properties
+属性：
+className=Student类的全类名
+methodName=study
+在测试类中读取properties文件中的两个属性值
+利用反射创建对象学生类的对象，并调用方法
+修改配置文件，不修改代码，运行老师类中的上课方法
+修改配置文件，不修改代码，运行工人类中的工作方法
+=== Slide 56 ===
+枚举
+类加载器
+反射
+注解
+动态代理
+=== Slide 57 ===
+注解
+4
+=== Slide 58 ===
+注解介绍
+Annotation表示注解，是JDK1.5的新特性。
+注解的主要作用：对程序进行标注。
+理解：注释是给人看的，注解是给虚拟机看的
+通过注解可以给类增加额外的信息。
+编译器或JVM可以根据注解来完成对应的功能
+=== Slide 59 ===
+注解介绍
+Annotation表示注解，是JDK1.5的新特性。
+注解的主要作用：对程序进行标注。
+理解：注释是给人看的，注解是给虚拟机看的
+通过注解可以给类增加额外的信息。
+编译器或JVM可以根据注解来完成对应的功能
+JDK中常见注解：
+@Override：表示方法的重写
+@Deprecated：表示修饰的方法已过时
+@SuppressWarnings("all")：压制警告
+=== Slide 60 ===
+自定义注解
+自定义注解单独存在意义不大，一般会跟反射结合起来使用
+=== Slide 61 ===
+自定义注解格式
+public @interface 注解名称 {    public 属性类型 属性名() default 默认值;}public @interface Anno {    String show() default "show...";}
+属性类型 :
+基本数据类型
+String
+Class
+注解
+枚举
+以上类型的一维数组
+=== Slide 62 ===
+自定义注解格式
+public @interface MyAnno {    public static final int num1 = 100;    public static final String num2 = "abc";    public static final MyAnno num3 = null;    public static final Class num4 = String.class;    public static final int[] num5 = {};    public abstract String show1() default "show1";    public abstract int show2() default 132;    public abstract MyAnno2 show3() default @MyAnno2;    public abstract Class show4() default String.class;    public abstract int[] show5() default {1, 2, 3};}
+属性类型 :
+基本数据类型
+String
+Class
+注解
+枚举
+以上类型的一维数组
+=== Slide 63 ===
+自定义注解使用
+常用位置:
+类
+方法
+在使用注解时, 如果注解的属性没有给出默认值，需要手动给出
+@Anno(name="张三")
+如果数组中只有一个属性值，在使用时{}是可以省略的
+注意：
+=== Slide 64 ===
+特殊的属性 value
+如果只有一个属性名字为value没有赋值，使用时直接给出值，不需要写属性名
+@SuppressWarnings("all")：压制警告
+=== Slide 65 ===
+自定义测试注解
+需求：自定义一个注解@Test，用于指定类的方法上
+如果类中的某个的方法上使用了该注解，就执行该方法
+=== Slide 66 ===
+元注解
+元注解就是用在注解上注解
+元注解名
+说明
+@Target
+指定了注解能在哪里使用
+@Retention
+可以理解为保留时间(生命周期)
+@Target: 用来标识注解使用的位置，如果没有使用该注解标识，则自定义的注解可以使用在任意位置
+可使用的值定义在 ElementType 枚举类中，常用值如下
+TYPE   			类，接口
+FIELD  			成员变量
+METHOD 			成员方法
+PARAMETER		方法参数
+CONSTRUCTOR		构造方法
+LOCAL_VARIABLE		局部变量
+=== Slide 67 ===
+元注解
+@Retention：用来标识注解的生命周期(有效范围)
+可使用的值定义在 RetentionPolicy 枚举类中，常用值如下
+SOURCE：注解只作用在源码阶段，生成的字节码文件中不存在
+CLASS：注解作用在源码阶段，字节码文件阶段，运行阶段不存在，默认值
+RUNTIME：注解作用在源码阶段，字节码文件阶段，运行阶段
+元注解就是用在注解上注解
+元注解名
+说明
+@Target
+指定了注解能在哪里使用
+@Retention
+可以理解为保留时间(生命周期)
+=== Slide 68 ===
+枚举
+类加载器
+反射
+注解
+动态代理
+=== Slide 69 ===
+动态代理
+5
+=== Slide 70 ===
+动态代理
+动态代理是对象的另外一种创建方式，这种方式可以在不修改源码的情况下，增强方法
+Dog d = new Dog();
+Dog.class.getConstructor().newInstance();
+Animal a = new Dog();
+计算 add 方法耗时
+=== Slide 71 ===
+代理
+售卖房产
+房屋出租
+售卖房产
+房屋出租
+在原有功能基础上进行增强
+=== Slide 72 ===
+代理
+售卖房产
+房屋出租
+售卖房产
+房屋出租
+代驾
+喂养宠物
+=== Slide 73 ===
+代理
+售卖房产
+房屋出租
+售卖房产
+房屋出租
+代驾
+喂养宠物
+public interface Sale {    void sale(double money);    void hire(double money);}
+=== Slide 74 ===
+代理
+public interface Sale {    void sale(double money);    void hire(double money);}
+public class Owner implements Sale {    public void sale(double money) {        System.out.println("售卖房产" + money + "元");    }    public void hire(double money) {        System.out.println("出租房产" + money + "元");    }}
+public class SaleImpl implements Sale {    private Owner owner;    public SaleImpl(Owner owner) {        this.owner = owner;    }    @Override    public void sale(double money) {
+money += 20000;
+owner.sale(money);    }    @Override    public void hire(double money) {
+money += 1000;
+owner.hire(money);    }}
+Owner owner = new Owner();Sale sale = new SaleImpl(owner);sale.sale(1000000);sale.hire(3000);
+代理对象对功能增强
+被代理对象处理执行原有功能
+=== Slide 75 ===
+代理
+public interface Sale {    void sale(double money);    void hire(double money);}
+public class Owner implements Sale {    public void sale(double money) {        System.out.println("售卖房产" + money + "元");    }    public void hire(double money) {        System.out.println("出租房产" + money + "元");    }}
+public class SaleImpl implements Sale {    private Owner owner;    public SaleImpl(Owner owner) {        this.owner = owner;    }    @Override    public void sale(double money) {
+money += 20000;
+owner.sale(money);    }    @Override    public void hire(double money) {
+money += 1000;
+owner.hire(money);    }}
+Owner owner = new Owner();Sale sale = new SaleImpl(owner);sale.sale(1000000);sale.hire(3000);
+public class Owner2 implements Sale {    public void sale(double money) {        System.out.println("售卖房产" + money + "元");    }    public void hire(double money) {        System.out.println("出租房产" + money + "元");    }}
+public class SaleImpl2 implements Sale {    private Owner2 owner;    public SaleImpl(Owner2 owner) {        this.owner = owner;    }    @Override    public void sale(double money) {        money -= 20000;        owner.sale(money);    }    @Override    public void hire(double money) {        money -= 500;        owner.hire(money);    }}
+=== Slide 76 ===
+动态代理
+public interface Sale {    void sale(double money);    void hire(double money);}
+public class Owner implements Sale {    public void sale(double money) {        System.out.println("售卖房产" + money + "元");    }    public void hire(double money) {        System.out.println("出租房产" + money + "元");    }}
+public class SaleImpl implements Sale {    private Owner owner;    public SaleImpl(Owner owner) {        this.owner = owner;    }    @Override    public void sale(double money) {
+money += 20000;
+owner.sale(money);    }    @Override    public void hire(double money) {
+money += 1000;
+owner.hire(money);    }}
+=== Slide 77 ===
+动态代理
+public interface Sale {    void sale(double money);    void hire(double money);}
+public class Owner implements Sale {    public void sale(double money) {        System.out.println("售卖房产" + money + "元");    }    public void hire(double money) {        System.out.println("出租房产" + money + "元");    }}
+在运行时动态生成代理类，无需手动为每个目标类编写代理类
+java.lang.reflect.Proxy类：提供了使用动态代理方式创建对象的API
+static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)
+参数一：
+用于指定用哪个类加载器，去加载生成的实现类
+参数二：
+指定接口，这些接口用于指定生成的实现类中有什么也就是有哪些方法
+参数三：
+用来指定生成的实现类中不同方法的实现方案
+参数介绍
+=== Slide 78 ===
+动态代理是对象的另外一种创建方式，这种方式可以在不修改源码的情况下，增强方法
+代理对象可以在原有功能的基础上进行增强
+动态代理在运行时动态的生成代理类，无需手动为每个目标类编写代理类
+使用 Proxy 中的 newProxyInstance() 方法创建代理对象
+static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)
+参数一：用于指定用哪个类加载器，去加载生成的实现类
+参数二：指定接口，这些接口用于指定生成的实现类中有什么，也就是有哪些方法
+参数三：用来指定生成的实现类中不同方法的实现方案
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+2
+--- notesSlide 2 ---
+4
+--- notesSlide 3 ---
+5
+--- notesSlide 4 ---
+6
+--- notesSlide 5 ---
+7
+--- notesSlide 6 ---
+8
+--- notesSlide 7 ---
+9
+--- notesSlide 8 ---
+10
+--- notesSlide 9 ---
+11
+--- notesSlide 10 ---
+12
+--- notesSlide 11 ---
+13
+--- notesSlide 12 ---
+14
+--- notesSlide 13 ---
+16
+--- notesSlide 14 ---
+17
+--- notesSlide 15 ---
+18
+--- notesSlide 16 ---
+19
+--- notesSlide 17 ---
+20
+--- notesSlide 18 ---
+21
+--- notesSlide 19 ---
+22
+--- notesSlide 20 ---
+23
+--- notesSlide 21 ---
+24
+--- notesSlide 22 ---
+25
+--- notesSlide 23 ---
+26
+--- notesSlide 24 ---
+27
+--- notesSlide 25 ---
+28
+--- notesSlide 26 ---
+29
+--- notesSlide 27 ---
+30
+--- notesSlide 28 ---
+31
+--- notesSlide 29 ---
+32
+--- notesSlide 30 ---
+33
+--- notesSlide 31 ---
+34
+--- notesSlide 32 ---
+35
+--- notesSlide 33 ---
+36
+--- notesSlide 34 ---
+37
+--- notesSlide 35 ---
+38
+--- notesSlide 36 ---
+39
+--- notesSlide 37 ---
+40
+--- notesSlide 38 ---
+42
+--- notesSlide 39 ---
+43
+--- notesSlide 40 ---
+44
+--- notesSlide 41 ---
+45
+--- notesSlide 42 ---
+46
+--- notesSlide 43 ---
+47
+--- notesSlide 44 ---
+48
+--- notesSlide 45 ---
+49
+--- notesSlide 46 ---
+50
+--- notesSlide 47 ---
+51
+--- notesSlide 48 ---
+52
+--- notesSlide 49 ---
+53
+--- notesSlide 50 ---
+54
+--- notesSlide 51 ---
+55
+--- notesSlide 52 ---
+56
+--- notesSlide 53 ---
+68
+--- notesSlide 54 ---
+75
+--- notesSlide 55 ---
+78

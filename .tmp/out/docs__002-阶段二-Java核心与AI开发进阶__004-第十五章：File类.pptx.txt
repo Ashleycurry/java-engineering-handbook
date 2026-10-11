@@ -1,0 +1,270 @@
+SOURCE: docs/002-阶段二-Java核心与AI开发进阶/004-第十五章：File类.pptx
+
+=== Slide 1 ===
+第十五章：File类、递归
+=== Slide 2 ===
+File 介绍
+File 类的常用 API
+递归介绍
+递归案例
+=== Slide 3 ===
+File 介绍
+1
+=== Slide 4 ===
+File类代表操作系统的文件对象（文件、文件夹）
+File 类
+=== Slide 5 ===
+方法名称
+说明
+public File​(String pathname)
+根据文件路径创建文件对象
+public File​(String parent, String child)
+根据父路径名字符串和子路径名字符串创建文件对象
+public File​(File  parent, String child)
+根据父路径对应文件对象和子路径名字符串创建文件对象
+File 封装的对象仅仅是一个路径名，这个路径可以是存在的，也可以是不存在的
+File 类创建对象
+=== Slide 6 ===
+绝对路径: 从盘符根目录开始，一直到某个具体的文件或文件夹
+相对路径和绝对路径
+=== Slide 7 ===
+相对路径: 相对于当前项目
+相对路径和绝对路径
+=== Slide 8 ===
+相对路径和绝对路径
+相对路径: 相对于当前项目
+=== Slide 9 ===
+File类代表操作系统的文件对象（文件、文件夹）
+File类的常用构造方法
+路径的两种写法：
+绝对路径：从磁盘根目录开始，一直到某个具体的文件或文件夹
+相对路径：相对于当前项目的所在目录
+public File​(String pathname)
+public File​(String parent, String child)
+public File​(File  parent, String child)
+=== Slide 10 ===
+File 介绍
+File 类的常用 API
+递归介绍
+递归案例
+=== Slide 11 ===
+File 类的常用API
+2
+=== Slide 12 ===
+方法名称
+说明
+public boolean isDirectory()
+判断此路径名表示的File是否为文件夹
+public boolean isFile()
+判断此路径名表示的File是否为文件
+public boolean exists()
+判断此路径名表示的File是否存在
+File 类的判断方法
+=== Slide 13 ===
+键盘录入文件夹路径
+需求: 键盘录入一个文件夹路径，如果输入错误就给出提示，并继续录入，直到正确为止
+分析：
+1. 输入的路径有可能不存在
+2. 输入的路径有可能是文件路径
+封装为File对象
+调用 exists() 判断是否存在
+调用 isFile() 判断是否是文件
+=== Slide 14 ===
+方法名称
+说明
+public long length()
+返回文件的大小（字节数量）
+public String getAbsolutePath()
+返回文件的绝对路径
+public String getPath()
+返回定义文件时使用的路径
+public String getName()
+返回文件的名称，带后缀
+public long lastModified()
+返回文件的最后修改时间（时间毫秒值）
+File 类的常用方法
+=== Slide 15 ===
+方法名称
+说明
+public boolean createNewFile()
+创建一个新的空的文件
+public boolean mkdir()
+只能创建一级文件夹
+public boolean mkdirs()
+可以创建多级文件夹
+方法名称
+说明
+public boolean delete​()
+删除由此抽象路径名表示的文件或空文件夹
+delete() 方法只能删除空文件夹，且不走回收站
+注意事项
+File 类的创建和删除方法
+=== Slide 16 ===
+方法名称
+说明
+public File[] listFiles()
+获取当前目录下所有的  “一级文件对象”
+返回 File 数组
+File 类的遍历方法
+=== Slide 17 ===
+需求：键盘录入一个文件夹路径，找出这个文件夹下所有的 .java 文件
+=== Slide 18 ===
+子文件夹中是否可能还有.java文件?
+如何进入查找?
+=== Slide 19 ===
+File 介绍
+File 类的常用 API
+递归介绍
+递归案例
+=== Slide 20 ===
+递归
+3
+=== Slide 21 ===
+方法直接或者间接调用本身
+递归如果没有控制好终止，会出现递归死循环，导致栈内存溢出现象
+注意事项
+递归介绍
+=== Slide 22 ===
+使用递归求5的阶乘
+5的阶乘（5!）:  5 * 4 * 3 * 2 * 1
+10的阶乘（10!）：10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+=== Slide 23 ===
+使用递归求5的阶乘
+5的阶乘（5!）:  5 * 4 * 3 * 2 * 1
+5!  :  5 * 4!
+4!  :  4 * 3!
+3!  :  3 * 2!
+2!  :  2 * 1!
+1!  :  1
+=== Slide 24 ===
+public class RecursionDemo1 {    public static void main(String[] args) {        int result = jc(5);        System.out.println(result);    }    public static int jc(int num) {        if (num == 1) {            return 1;        } else {            return num * jc(num - 1);        }    }}
+栈内存
+main
+int result = jc(5);
+jc(int num)
+int num = 5;
+return num * jc(num - 1);
+jc(int num)
+int num = 4;
+return num * jc(num - 1);
+jc(int num)
+int num = 3;
+return num * jc(num - 1);
+jc(int num)
+int num = 2;
+return num * jc(num - 1);
+jc(int num)
+int num = 1;
+return 1;
+1;
+2;
+6;
+24;
+System.out.println(result);
+将大问题, 层层转化为一个与原问题
+相似的, 规模更小的问题来解决
+递归求阶乘图解
+=== Slide 25 ===
+不死神兔 (斐波那契数列)
+有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问第二十个月的兔子对数为多少？
+1
+1
+2
+3
+5
+=== Slide 26 ===
+不死神兔 (斐波那契数列)
+有一对兔子，从出生后第3个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子都不死，问第二十个月的兔子对数为多少？
+1
+2
+1
+3
+5
+21
+13
+…
+8
+从第三个月开始，兔子的对数是前两个月相加的和
+=== Slide 27 ===
+递归：方法直接或者间接调用本身
+递归的思路：将大问题，层层转化为一个与原问题，相似的，规模更小的问题来解决
+递归的使用场景：常用于一些逻辑类似的业务
+=== Slide 28 ===
+File 介绍
+File 类的常用 API
+递归介绍
+递归案例
+=== Slide 29 ===
+递归案例
+4
+=== Slide 30 ===
+需求：键盘录入一个文件夹路径，找出这个文件夹下所有的 .java 文件 (包括子文件夹)
+=== Slide 31 ===
+方法名称
+说明
+public File[] listFiles()
+获取当前目录下所有的  “一级文件对象”
+返回 File 数组
+当调用者File表示的路径不存在时，返回null
+当调用者File表示的路径是文件时，返回null
+当调用者File表示的路径是一个空文件夹时，返回一个长度为0的数组
+当调用者File表示的路径是需要权限才能访问的文件夹时，返回null
+File 类的遍历方法
+=== Slide 32 ===
+递归删除文件夹
+需求 : 设计一个方法, 删除文件夹
+注意 : delete() 只能删除空文件夹
+=== Slide 33 ===
+递归统计文件夹大小
+需求 : 键盘录入一个文件夹路径，统计文件夹的大小
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+2
+--- notesSlide 2 ---
+4
+--- notesSlide 3 ---
+5
+--- notesSlide 4 ---
+6
+--- notesSlide 5 ---
+7
+--- notesSlide 6 ---
+8
+--- notesSlide 7 ---
+9
+--- notesSlide 8 ---
+10
+--- notesSlide 9 ---
+12
+--- notesSlide 10 ---
+13
+--- notesSlide 11 ---
+14
+--- notesSlide 12 ---
+15
+--- notesSlide 13 ---
+16
+--- notesSlide 14 ---
+17
+--- notesSlide 15 ---
+18
+--- notesSlide 16 ---
+19
+--- notesSlide 17 ---
+21
+--- notesSlide 18 ---
+22
+--- notesSlide 19 ---
+23
+--- notesSlide 20 ---
+24
+--- notesSlide 21 ---
+28
+--- notesSlide 22 ---
+30
+--- notesSlide 23 ---
+31
+--- notesSlide 24 ---
+32
+--- notesSlide 25 ---
+33

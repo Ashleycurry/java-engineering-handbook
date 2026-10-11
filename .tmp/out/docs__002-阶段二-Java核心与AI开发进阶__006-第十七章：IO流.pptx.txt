@@ -1,0 +1,751 @@
+SOURCE: docs/002-阶段二-Java核心与AI开发进阶/006-第十七章：IO流.pptx
+
+=== Slide 1 ===
+第十七章：IO流
+=== Slide 2 ===
+IO 介绍和分类
+FileOutputStream 字节输出流
+FileInputStream 字节输入流
+FileReader 字符输入流
+FileWriter 字符输出流
+Properties 集合
+HuTool 工具
+=== Slide 3 ===
+IO 介绍和分类
+1
+=== Slide 4 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+IO 流介绍
+=== Slide 5 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+Java 程序
+D:\user.txt
+Ashen_666    123456
+Ajie_888     111111
+输入流管道
+Ashen_666    123456
+IO 流介绍
+=== Slide 6 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+Java 程序
+D:\user.txt
+Ashen_666    123456
+Ajie_888     111111
+Ashen_666    123456
+注册账号
+SanLian666
+888888
+输入流管道
+输出流管道
+IO 流介绍
+=== Slide 7 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+Java 程序
+D:\user.txt
+Ashen_666    123456
+Ajie_888     111111
+SanLian666      888888
+注册账号
+SanLian666
+888888
+输入流管道
+输出流管道
+IO 流介绍
+=== Slide 8 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+Java 程序
+D:\user.txt
+Ashen_666    123456
+Ajie_888     111111
+SanLian666      888888
+注册账号
+SanLian666
+888888
+输入流管道
+输出流管道
+IO 流介绍
+=== Slide 9 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+Java 程序
+D:\user.txt
+Ashen_666    123456
+Ajie_888     111111
+SanLian666   888888
+输入流管道
+输出流管道
+数据传输
+IO 流介绍
+输出流管道
+=== Slide 10 ===
+I : input
+O : output
+输入
+输出
+(读取)
+(写出)
+Java 程序
+D:\user.txt
+Ashen_666    123456
+Ajie_888     111111
+SanLian666   888888
+输入流管道
+输出流管道
+数据传输
+场景1: 读写配置文件、日志文件
+场景2: 客户端与服务端的通讯
+场景3: 文件上传下载
+...
+IO 流介绍
+输出流管道
+=== Slide 11 ===
+IO 流体系结构
+字节流
+字符流
+InputStream
+OutputStream
+字节输入流
+字节输出流
+抽象类
+FileInputStream
+FileOutputStream
+抽象类的子类
+Reader
+Writer
+字符输入流
+字符输出流
+抽象类
+FileReader
+FileWriter
+抽象类的子类
+万能流
+纯文本文件
+=== Slide 12 ===
+IO 介绍和分类
+FileOutputStream 字节输出流
+FileInputStream 字节输入流
+FileReader 字符输入流
+FileWriter 字符输出流
+Properties 集合
+HuTool 工具
+=== Slide 13 ===
+FileOutputStream
+字节输出流
+2
+=== Slide 14 ===
+Java 程序
+D:\A.txt
+97
+FileOutputStream 字节输出流
+=== Slide 15 ===
+Java 程序
+D:\A.txt
+97
+a
+构造方法
+说明
+FileOutputStream(String name)
+输出流关联文件, 文件路径以字符串形式给出
+FileOutputStream(File file)
+输出流关联文件, 文件路径以File对象形式给出
+注意事项
+关联的文件如果不存在 : 自动创建
+存在 : 会清空现有的, 再开始写入
+FileOutputStream 字节输出流
+=== Slide 16 ===
+Java 程序
+D:\A.txt
+a
+构造方法
+说明
+FileOutputStream(String name)
+输出流关联文件, 文件路径以字符串形式给出
+FileOutputStream(String name, boolean append)
+第二个参数是追加写入的开关
+FileOutputStream(File file)
+输出流关联文件, 文件路径以File对象形式给出
+FileOutputStream(File file, boolean append)
+第二个参数是追加写入的开关
+FileOutputStream 字节输出流
+=== Slide 17 ===
+Java 程序
+D:\A.txt
+a
+构造方法
+说明
+FileOutputStream(String name)
+输出流关联文件, 文件路径以字符串形式给出
+FileOutputStream(String name, boolean append)
+第二个参数是追加写入的开关
+FileOutputStream(File file)
+输出流关联文件, 文件路径以File对象形式给出
+FileOutputStream(File file, boolean append)
+第二个参数是追加写入的开关
+成员方法
+说明
+void write(int b)
+写出单个字节
+void write(byte[] b)
+写出一个字节数组
+void write(byte[] b, int off, int len)
+写出字节数组的一部分
+FileOutputStream 字节输出流
+=== Slide 18 ===
+流对象使用完毕后, 记得调用 close 方法关闭
+不然会占用资源
+JDK7版本之前
+JDK7版本之后
+关流
+=== Slide 19 ===
+JDK7版本之前
+JDK7版本之后
+标准的IO异常处理
+=== Slide 20 ===
+JDK7版本之后
+格式 :
+try (需要调用close方法的对象) {
+逻辑代码...
+} catch (异常类名 对象名) {
+异常的处理方式
+}
+注意事项
+try () 中的对象, 需要实现过 AutoCloseable 接口
+标准的IO异常处理
+=== Slide 21 ===
+IO 介绍和分类
+FileOutputStream 字节输出流
+FileInputStream 字节输入流
+FileReader 字符输入流
+FileWriter 字符输出流
+Properties 集合
+HuTool 工具
+=== Slide 22 ===
+FileInputStream
+字节输入流
+3
+=== Slide 23 ===
+Java 程序
+D:\A.txt
+abc
+97
+98
+99
+FileInputStream 字节输入流
+=== Slide 24 ===
+Java 程序
+D:\A.txt
+abc
+97
+98
+99
+97
+98
+99
+FileInputStream 字节输入流
+=== Slide 25 ===
+Java 程序
+D:\A.txt
+abc
+97
+98
+99
+97
+98
+99
+FileInputStream 字节输入流
+=== Slide 26 ===
+Java 程序
+D:\A.txt
+abc
+97
+98
+99
+97
+98
+99
+FileInputStream 字节输入流
+=== Slide 27 ===
+Java 程序
+D:\A.txt
+abc
+97
+98
+99
+97
+98
+99
+构造方法
+说明
+FileInputStream(String name)
+输入流关联文件, 文件路径以字符串形式给出
+FileInputStream(File file)
+输入流关联文件, 文件路径以File对象形式给出
+注意事项
+关联的文件不存在会抛出 FileNotFoundException 异常
+文件夹的话会拒绝访问
+FileInputStream 字节输入流
+=== Slide 28 ===
+Java 程序
+D:\A.txt
+abc
+97
+98
+99
+97
+98
+99
+构造方法
+说明
+FileInputStream(String name)
+输入流关联文件, 文件路径以字符串形式给出
+FileInputStream(File file)
+输入流关联文件, 文件路径以File对象形式给出
+成员方法
+说明
+int read()
+读取一个字节并返回, 如果到达文件结尾则返回 -1
+int read(byte[] b)
+将读取到字节, 放到传入的数组
+返回读取到的有效字节个数
+如果到达文件结尾则返回 -1
+关联的文件不存在会抛出 FileNotFoundException 异常
+文件夹的话会拒绝访问
+注意事项
+FileInputStream 字节输入流
+=== Slide 29 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+FileInputStream 字节输入流
+=== Slide 30 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+97
+98
+FileInputStream 字节输入流
+=== Slide 31 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+97
+98
+FileInputStream 字节输入流
+=== Slide 32 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+97
+98
+99
+100
+FileInputStream 字节输入流
+=== Slide 33 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+97
+98
+99
+100
+FileInputStream 字节输入流
+=== Slide 34 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+101
+99
+100
+FileInputStream 字节输入流
+=== Slide 35 ===
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+101
+99
+100
+FileInputStream 字节输入流
+=== Slide 36 ===
+99
+D:\A.txt
+abcde
+97
+98
+99
+100
+101
+byte[] bys
+0
+1
+101
+100
+FileInputStream 字节输入流
+=== Slide 37 ===
+构造方法
+说明
+public String
+(byte[] bytes, int offset, int length)
+将字节数组转换为字符串
+参数1 : 字节数组
+参数2 : 起始索引
+参数3 : 转换的个数
+FileInputStream 字节输入流
+=== Slide 38 ===
+FileInputStream 字节输入流
+创建对象的时候关联文件, 文件不存在就会抛出异常
+调用 read 方法读取字节
+成员方法
+说明
+int read()
+读取一个字节并返回, 如果到达文件结尾则返回 -1
+int read(byte[] b)
+将读取到字节, 放到传入的数组
+返回读取到的有效字节个数
+如果到达文件结尾则返回 -1
+=== Slide 39 ===
+文件拷贝
+将 D:\嘿嘿.jpg，拷贝到 E:\ 根目录下
+创建输入流对象读取文件
+创建输出流对象关联数据目的
+读写操作
+关流释放资源
+=== Slide 40 ===
+IO 介绍和分类
+FileOutputStream 字节输出流
+FileInputStream 字节输入流
+FileReader 字符输入流
+FileWriter 字符输出流
+Properties 集合
+HuTool 工具
+=== Slide 41 ===
+FileReader 字符输入流
+4
+=== Slide 42 ===
+构造方法
+说明
+FileReader(String fileName)
+字符输入流关联文件，路径以字符串形式给出
+FileReader(File file)
+字符输入流关联文件，路径以File对象形式给出
+用于读取纯文本文件，解决中文乱码问题
+成员方法
+说明
+public int read()
+读取单个字符
+public int read(char[] cbuf)
+读取一个字符数组, 返回读取到的有效字符个数
+FileReader 字符输入流
+=== Slide 43 ===
+FileWriter 字符输出流
+5
+=== Slide 44 ===
+构造方法
+说明
+FileWriter(String fileName)
+字符输出流关联文件，路径以字符串形式给出
+FileWriter(String fileName, boolean append)
+参数2: 追加写入的开关
+FileWriter(File file)
+字符输出流关联文件，路径以File对象形式给出
+FileWriter(File file, boolean append)
+参数2: 追加写入的开关
+FileWriter 字符输出流
+=== Slide 45 ===
+成员方法
+说明
+public void write(int c)
+写出单个字符
+public void write(char[] cbuf)
+写出一个字符数组
+public write(char[] cbuf, int off, int len)
+写出字符数组的一部分
+public void write(String str)
+写出字符串
+public void write(String str, int off, int len)
+写出字符串的一部分
+注意事项
+字符输出流写出数据，需要调用flush或close方法，数据才会写出
+Flush后可以继续写出
+Close 后不能继续写出
+FileWriter 字符输出流
+=== Slide 46 ===
+字符流使用场景：读写纯文本文件
+字节流使用场景：不是纯文本文件都用字节流
+=== Slide 47 ===
+IO 介绍和分类
+FileOutputStream 字节输出流
+FileInputStream 字节输入流
+FileReader 字符输入流
+FileWriter 字符输出流
+Properties 集合
+HuTool 工具
+=== Slide 48 ===
+Properties 集合
+6
+=== Slide 49 ===
+Properties 介绍
+=== Slide 50 ===
+其实就是一个Map集合
+内部存在着两个方法，可以很方便的将集合中的键值对写入文件，也可以方便的从文件中读取		将来加载配置文件的时候很方便
+Properties 作为集合的使用
+Properties 中和流有关的方法
+Properties 介绍
+=== Slide 51 ===
+方法
+说明
+Object setProperty​(String key, String value)
+添加(修改)一个键值对
+String getProperty​(String key)
+根据键获取值
+Set<String> stringPropertyNames()
+获取集合中所有的键
+Properties 作为集合的使用
+=== Slide 52 ===
+方法
+说明
+void load​(InputStream inStream)
+从输入字节流读取属性列表（键和元素对）
+void load​(Reader reader)
+从输入字符流读取属性列表（键和元素对）
+void store​(OutputStream out, String comments)
+将此属性列表（键和元素对）写入此 Properties表中，以适合于使用 load(InputStream)方法的格式写入输出字节流
+void store​(Writer writer, String comments)
+将此属性列表（键和元素对）写入此 Properties表中，以适合使用 load(Reader)方法的格式写入输出字符流
+Properties 和 IO 有关的方法
+=== Slide 53 ===
+Properties 本质来说就是一个map集合
+内部键和值都是 String 字符串
+这个集合中存在着和 IO 有关的方法, 使用方便
+重点掌握的方法 :
+setProperty(键,值);    添加键值对
+getProperty(键);       根据键获取值
+load(字节流 | 字符流);  从流中加载键值对
+store(字节流 | 字符流); 将键值对写出到文件
+=== Slide 54 ===
+IO 介绍和分类
+FileOutputStream 字节输出流
+FileInputStream 字节输入流
+FileReader 字符输入流
+FileWriter 字符输出流
+Properties 集合
+HuTool 工具
+=== Slide 55 ===
+HuTool 工具
+7
+=== Slide 56 ===
+Hutool 是一个小而全的 Java 工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率
+HuTool 介绍
+=== Slide 57 ===
+Hutool 常用API
+IOUtil 类提供的部分方法展示
+说明
+copy(InputStream in, OutputStream out, int bufferSize)
+字节流拷贝
+copy(Reader reader, Writer writer)
+字符流拷贝
+readLines(Reader reader, Collection<String> collection)
+按行读取内容到集合
+close(Closeable closeables)
+安全关闭流
+FileUtil 类提供的部分方法展示
+说明
+touch(filePath)
+创建文件（自动创建父目录）
+mkdir(dirPath)
+创建目录（支持多级目录）
+copy(srcPath, destPath, isOverride)
+复制文件或目录（可选覆盖）
+move(srcFile, destDir, isOverride)
+移动文件或目录
+=== Slide 58 ===
+引入 HuTool
+=== Slide 59 ===
+引入 HuTool
+=== Slide 60 ===
+引入 HuTool
+=== Slide 61 ===
+Hutool 该工具不属于JDK，使用的时候需要导入jar包
+Tips: 这种导jar包的方式较为繁琐，后面学到Maven的时候可以简化
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+2
+--- notesSlide 2 ---
+4
+--- notesSlide 3 ---
+5
+--- notesSlide 4 ---
+6
+--- notesSlide 5 ---
+7
+--- notesSlide 6 ---
+8
+--- notesSlide 7 ---
+9
+--- notesSlide 8 ---
+10
+--- notesSlide 9 ---
+11
+--- notesSlide 10 ---
+12
+--- notesSlide 11 ---
+14
+--- notesSlide 12 ---
+15
+--- notesSlide 13 ---
+16
+--- notesSlide 14 ---
+17
+--- notesSlide 15 ---
+18
+--- notesSlide 16 ---
+19
+--- notesSlide 17 ---
+20
+--- notesSlide 18 ---
+21
+--- notesSlide 19 ---
+23
+--- notesSlide 20 ---
+24
+--- notesSlide 21 ---
+25
+--- notesSlide 22 ---
+26
+--- notesSlide 23 ---
+27
+--- notesSlide 24 ---
+28
+--- notesSlide 25 ---
+29
+--- notesSlide 26 ---
+30
+--- notesSlide 27 ---
+31
+--- notesSlide 28 ---
+32
+--- notesSlide 29 ---
+33
+--- notesSlide 30 ---
+34
+--- notesSlide 31 ---
+35
+--- notesSlide 32 ---
+36
+--- notesSlide 33 ---
+37
+--- notesSlide 34 ---
+38
+--- notesSlide 35 ---
+40
+--- notesSlide 36 ---
+42
+--- notesSlide 37 ---
+44
+--- notesSlide 38 ---
+45
+--- notesSlide 39 ---
+46
+--- notesSlide 40 ---
+47
+--- notesSlide 41 ---
+49
+--- notesSlide 42 ---
+50
+--- notesSlide 43 ---
+51
+--- notesSlide 44 ---
+52
+--- notesSlide 45 ---
+53
+--- notesSlide 46 ---
+54
+--- notesSlide 47 ---
+56
+--- notesSlide 48 ---
+57
+--- notesSlide 49 ---
+58
+--- notesSlide 50 ---
+59
+--- notesSlide 51 ---
+60
+--- notesSlide 52 ---
+61

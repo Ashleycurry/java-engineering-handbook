@@ -1,0 +1,257 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/022-后端Web实战(员工管理).pptx
+
+=== Slide 1 ===
+Web后端开发
+Tlias系统 - 员工管理
+=== Slide 2 ===
+需求
+删除员工
+修改员工
+异常处理
+员工信息统计
+=== Slide 3 ===
+删除员工
+修改员工
+异常处理
+员工信息统计
+=== Slide 4 ===
+删除员工
+01
+=== Slide 5 ===
+需求分析
+其实，删除单条数据也是一种特殊的批量删除，所以，删除员工的功能，我们只需要开发一个接口就可以了。
+根据ID删除单个员工信息
+根据ID批量删除员工信息
+=== Slide 6 ===
+删除员工
+Controller
+接收请求参数(ID值)
+调用Service方法
+响应结果
+Service
+批量删除员工基本信息
+批量删除员工的工作经历信息
+Mapper
+SQL:
+delete emp where id in (?,?,?);
+delete emp_expr where emp_id in(?,?,?);
+=== Slide 7 ===
+删除员工-Controller接收请求参数
+@DeleteMappingpublic Result delete(Integer[] ids){    log.info("根据id批量删除员工:{} ", ids);    return Result.success();}
+EmpController
+方式一：在Controller方法中通过数组来接收
+接收请求参数：DELETE /emps?ids=1,2,3
+方式二：在Controller方法中通过集合来接收
+@DeleteMappingpublic Result delete(@RequestParam List<Integer> ids){    log.info("根据id批量删除员工:{} ", ids);    return Result.success();}
+EmpController
+=== Slide 8 ===
+删除员工-Service&Mapper
+@Transactional(rollbackFor = {Exception.class})public void deleteByIds(List<Integer> ids) {    //1. 根据ID删除员工基本信息    empMapper.deleteByIds(ids);    //2. 根据ID删除员工的工作经历信息    empExprMapper.deleteByEmpIds(ids);}
+EmpServiceImpl
+<!-- 根据ID批量删除员工信息 --><delete id="deleteByIds">  delete from emp where id in  <foreach collection="ids" item="id" separator="," open="(" close=")">     #{id}  </foreach></delete>
+EmpMapper.xml
+<!--根据员工ID批量删除员工工作经历信息--><delete id="deleteByEmpIds">  delete from emp_expr where emp_id in  <foreach collection="empIds" item="empId" separator="," open="(" close=")">      #{empId}  </foreach></delete>
+EmpExprMapper.xml
+=== Slide 9 ===
+删除员工
+修改员工
+异常处理
+员工信息统计
+=== Slide 10 ===
+修改员工
+02
+=== Slide 11 ===
+需求分析
+查询回显
+修改数据
+=== Slide 12 ===
+修改员工
+查询回显
+修改数据
+02
+=== Slide 13 ===
+查询回显
+员工基本信息（表：emp）
+员工工作经历信息（表：emp_expr）
+Controller
+接收请求参数(ID值)
+调用Service方法
+响应结果
+Service
+调用mapper查询员工详细信息(基本信息、工作经历信息)
+Mapper
+SQL:
+select ... from emp e left join emp_expr ee on e.id = ee.emp_id where e.id = ?
+=== Slide 14 ===
+查询回显
+@GetMapping("/{id}")public Result getInfo(@PathVariable Integer id){    log.info("根据id查询员工信息, id: {}", id);    Emp emp = empService.getInfo(id);    return Result.success(emp);}
+EmpController
+<!--自定义结果集ResultMap--><resultMap id="empResultMap" type="com.itheima.pojo.Emp">    <id column="id" property="id" />    <result column="username" property="username" />    <result column="password" property="password" />    <result column="name" property="name" />    <result column="gender" property="gender" />    <result column="image" property="image" />    <result column="entry_date" property="entryDate" />    <result column="dept_id" property="deptId" />    <result column="create_time" property="createTime" />    <result column="update_time" property="updateTime" />    <!--封装exprList-->    <collection property="exprList" ofType="com.itheima.pojo.EmpExpr">        <id column="ee_id" property="id"/>        <result column="ee_company" property="company"/>        <result column="ee_job" property="job"/>        <result column="ee_begin" property="begin"/>        <result column="ee_end" property="end"/>        <result column="ee_empid" property="empId"/>    </collection></resultMap>
+EmpMapper.xml
+<!-- 根据ID查询员工的详细信息 --><select id="getById" resultMap="empResultMap">    select        e.*,        ee.id ee_id,        ee.company ee_company,        ee.job ee_job,        ee.begin ee_begin,        ee.end ee_end,        ee.emp_id ee_empid    from emp e left join emp_expr ee on e.id = ee.emp_id    where e.id = #{id}</select>
+EmpMapper
+=== Slide 15 ===
+Mybatis中封装查询结果，什么时候用 resultType，什么时候用resultMap？
+如果查询返回的字段名与实体的属性名可以直接对应上，用resultType。
+如果查询返回的字段名与实体的属性名对应不上，或实体属性比较复杂，可以通过resultMap手动封装。
+=== Slide 16 ===
+修改员工
+查询回显
+修改数据
+02
+=== Slide 17 ===
+需求分析
+Controller
+接收请求参数
+调用Service方法
+响应结果
+Service
+根据ID修改员工的基本信息
+根据ID修改工作经历信息
+Mapper
+SQL:
+update emp set ....
+delete emp_expr where...
+insert into emp_expr...
+（先删除再添加）
+=== Slide 18 ===
+修改员工
+@PutMappingpublic Result update(@RequestBody Emp emp){    log.info("修改员工信息, {}", emp);    empService.update(emp);    return Result.success();}
+EmpController
+@Transactional(rollbackFor=Exception.class)public void update(Emp emp) {    //1. 根据ID更新员工基本信息    emp.setUpdateTime(LocalDateTime.now());    empMapper.updateById(emp);    //2. 根据员工ID删除员工的工作经历信息 【删除老的】    empExprMapper.deleteByEmpIds(Arrays.asList(emp.getId()));    //3. 新增员工的工作经历数据 【新增新的】    Integer empId = emp.getId();    List<EmpExpr> exprList = emp.getExprList();    if(!CollectionUtils.isEmpty(exprList)){        exprList.forEach(empExpr -> empExpr.setEmpId(empId));        empExprMapper.insertBatch(exprList);    }}
+EmpServiceImpl
+<!--根据ID更新员工基本信息--><update id="updateById">    UPDATE emp    SET        username = #{username},        password = #{password},        name = #{name},        gender = #{gender},        phone = #{phone},        job = #{job},        salary = #{salary},        image = #{image},        entry_date = #{entryDate},        dept_id = #{deptId},        update_time = #{updateTime}    WHERE id = #{id}</update>
+EmpMapper.xml
+=== Slide 19 ===
+<set>：替换set关键字，去除字段之后多余的逗号(,)
+修改员工-程序优化
+<!-- 根据ID修改员工基本信息 --><update id="updateById">  update emp  set    <if test="username != null and username != ''">username=#{username},</if>    <if test="password != null and password != ''">password #{password},</if>    <if test="name != null and name != ''">name = #{name},</if>    <if test="gender != null">gender = #{gender},</if>    <if test="phone != null and phone != ''">phone = #{phone},</if>    <if test="job != null">job = #{job},</if>    <if test="salary != null">salary = #{salary},</if>    <if test="image != null and image != ''">image = #{image},</if>    <if test="entryDate != null">entry_date = #{entryDate},</if>    <if test="deptId != null">dept_id = #{deptId},</if>    <if test="updateTime != null">update_time = #{updateTime}</if>    where id = #{id}</update>
+EmpMapper.xml
+<!--根据ID更新员工基本信息--><update id="updateById">    UPDATE emp    SET        username = #{username},        password = #{password},        name = #{name},        gender = #{gender},        phone = #{phone},        job = #{job},        salary = #{salary},        image = #{image},        entry_date = #{entryDate},        dept_id = #{deptId},        update_time = #{updateTime}    WHERE id = #{id}</update>
+EmpMapper.xml
+不灵活
+扩展性差
+<set>
+</set>
+/** * 根据ID更新员工基本信息 */void updateById(Emp emp);
+EmpMapper.java
+id,username,updateTime
+=== Slide 20 ===
+项目开发及运行过程中，不可避免的会出现各种异常。
+功能测试
+出现异常时，默认返回的结果不符合规范
+=== Slide 21 ===
+删除员工
+修改员工
+异常处理
+员工信息统计
+=== Slide 22 ===
+异常处理
+03
+=== Slide 23 ===
+现在项目中各层出现的异常,是如何处理?
+异常处理
+Controller
+Service
+Mapper
+Exception
+未做处理
+代码臃肿，不推荐
+=== Slide 24 ===
+全局异常处理器
+异常处理
+Controller
+Service
+Mapper
+全局异常处理器
+正常结果
+异常结果
+@Slf4j@RestControllerAdvicepublic class GlobalExceptionHandler {    @ExceptionHandler    public Result handleException(Exception e){        log.error("全局异常处理器, 拦截到异常", e);        return Result.error("对不起,服务器异常,请稍后重试");    }}
+GlobalExceptionHandler
+Exception
+=== Slide 25 ===
+如何定义一个全局异常处理器？
+@RestControllerAdvice = @ControllerAdvice + @ResponseBody
+@ExceptionHandler
+=== Slide 26 ===
+删除员工
+修改员工
+异常处理
+员工信息统计
+=== Slide 27 ===
+员工信息统计
+职位统计
+性别统计
+03
+=== Slide 28 ===
+职位统计
+{
+"code": 1,
+"msg": "success",
+"data": {
+"jobList": ["教研主管","学工主管","其他","班主任","咨询师","讲师"],
+"dataList": [1,1,2,6,8,13]
+}
+}
+响应数据
+@Data@NoArgsConstructor@AllArgsConstructorpublic class JobOption {    private List jobList; //职位列表    private List dataList; //人数列表}
+JobOption
+=== Slide 29 ===
+职位统计
+@Data@NoArgsConstructor@AllArgsConstructorpublic class JobOption {    private List jobList; //职位列表    private List dataList; //人数列表}
+JobOption
+Controller
+接收请求
+调用Service方法
+响应结果
+Service
+调用mapper方法获取职位统计数据
+解析数据封装统计结果(JobOption)
+Mapper
+SQL:
+select ...
+=== Slide 30 ===
+<select id="countEmpJobData" resultType="java.util.Map">    select        (case when job = 1 then '班主任'            when job = 2 then '讲师'            when job = 3 then '学工主管'            when job = 4 then '教研主管'            when job = 5 then '咨询师'            else '其他'end) as pos,        count(*) as num    from emp    group by job order by num</select>
+ReportMapper
+职位统计
+@GetMapping("/empJobData")public Result getEmpJobData(){    log.info("统计各个职位的员工人数");    JobOption jobOption = reportService.getEmpJobData();    return Result.success(jobOption);}
+ReportController
+public JobOption getEmpJobData() {    List<Map<String,Object>> list = empMapper.countEmpJobData();    List<Object> jobList = list.stream().map(dataMap -> dataMap.get("pos")).toList();    List<Object> dataList = list.stream().map(dataMap -> dataMap.get("num")).toList();    return new JobOption(jobList, dataList);}
+ReportServiceImpl
+=== Slide 31 ===
+case流程控制函数
+语法一：
+case when cond1 then res1 [when cond2 then res2] else res end ;
+语法二(适用于等值匹配)：
+case expr when val1 then res1 [when val2 then res2] else res end ;
+=== Slide 32 ===
+员工信息统计
+职位统计
+性别统计
+03
+=== Slide 33 ===
+性别统计
+{
+"code": 1,
+"msg": "success",
+"data": [
+{"name": "男性员工","value": 5},
+{"name": "女性员工","value": 6}
+]
+}
+响应数据
+List<Map>
+=== Slide 34 ===
+性别统计
+@GetMapping("/empGenderData")public Result getEmpGenderData(){    log.info("统计员工性别信息");    List<Map> genderList = reportService.getEmpGenderData();    return Result.success(genderList);}
+ReportController
+@Overridepublic List<Map> getEmpGenderData() {    return empMapper.countEmpGenderData();}
+ReportServiceImpl
+List<Map> countEmpGenderData();
+EmpMapper
+<!-- 统计员工的性别信息 --><select id="countEmpGenderData" resultType="java.util.Map">    select        if(gender = 1, '男', '女') as name,        count(*) as value    from emp group by gender ;</select>
+EmpMapper.xml
+=== Slide 35 ===
+if流程控制函数
+if(expr,val1,val2)：如果表达式expr成立，取val1，否则取val2
+ifnull(expr,val1)：如果expr不为null，取自身，否则取val1

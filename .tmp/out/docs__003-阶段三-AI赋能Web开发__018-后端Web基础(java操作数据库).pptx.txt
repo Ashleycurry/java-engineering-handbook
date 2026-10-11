@@ -1,0 +1,409 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/018-后端Web基础(java操作数据库).pptx
+
+=== Slide 1 ===
+Web后端开发
+java程序操作数据库
+=== Slide 2 ===
+java程序操作数据库
+MyBatis
+MyBatisPlus
+SpringData
+JPA
+Hibernate
+JDBC
+JDBC：(Java DataBase Connectivity)，就是使用Java语言操作关系型数据库的一套API。
+=== Slide 3 ===
+java程序操作数据库
+MyBatis
+MyBatisPlus
+JDBC
+=== Slide 4 ===
+JDBC
+MyBatis
+=== Slide 5 ===
+JDBC
+01
+=== Slide 6 ===
+JDBC：(Java DataBase Connectivity)，就是使用Java语言操作关系型数据库的一套API。
+JDBC-介绍
+驱动
+Java程序
+JDBC
+Mysql实现
+Oracle实现
+SqlServer实现
+本质：
+sun公司官方定义的一套操作所有关系型数据库的规范，即接口。
+各个数据库厂商去实现这套接口，提供数据库驱动jar包。
+我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。
+=== Slide 7 ===
+需求：基于JDBC程序，执行update语句 (update user set age = 25 where id = 1)
+步骤：
+准备工作：创建一个maven项目，引入依赖；并准备数据库表user。
+代码实现：编写JDBC程序，操作数据库
+JDBC-入门程序
+<dependency>    <groupId>com.mysql</groupId>    <artifactId>mysql-connector-j</artifactId>    <version>8.0.33</version></dependency>
+pom.xml
+//1. 注册驱动Class.forName("com.mysql.cj.jdbc.Driver");//2. 获取连接String url = "jdbc:mysql://localhost:3306/web01";String username = "root";String password = "1234";Connection connection = DriverManager.getConnection(url, username, password);//3. 获取SQL语句执行对象Statement statement = connection.createStatement();//4. 执行SQLint i = statement.executeUpdate("update user set age = 25 where id = 1");//5. 释放资源statement.close();connection.close();
+JDBC程序
+=== Slide 8 ===
+什么是JDBC ?
+sun公司提供的一套操作关系型数据库的API（规范）。
+JDBC操作数据库步骤
+DML
+=== Slide 9 ===
+需求：基于JDBC执行如下select语句，将查询结果封装到User对象中。
+SQL：select * from user where username = 'daqiao' and password = '123456'
+ResultSet（结果集对象）：ResultSet rs = statement.executeQuery()
+next()：将光标从当前位置向前移动一行，并判断当前行是否为有效行，返回值为boolean。
+true：有效行，当前行有数据
+false：无效行，当前行没有数据
+getXxx(…)：获取数据，可以根据列的编号获取，也可以根据列名获取（推荐）。
+结果解析步骤:
+JDBC-查询数据
+while (resultSet.next()) {    int id = resultSet.getInt("id");
+//...省略
+}
+(AI辅助)
+=== Slide 10 ===
+JDBC程序执行DML语句? DQL语句?
+DML语句：int rowsAffected = statement.executeUpdate();
+DQL语句：ResultSet rs = statement.executeQuery();
+DQL语句执行完毕结果集ResultSet解析?
+resultSet.next()：光标往下移动一行
+resultSet.getXxx()：获取字段数据
+=== Slide 11 ===
+预编译SQL
+Statement statement = connection.createStatement();
+int i = statement.executeUpdate("update user set age = 25 where id = 1");System.out.println("SQL执行完毕, 影响的记录数为: " + i);
+1.静态SQL（参数硬编码）
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM user WHERE username = ? AND password = ?");
+pstmt.setString(1, "daqiao");pstmt.setString(2, "123456");
+ResultSet resultSet = pstmt.executeQuery();
+2.预编译SQL（参数动态传递）
+安全
+性能更高
+=== Slide 12 ===
+优势一：可以防止SQL注入，更安全
+SQL注入：通过控制输入来修改事先定义好的SQL语句，以达到执行代码对服务器进行攻击的方法。
+预编译SQL
+优势二：性能更高
+delete from user where id = 1;
+delete from user where id = 2;
+delete from user where id = 3;
+delete from user where id = ? ;
+1
+2
+3
+3次
+1次
+执行SQL
+编译SQL
+优化SQL
+SQL语法解析检查
+缓存
+性能更高
+=== Slide 13 ===
+如何执行预编译SQL？
+为什么要使用预编译SQL？
+安全（防止SQL注入）
+性能更高
+=== Slide 14 ===
+JDBC
+MyBatis
+=== Slide 15 ===
+什么是Mybatis?
+MyBatis是一款优秀的 持久层 框架，用于 简化JDBC 的开发。
+MyBatis本是 Apache的一个开源项目iBatis, 2010年这个项目由apache迁移到了google code，并且改名为MyBatis。2013年11月迁移到Github。
+官网：https://mybatis.org/mybatis-3/zh_CN/index.html
+controller
+dao
+service
+控制层
+业务层
+持久层
+Mybatis
+简洁、优雅
+JDBC
+=== Slide 16 ===
+Mybatis
+入门程序
+JDBC VS Mybatis
+数据库连接池
+增删改查操作
+XML映射配置
+02
+=== Slide 17 ===
+使用Mybatis查询所有用户数据
+准备工作：
+创建SpringBoot工程、引入Mybatis相关依赖
+准备数据库表user、实体类User
+配置Mybatis（在application.properties中数据库连接信息）
+编写Mybatis程序：编写Mybatis的持久层接口，定义SQL(注解/XML)
+1.2
+1.3
+2
+Mybatis的持久层接口命名规范为 XxxMapper，也称为 Mapper接口。
+提示：
+1.1
+=== Slide 18 ===
+SpringBoot+Mybatis入门程序操作步骤？
+准备工作
+创建springboot工程，引入Mybatis相关依赖
+准备数据库表、实体类
+application.properties中配置数据库连接信息
+定义Mapper接口(@Mapper)，编写SQL
+SpringBoot的单元测试类上需要加什么注解 ？
+@SpringBootTest：会在单元测试运行时，加载springBoot的环境
+注意：测试类所在包需要与引导类包名相同(或放在引导类所在包的子包下)
+=== Slide 19 ===
+默认在Mybatis中配置的SQL语句是不识别的。可以做如下配置：
+辅助配置-配置SQL提示
+=== Slide 20 ===
+产生原因：idea和数据库没有建立连接，不识别表信息
+解决方式：在idea中配置MySQL数据库连接
+辅助配置-配置SQL提示
+=== Slide 21 ===
+默认情况下，在Mybatis中，SQL语句执行时，我们并看不到SQL语句的执行日志。 加入如下配置，即可查看日志：
+辅助配置-配置Mybatis的日志输出
+#mybatis的配置mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+application.properties
+=== Slide 22 ===
+Mybatis
+入门程序
+JDBC VS Mybatis
+数据库连接池
+增删改查操作
+XML映射配置
+02
+=== Slide 23 ===
+JDBC VS Mybatis
+//1.准备工作Class.forName("com.mysql.cj.jdbc.Driver");String url = "jdbc:mysql://localhost:3306/web";Connection connection = DriverManager.getConnection(url, "root", "1234");PreparedStatement ps = connection.prepareStatement("select * from user");
+//2. 执行SQL, 处理结果List<User> userList = new ArrayList<>();ResultSet resultSet = ps.executeQuery();while (resultSet.next()) {    int id = resultSet.getInt("id");    String username = resultSet.getString("username");    String name = resultSet.getString("name");    String password = resultSet.getString("password");    int age = resultSet.getInt("age");    User user = new User(id, username, password, name, age);    userList.add(user);}
+//3.释放资源
+resultSet.close();ps.close();connection.close();
+JDBC程序
+spring.datasource.url=jdbc:mysql://localhost:3306/webspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driverspring.datasource.username=rootspring.datasource.password=1234
+application.properties
+@Mapperpublic interface UserMapper {    @Select("select * from user")    public List<User> findAll();}
+UserMapper
+硬编码
+繁琐
+资源浪费
+性能降低
+JDBC
+SpringBoot+Mybatis
+数据库连接池
+=== Slide 24 ===
+JDBC VS Mybatis
+spring.datasource.url=jdbc:mysql://localhost:3306/webspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driverspring.datasource.username=rootspring.datasource.password=1234
+application.properties
+@Mapperpublic interface UserMapper {    @Select("select * from user")    public List<User> findAll();}
+Mapper接口
+=== Slide 25 ===
+Mybatis
+入门程序
+JDBC VS Mybatis
+数据库连接池
+增删改查操作
+XML映射配置
+02
+=== Slide 26 ===
+数据库连接池是个容器，负责分配、管理数据库连接(Connection)。
+它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个。
+释放空闲时间超过最大空闲时间的连接，来避免因为没有释放连接而引起的数据库连接遗漏。
+优势：
+资源重用
+提升系统响应速度
+避免数据库连接遗漏
+数据库连接池
+SQL
+SQL
+数据库连接池
+=== Slide 27 ===
+数据库连接池
+常见产品：
+Druid（德鲁伊）
+Druid连接池是阿里巴巴开源的数据库连接池项目
+功能强大，性能优秀，是Java语言最好的数据库连接池之一
+标准接口：DataSource
+官方(sun)提供的数据库连接池接口，由第三方组织实现此接口。
+功能：获取连接
+C3P0
+DBCP
+Druid
+Hikari
+SpringBoot默认
+=== Slide 28 ===
+数据库连接池
+切换数据库连接池：
+<dependency>    <groupId>com.alibaba</groupId>    <artifactId>druid-spring-boot-starter</artifactId>    <version>1.2.19</version></dependency>
+pom.xml
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSourcespring.datasource.url=jdbc:mysql://localhost:3306/webspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driverspring.datasource.username=rootspring.datasource.password=1234
+application.properties
+=== Slide 29 ===
+数据库连接池
+是一个容器，负责分配、管理数据库连接(Connection)
+优势：资源复用、提升系统响应速度
+接口：DataSource
+产品：C3P0、DBCP、Druid、Hikari(默认)
+=== Slide 30 ===
+Mybatis
+入门程序
+JDBC VS Mybatis
+数据库连接池
+增删改查操作
+XML映射配置
+02
+=== Slide 31 ===
+需求：根据ID删除用户信息
+SQL：delete from user where id = 5;
+Mapper接口：
+删除用户-delete
+@Delete("delete from user where id = 5")public void deleteById();
+UserMapper
+@Delete("delete from user where id = #{id}")public void deleteById(Integer id);
+UserMapper
+DML语句执行完毕的返回值，表示该DML语句执行完毕影响的行数。
+注意：
+@Delete("delete from user where id = #{id}")public Integer deleteById(Integer id);
+UserMapper
+?
+=== Slide 32 ===
+Mybatis中的 # 号 与 $ 号：
+删除用户-delete
+符号
+说明
+场景
+优缺点
+#{…}
+占位符。执行时，会将#{…}替换为?，生成预编译SQL
+参数值传递
+安全、性能高 （推荐）
+${…}
+拼接符。直接将参数拼接在SQL语句中，存在SQL注入问题
+表名、字段名动态设置时使用
+不安全、性能低
+@Delete("delete from dept where id = #{id}")
+@Select("select id,name,score from ${tableName} order by ${sortField}")
+=== Slide 33 ===
+Mybatis中执行DML语句时，有没有返回值？
+有，int类型，表示DML语句执行影响的记录数
+Mybatis中 # 与 $ 的区别是什么? （面试题）
+# 是占位符，会替换为？生成预编译SQL （推荐）
+$ 是字符串拼接符号,将参数值直接拼接在SQL中
+=== Slide 34 ===
+需求：添加一个用户
+SQL：insert into user(username,password,name,age) values('zhouyu','123456','周瑜',20);
+Mapper接口：
+新增用户-insert
+@Insert("insert into user(username,password,name,age) values(#{username},#{password},#{name},#{age})")public void insert(User user);
+UserMapper
+对象属性名
+=== Slide 35 ===
+需求：根据ID更新用户信息
+SQL：update user set username = 'zhouyu', password = '123456', name = '周瑜', age = 20 where id = 1；
+Mapper接口：
+修改用户-update
+@Update("update user set username=#{username}, password=#{password}, name=#{name}, age=#{age} where id=#{id}")public void update(User user);
+UserMapper
+=== Slide 36 ===
+需求：根据用户名和密码查询用户信息
+SQL：select * from user where username = 'zhouyu' and password = '123456';
+Mapper接口：
+查询用户-select
+@Select("select * from user where username=#{username} and password=#{password}")public User findByUsernameAndPassword(@Param("username") String uname, @Param("password") String pwd);
+UserMapper
+@param注解的作用是为接口的方法形参起名字的。
+说明：基于官方骨架创建的springboot项目中，接口编译时会保留方法形参名，@Param注解可以省略 (#{形参名})。
+@Select("select * from user where username=#{uname} and password=#{pwd}")public User findByUsernameAndPassword(String uname, String pwd);
+UserMapper
+=== Slide 37 ===
+Mybatis
+入门程序
+JDBC VS Mybatis
+数据库连接池
+增删改查操作
+XML映射配置
+02
+=== Slide 38 ===
+在Mybatis中，既可以通过注解配置SQL语句，也可以通过XML配置文件配置SQL语句。
+规则：
+XML映射文件的名称与Mapper接口名称一致，并且将XML映射文件和Mapper接口放置在相同包下（同包同名）。
+XML映射文件的namespace属性为Mapper接口全限定名一致。
+XML映射文件中sql语句的id与Mapper 接口中的方法名一致，并保持返回类型一致。
+XML映射配置
+Mapper接口
+XML映射文件
+=== Slide 39 ===
+MybatisX 是一款基于 IDEA 的快速开发Mybatis的插件，为效率而生。
+安装：
+XML映射文件
+=== Slide 40 ===
+那在Mybatis的开发中，到底使用注解开发还是使用XML开发呢 ？
+使用Mybatis的注解，主要是来完成一些简单的增删改查功能。如果需要实现复杂的SQL功能，建议使用XML来配置映射语句。
+官方说明：https://mybatis.net.cn/getting-started.html
+XML映射文件
+=== Slide 41 ===
+XML映射文件的定义规则 ？
+XML文件名称与Mapper接口名称一致，并且放置在相同包下（同包同名）。
+XML文件的namespace属性为Mapper接口全限定名一致。
+XML文件中sql语句的id与Mapper 接口中的方法名一致。
+=== Slide 42 ===
+JDBC
+MyBatis
+SpringBoot配置文件
+=== Slide 43 ===
+SpringBoot配置文件
+03
+=== Slide 44 ===
+SpringBoot配置文件application.properties：
+配置文件格式
+臃肿
+层级结构不清晰
+=== Slide 45 ===
+SpringBoot项目提供了多种属性配置方式(properties、yaml、yml)。
+配置文件格式
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver spring.datasource.url=jdbc:mysql://localhost:3306/web01spring.datasource.username=rootspring.datasource.password=1234
+application.properties
+spring:  datasource:    driver-class-name: com.mysql.jdbc.Driver    url: jdbc:mysql://localhost:3306/web01    username: root    password: 1234
+application.yaml / application.yml
+层级结构不清晰
+简洁、数据为中心
+臃肿
+=== Slide 46 ===
+yml配置文件
+格式：
+数值前边必须有空格，作为分隔符
+使用缩进表示层级关系，缩进时，不允许使用Tab键，只能用空格（idea中会自动将Tab转换为空格）
+缩进的空格数目不重要，只要相同层级的元素左侧对齐即可
+# 表示注释，从这个字符一直到行尾，都会被解析器忽略
+#配置服务器相关信息
+server:
+port: 8080
+address: 127.0.0.1
+application.yml
+hobby:
+- java
+- game
+- sport
+数组/List/Set集合
+user:
+name: 张三
+age: 18
+password: 123456
+对象/Map集合
+定义对象/Map集合:
+定义数组/List/Set集合:
+在yml格式的配置文件中，如果配置项的值是以 0 开头的，值需要使用 '' 引起来，因为以0开头在yml中表示8进制的数据。
+注意：
+=== Slide 47 ===
+在application.yml配置文件中配置相关的配置项
+=== Slide 48 ===
+SpringBoot支持那几类配置文件?
+application.properties
+application.yaml
+application.yml
+yml配置文件的特点及格式 ？
+简洁、以数据为中心
+注意：yml配置文件中以0开头的值表示八进制，如果想表示其本身含义，需要用 '' 引起来

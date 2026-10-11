@@ -1,0 +1,339 @@
+SOURCE: docs/001-阶段一-Java核心与AI开发基础/001-Java开发环境搭建.pptx
+
+=== Slide 1 ===
+第一章：Java开发环境搭建
+培养AI新时代Java工程师
+=== Slide 2 ===
+Java 背景介绍
+JDK 工具的下载和安装
+第一个 Java 程序 HelloWorld
+Java 程序执行原理
+Java 环境配置
+=== Slide 3 ===
+Java 背景介绍
+1
+=== Slide 4 ===
+Java是由James Gosling于1995年在Sun公司开发的计算机高级编程语言，在2009年被Oracle公司收购。
+詹姆斯·高斯林
+JAMES·GOSLING
+1955年出生于加拿大
+1977年获得卡尔加里大学计算机学士学位
+1983年获得卡内基梅隆大学计算机博士学位
+Java之父
+=== Slide 5 ===
+学习 Java 能做什么？
+Java
+桌面应用开发
+IDEA 、Eclipse
+企业级应用开发
+微服务，大型互联网应用
+移动应用开发
+Android
+服务器系统
+大数据开发
+游戏开发
+应用的后台
+hadoop
+我的世界 MineCraft
+=== Slide 6 ===
+学习 Java 能做什么？
+企业级应用开发
+=== Slide 7 ===
+学习 Java 能做什么？
+Java
+桌面应用开发
+IDEA 、Eclipse
+企业级应用开发
+微服务，大型互联网应用
+移动应用开发
+Android
+服务器系统
+大数据开发
+游戏开发
+应用的后台
+hadoop
+我的世界 MineCraft
+=== Slide 8 ===
+JavaEE
+JavaME
+JavaSE
+Java SE (Java Standard Edition):标准版
+Java技术的核心和基础
+Java EE (Java Enterprise Edition):企业版
+企业级应用开发的一套解决方案
+Java ME (Java Micro Edition):小型版
+针对移动设备应用的解决方案
+Java 的三大技术平台
+=== Slide 9 ===
+Java是什么？
+是一门高级编程语言。
+Java是哪家公司研发的，现在属于哪家公司？
+sun公司、Oracle公司。
+Java之父是谁啊？
+詹姆斯.高斯林
+Java能做什么？
+基本上什么都可以干，主要做企业服务端开发。
+Java有哪三大使用平台 ?
+JavaSE（标准版）、JavaEE（企业版）、JavaME（小型版）
+=== Slide 10 ===
+Java 背景介绍
+JDK 工具的下载和安装
+第一个 Java 程序 HelloWorld
+Java 程序执行原理
+Java 环境配置
+=== Slide 11 ===
+JDK 工具的下载和安装
+2
+=== Slide 12 ===
+开发Java程序必须先安装好JDK（Java Development Kit），也就是Java开发工具包。
+JDK 工具的下载和安装
+JDK 7
+JDK 8
+JDK 11
+JDK 17
+JDK 21
+LTS版本 (Long-Term-Support)
+0.0%
+10.0%
+20.0%
+30.0%
+40.0%
+50.0%
+60.0%
+70.0%
+80.0%
+90.0%
+2020
+2022
+2023
+2024
+=== Slide 13 ===
+在Oracle的官网可以找到JDK的下载链接：Java Downloads | Oracle 中国
+JDK 工具的下载和安装
+=== Slide 14 ===
+安装完成后，可以通过CMD命令行来测试是否安装成功。步骤如下：
+同时按下键盘上的Win + R 键，会打开一个运行窗口
+在窗口中输入cmd，然后按下键盘上的Enter键，弹出DOS窗口
+在DOS窗口输入命令，测试Java工具及其版本是否正确。
+JDK 工具的下载和安装
+=== Slide 15 ===
+安装JDK -> javac, java命令的介绍
+JDK 工具的下载和安装
+说明：我们写好的Java程序都是高级语言，计算机底层是硬件不能识别这些语言，必须先通过javac编译工具进行翻译，然后再通过java执行工具执行才可以驱动机器干活。
+=== Slide 16 ===
+JDK 的组成
+JDK 工具的下载和安装
+JVM（Java Virtual Machine）：Java虚拟机, 真正运行Java程序的地方。
+核心类库：Java自己写好的程序，给程序员自己的程序调用的。
+JRE（Java Runtime Environment）: Java的运行环境。
+JDK（Java Development Kit）: Java开发工具包（包括上面所有）。
+JDK
+JRE
+public class HelloWorld {    public static void main(String[] args) {        System.out.println("Hello World ");
+}}
+核心类库
+JVM
+开发工具
+Java   Javac…
+=== Slide 17 ===
+要使用Java，必须先安装什么？去哪里下载？
+JDK （Java Development Kit ) 开发者工具包;  Oracle官网。
+LTS版本有哪些？很多企业还在使用哪个JDK版本？
+JDK 8、11、17  21 ； 很多企业还在使用JDK 8 / JDK 11。
+如何验证JDK是否安装成功了？
+打开命令行窗口，输入java –version、javac –version看版本号。
+JDK中最重要的2个命令程序是什么？各自的作用是啥？
+javac  java
+编译工具，执行工具。
+=== Slide 18 ===
+常用命令
+作用
+盘符：
+切换盘符：D:、E:
+dir
+查看当前路径下的文件信息
+cd
+进入单级目录：cd itheima
+回退到上一级目录：cd ..
+回退到盘符根目录：cd /
+cls
+清屏
+常用命令
+作用
+tab
+自动补全指定字符开头的单词
+↑键
+查看历史命令
+↓键
+查看历史命令
+exit
+退出
+补充：DOS 常用命令
+=== Slide 19 ===
+Java 背景介绍
+JDK 工具的下载和安装
+第一个 Java 程序 HelloWorld
+Java 程序执行原理
+Java 环境配置
+=== Slide 20 ===
+第一个 Java 程序
+Hello World
+3
+=== Slide 21 ===
+1.编写代码
+2.编译代码
+命令：javac 程序名.java
+3.运行代码
+命令：java 程序名
+HelloWorld.java
+【源代码文件】
+Java程序的开发步骤
+=== Slide 22 ===
+public class HelloWorld {
+public static void main(String[] args) {
+System.out.println(" Hello World !");
+}
+}
+Hello World 程序
+class：定义一个类，后面跟上的是类名称
+程序执行时的入口点，main方法也称之为主方法
+打印语句，使程序在控制台打印双引号所包裹的内容
+权限修饰符，后面会详细讲解
+对于 public 暂时理解：限制类名称和文件名需要保持一致
+=== Slide 23 ===
+Hello World 程序
+Windows的文件扩展名没有勾选
+代码写了，但是忘记保存了
+文件名和类名不一致。
+大小写错误，单词拼写错误，存在中文符号，找不到main方法。
+括号不配对。
+编译或执行工具使用不当
+=== Slide 24 ===
+Hello World 程序
+Windows的文件扩展名没有勾选。
+解决方案：必须勾选文件扩展名，再新建Java文件。
+=== Slide 25 ===
+Hello World 程序
+2.  代码写对了，但是忘记保存了
+=== Slide 26 ===
+Hello World 程序
+3. 文件名和类名不一致
+=== Slide 27 ===
+Hello World 程序
+4. 大小写错误，单词拼写错误，存在中文符号，找不到main方法
+=== Slide 28 ===
+Hello World 程序
+5. 括号不配对
+=== Slide 29 ===
+Hello World 程序
+6. 编译、执行使用不当。
+=== Slide 30 ===
+开发一个Java程序要经历哪三个步骤?
+编写、编译(javac)、运行(java)
+Java代码编写有什么基本要求?
+文件名称的后缀必须是 java 结尾
+文件名称必须与代码的类名称一致
+必须使用英文模式下的符号
+=== Slide 31 ===
+public class HelloWorld {
+public static void main(String[] args) {
+System.out.println(" Hello World !");
+}
+}
+Hello World 程序
+class：定义一个类，后面跟上的是类名称
+程序执行时的入口点，main方法也称之为主方法
+打印语句，使程序在控制台打印双引号所包裹的内容
+权限修饰符，后面会详细讲解
+对于 public 暂时理解：限制类名称和文件名需要保持一致
+=== Slide 32 ===
+Java 背景介绍
+JDK 工具的下载和安装
+第一个 Java 程序 HelloWorld
+Java 程序执行原理
+Java 环境配置
+=== Slide 33 ===
+Java 程序执行原理
+4
+=== Slide 34 ===
+Java 程序执行原理
+=== Slide 35 ===
+Java 程序执行原理
+计算机底层都是硬件电路，可以通过不通电和通电，表示0、1。
+机器语言：00011100 00110101
+=== Slide 36 ===
+最早期的程序员通过机器语言编程的形式
+=== Slide 37 ===
+最早期的程序员通过机器语言编程的形式
+=== Slide 38 ===
+编程语言发展历程
+高级语言更简单，使用接近人类自己的语言书写代码，再将其翻译成计算机能理解的机器指令
+机器语言
+汇编语言
+高级语言
+=== Slide 39 ===
+跨平台工作
+Java
+总结：在需要运行 Java 应用程序的操作系统上
+安装一个与操作系统对应的Java虚拟机(JVM Java Virtual Machine)即可
+Windows版
+JVM虚拟机
+Linux版
+JVM虚拟机
+MacOS版
+JVM虚拟机
+=== Slide 40 ===
+Java程序的执行原理是什么样的?
+不管是什么样的高级编程语言
+最终要翻译成计算机底层可以识别的机器语言
+机器语言是由什么组成的?
+0和1
+Java跨平台指的是什么？原理又是什么？
+Java 程序可以在任意操作系统中运行
+在不同的操作系统中，安装与之对应版本的 JVM 虚拟机
+=== Slide 41 ===
+Java 背景介绍
+JDK 工具的下载和安装
+第一个 Java 程序 HelloWorld
+Java 程序执行原理
+Java 环境配置
+=== Slide 42 ===
+Java 环境配置
+5
+=== Slide 43 ===
+Path 环境变量
+Path环境变量用于记住程序路径，方便在命令行窗口的任意目录启动程序
+=== Slide 44 ===
+Path 环境变量
+Path环境变量用于记住程序路径，方便在命令行窗口的任意目录启动程序
+path环境变量的位置在：此电脑  -> 属性 -> 高级系统设置  -> 高级 -> 环境变量
+Path环境变量的原理
+当我们在Path中配置某个程序路径后，启动命令行窗口启动程时，是如何去找该程序的
+=== Slide 45 ===
+命令行窗口的任意目录可以使用 javac 和 java
+Path 环境变量
+=== Slide 46 ===
+Path  E:\develop\Java\jdk21\bin（本机路径，不要抄，去复制）
+目前较新的JDK安装时会自动配置javac、java程序的路径到Path环境变量中去 ，因此，javac、java可以直接使
+注意：以前的老版本的 JDK 在安装的是没有自动配置Path环境变量的，此时必需要自己配置Path环境变量
+Path 环境变量
+从新配置了环境变量后，必须检测是否配置成功
+打开命令行窗口，输入 java –version 分别看版本提示
+JAVA_HOME：告诉操作系统 JDK 安装在了哪个位置（将来其他技术要通过这个环境变量找JDK）
+=== Slide 47 ===
+什么是Path环境变量？
+用于配置程序的路径，方便我们在命令行窗口的任意目录下启动该程序。
+JDK安装时，关于环境变量的配置，需要注意什么？
+较新版本的JDK会自动配置PATH环境变量，较老的JDK版本则不会。
+建议还是自己配置一下“PATH”、 “JAVA_HOME”
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+5
+--- notesSlide 2 ---
+7
+--- notesSlide 3 ---
+34
+--- notesSlide 4 ---
+35
+--- notesSlide 5 ---
+36

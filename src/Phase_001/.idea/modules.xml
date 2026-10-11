@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Learning_Chapter_01.iml" filepath="$PROJECT_DIR$/.idea/Learning_Chapter_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_01/untitled/untitled.iml" filepath="$PROJECT_DIR$/Chapter_01/untitled/untitled.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_01/untitled1/untitled1.iml" filepath="$PROJECT_DIR$/Chapter_01/untitled1/untitled1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_02/untitled2/untitled2.iml" filepath="$PROJECT_DIR$/Chapter_02/untitled2/untitled2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_03/untitled3/untitled3.iml" filepath="$PROJECT_DIR$/Chapter_03/untitled3/untitled3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_04/untitled4/untitled4.iml" filepath="$PROJECT_DIR$/Chapter_04/untitled4/untitled4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_05/untitled5/untitled5.iml" filepath="$PROJECT_DIR$/Chapter_05/untitled5/untitled5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_06/untitled6/untitled6.iml" filepath="$PROJECT_DIR$/Chapter_06/untitled6/untitled6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter_07/untitled7/untitled7.iml" filepath="$PROJECT_DIR$/Chapter_07/untitled7/untitled7.iml" />
+    </modules>
+  </component>
+</project>

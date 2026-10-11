@@ -1,0 +1,2053 @@
+SOURCE: docs/002-阶段二-Java核心与AI开发进阶/000-第十二章：集合高级1.pptx
+
+=== Slide 1 ===
+第十二章：集合高级
+=== Slide 2 ===
+集合 : 一个长度可变的容器
+集合容器的创建
+集合中数据的赠删改查
+集合的遍历操作
+ArrayList
+=== Slide 3 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+TreeMap
+HashMap
+LinkedHashMap
+=== Slide 4 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+TreeMap
+HashMap
+LinkedHashMap
+单列集合
+双列集合
+=== Slide 5 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+TreeMap
+HashMap
+LinkedHashMap
+单列集合 : 一次添加一个元素
+双列集合 : 一次添加两个元素
+单列集合.add(元素1);
+单列集合.add(元素2);
+单列集合.add(元素3);
+双列集合.put(元素1,元素1);
+双列集合.put(元素2,元素2);
+=== Slide 6 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+TreeMap
+HashMap
+LinkedHashMap
+单列集合 : 一次添加一个元素
+双列集合 : 一次添加两个元素
+Collection 接口
+Map 接口
+=== Slide 7 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+单列集合 : 一次添加一个元素
+List 接口
+存取有序
+有索引
+可以存储重复的
+Set 接口
+存取无序
+没有索引
+不可以存储重复的
+TreeMap
+HashMap
+LinkedHashMap
+双列集合 : 一次添加两个元素
+Collection 接口
+Map 接口
+=== Slide 8 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+单列集合 : 一次添加一个元素
+List 接口
+存取有序
+有索引
+可以存储重复的
+Set 接口
+存取无序
+没有索引
+不可以存储重复的
+TreeMap
+HashMap
+LinkedHashMap
+双列集合 : 一次添加两个元素
+Map 接口
+Collection 接口
+=== Slide 9 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 10 ===
+Collection 的使用
+2
+=== Slide 11 ===
+Collection 的使用
+=== Slide 12 ===
+Collection 是所有单列集合的父接口，内部的方法，所有单列集合都可以使用
+remove() contains() 底层依赖对象的equals方法
+=== Slide 13 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 14 ===
+集合通用遍历方式
+3
+=== Slide 15 ===
+ArrayList<String> list = new ArrayList<>();for (int i = 0; i < list.size(); i++) {
+String s = list.get(i);
+}
+集合通用遍历方式
+=== Slide 16 ===
+ArrayList
+LinkedList
+TreeSet
+HashSet
+LinkedHashSet
+单列集合 : 一次添加一个元素
+Collection 接口
+List 接口
+有索引
+Set 接口
+没有索引
+集合通用遍历方式
+=== Slide 17 ===
+迭代器
+增强 for 循环
+foreach 方法
+集合通用遍历方式
+=== Slide 18 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 19 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 20 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+注意 :  next方法会将元素取出,  并将指针向后移动一位
+迭代器遍历
+=== Slide 21 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 22 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 23 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 24 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 25 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 26 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 27 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 28 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 29 ===
+0
+1
+2
+3
+4
+5
+6
+7
+8
+拿
+了
+橘
+子
+跑
+啊
+__
+范
+伟
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+迭代器遍历
+=== Slide 30 ===
+迭代器源码解析
+=== Slide 31 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+迭代器源码解析
+=== Slide 32 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+int i = 0;
+迭代器源码解析
+=== Slide 33 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+int i = 0;
+elementData[]
+迭代器源码解析
+=== Slide 34 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+迭代器源码解析
+=== Slide 35 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+int i = 1;
+elementData[]
+迭代器源码解析
+=== Slide 36 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+int i = 1;
+elementData[]
+迭代器源码解析
+=== Slide 37 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+迭代器源码解析
+=== Slide 38 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+int i = 2;
+迭代器源码解析
+=== Slide 39 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+int i = 2;
+迭代器源码解析
+=== Slide 40 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+迭代器源码解析
+=== Slide 41 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+int i = 3;
+迭代器源码解析
+=== Slide 42 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+int i = 3;
+4
+迭代器源码解析
+=== Slide 43 ===
+0
+1
+2
+3
+private class Itr implements Iterator<E> {    int cursor;          public boolean hasNext() {        return cursor != size;    }    public E next() {        int i = cursor;        cursor = i + 1;        return (E) elementData[lastRet = i];    }}
+Iterator<String> it = list.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+元素A
+元素B
+元素C
+元素D
+cursor
+size = 4
+elementData[]
+4
+迭代器源码解析
+=== Slide 44 ===
+迭代器遍历
+hashNext() : 判断集合中是否还有元素
+next() : 取出集合元素,  并将指针向后移动
+注意 : 在循环过程中 next 方法最好只调用一次
+Iterator<String> it = 集合对象.iterator();while(it.hasNext()) {    String s = it.next();    System.out.println(s);}
+=== Slide 45 ===
+迭代器
+增强 for 循环
+foreach 方法
+集合的通用遍历方式
+=== Slide 46 ===
+简化迭代器的代码书写
+它是JDK5之后出现的，其内部原理就是一个Iterator迭代器
+格式：
+for (元素的数据类型 变量名 : 数组或者集合) {
+}
+for (String s : list) {
+System.out.println(s);}
+增强 for 循环
+=== Slide 47 ===
+方法名
+说明
+default void forEach​(Consumer<? super T> action)
+遍历集合
+foreach 方法
+=== Slide 48 ===
+迭代器
+增强 for 循环
+foreach 方法
+所有的单列集合都可以用以上三种方式遍历
+=== Slide 49 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 50 ===
+方法引用
+4
+=== Slide 51 ===
+方法引用
+方法引用是 JDK8 开始出现，主要的作用，是对 Lambda 表达式进行进一步的简化
+=== Slide 52 ===
+方法引用
+方法引用是 JDK8 开始出现，主要的作用，是对 Lambda 表达式进行进一步的简化
+方法引用使用一对冒号 ::
+通过方法的名字来指向一个方法
+可以使语言的构造更紧凑简洁，减少冗余代码
+=== Slide 53 ===
+方法引用
+我参数呢???
+=== Slide 54 ===
+方法引用
+可推导可省略原则，省略参数
+=== Slide 55 ===
+方法引用
+可推导可省略原则，  省略参数
+=== Slide 56 ===
+方法引用
+change方法需要一个String参数
+accept 中正好有一个参数
+可推导可省略原则，省略参数
+=== Slide 57 ===
+方法引用
+change方法需要一个String参数
+accept 中正好有一个参数
+=== Slide 58 ===
+方法引用是 JDK8 开始出现
+主要的作用，是对 Lambda 表达式进行进一步的简化
+方法引用使用一对冒号 ::
+可以使语言的构造更紧凑简洁，减少冗余代码
+=== Slide 59 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 60 ===
+List 接口
+5
+=== Slide 61 ===
+List 因为支持索引，所以多了很多索引操作的独特api
+方法名称
+说明
+void add(int index,E element)
+在此集合中的指定位置插入指定的元素
+E remove(int index)
+删除指定索引处的元素，返回被删除的元素
+E set(int index,E element)
+修改指定索引处的元素，返回被修改的元素
+E get(int index)
+返回指定索引处的元素
+ArrayList
+LinkedList
+List 接口
+存取有序
+有索引
+可以存储重复的
+List 接口
+=== Slide 62 ===
+迭代器 Iterator
+增强 for
+foreach 方法
+普通 for 循环
+列表迭代器 ListIterator
+List 接口遍历方式
+=== Slide 63 ===
+List 集合的特点
+存取有序：存入元素和取出元素的顺序一致
+有索引：提供了跟索引有关的 api
+可以存储重复的
+遍历方式：5种
+通用遍历方式3种
+普通for循环配合索引遍历，ListIterator 列表迭代器
+=== Slide 64 ===
+ConcurrentModificationException
+使用迭代器遍历集合的过程中，调用了集合对象的添加，删除方法，就会出现此异常
+并发修改异常
+=== Slide 65 ===
+使用迭代器遍历集合的过程中，调用了集合对象的添加，删除方法，就会出现此异常
+迭代过程中做删除 : 使用 Iterator 自带的 remove 方法
+迭代过程中做添加 : 使用 ListIterator 自带的 add 方法
+并发修改异常
+=== Slide 66 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 67 ===
+数据结构
+6
+=== Slide 68 ===
+数据结构是计算机底层存储、组织数据的方式，是指数据相互之间是以什么方式排列在一起的
+通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率
+栈
+队列
+数组
+链表
+二叉树
+二叉查找树
+平衡二叉树
+红黑树
+哈希表
+常见的数据结构
+数据结构介绍
+=== Slide 69 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 70 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 71 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 72 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 73 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 74 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 75 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 76 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+数据结构（栈、队列）
+=== Slide 77 ===
+数据A
+数据B
+数据C
+数据D
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+数据结构（栈、队列）
+=== Slide 78 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+数据结构（栈、队列）
+=== Slide 79 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+数据结构（栈、队列）
+=== Slide 80 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据A
+数据B
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据结构（栈、队列）
+=== Slide 81 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据A
+数据B
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据结构（栈、队列）
+=== Slide 82 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据A
+数据B
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据结构（栈、队列）
+=== Slide 83 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据A
+数据B
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据结构（栈、队列）
+=== Slide 84 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据A
+数据B
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据结构（栈、队列）
+=== Slide 85 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据A
+数据B
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据结构（栈、队列）
+=== Slide 86 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+数据A
+数据B
+数据结构（栈、队列）
+=== Slide 87 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据D
+入
+队
+列
+出
+队
+列
+数据C
+数据A
+数据B
+数据结构（栈、队列）
+=== Slide 88 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+先进先出
+后进后出
+数据A
+数据B
+数据结构（栈、队列）
+=== Slide 89 ===
+数据A
+一端开口
+一端封闭
+栈顶
+栈底
+进栈\压栈
+出栈\弹栈
+后进先出
+先进后出
+一端开口
+一端开口
+后端
+前端
+数据C
+数据D
+入
+队
+列
+出
+队
+列
+先进先出
+后进后出
+数据结构（栈、队列）
+=== Slide 90 ===
+数据结构（栈、队列）
+=== Slide 91 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+A
+B
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+6
+3
+=== Slide 92 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+增、删效率低：新增或删除数据的时候，都有可能大批量的移动数组中其他的元素
+A
+B
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+6
+3
+=== Slide 93 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+A
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+6
+3
+增、删效率低：新增或删除数据的时候，都有可能大批量的移动数组中其他的元素
+=== Slide 94 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+A
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+3
+增、删效率低：新增或删除数据的时候，都有可能大批量的移动数组中其他的元素
+=== Slide 95 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+A
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+3
+增、删效率低：新增或删除数据的时候，都有可能大批量的移动数组中其他的元素
+B
+=== Slide 96 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+A
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+3
+增、删效率低：新增或删除数据的时候，都有可能大批量的移动数组中其他的元素
+B
+6
+=== Slide 97 ===
+数据结构(数组)
+查询速度快：查询数据通过地址值和索引定位，查询任意数据耗时相同
+A
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+3
+增、删效率低：新增或删除数据的时候，都有可能大批量的移动数组中其他的元素
+B
+6
+=== Slide 98 ===
+数据结构(链表)
+数据
+地址
+结点
+地址
+存储具体的数据
+结点的存储位置（地址）
+下一个结点的地址
+=== Slide 99 ===
+数据结构(链表)
+head
+^
+A
+^
+11
+C
+^
+37
+D
+^
+96
+添加一个数据A
+11
+再添加一个数据C
+再添加一个数据D
+37
+96
+链表查询慢，无论查询哪个数据都要从头开始找。
+链表中的结点是独立的对象，在内存中是不连续的，每个结点包含数据值和下一个结点的地址。
+创建一个链表：
+A
+B
+C
+E
+F
+G
+D
+0
+1
+2
+4
+5
+6
+3
+=== Slide 100 ===
+数据结构(链表)
+链表查询慢，无论查询哪个数据都要从头开始找。
+链表增删相对快
+B
+^
+54
+在数据AC之间添加一个数据B
+① 数据B对应的下一个数据地址指向数据C
+37
+② 数据A对应的下一个数据地址指向数据B
+head
+^
+A
+^
+11
+C
+^
+37
+D
+^
+96
+11
+37
+96
+创建一个链表：
+链表中的结点是独立的对象，在内存中是不连续的，每个结点包含数据值和下一个结点的地址。
+=== Slide 101 ===
+数据结构(链表)
+链表查询慢，无论查询哪个数据都要从头开始找。
+链表增删相对快
+B
+^
+54
+37
+head
+^
+A
+^
+11
+C
+^
+37
+D
+^
+96
+11
+54
+96
+① 数据B对应的下一个数据地址指向数据D
+删除数据BD之间的数据C
+链表中的结点是独立的对象，在内存中是不连续的，每个结点包含数据值和下一个结点的地址。
+=== Slide 102 ===
+数据结构(链表)
+链表查询慢，无论查询哪个数据都要从头开始找。
+链表增删相对快
+B
+^
+54
+96
+head
+^
+A
+^
+11
+C
+^
+37
+D
+^
+96
+11
+54
+96
+① 数据B对应的下一个数据地址指向数据D
+② 数据C删除
+删除数据BD之间的数据C
+链表是一种增删快的模型(对比数组）
+链表中的结点是独立的对象，在内存中是不连续的，每个结点包含数据值和下一个结点的地址。
+=== Slide 103 ===
+数据结构(链表)
+链表查询慢，无论查询哪个数据都要从头开始找。
+链表增删相对快
+B
+^
+54
+37
+head
+^
+A
+^
+11
+D
+^
+96
+11
+37
+①数据B对应的下一个数据地址指向数据D
+②数据C删除
+删除数据BD之间的数据C
+链表是一种增删快的模型(对比数组）
+链表中的结点是独立的对象，在内存中是不连续的，每个结点包含数据值和下一个结点的地址。
+=== Slide 104 ===
+数据结构(链表)
+值
+^
+下一个结点地址
+单
+向
+链
+表
+双
+向
+链
+表
+值
+^
+下一个结点地址
+值
+^
+下一个结点地址
+值
+^
+下一个结点地址
+值
+下一个结点地址
+前一个结点地址
+值
+前一个结点地址
+^
+值
+下一个结点地址
+^
+第N个元素
+=== Slide 105 ===
+数据结构(链表)
+值
+^
+下一个结点地址
+单
+向
+链
+表
+双
+向
+链
+表
+值
+^
+下一个结点地址
+值
+^
+下一个结点地址
+值
+^
+下一个结点地址
+值
+下一个结点地址
+前一个结点地址
+值
+前一个结点地址
+^
+值
+下一个结点地址
+^
+第N个元素
+=== Slide 106 ===
+数据结构(链表)
+值
+^
+下一个结点地址
+单
+向
+链
+表
+双
+向
+链
+表
+值
+^
+下一个结点地址
+值
+^
+下一个结点地址
+值
+^
+下一个结点地址
+值
+下一个结点地址
+前一个结点地址
+值
+前一个结点地址
+^
+值
+下一个结点地址
+^
+第N个元素
+=== Slide 107 ===
+栈：后进先出，先进后出。
+队列：先进先出，后进后出。
+数组：内存连续区域，查询快，增删慢。
+链表：元素是游离的，查询慢，首尾操作极快。
+=== Slide 108 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 109 ===
+ArrayList、LinkedList 类
+7
+=== Slide 110 ===
+ArrayList 类
+ArrayList 底层是基于数组实现的，根据查询元素快，增删相对慢
+=== Slide 111 ===
+ArrayList 长度可变原理
+ArrayList 底层是数组结构的，数组默认长度为10
+当数组添加满了之后，会自动扩容为1.5倍
+=== Slide 112 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素1
+元素4
+ArrayList 长度可变原理
+=== Slide 113 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+ArrayList 长度可变原理
+=== Slide 114 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+元素11
+喂！！！
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+ArrayList 长度可变原理
+=== Slide 115 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+元素11
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+4. 将新元素添加到新数组
+ArrayList 长度可变原理
+=== Slide 116 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+4. 将新元素添加到新数组
+元素11
+ArrayList 长度可变原理
+=== Slide 117 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+4. 将新元素添加到新数组
+元素11
+ArrayList 长度可变原理
+=== Slide 118 ===
+ArrayList 源码解析
+使用空参构造器创建的集合，在底层创建一个默认长度为0的数组
+添加第一个元素时，底层会创建一个新的长度为10的数组
+存满时，会扩容1.5倍
+=== Slide 119 ===
+LinkedList 类
+LinkedList 底层基于双链表实现的，查询元素慢，增删首尾元素是非常快的
+=== Slide 120 ===
+LinkedList 也有 get 方法
+表面看起来是根据索引获取元素，实际上是？
+=== Slide 121 ===
+集合体系结构介绍
+Collection 的使用
+集合的通用遍历方式
+方法引用
+List 接口
+数据结构 (栈 队列 数组 链表)
+ArrayList类 LinkedList类
+泛型
+=== Slide 122 ===
+泛型
+8
+=== Slide 123 ===
+泛型介绍
+JDK5引入的, 可以在编译阶段约束操作的数据类型, 并进行检查
+public static void main(String[] args) {    ArrayList list = new ArrayList();    list.add(666);    list.add("aaa");    list.add("bbb");    list.add("ccc");    list.add(66.66666);}
+public static void main(String[] args) {    ArrayList<String> list = new ArrayList<>();    list.add(666);    list.add("aaa");    list.add("bbb");    list.add("ccc");    list.add(66.66666);}
+=== Slide 124 ===
+JDK5引入的, 可以在编译阶段约束操作的数据类型, 并进行检查
+泛型的好处 :
+泛型中只能编写引用数据类型
+注意事项
+统一数据类型
+将运行期的错误提升到了编译期
+泛型介绍
+=== Slide 125 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 126 ===
+泛型类
+public class ArrayList<E> {
+public boolean add(E e) {
+}
+}
+使用者到底想添加个啥类型嘛?
+算了, 声明个泛型让他们自己定吧...
+泛型的学习路径
+=== Slide 127 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 128 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 129 ===
+泛型
+方法
+非静态方法
+静态方法
+泛型方法
+=== Slide 130 ===
+泛型
+方法
+非静态方法 : 泛型是根据类的泛型去匹配的
+静态方法 : 需要声明出自己独立的泛型
+public class ArrayList<E> {
+public boolean add(E e) {
+}
+}
+public static<T> void printArray(T[] array){
+}
+泛型方法
+=== Slide 131 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 132 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 133 ===
+泛型
+接口
+public interface List<E> {    }
+public class ArrayList<E> implements List<E> {    }
+类实现接口的时候，如果接口带有泛型，有两种操作方式
+类实现接口的时候，直接确定类型
+保持接口的泛型，等创建对象的时候再确定
+泛型接口
+=== Slide 134 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 135 ===
+泛型类
+泛型
+方法
+泛型
+接口
+泛型
+通配符
+泛型的学习路径
+=== Slide 136 ===
+泛型
+通配符
+?
+? extends E
+? super E
+泛型通配符
+=== Slide 137 ===
+泛型
+通配符
+?  (任意类型)
+? extends E (只能接收 E 或者是 E 的子类)
+? super E (只能接收 E 或者是 E 的父类)
+泛型通配符
+=== Slide 138 ===
+泛型类
+创建对象的时候确定具体类型
+泛型方法
+非静态: 泛型是根据类的泛型去匹配的
+静态: 需要声明出自己独立的泛型
+泛型接口 :
+类实现接口的时候，直接确定类型
+保持接口的泛型，等创建对象的时候再确定
+泛型限定 :
+?  (任意类型)
+? extends E (只能接收 E 或者是 E 的子类)
+? super E (只能接收 E 或者是 E 的父类)
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+2
+--- notesSlide 2 ---
+3
+--- notesSlide 3 ---
+4
+--- notesSlide 4 ---
+5
+--- notesSlide 5 ---
+6
+--- notesSlide 6 ---
+7
+--- notesSlide 7 ---
+8
+--- notesSlide 8 ---
+9
+--- notesSlide 9 ---
+11
+--- notesSlide 10 ---
+12
+--- notesSlide 11 ---
+13
+--- notesSlide 12 ---
+15
+--- notesSlide 13 ---
+16
+--- notesSlide 14 ---
+17
+--- notesSlide 15 ---
+18
+--- notesSlide 16 ---
+19
+--- notesSlide 17 ---
+20
+--- notesSlide 18 ---
+21
+--- notesSlide 19 ---
+22
+--- notesSlide 20 ---
+23
+--- notesSlide 21 ---
+24
+--- notesSlide 22 ---
+25
+--- notesSlide 23 ---
+26
+--- notesSlide 24 ---
+27
+--- notesSlide 25 ---
+28
+--- notesSlide 26 ---
+29
+--- notesSlide 27 ---
+30
+--- notesSlide 28 ---
+31
+--- notesSlide 29 ---
+32
+--- notesSlide 30 ---
+33
+--- notesSlide 31 ---
+34
+--- notesSlide 32 ---
+35
+--- notesSlide 33 ---
+36
+--- notesSlide 34 ---
+37
+--- notesSlide 35 ---
+38
+--- notesSlide 36 ---
+39
+--- notesSlide 37 ---
+40
+--- notesSlide 38 ---
+41
+--- notesSlide 39 ---
+42
+--- notesSlide 40 ---
+43
+--- notesSlide 41 ---
+44
+--- notesSlide 42 ---
+45
+--- notesSlide 43 ---
+46
+--- notesSlide 44 ---
+47
+--- notesSlide 45 ---
+48
+--- notesSlide 46 ---
+49
+--- notesSlide 47 ---
+58
+--- notesSlide 48 ---
+59
+--- notesSlide 49 ---
+61
+--- notesSlide 50 ---
+62
+--- notesSlide 51 ---
+63
+--- notesSlide 52 ---
+64
+--- notesSlide 53 ---
+65
+--- notesSlide 54 ---
+66
+--- notesSlide 55 ---
+68
+--- notesSlide 56 ---
+69
+--- notesSlide 57 ---
+70
+--- notesSlide 58 ---
+71
+--- notesSlide 59 ---
+72
+--- notesSlide 60 ---
+73
+--- notesSlide 61 ---
+74
+--- notesSlide 62 ---
+75
+--- notesSlide 63 ---
+76
+--- notesSlide 64 ---
+77
+--- notesSlide 65 ---
+78
+--- notesSlide 66 ---
+79
+--- notesSlide 67 ---
+80
+--- notesSlide 68 ---
+81
+--- notesSlide 69 ---
+82
+--- notesSlide 70 ---
+83
+--- notesSlide 71 ---
+84
+--- notesSlide 72 ---
+85
+--- notesSlide 73 ---
+86
+--- notesSlide 74 ---
+87
+--- notesSlide 75 ---
+88
+--- notesSlide 76 ---
+89
+--- notesSlide 77 ---
+90
+--- notesSlide 78 ---
+91
+--- notesSlide 79 ---
+92
+--- notesSlide 80 ---
+93
+--- notesSlide 81 ---
+94
+--- notesSlide 82 ---
+95
+--- notesSlide 83 ---
+96
+--- notesSlide 84 ---
+97
+--- notesSlide 85 ---
+98
+--- notesSlide 86 ---
+99
+--- notesSlide 87 ---
+100
+--- notesSlide 88 ---
+101
+--- notesSlide 89 ---
+102
+--- notesSlide 90 ---
+103
+--- notesSlide 91 ---
+104
+--- notesSlide 92 ---
+105
+--- notesSlide 93 ---
+106
+--- notesSlide 94 ---
+107
+--- notesSlide 95 ---
+108
+--- notesSlide 96 ---
+110
+--- notesSlide 97 ---
+111
+--- notesSlide 98 ---
+112
+--- notesSlide 99 ---
+113
+--- notesSlide 100 ---
+114
+--- notesSlide 101 ---
+115
+--- notesSlide 102 ---
+116
+--- notesSlide 103 ---
+117
+--- notesSlide 104 ---
+118
+--- notesSlide 105 ---
+119
+--- notesSlide 106 ---
+120
+--- notesSlide 107 ---
+121
+--- notesSlide 108 ---
+123
+--- notesSlide 109 ---
+124
+--- notesSlide 110 ---
+125
+--- notesSlide 111 ---
+126
+--- notesSlide 112 ---
+127
+--- notesSlide 113 ---
+128
+--- notesSlide 114 ---
+129
+--- notesSlide 115 ---
+130
+--- notesSlide 116 ---
+131
+--- notesSlide 117 ---
+132
+--- notesSlide 118 ---
+133
+--- notesSlide 119 ---
+134
+--- notesSlide 120 ---
+135
+--- notesSlide 121 ---
+136
+--- notesSlide 122 ---
+137

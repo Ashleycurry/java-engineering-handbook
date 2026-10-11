@@ -1,0 +1,404 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/014-Vue3基础.pptx
+
+=== Slide 1 ===
+Web前端开发（AI）
+Vue3
+=== Slide 2 ===
+什么是Vue
+Vue是一款用于构建用户界面的渐进式的JavaScript框架。 （官方：https://cn.vuejs.org/）
+userList: [
+{"id": 1, "name": "谢逊", "image": "1.jpg", "gender": 1, "job": 1},
+{"id": 2, "name": "韦一笑", "image": "2.jpg", "gender": 1, "job": 1}
+]
+基于数据渲染出用户看到的界面
+=== Slide 3 ===
+什么是Vue
+Vue是一款用于构建用户界面的渐进式的JavaScript框架。 （官方：https://cn.vuejs.org/）
+构建工具
+状态管理
+客户端路由
+组件系统
+声明式渲染
+VueRouter
+Pinia
+Vite
+Vuex
+Webpack
+Vue 核心包开发
+局部 模块改造
+Vue 核心包
+Vue插件工程化开发
+整站开发
+Vue核心包
+Vue 是一个框架，也是一个生态。
+=== Slide 4 ===
+什么是Vue
+Vue是一款用于构建用户界面的渐进式的JavaScript框架。 （官方：https://cn.vuejs.org/）
+框架：就是一套完整的项目解决方案，用于快速构建项目 。
+优点：大大提升前端项目的开发效率 。
+缺点：需要理解记忆框架的使用规则 。（参照官网）
+=== Slide 5 ===
+Vue 快速入门
+Vue 常用指令
+Ajax
+=== Slide 6 ===
+Vue 快速入门
+01
+基于数据渲染出用户看到的页面
+数据驱动视图
+=== Slide 7 ===
+Vue快速入门
+准备
+引入Vue模块（官方提供）
+创建Vue程序的应用实例，控制视图的元素
+准备元素(div)，被Vue控制
+数据驱动视图
+准备数据
+通过插值表达式渲染页面
+message: 'Hello Vue'
+01.Vue快速入门.html
+<script type="module">
+import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+</script>
+<div id="app">
+</div>
+createApp({
+});
+.mount("#app");
+data() {
+return {
+message: "Hello Vue"
+}
+}
+<h1>{{message}}</h1>
+=== Slide 8 ===
+Vue的使用步骤 ?
+准备工作
+引入Vue模块
+创建Vue的应用实例
+定义元素(div)，交给Vue控制
+数据驱动视图
+准备数据
+用插值表达式渲染
+=== Slide 9 ===
+Vue 快速入门
+Vue 常用指令
+Ajax
+=== Slide 10 ===
+Vue 常用指令
+02
+=== Slide 11 ===
+常用指令
+指令：HTML标签上带有 v-前缀的特殊属性，不同的指令具有不同的含义，可以实现不同的功能。
+常用指令：
+指令
+作用
+v-for
+列表渲染，遍历容器的元素或者对象的属性
+v-bind
+为HTML标签绑定属性值，如设置 href , css样式等
+v-if/v-else-if/v-else
+条件性的渲染某元素，判定为true时渲染,否则不渲染
+v-show
+根据条件展示某元素，区别在于切换的是display属性的值
+v-model
+在表单元素上创建双向数据绑定
+v-on
+为HTML标签绑定事件
+<p v-xxx="..."> ... </p>
+=== Slide 12 ===
+员工列表数据渲染展示
+=== Slide 13 ===
+v-for
+作用：列表渲染，遍历容器的元素或者对象的属性
+语法：
+参数说明：
+items 为遍历的数组
+item 为遍历出来的元素
+index 为索引/下标，从0开始 ；可以省略，省略index语法： v-for="item in items
+key：
+作用：给元素添加的唯一标识，便于vue进行列表项的正确排序复用，提升渲染性能
+推荐使用id作为key（唯一），不推荐使用index作为key（会变化，不对应）
+遍历的数组，必须在data中定义； 要想让哪个标签循环展示多次，就在哪个标签上使用 v-for 指令。
+注意：
+<tr v-for="(item,index) in items" :key="item.id"> {{item}}</tr>
+=== Slide 14 ===
+员工列表数据渲染展示
+=== Slide 15 ===
+v-for指令
+作用：列表渲染，遍历容器的元素
+语法：<h1 v-for="(item,index) in items" :key="item.id">
+注意：想让哪个标签遍历展示多次，指令就加在哪个标签上
+=== Slide 16 ===
+员工列表数据渲染展示
+=== Slide 17 ===
+v-bind
+作用：动态为HTML标签绑定属性值，如设置href，src，style样式等。
+语法：v-bind:属性名="属性值"
+简化：:属性名="属性值"
+动态的为标签的属性绑定值，不能使用插值表达式，得使用 v-bind 指令。且绑定的数据，必须在data中定义。
+注意：
+<img v-bind:src="item.image" width="30px">
+<img :src="item.image" width="30px">
+=== Slide 18 ===
+v-bind指令
+场景：动态为标签属性绑定值(插值表达式，不能在标签内使用)
+语法：v-bind:属性="变量" / :属性="变量"
+=== Slide 19 ===
+员工列表数据渲染展示
+job:
+1: 班主任
+2: 讲师
+3: 学工主管
+4：教研主管
+5：咨询师
+=== Slide 20 ===
+v-if & v-show
+作用：这两类指令，都是用来控制元素的显示与隐藏的
+v-if
+语法：v-if="表达式"，表达式值为 true，显示；false，隐藏
+原理：基于条件判断，来控制创建或移除元素节点（条件渲染）
+场景：要么显示，要么不显示，不频繁切换的场景
+其它：可以配合 v-else-if / v-else 进行链式调用条件判断
+v-show
+语法：v-show="表达式"，表达式值为 true，显示；false，隐藏
+原理：基于CSS样式display来控制显示与隐藏
+场景：频繁切换显示隐藏的场景
+v-else-if必须出现在v-if之后，可以出现多个； v-else 必须出现在v-if/v-else-if之后 。
+注意：
+<span v-if="gender == 1">男生</span>
+<span v-else-if="gender == 2">女生</span>
+<span v-else>未知</span>
+=== Slide 21 ===
+员工列表数据渲染展示
+job:
+1: 班主任
+2: 讲师
+3: 学工主管
+4：教研主管
+5：咨询师
+=== Slide 22 ===
+v-if 与 v-show 的作用?
+根据条件判断,是否展示某元素
+v-if 与 v-show 的区别?
+v-if: 条件不成立,直接不渲染这个元素 (不频繁切换的场景)
+v-show: 通过css样式,来控制元素的展示与隐藏 (频繁切换的场景)
+=== Slide 23 ===
+员工列表数据渲染，获取用户输入的条件
+搜索栏中当用户点击查询按钮时，需要获取到用户输入的表单数据，并输出出来 。
+采集表单项数据: v-model
+事件绑定: v-on
+=== Slide 24 ===
+v-model
+作用：在表单元素上使用，双向数据绑定。可以方便的 获取 或 设置 表单项数据
+语法：v-model="变量名"
+v-model 中绑定的变量，必须在data中定义。
+注意：
+createApp({
+data() {
+return {
+//定义数据模型，采集员工搜索表单数据
+searchForm: {
+name: '',
+gender: '',
+job: ''
+}
+}
+}).mount('#container')
+<input type="text" id="name" v-model="searchForm.name">
+=== Slide 25 ===
+v-on
+作用：为html标签绑定事件（添加事件监听）
+语法：
+v-on:事件名="方法名"
+简写为  @事件名="…"
+<div id="app">
+<button type="button" v-on:click="handle">点我</button>
+<button type="button" @click="handle">再点我</button>
+</div>
+const app = createApp({
+data() {
+//...
+},
+methods: {
+handle() {
+console.log('试试就试试');
+}
+},
+}).mount("#app");
+methods函数中的this指向Vue实例，可以通过this获取到data中定义的数据。
+注意：
+=== Slide 26 ===
+v-model指令
+作用：表单元素上进行双向数据绑定， 用于获取或设置表单项数据
+注意：v-model="变量", 变量必须在data中声明
+v-on指令
+作用: 事件绑定
+语法: v-on:click="..." / @click="..."
+=== Slide 27 ===
+从服务器端动态获取数据渲染展示列表
+=== Slide 28 ===
+Vue 快速入门
+Vue 常用指令
+Ajax
+=== Slide 29 ===
+Ajax
+入门
+案例
+03
+=== Slide 30 ===
+什么是Ajax
+介绍：Asynchronous JavaScript And XML，    的JavaScript和XML①。
+作用：
+数据交换：通过Ajax可以给服务器发送请求，并获取服务器响应的数据。
+异步交互：可以在不重新加载整个页面的情况下，与服务器交换数据并更新部分网页的技术，如：搜索联想、用户名是否可用的校验等等。
+XML：（英语：Extensible Markup Language）可扩展标记语言，本质是一种数据格式，可以用来存储复杂的数据结构。
+异步
+=== Slide 31 ===
+同步与异步
+服务端
+客户端
+服务端
+客户端
+时间轴
+同步
+异步
+1.正在访问…
+2.请求服务器…
+3.服务器处理中…(3s)
+4. 响应客户端…
+5. 继续访问…
+1.正在访问…
+2.请求服务器…
+3.服务器处理中…(3s)
+4. 响应客户端…
+5. 继续访问…
+2/3. 客户端可以执行其他操作…
+. . . . . . 等待 . . . . .
+=== Slide 32 ===
+介绍：Axios 对原生的Ajax进行了封装，简化书写，快速开发。
+官网：https://www.axios-http.cn/
+步骤：
+引入Axios的js文件（参照官网）
+使用Axios发送请求，并获取响应结果
+Axios
+axios({
+method: 'GET',
+url: 'https://web-server.itheima.net/emps/list'
+}).then((result) => {
+console.log(result.data);
+}).catch((err) => {
+alert(err);
+});
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+成功回调函数
+失败回调函数
+method：请求方式，GET/POST
+url：请求路径
+data：请求数据(POST)
+params：发送请求时携带的url参数 如：...?key=val
+=== Slide 33 ===
+为了方便起见，Axios已经为所有支持的请求方法提供了别名
+格式：axios.请求方式(url [, data [, config]])
+Axios-请求方式别名
+axios.get('https://mock.apifox.cn/m1/3083103-0-default/emps/list').then((result) => {
+console.log(result.data);
+}).catch((err) => {
+console.log(err);
+});
+axios.post('https://mock.apifox.cn/m1/3083103-0-default/emps/update','id=1').then((result) => {
+console.log(result.data);
+}).catch((err) => {
+console.log(err);
+});
+推荐
+=== Slide 34 ===
+Axios发送异步请求
+GET:
+axios.get(url).then((res)=>{…}).catch((err)=>{…})
+POST:
+axios.post(url).then((res)=>{…}).catch((err)=>{…})
+=== Slide 35 ===
+Ajax
+入门
+案例
+03
+=== Slide 36 ===
+从服务器端动态获取数据渲染展示列表
+服务端url地址： https://web-server.itheima.net/emps/list?name=xxx&gender=xxx&job=xxx
+=== Slide 37 ===
+可以通过async、await可以让异步变为同步操作。async就是来声明一个异步方法，await是用来等待异步任务执行。
+async & await
+methods: {
+async search(){
+//根据用户输入的搜索条件，基于axios发送异步请求(https://web-server.itheima.net/emps/list)到服务端...
+let result = await axios.get('https://web-server.itheima.net/emps/list?name=xxx&gender=xxx&job=xxx');
+this.employees = result.data.data;
+}
+}
+可读性强、便于维护
+await关键字只在async函数内有效，await关键字取代then函数，等待获取到请求成功的结果值 。
+注意：
+=== Slide 38 ===
+如何做到在页面加载完毕后自动发起请求，请求服务端？
+Vue生命周期
+=== Slide 39 ===
+Vue生命周期
+生命周期：指一个对象从创建到销毁的整个过程。
+生命周期的八个阶段：每触发一个生命周期事件，会自动执行一个生命周期方法(钩子)。
+=== Slide 40 ===
+Vue生命周期
+=== Slide 41 ===
+生命周期的八个阶段：每触发一个生命周期事件，会自动执行一个生命周期方法(钩子)
+Vue生命周期
+状态
+阶段周期
+beforeCreate
+创建前
+created
+创建后
+beforeMount
+载入前
+mounted
+挂载完成
+beforeUpdate
+数据更新前
+updated
+数据更新后
+beforeUnmount
+组件销毁前
+unmounted
+组件销毁后
+<script type="module">
+import { createApp } from 'https://.../vue.esm-browser.js'
+const app = createApp({
+data() {
+return {
+message: "Hello Vue"
+}
+},     //生命周期-钩子函数 mounted
+mounted() {
+console.log('Vue挂载完毕, 发送请求获取数据 ...');
+}
+}).mount("#app");
+</script>
+=== Slide 42 ===
+Vue生命周期共分为几个阶段 ？
+Vue生命周期典型的应用场景 ？
+共分为八个阶段 。
+在页面加载完毕时，发起异步请求，加载数据，渲染页面。
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+你是一名前端开发工程师，目前页面中的数据是写死的，那这部分写死的员工列表empList的数据，其实是来自于服务端的，现需要从服务端来获取这部分数据。具体的要求如下：
+1. 根据输入的条件进行查询，从服务器端(https://web-server.itheima.net/emps/list?name=xxx&gender=xxx&job=xxx)来获取这些数据，查询时可以传入name，gender，job等查询条件
+2. 点击查询按钮时，根据输入的条件进行查询。
+3. 页面加载的完毕之后，自动加载数据，渲染展示。
+4. 不要修改原有页面的结构和内容，目前页面内容如下：
+27
+--- notesSlide 2 ---
+你是一名前端开发工程师，目前页面中的数据是写死的，那这部分写死的员工列表empList的数据，其实是来自于服务端的，现需要从服务端来获取这部分数据。具体的要求如下：
+1. 根据输入的条件进行查询，从服务器端(https://web-server.itheima.net/emps/list?name=xxx&gender=xxx&job=xxx)来获取这些数据，查询时可以传入name，gender，job等查询条件
+2. 点击查询按钮时，根据输入的条件进行查询。
+3. 页面加载的完毕之后，自动加载数据，渲染展示。
+4. 不要修改原有页面的结构和内容，目前页面内容如下：
+36

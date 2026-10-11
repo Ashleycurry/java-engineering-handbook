@@ -1,0 +1,643 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/015-Maven基础.pptx
+
+=== Slide 1 ===
+Web开发(AI)
+=== Slide 2 ===
+Web开发
+Web前端基础
+Web后端基础
+Web后端实战
+Web前端实战
+Web项目部署
+HTML
+CSS
+JavaScript
+Vue3
+Ajax/Axios
+Maven
+Web基础知识
+MySQL
+JDBC
+Mybatis
+Tlias案例
+Tlias案例
+Linux
+Docker
+=== Slide 3 ===
+Web后端基础
+Maven
+=== Slide 4 ===
+什么是Maven
+Maven是一款用于管理和构建Java项目的工具，是apache旗下的一个开源项目。
+Apache 软件基金会，成立于1999年7月，是目前世界上最大的最受欢迎的开源软件基金会，也是一个专门为支持开源项目而生的非盈利性组织。
+开源项目：https://www.apache.org/index.html#projects-list
+=== Slide 5 ===
+Maven的作用
+项目构建
+标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式
+统一项目结构
+提供标准、统一的项目结构
+依赖管理
+方便快捷的管理项目依赖的资源（jar包）
+=== Slide 6 ===
+Maven的作用
+依赖管理
+方便快捷的管理项目依赖的资源（jar包）
+<dependency>    <groupId>commons-io</groupId>    <artifactId>commons-io</artifactId>    <version>2.11.0</version></dependency>
+=== Slide 7 ===
+Maven的作用
+项目构建
+标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式
+统一项目结构
+提供标准、统一的项目结构
+依赖管理
+方便快捷的管理项目依赖的资源（jar包）
+=== Slide 8 ===
+Maven的作用
+项目构建
+标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式
+编译
+测试
+打包
+发布
+=== Slide 9 ===
+Maven的作用
+项目构建
+标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式
+编译(compile)
+测试(test)
+打包(package)
+发布(deploy)
+=== Slide 10 ===
+Maven的作用
+项目构建
+标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式
+统一项目结构
+提供标准、统一的项目结构
+依赖管理
+方便快捷的管理项目依赖的资源（jar包）
+=== Slide 11 ===
+Maven的作用
+统一项目结构
+提供标准、统一的项目结构
+Eclipse
+MyEclipse
+IntelliJ IDEA
+主程序
+测试程序
+=== Slide 12 ===
+Maven的作用
+项目构建
+标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式
+统一项目结构
+提供标准、统一的项目结构
+依赖管理
+方便快捷的管理项目依赖的资源（jar包）
+=== Slide 13 ===
+是一款管理和构建Java项目的工具。
+=== Slide 14 ===
+Maven核心
+Maven进阶
+=== Slide 15 ===
+Maven核心
+Maven进阶
+Maven概述
+IDEA集成Maven
+依赖管理
+单元测试
+分模块设计
+继承
+聚合
+私服
+=== Slide 16 ===
+Maven概述
+IDEA集成Maven
+依赖管理
+单元测试
+=== Slide 17 ===
+Maven概述
+介绍
+安装
+01
+=== Slide 18 ===
+介绍
+Apache Maven 是一个项目管理和构建工具，它基于项目对象模型(POM)的概念，通过一小段描述信息来管理项目的构建。
+作用：
+方便的依赖管理
+标准的项目构建流程
+统一的项目结构
+官网：http://maven.apache.org/
+=== Slide 19 ===
+介绍
+项目对象模型
+（POM）
+依赖管理模型
+（Dependency）
+构建生命周期/阶段
+Build lifecycle & phases
+插件
+插件
+插件
+插件
+仓库
+插件
+pom.xml
+=== Slide 20 ===
+介绍
+项目对象模型
+（POM）
+依赖管理模型
+（Dependency）
+构建生命周期/阶段
+Build lifecycle & phases
+插件
+插件
+插件
+插件
+本地仓库
+插件
+pom.xml
+远程仓库
+(私服)
+中央仓库
+仓库：用于存储资源，管理各种jar包。
+本地仓库：自己计算机上的一个目录。
+中央仓库：由Maven团队维护的全球唯一的。 仓库地址：https://repo1.maven.org/maven2/
+远程仓库(私服)：一般由公司团队搭建的私有仓库。
+A
+A
+B
+B
+B
+=== Slide 21 ===
+Maven中的仓库用来存储什么的?
+Maven的仓库是用来存储和管理jar包的
+Maven中有哪几类仓库? 查找依赖（jar）的顺序是什么样的？
+本地仓库（1）
+远程仓库（2）
+中央仓库（3）
+=== Slide 22 ===
+Maven概述
+介绍
+安装
+01
+=== Slide 23 ===
+安装
+安装步骤：
+解压 apache-maven-3.9.4-bin.zip 。
+配置本地仓库：修改 conf/settings.xml 中的 <localRepository> 为一个指定目录。
+配置阿里云私服：修改 conf/settings.xml 中的 <mirrors> 标签，为其添加如下子标签：
+配置环境变量: MAVEN_HOME 为maven的解压目录，并将其bin目录加入PATH环境变量。
+<localRepository>D:\develop\apache-maven-3.9.4\mvn_repo</localRepository>
+<mirror>
+<id>alimaven</id>
+<name>aliyun maven</name>
+<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+<mirrorOf>central</mirrorOf>
+</mirror>
+=== Slide 24 ===
+安装
+测试
+mvn -v
+=== Slide 25 ===
+Maven安装
+注意: 配置settings.xml中的本地仓库、私服时，一定要仔细，注意配置信息的位置和标签
+=== Slide 26 ===
+Maven概述
+IDEA集成Maven
+依赖管理
+单元测试
+=== Slide 27 ===
+IDEA集成Maven
+创建Maven项目
+Maven坐标
+导入Maven项目
+02
+=== Slide 28 ===
+配置Maven环境（全局）
+maven安装目录
+maven配置文件
+maven仓库目录
+=== Slide 29 ===
+创建Maven项目
+创建模块，选择New Module，填写模块信息，选择构建工具为Maven，点击create，创建完成
+编写 HelloWorld，并运行
+=== Slide 30 ===
+IDEA集成Maven
+创建Maven项目
+Maven坐标
+导入Maven项目
+02
+=== Slide 31 ===
+Maven坐标
+什么是坐标？
+Maven 中的坐标是资源(jar)的唯一标识，通过该坐标可以唯一定位资源位置。
+使用坐标来定义项目或引入项目中需要的依赖。
+Maven 坐标主要组成
+groupId：定义当前Maven项目隶属组织名称（通常是域名反写，例如：com.itheima）
+artifactId：定义当前Maven项目名称（通常是模块名称，例如 order-service、goods-service）
+version：定义当前项目版本号
+SNAPSHOT: 功能不稳定、尚处于开发中的版本，即快照版本
+RELEASE: 功能趋于稳定、当前更新停止，可以用于发行的版本
+<groupId>com.itheima</groupId><artifactId>maven-project01</artifactId><version>1.0-SNAPSHOT</version>
+pom.xml
+<dependency>    <groupId>cn.hutool</groupId>    <artifactId>hutool-all</artifactId>    <version>5.8.27</version></dependency>
+pom.xml
+=== Slide 32 ===
+Maven的坐标由哪几个部分组成? 各部分的含义是什么?
+groupId：组织名称（通常为域名反写）
+artifactId：模块名称
+version：版本号
+Maven项目的版本分类？
+SNAPSHOT: 功能不稳定、尚处于开发中的版本，即快照版本
+RELEASE: 功能趋于稳定、当前更新停止，可以用于发行的版本
+=== Slide 33 ===
+IDEA集成Maven
+创建Maven项目
+Maven坐标
+导入Maven项目
+02
+=== Slide 34 ===
+导入Maven项目
+方式一：File -> Project Structure -> Modules -> Import Module -> 选择maven项目的pom.xml。
+=== Slide 35 ===
+导入Maven项目
+方式二：Maven面板 -> +（Add Maven Projects） -> 选择maven项目的pom.xml。
+=== Slide 36 ===
+导入Maven项目
+建议将要导入的maven项目复制到你的项目目录下
+建议选择maven项目的pom.xml文件进行导入
+=== Slide 37 ===
+Maven概述
+IDEA集成Maven
+依赖管理
+单元测试
+=== Slide 38 ===
+依赖管理
+依赖配置
+生命周期
+03
+=== Slide 39 ===
+依赖配置
+依赖：指当前项目运行所需要的jar包，一个项目中可以引入多个依赖。
+配置：
+在 pom.xml 中编写 <dependencies> 标签
+在 <dependencies> 标签中 使用 <dependency> 引入坐标
+定义坐标的 groupId，artifactId，version
+点击刷新按钮，引入最新加入的坐标
+<dependency>    <groupId>org.springframework</groupId>    <artifactId>spring-context</artifactId>    <version>6.1.4</version></dependency>
+pom.xml
+如果不知道依赖的坐标信息，可以到 https://mvnrepository.com/ 中搜索。
+注意：
+=== Slide 40 ===
+排除依赖
+<dependency>    <groupId>org.springframework</groupId>    <artifactId>spring-context</artifactId>    <version>6.1.4</version>    <exclusions>        <exclusion>            <groupId>io.micrometer</groupId>            <artifactId>micrometer-observation</artifactId>        </exclusion>    </exclusions></dependency>
+pom.xml
+排除依赖：指主动断开依赖的资源，被排除的资源无需指定版本。
+<exclusion></exclusion>
+maven-project01
+spring-context
+=== Slide 41 ===
+依赖配置的方式 ?
+<dependencies>
+<dependency>...</dependency>
+</dependencies>
+如何排除依赖？
+<exclusions>...</exclusions>
+注意事项
+一旦依赖配置变更了，记得重新加载
+引入的依赖本地仓库不存在，记得联网
+=== Slide 42 ===
+依赖管理
+依赖配置
+生命周期
+03
+=== Slide 43 ===
+生命周期
+Maven的生命周期就是为了对所有的maven项目构建过程进行抽象和统一。
+Maven中有3套相互独立的生命周期：
+clean：清理工作。
+default：核心工作，如：编译、测试、打包、安装、部署等。
+site：生成报告、发布站点等。
+(clean)
+(default)
+(site)
+=== Slide 44 ===
+生命周期
+每套生命周期包含一些阶段（phase），阶段是有顺序的，后面的阶段依赖于前面的阶段。
+(clean)
+validate
+initialize
+generate-sources
+process-sources
+generate-resources
+process-resources
+compile
+process-classes
+generate-test-sources
+process-test-sources
+generate-test-resources
+process-test-resources
+test-compile
+process-test-classes
+test
+prepare-package
+package
+verify
+install
+deploy
+pre-site
+site
+post-site
+site-deploy
+(default)
+(site)
+pre-clean
+clean
+post-clean
+=== Slide 45 ===
+生命周期
+clean：移除上一次构建生成的文件
+compile：编译项目源代码
+test：使用合适的单元测试框架运行测试(junit)
+package：将编译后的文件打包，如：jar、war等
+install：安装项目到本地仓库
+生命周期阶段
+在同一套生命周期中，当运行后面的阶段时，前面的阶段都会运行。
+注意：
+=== Slide 46 ===
+生命周期
+执行指定生命周期的两种方式：
+在idea中，右侧的maven工具栏，选中对应的生命周期，双击执行。
+在命令行中，通过命令执行。
+mvn clean
+mvn compile
+mvn package
+…
+=== Slide 47 ===
+生命周期
+项目对象模型
+（POM）
+依赖管理模型
+（Dependency）
+构建生命周期/阶段
+Build lifecycle & phases
+插件
+插件
+插件
+插件
+仓库
+插件
+pom.xml
+=== Slide 48 ===
+maven生命周期
+clean：清理
+compile：编译
+test：测试
+package：打包
+install：安装
+=== Slide 49 ===
+Maven概述
+IDEA集成Maven
+依赖管理
+单元测试
+=== Slide 50 ===
+测试
+测试：是一种用来促进鉴定软件的正确性、完整性、安全性和质量的过程。
+阶段划分：单元测试、集成测试、系统测试、验收测试。
+单元测试
+集成测试
+系统测试
+验收测试
+介绍：对软件的基本组成单位进行测试，最小测试单位。
+目的：检验软件基本组成单位的正确性。
+测试人员：开发人员
+介绍：将已分别通过测试的单元，按设计要求组合成系统或子系统，再进行的测试。
+目的：检查单元之间的协作是否正确。
+测试人员：开发人员
+介绍：对已经集成好的软件系统进行彻底的测试。
+目的：验证软件系统的正确性、性能是否满足指定的要求。
+测试人员：测试人员
+介绍：交付测试，是针对用户需求、业务流程进行的正式的测试。
+目的：验证软件系统是否满足验收标准。
+测试人员：客户/需求方
+=== Slide 51 ===
+测试
+白盒
+黑盒
+灰盒
+清楚软件内部结构、代码逻辑。
+用于验证代码、逻辑正确性。
+不清楚软件内部结构、代码逻辑。
+用于验证软件的功能、兼容性等方面。
+结合了白盒测试和黑盒测试的特点，既关注软件的内部结构又考虑外部表现（功能）。
+单元测试
+白盒测试
+集成测试
+灰盒测试
+系统测试
+黑盒测试
+验收测试
+黑盒测试
+测试：是一种用来促进鉴定软件的正确性、完整性、安全性和质量的过程。
+阶段划分：单元测试、集成测试、系统测试、验收测试。
+测试方法：白盒测试、黑盒测试 及 灰盒测试。
+=== Slide 52 ===
+测试
+单元测试
+白盒测试
+集成测试
+灰盒测试
+系统测试
+黑盒测试
+验收测试
+黑盒测试
+测试：是一种用来促进鉴定软件的正确性、完整性、安全性和质量的过程。
+阶段划分：单元测试、集成测试、系统测试、验收测试。
+测试方法：白盒测试、黑盒测试 及 灰盒测试。
+=== Slide 53 ===
+单元测试
+快速入门
+断言
+常见注解
+依赖范围
+04
+=== Slide 54 ===
+单元测试
+单元测试：就是针对最小的功能单元(方法)，编写测试代码对其正确性进行测试。
+JUnit：最流行的Java测试框架之一，提供了一些功能，方便程序进行单元测试（第三方公司提供）。
+main方法测试
+JUnit单元测试
+测试代码与源代码未分开，难维护
+一个方法测试失败，影响后面方法
+无法自动化测试，得到测试报告
+测试代码与源代码分开，便于维护
+可根据需要进行自动化测试
+可自动分析测试结果，产出测试报告
+VS
+=== Slide 55 ===
+使用JUnit，对UserService中业务方法进行单元测试。
+在pom.xml中，引入JUnit的依赖。
+在test/java目录下，创建测试类，并编写对应的测试方法，并在方法上声明@Test注解。
+运行单元测试 (测试通过：绿色；测试失败：红色)。
+<dependency>    <groupId>org.junit.jupiter</groupId>    <artifactId>junit-jupiter</artifactId>    <version>5.9.1</version></dependency>
+pom.xml
+@Testpublic void testGetAge(){    Integer age = new UserService().getAge("110002200505091218");    System.out.println(age);}
+UserServiceTest.java
+JUnit单元测试类名命名规范为：XxxxxTest【规范】。JUnit单元测试的方法，必须声明为 public void【规定】。
+注意：
+=== Slide 56 ===
+JUnit单元测试是做什么的?
+测试类中方法的正确性
+JUnit单元测试的优点是什么?
+测试代码与应用程序代码分开,便于维护
+可以自动生成测试报告（通过：绿色，失败：红色）
+一个测试方法执行失败，不会影响其它测试方法
+JUnit单元测试的命名规范?
+类：XxxxTest (规范)
+方法：public void xxxx(){...} (规定)
+=== Slide 57 ===
+单元测试运行不报错（绿色），就代表代码没问题，测试通过？
+并不是
+=== Slide 58 ===
+单元测试
+快速入门
+断言
+常见注解
+依赖范围
+04
+=== Slide 59 ===
+断言
+JUnit提供了一些辅助方法，用来帮我们确定被测试的方法是否按照预期的效果正常工作，这种方式称为断言。
+断言方法
+描述
+Assertions.assertEquals(Object exp, Object act, String msg)
+检查两个值是否相等，不相等就报错。
+Assertions.assertNotEquals(Object unexp, Object act, String msg)
+检查两个值是否不相等，相等就报错。
+Assertions.assertNull(Object act, String msg)
+检查对象是否为null，不为null，就报错。
+Assertions.assertNotNull(Object act, String msg)
+检查对象是否不为null，为null，就报错。
+Assertions.assertTrue(boolean condition, String msg)
+检查条件是否为true，不为true，就报错。
+Assertions.assertFalse(boolean condition, String msg)
+检查条件是否为false，不为false，就报错。
+Assertions. assertThrows(Class expType, Executable exec, String msg)
+检查程序运行抛出的异常，是否符合预期。
+上述方法形参中的最后一个参数 msg，表示错误提示信息，可以不指定（有对应的重载方法）。
+提示：
+=== Slide 60 ===
+在JUnit单元测试中，为什么要使用断言？
+单元测试方法运行不报错，不代表业务方法没问题。
+通过断言可以检测方法运行结果是否和预期一致，从而判断业务方法的正确性
+Assertions.assertXxxx(...)
+=== Slide 61 ===
+单元测试
+快速入门
+断言
+常见注解
+依赖范围
+04
+=== Slide 62 ===
+Junit常见注解
+在JUnit中还提供了一些注解，还增强其功能，常见的注解有以下几个：
+注解
+说明
+备注
+@Test
+测试类中的方法用它修饰才能成为测试方法，才能启动执行
+单元测试
+@ParameterizedTest
+参数化测试的注解 (可以让单个测试运行多次，每次运行时仅参数不同)
+用了该注解，就不需要@Test注解了
+@ValueSource
+参数化测试的参数来源，赋予测试方法参数
+与参数化测试注解配合使用
+@DisplayName
+指定测试类、测试方法显示的名称 （默认为类名、方法名）
+@BeforeEach
+用来修饰一个实例方法，该方法会在每一个测试方法执行之前执行一次。
+初始化资源(准备工作)
+@AfterEach
+用来修饰一个实例方法，该方法会在每一个测试方法执行之后执行一次。
+释放资源(清理工作)
+@BeforeAll
+用来修饰一个静态方法，该方法会在所有测试方法之前只执行一次。
+初始化资源(准备工作)
+@AfterAll
+用来修饰一个静态方法，该方法会在所有测试方法之后只执行一次。
+释放资源(清理工作)
+=== Slide 63 ===
+JUnit单元测试的方法，是否可以声明方法形参？
+可以的，参数化测试
+@ParameterizedTest + @ValueSource
+如何实现在单元测试方法运行之前，做一些初始化操作？
+@BeforeEach、@BeforeAll
+如何实现在单元测试方法运行之后，释放对应的资源？
+@AfterEach、@AfterAll
+=== Slide 64 ===
+基于AI,测试UserService中的getGender方法
+=== Slide 65 ===
+在maven项目中，test目录存放单元测试的代码，是否可以在main目录中编写单元测试呢 ？
+可以，但是不规范
+=== Slide 66 ===
+单元测试
+快速入门
+断言
+常见注解
+依赖范围
+04
+=== Slide 67 ===
+依赖范围
+依赖的jar包，默认情况下，可以在任何地方使用。可以通过 <scope>…</scope> 设置其作用范围。
+作用范围：
+主程序范围有效。（main文件夹范围内）
+测试程序范围有效。（test文件夹范围内）
+是否参与打包运行。（package指令范围内）
+scope值
+主程序
+测试程序
+打包（运行）
+范例
+compile（默认）
+Y
+Y
+Y
+log4j
+test
+-
+Y
+-
+junit
+provided
+Y
+Y
+-
+servlet-api
+runtime
+-
+Y
+Y
+jdbc驱动
+<dependency>    <groupId>org.junit.jupiter</groupId>    <artifactId>junit-jupiter</artifactId>    <version>5.9.3</version>    <scope>test</scope></dependency>
+pom.xml
+=== Slide 68 ===
+Maven的依赖范围如何指定 ?
+<scope>xxx</scope>
+常见的取值有哪些?
+compile (默认)
+test
+provided
+runtime
+=== Slide 69 ===
+Maven常见问题
+05
+=== Slide 70 ===
+Maven常见问题解决方案
+产生原因：由于网络原因，依赖没有下载完整导致的，在maven仓库中生成了xxx.lastUpdated文件，该文件不删除，不会再重新下载。
+解决方案：
+根据maven依赖的坐标，找到仓库中对应的 xxx.lastUpdated 文件，删除，删除之后重新加载项目即可。
+通过命令 (del /s *.lastUpdated) 批量递归删除指定目录下的 xxx.lastUpdated 文件，删除之后重新加载项目即可。
+重新加载依赖，依赖下载了之后，maven面板可能还会报红，此时可以关闭IDEA，重新打开IDEA加载此项目即可。
+注意：

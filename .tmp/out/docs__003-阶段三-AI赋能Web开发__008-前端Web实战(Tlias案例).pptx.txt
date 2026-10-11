@@ -1,0 +1,214 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/008-前端Web实战(Tlias案例).pptx
+
+=== Slide 1 ===
+Web前端实战(案例)
+Tlias智能学习辅助系统
+=== Slide 2 ===
+需求分析
+=== Slide 3 ===
+员工管理-修改
+员工管理-删除
+登录退出
+打包部署
+=== Slide 4 ===
+员工管理-修改员工
+01
+=== Slide 5 ===
+修改员工
+两步操作：
+点击 “编辑” 按钮，执行根据ID查询员工信息，页面回显。
+点击 “保存” 按钮，执行修改操作。
+=== Slide 6 ===
+修改员工-查询回显
+步骤：
+为 "编辑" 按钮绑定事件。
+发送异步请求，根据ID查询员工详细信息，页面回显。
+=== Slide 7 ===
+修改员工-保存数据
+步骤：
+点击保存按钮，执行修改数据操作。
+备注：添加员工 与 修改员工使用的是同一个表单，需要根据id判断到底执行新增还是修改。
+=== Slide 8 ===
+员工管理-修改
+员工管理-删除
+登录退出
+打包部署
+=== Slide 9 ===
+员工管理-删除员工
+02
+=== Slide 10 ===
+删除员工
+在删除员工信息时，有两个操作入口：
+点击每条记录之后的“删除”按钮，删除当前这条记录；
+选择前面的复选框，选中要删除的员工，点击“批量删除”之后，会批量删除员工信息；
+=== Slide 11 ===
+删除员工-删除单个
+步骤：
+为 "删除" 按钮绑定事件，触发事件，调用函数
+发送异步请求到服务端，根据id删除员工信息
+=== Slide 12 ===
+删除员工-批量删除
+步骤：
+为表格的复选框绑定事件，点击复选框之后，获取到目前选中的条件的id（多个id可以封装到数组中）。
+为 "批量删除" 按钮绑定事件, 发送异步请求到服务端，根据id批量删除员工信息。
+=== Slide 13 ===
+员工管理-修改
+员工管理-删除
+登录退出
+打包部署
+=== Slide 14 ===
+登录退出
+登录
+退出
+03
+=== Slide 15 ===
+登录
+步骤：
+为 "登录" 按钮绑定事件，点击登录按钮发送异步请求到服务端，执行登录操作。
+为 "取消" 按钮绑定事件，点击取消按钮，清空登录表单数据。
+=== Slide 16 ===
+问题：目前执行登录操作，登录成功之后，并没有将令牌信息起来，在后续的每次操作中，也就拿不到登录时的令牌信息了。
+方案：需要在登录成功后，将令牌等信息存储起来。 在后续的请求中，再将令牌取出来，携带到服务端。
+登录
+/login/index.vue
+/dept/index.vue
+localStorage是浏览器提供的本地存储机制 (5MB)。
+存储形式为key-value形式，键和值都是字符串类型。
+API方法：
+localStorage.setItem(key, value)
+localStorage.getItem(key)
+localStorage.removeItem(key)
+localStorage.clear()
+localStorage
+=== Slide 17 ===
+在后续的每一次Ajax请求中都获取localStorage中的令牌，在请求头中将令牌携带到服务端。
+携带令牌访问服务端
+(繁琐)
+(axios拦截器)
+部门管理-查询
+部门管理-新增
+部门管理-修改
+部门管理-删除
+员工管理-查询
+. . . . . .
+axios
+axios
+axios
+axios
+axios
+axios
+request拦截器
+response拦截器
+请求
+响应
+前端
+服务端
+取
+繁琐
+//axios的请求 request 拦截器, 在请求头中添加token
+request.interceptors.request.use(
+(config) => { //成功回调
+//在请求头中添加token
+const data = JSON.parse(localStorage.getItem('loginUser'))
+if (data && data.token) {
+config.headers.token = data.token
+}
+return config
+},
+(error) => { //失败回调
+return Promise.reject(error)
+}
+)
+request.js
+localStorage
+=== Slide 18 ===
+目前，即使用户未登录的情况下访问服务器，服务器会响应401状态码，但是前端并不会跳转到登录页面。
+功能完善
+部门管理-查询
+部门管理-新增
+部门管理-修改
+部门管理-删除
+员工管理-查询
+. . . . . .
+axios
+axios
+axios
+axios
+axios
+axios
+request拦截器
+response拦截器
+请求
+响应
+前端
+服务端
+//axios的响应 response 拦截器
+request.interceptors.response.use(
+(response) => { //成功回调
+return response.data
+},
+(error) => { //失败回调
+if(error.response.status == 401){ //跳转登录页面
+ElMessage.error('登录失效, 请重新登录')
+router.push('/login')
+}else {
+ElMessage.error('接口访问异常')
+}
+return Promise.reject(error)
+}
+)
+request.js
+=== Slide 19 ===
+登录退出
+登录
+退出
+03
+=== Slide 20 ===
+展示当前登录用户。
+退出登录。
+退出
+=== Slide 21 ===
+员工管理-修改
+员工管理-删除
+登录退出
+打包部署
+=== Slide 22 ===
+打包部署
+04
+=== Slide 23 ===
+前端开发
+后端开发
+接口文档
+请求
+响应
+阅读-开发
+阅读-开发
+原型+需求
+=== Slide 24 ===
+打包
+=== Slide 25 ===
+介绍：Nginx是一款轻量级的Web服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。其特点是占有内存少，并发能力强，在各大型互联网公司都有非常广泛的使用。
+官网：https://nginx.org/
+部署(Nginx)
+=== Slide 26 ===
+部署(Nginx)
+部署：将打包好的 dist 目录下的文件，复制到nginx安装目录的html目录下。
+启动：双击 nginx.exe 文件即可，Nginx服务器默认占用 80 端口号。
+=== Slide 27 ===
+访问：http://localhost:80
+部署(Nginx)
+Nginx默认占用80端口号，如果80端口号被占用，可以在nginx.conf中修改端口号。(netstat –ano | findStr  80)
+注意：
+=== Slide 28 ===
+前端项目的打包部署
+打包：运行 build ---> dist
+部署：将dist目录下的打包好的文件 ---> nginx/html 目录中
+nginx命令:
+启动：nginx.exe
+重载：nginx.exe -s reload
+停止：nginx.exe -s stop
+=== Slide 29 ===
+班级管理 & 学员管理
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+15

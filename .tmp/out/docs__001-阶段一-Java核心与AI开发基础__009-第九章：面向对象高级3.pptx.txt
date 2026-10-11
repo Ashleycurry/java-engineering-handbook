@@ -1,0 +1,207 @@
+SOURCE: docs/001-阶段一-Java核心与AI开发基础/009-第九章：面向对象高级3.pptx
+
+=== Slide 1 ===
+第九章：面向对象高级
+万物皆对象
+=== Slide 2 ===
+继承
+Object 类
+final 关键字
+抽象类
+接口
+多态
+代码块
+内部类
+Lambda 表达式
+=== Slide 3 ===
+包
+1
+=== Slide 4 ===
+包本质来说就是文件夹,  用来管理类文件的
+建包的语法格式：package 公司域名倒写.技术名称。包名建议全部英文小写，且具备意义
+建包语句必须在第一行，一般IDEA工具会帮助创建
+package com.itheima.pojo;
+public class Student {}
+导包
+相同包下的类可以直接访问，不同包下的类必须导包,才可以使用！导包格式：import 包名.类名;
+如果导入的类在 java.lang 包 (核心包) , 就不需要编写 import 导包代码
+假如一个类中需要用到不同类，而这个两个类的名称是一样的，那么默认只能导入一个类，另一个类要带包名访问
+package 包
+=== Slide 5 ===
+内部类
+2
+=== Slide 6 ===
+内部类就是定义在一个类里面的类
+class Outer {    // 内部类    class Inner {    }}
+格式：外部类名.内部类名 对象名 = new 外部类对象().new 内部类对象();范例：Outer.Inner in = new Outer().new Inner();
+创建对象的格式 :
+class Test {    // 内部类    class Inner {    }}
+Inner i = new Inner();
+内部类
+=== Slide 7 ===
+内部类中，访问外部类成员：直接访问，包括私有
+外部类中，访问内部类成员：需要创建对象访问
+内部类对象访问特点
+=== Slide 8 ===
+请观察如下代码，写出合适的代码对应其注释要求输出的结果。
+class Outer {    int num = 150;    class Inner {        int num = 110;        public void show(){            int num = 78;            System.out.println(??); // 78            System.out.println(??); // 110            System.out.println(??); // 150        }    }}
+=== Slide 9 ===
+请观察如下代码，写出合适的代码对应其注释要求输出的结果。
+class Outer {    int num = 150;    class Inner {        int num = 110;        public void show(){            int num = 78;            System.out.println(num); // 78            System.out.println(this.num); // 110            System.out.println(Outer.this.num); // 150        }    }}
+=== Slide 10 ===
+需求：写一个Javabean类描述汽车。
+属性：汽车的品牌，车龄，颜色，发动机的品牌，使用年限。
+public class Car {
+}
+String carName;
+int carAge;
+int carColor;
+String engineName;
+int engineAge;
+public class Engine {
+}
+为什么学习内部类？
+=== Slide 11 ===
+public class Engine {
+}
+public class Car {
+}
+String carName;
+int carAge;
+int carColor;
+String engineName;
+int engineAge;
+为什么学习内部类？
+需求：写一个Javabean类描述汽车。
+属性：汽车的品牌，车龄，颜色，发动机的品牌，使用年限。
+=== Slide 12 ===
+public class Car {
+}
+String carName;
+int carAge;
+int carColor;
+String engineName;
+int engineAge;
+class Engine {
+}
+封装性更好
+内部类的访问特点
+内部类可以直接访问外部类的成员，包括私有
+外部类要访问内部类的成员，必须创建对象
+为什么学习内部类？
+需求：写一个Javabean类描述汽车。
+属性：汽车的品牌，车龄，颜色，发动机的品牌，使用年限。
+=== Slide 13 ===
+内部类指定义在一个类中的类
+创建对象格式：
+外部类名.内部类名 对象名 = new 外部类对象().new 内部类对象();
+访问特点：
+内访外：直接访问
+外访内：创建对象访问
+优势：
+封装性更好（但是使用起来较为麻烦，建议少用）
+=== Slide 14 ===
+成员内部类
+静态内部类
+局部内部类
+匿名内部类
+内部类的分类
+=== Slide 15 ===
+有 static 修饰的成员内部类
+class Outer {	static class Inner {        }}
+格式：外部类名.内部类名 对象名 = new 外部类名.内部类对象();范例：Outer.Inner in = new Outer.Inner();
+静态内部类创建对象的格式：
+静态内部类
+=== Slide 16 ===
+（鸡肋语法，了解即可）
+局部内部类放在方法、代码块、构造器等执行体中
+局部内部类
+=== Slide 17 ===
+格式：
+概述：匿名内部类本质上是一个特殊的局部内部类（定义在方法内部）
+前提：需要存在一个接口或类
+new 类名 / 接口 () {    }
+匿名内部类可以使代码更加简洁，定义一个类的同时对其进行实例化
+匿名内部类
+=== Slide 18 ===
+Lambda 表达式
+3
+=== Slide 19 ===
+Lambda表达式是 JDK8 开始后的一种新语法形式。
+作用：简化匿名内部类的代码写法。
+什么是函数式接口？
+首先必须是接口、其次接口中有且仅有一个抽象方法的形式
+通常我们会在接口上加上一个@FunctionalInterface注解，标记该接口必须是满足函数式接口。
+Lambda表达式的简化格式
+注意：Lambda 表达式只能简化函数式接口的匿名内部类的写法形式
+(匿名内部类被重写方法的形参列表) -> {   被重写方法的方法体代码。}
+注：-> 是语法形式，无实际含义
+() -> {}
+Lambda 概述
+=== Slide 20 ===
+参数类型可以省略不写。
+如果只有一个参数，参数类型可以省略，同时 () 也可以省略。
+如果Lambda表达式的方法体代码只有一行代码
+可以省略大括号不写,同时要省略分号
+此时，如果这行代码是return语句，必须省略return不写，同时也必须省略 ";" 不写
+Lambda 表达式的省略写法
+=== Slide 21 ===
+使用限制不同
+匿名内部类 : 可以操作类、接口
+Lambda表达式 : 只能操作函数式接口
+实现原理不同
+匿名内部类：编译之后，产生一个单独的.class字节码文件
+Lambda表达式：编译之后，没有一个单独的.class字节码文件
+Lambda 表达式和匿名内部类的区别
+=== Slide 22 ===
+Lambda表达式是jdk8版本开始出现的新语法，可以简化匿名内部类的写法
+格式： () -> {}
+前提：Lambda只能操作函数式接口
+细节：Lambda表达式不会产生单独的.class文件
+省略规则：
+参数类型可以省略不写。
+如果只有一个参数，参数类型可以省略，同时 () 也可以省略。
+如果Lambda表达式的方法体代码只有一行代码
+可以省略大括号不写,同时要省略分号
+此时，如果这行代码是return语句，必须省略return不写
+同时也必须省略 ";" 不写
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+2
+--- notesSlide 2 ---
+4
+--- notesSlide 3 ---
+6
+--- notesSlide 4 ---
+7
+--- notesSlide 5 ---
+8
+--- notesSlide 6 ---
+9
+--- notesSlide 7 ---
+10
+--- notesSlide 8 ---
+11
+--- notesSlide 9 ---
+12
+--- notesSlide 10 ---
+13
+--- notesSlide 11 ---
+接下来，我们来学习内部类，学完内部类之后，要求大家知道内部类的格式和使用。
+在讲解内部类之前，我们先对内部类做一个简单的描述。
+内部类，顾名思义，就是在一个类中定义一个类。
+我们来看一下格式，这就是内部类的定义格式。
+讲解完毕格式和和针对格式给出的范例，以及访问特点后，我们到代码中演示一下。
+14
+--- notesSlide 12 ---
+15
+--- notesSlide 13 ---
+17
+--- notesSlide 14 ---
+19
+--- notesSlide 15 ---
+20
+--- notesSlide 16 ---
+21
+--- notesSlide 17 ---
+22

@@ -1,0 +1,328 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/002-后端Web进阶(Maven高级).pptx
+
+=== Slide 1 ===
+Web后端开发
+Maven高级
+=== Slide 2 ===
+分模块设计与开发
+继承与聚合
+私服
+=== Slide 3 ===
+分模块设计与开发
+01
+=== Slide 4 ===
+为什么?
+分模块设计
+商品模块
+搜索模块
+购物车模块
+订单模块
+......
+不便维护
+难以复用
+=== Slide 5 ===
+为什么?
+分模块设计
+商品模块
+搜索模块
+购物车模块
+订单模块
+分模块设计
+商品模块
+搜索模块
+购物车模块
+订单模块
+通用组件
+将一个大项目拆分成若干个子模块，方便项目的管理维护、扩展，也方便模块间的相互引用，资源共享。
+=== Slide 6 ===
+策略一：按照功能模块拆分，比如：公共组件、商品模块、搜索模块、购物车模块、订单模块等。
+策略二：按层拆分，比如：公共组件、实体类、控制层、业务层、数据访问层。
+策略三：按照功能模块 + 层拆分。
+分模块设计-策略
+mall-common
+mall-goods
+mall-search
+mall-cart
+mall-order
+mall-common
+mall-controller
+mall-service
+mall-mapper
+mall-pojo
+mall-common
+mall-goods-controller
+mall-goods-service
+mall-order-controller
+mall-order-service
+按模块
+按层
+按模块 + 层
+=== Slide 7 ===
+分模块设计-实战
+=== Slide 8 ===
+分模块开发
+创建maven模块 tlias-pojo，存放实体类。
+创建maven模块 tlias-utils，存放相关工具类。
+分模块开发需要先针对模块功能进行设计，再进行编码。不会先将工程开发完毕，然后进行拆分。
+注意：
+=== Slide 9 ===
+什么是分模块设计?
+将项目按照功能模块/层拆分成若干个子模块
+为什么要分模块设计?
+方便项目的管理维护、扩展，也方便模块间的相互引用，资源共享
+注意事项
+分模块设计需要先针对模块功能进行设计，再进行编码。不会先将工程开发完毕，然后进行拆分
+=== Slide 10 ===
+分模块设计与开发
+继承与聚合
+私服
+=== Slide 11 ===
+继承与聚合
+继承
+继承关系
+版本锁定
+聚合
+02
+=== Slide 12 ===
+继承
+<dependency>
+<groupId>org.projectlombok</groupId>  <artifactId>lombok</artifactId>  <version>1.18.34</version></dependency>
+...
+tlias-pojo
+<dependency>
+<groupId>org.projectlombok</groupId>  <artifactId>lombok</artifactId>  <version>1.18.34</version></dependency>
+...
+tlias-utils
+<dependency>
+<groupId>org.projectlombok</groupId>  <artifactId>lombok</artifactId>  <version>1.18.34</version></dependency>
+...
+tlias-web-management
+繁琐
+=== Slide 13 ===
+概念：继承描述的是两个工程间的关系，与java中的继承相似，子工程可以继承父工程中的配置信息，常见于依赖关系的继承。
+作用：简化依赖配置、统一管理依赖
+实现：<parent> … </parent>
+继承
+父工程
+子工程
+tlias-parent
+tlias-pojo
+tlias-utils
+tlias-web-management
+=== Slide 14 ===
+创建maven模块tlias-parent，该工程为父工程，设置打包方式pom(默认jar)。
+在子工程的pom.xml文件中，配置继承关系。
+在父工程中配置各个工程共有的依赖（子工程会自动继承父工程的依赖）。
+继承关系实现
+父工程
+子工程
+tlias-parent
+spring-boot-stater-parent
+tlias-pojo
+tlias-utils
+tlias-web-management
+jar：普通模块打包，springboot项目基本都是jar包（内嵌tomcat运行）
+war：普通web程序打包，需要部署在外部的tomcat服务器中运行
+pom：父工程或聚合工程，该模块不写代码，仅进行依赖管理
+<parent>  <groupId>org.springframework.boot</groupId>  <artifactId>spring-boot-starter-parent</artifactId>  <version>3.2.10</version>  <relativePath/></parent>
+<groupId>com.itheima</groupId><artifactId>tlias-parent</artifactId><version>1.0-SNAPSHOT</version><packaging>pom</packaging>
+<parent>   <groupId>com.itheima</groupId>   <artifactId>tlias-parent</artifactId>   <version>1.0-SNAPSHOT</version>
+<relativePath>../ tlias-parent/pom.xml</relativePath></parent>
+=== Slide 15 ===
+Maven的继承关系实现步骤 ?
+创建父工程，设置打包方式为pom。并继承 spring-boot-starter-parent
+在子工程中配置继承关系
+在父工程中配置各个工程的共有依赖
+①
+②
+在子工程中，配置了继承关系之后，坐标中的groupId是可以省略的，因为会自动继承父工程的 。
+relativePath指定父工程的pom文件的相对位置（如果不指定，将从本地仓库/远程仓库查找）。
+若父子工程都配置了同一个依赖的不同版本，以子工程的为准。
+=== Slide 16 ===
+继承与聚合
+继承
+继承关系
+版本锁定
+聚合
+02
+=== Slide 17 ===
+版本锁定
+在maven中，可以在父工程的pom文件中通过 <dependencyManagement> 来统一管理依赖版本。
+如何统一管理各个依赖的版本呢 ?
+0.9.2
+<dependencyManagement>    <dependencies>        <!--JWT令牌-->        <dependency>            <groupId>io.jsonwebtoken</groupId>            <artifactId>jjwt</artifactId>            <version>0.9.1</version>        </dependency>    </dependencies></dependencyManagement>
+父工程
+<dependencies>    <dependency>        <groupId>io.jsonwebtoken</groupId>        <artifactId>jjwt</artifactId>    </dependency></dependencies>
+子工程
+=== Slide 18 ===
+自定义属性/引用属性
+<properties>    <lombok.version>1.18.30</lombok.version>    <jjwt.version>0.9.1</jjwt.version></properties>
+<dependencies>    <dependency>        <groupId>org.projectlombok</groupId>        <artifactId>lombok</artifactId>        <version>${lombok.version}</version>    </dependency></dependencies>
+<dependencyManagement>    <dependencies>        <!--JWT令牌-->        <dependency>            <groupId>io.jsonwebtoken</groupId>            <artifactId>jjwt</artifactId>            <version>${jjwt.version}</version>        </dependency>    </dependencies></dependencyManagement>
+=== Slide 19 ===
+<dependencyManagement> 与 <dependencies>的区别是什么?
+<dependencies> 是直接依赖,在父工程配置了依赖,子工程会直接继承下来。
+<dependencyManagement> 是统一管理依赖版本,不会直接依赖，还需要在子工程中引入所需依赖(无需指定版本)
+=== Slide 20 ===
+继承与聚合
+继承
+聚合
+02
+=== Slide 21 ===
+聚合
+tlias-pojo
+tlias-utils
+tlias-web-management
+tlias-parent (父工程)
+聚合
+将多个模块组织成一个整体，同时进行项目的构建。
+聚合工程
+一个不具有业务功能的“空”工程（有且仅有一个pom文件）
+作用
+快速构建项目（无需根据依赖关系手动构建，直接在聚合工程上构建即可）
+实现
+maven中可以通过 <modules> 设置当前聚合工程所包含的子模块名称
+(聚合工程)
+<!--聚合--><modules>    <module>../tlias-pojo</module>    <module>../tlias-utils</module>    <module>../tlias-web-management</module></modules>
+父工程（聚合工程）
+聚合工程中所包含的模块，在构建时，会自动根据模块间的依赖关系设置构建顺序，与聚合工程中模块的配置书写位置无关。
+注意：
+=== Slide 22 ===
+maven中如何实现聚合关系 ?
+<modules>...</modules>
+maven中继承与聚合的联系与区别 ?
+联系：继承与聚合都属于设计型模块，打包方式都为pom，常将两种关系制作到同一个pom文件中
+区别：
+继承用于简化依赖配置、统一管理依赖版本，是在子工程中配置继承关系
+聚合用于快速构建项目，是在父工程(聚合工程)中配置聚合的模块
+=== Slide 23 ===
+分模块设计与开发
+继承与聚合
+私服
+=== Slide 24 ===
+私服
+介绍
+资源上传与下载
+03
+=== Slide 25 ===
+介绍
+B
+A
+中央仓库
+X
+tlias-utils
+=== Slide 26 ===
+介绍
+私服
+B
+A
+中央仓库
+=== Slide 27 ===
+私服是一种特殊的远程仓库，它是架设在局域网内的仓库服务，用来代理位于外部的中央仓库，用于解决团队内部的资源共享与资源同步问题。
+介绍
+私服
+B
+A
+中央仓库
+依赖查找顺序：
+本地仓库
+私服
+中央仓库
+私服在企业项目开发中，一个项目/公司，只需要一台即可（无需我们自己搭建，会使用即可）。
+注意：
+=== Slide 28 ===
+Maven私服的作用是什么 ?
+解决团队内部的资源共享与资源同步问题
+有了私服之后依赖查找的顺序是什么样的?
+本地仓库 --> 私服 --> 中央仓库
+=== Slide 29 ===
+私服
+介绍
+资源上传与下载
+03
+=== Slide 30 ===
+资源上传与下载
+私服
+仓库
+(snapshot)
+仓库
+(release)
+仓库
+(central)
+Maven
+本地仓库
+连接私服的地址(url地址)
+访问私服的用户名/密码
+上传资源的位置(url地址)
+tlias-utils
+logback
+项目版本：
+RELEASE（发行版本）：功能趋于稳定、当前更新停止，可以用于发行的版本，存储在私服中的RELEASE仓库中。
+SNAPSHOT（快照版本）：功能不稳定、尚处于开发中的版本，即快照版本，存储在私服的SNAPSHOT仓库中。
+install
+deploy
+=== Slide 31 ===
+资源上传与下载
+1.设置私服的访问用户名/密码（settings.xml中的servers中配置）
+Maven
+本地仓库
+连接私服的地址(url地址)
+访问私服的用户名/密码
+上传资源的位置(url地址)
+tlias-utils
+logback
+<server>    <id>maven-releases</id>    <username>admin</username>    <password>admin</password></server><server>    <id>maven-snapshots</id>    <username>admin</username>    <password>admin</password></server>
+①
+私服
+仓库
+(snapshot)
+仓库
+(release)
+仓库
+(central)
+=== Slide 32 ===
+资源上传与下载
+2.IDEA的maven工程的pom文件中配置上传（发布）地址
+<distributionManagement>    <repository>        <id>maven-releases</id>        <url>http://192.168.150.101:8081/repository/maven-releases/</url>    </repository>    <snapshotRepository>        <id>maven-snapshots</id>        <url>http://192.168.150.101:8081/repository/maven-snapshots/</url>    </snapshotRepository></distributionManagement>
+RELEASE 版本
+SNAPSHOT 版本
+Maven
+本地仓库
+连接私服的地址(url地址)
+访问私服的用户名/密码
+上传资源的位置(url地址)
+tlias-utils
+logback
+②
+私服
+仓库
+(snapshot)
+仓库
+(release)
+仓库
+(central)
+=== Slide 33 ===
+资源上传与下载
+3.设置私服依赖下载的仓库组地址（settings.xml中的mirrors、profiles中配置）
+<mirror>    <id>maven-public</id>    <mirrorOf>*</mirrorOf>    <url>http://192.168.150.101:8081/repository/maven-public/</url></mirror>
+Maven
+本地仓库
+连接私服的地址(url地址)
+访问私服的用户名/密码
+上传资源的位置(url地址)
+tlias-utils
+logback
+③
+私服
+仓库
+(snapshot)
+仓库
+(release)
+仓库
+(central)
+<profile>  <id>allow-snapshots</id>  <activation>     <activeByDefault>true</activeByDefault>  </activation>  <repositories>     <repository>        <id>maven-public</id>        <url>http://192.168.150.101:8081/repository/maven-public/</url>        <releases>          <enabled>true</enabled>        </releases>        <snapshots>          <enabled>true</enabled>        </snapshots>      </repository>  </repositories></profile>
+=== Slide 34 ===
+资源上传与下载
+=== Slide 35 ===
+私服上传资源及下载资源的步骤？
+固定的，参照讲义操作即可。

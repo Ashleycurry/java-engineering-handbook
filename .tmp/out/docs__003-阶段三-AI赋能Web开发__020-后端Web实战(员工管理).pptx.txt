@@ -1,0 +1,622 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/020-后端Web实战(员工管理).pptx
+
+=== Slide 1 ===
+Web后端开发
+Tlias系统 - 员工管理
+=== Slide 2 ===
+需求
+多表关系
+多表查询
+员工列表查询
+=== Slide 3 ===
+多表关系
+多表查询
+员工列表查询
+=== Slide 4 ===
+多表关系
+01
+=== Slide 5 ===
+概述
+项目开发中，在进行数据库表结构设计时，会根据业务需求及业务模块之间的关系，分析并设计表结构。由于业务之间相互关联，所以各个表结构之间也存在着各种联系。
+多表关系分为三种：
+一对多(多对一)
+一对一
+多对多
+=== Slide 6 ===
+多表关系
+一对多（多对一）
+一对一
+多对多
+案例
+01
+=== Slide 7 ===
+一对多
+场景：部门与员工的关系 （一个部门下有多个员工）。
+=== Slide 8 ===
+一对多
+场景：部门与员工的关系 （一个部门下有多个员工）。
+create table dept(  id int unsigned primary key auto_increment comment 'ID',  name varchar(10) not null unique comment '部门名称',  create_time datetime comment '创建时间',  update_time datetime comment '修改时间') comment '部门表' ;
+部门表
+create table emp(  id int unsigned primary key auto_increment comment 'ID,主键',  username varchar(20) not null unique comment '用户名',  password varchar(32) not null comment '密码',  name varchar(10) not null comment '姓名',  gender tinyint unsigned not null comment '性别, 1:男, 2:女',  phone char(11) not null unique comment '手机号',  job tinyint unsigned comment '职位, 1:班主任,2:讲师...',  salary int unsigned comment '薪资',  image varchar(255) comment '头像',  entry_date date comment '入职日期',  create_time datetime comment '创建时间',  update_time datetime comment '修改时间’,
+dept_id int unsigned comment '关联的部门ID’,
+) comment '员工表’;
+员工表
+=== Slide 9 ===
+一对多
+场景：部门与员工的关系 （一个部门下有多个员工）。
+一
+多
+父 表
+子 表
+一对多的关系如何实现?
+在数据库表中多的一方，添加字段，来关联一的一方的主键。
+=== Slide 10 ===
+数据库中如何体现一对多的表关系？
+需要在多的一方添加字段，关联一的一方的主键
+=== Slide 11 ===
+多表问题分析
+现象：部门数据可以直接删除，然而还有部分员工归属于该部门下，此时就出现了数据的不完整、不一致问题 。
+原因：目前上述的两张表，在数据库层面，并未建立关联，所以是无法保证数据的一致性和完整性的 。
+解决方案：外键约束 。
+=== Slide 12 ===
+外键约束
+可以在创建表时 或 表结构创建完成后，为字段添加外键约束。 具体语法如下：
+-- 创建表时指定
+create table 表名(
+字段名 数据类型,
+...
+[constraint] [外键名称] foreign key (外键字段名) references 主表 (字段名)
+);
+创建表时, 添加外键约束
+-- 建完表后，添加外键
+alter table 表名 add constraint 外键名称 foreign key (外键字段名) references 主表(字段名);
+创建表后, 添加外键约束
+=== Slide 13 ===
+外键约束
+物理外键
+逻辑外键
+概念：使用 foreign key 定义外键关联另外一张表。
+缺点：
+影响增、删、改的效率（需要检查外键关系）。
+仅用于单节点数据库，不适用与分布式、集群场景。
+容易引发数据库的死锁问题，消耗性能。
+概念：在业务层逻辑中，解决外键关联。
+通过逻辑外键，就可以很方便的解决上述问题。
+=== Slide 14 ===
+数据库中的外键约束的作用 ?
+多表操作中保证数据的一致性、完整性和正确性
+物理外键与逻辑外键的选择 ?
+逻辑外键（推荐）
+=== Slide 15 ===
+多表关系
+一对多（多对一）
+一对一
+多对多
+案例
+01
+=== Slide 16 ===
+一对一
+案例: 用户 与 身份证信息 的关系
+关系: 一对一关系，多用于单表拆分，将一张表的基础字段放在一张表中，其他字段放在另一张表中，以提升操作效率
+实现: 在任意一方加入外键，关联另外一方的主键，并且设置外键为唯一的(UNIQUE)
+用户基本信息表(tb_user)
+用户身份信息表(tb_user_card)
+=== Slide 17 ===
+数据库中如何体现一对一的表关系？
+一对一，其实是一种特殊的一对多。在任意一方添加外键，关联另外一方的主键
+=== Slide 18 ===
+多表关系
+一对多（多对一）
+一对一
+多对多
+案例
+01
+=== Slide 19 ===
+多对多
+案例: 学生 与 课程的关系
+关系: 一个学生可以选修多门课程，一门课程也可以供多个学生选择
+实现: 建立第三张中间表，中间表至少包含两个外键，分别关联两方主键
+学生表(tb_student)
+课程表(tb_course)
+学生课程关系表(tb_student_course)
+N
+N
+course_id
+student_id
+=== Slide 20 ===
+数据库中如何体现多对多的表关系？
+需要建立一张中间表，中间表中有两个外键字段，分别关联两方的主键
+=== Slide 21 ===
+多表关系
+一对多（多对一）
+一对一
+多对多
+案例
+01
+=== Slide 22 ===
+根据页面原型及需求文档分析并设计表结构
+需求：请根据资料中提供的页面原型，设计 员工模块 涉及到的表结构。
+步骤：
+阅读页面原型及需求文档，分析各个模块涉及到的表结构，及表结构之间的关系。
+根据页面原型及需求文档，分析各个表结构中具体的字段及约束。
+=== Slide 23 ===
+多表关系
+多表查询
+员工列表查询
+=== Slide 24 ===
+多表查询
+02
+=== Slide 25 ===
+多表查询
+多表查询: 指从多张表中查询数据
+笛卡尔积: 指在数学中，两个集合(A集合 和 B集合)的所有组合情况。(在多表查询时，需要消除无效的笛卡尔积)
+X
+Y
+1
+2
+3
+4
+X
+3
+2
+zhang
+li
+wang
+qian
+X
+Y
+3
+2
+X
+3
+X
+3
+X
+3
+Y
+2
+Y
+2
+Y
+2
+1
+2
+3
+4
+zhang
+li
+wang
+qian
+1
+2
+3
+4
+zhang
+li
+wang
+qian
+笛卡尔积
+=== Slide 26 ===
+多表查询
+连接查询
+内连接：相当于查询A、B交集部分数据
+外连接
+左外连接：查询左表所有数据(包括两张表交集部分数据)
+右外连接：查询右表所有数据(包括两张表交集部分数据)
+子查询
+A∩B
+B
+A
+=== Slide 27 ===
+多表查询
+内连接
+外连接
+子查询
+案例
+02
+=== Slide 28 ===
+内连接
+内连接查询的是两张表交集部分的数据。具体语法为：
+-- 1.隐式内连接 (常见)
+select 字段列表 from 表1 , 表2 where 连接条件 ...;
+-- 2.显式内连接
+select 字段列表 from 表1 [inner] join 表2 on 连接条件 ... ;
+-- 1.给表起别名,来简化书写
+select 字段列表 from 表1 [as] 别名1, 表2 [as] 别名2 where 条件 ...;
+给表起别名
+一旦为表指定了别名，就要通过别名来指定字段名，而不能再使用表名了。
+注意：
+A∩B
+B
+A
+=== Slide 29 ===
+多表查询
+内连接
+外连接
+子查询
+案例
+02
+=== Slide 30 ===
+外连接
+外连接分为左外连接和右外连接。具体语法为：
+A∩B
+B
+A
+-- 1.左外连接 (常见)
+select 字段列表 from 表1 left [outer] join 表2 on 连接条件 ...;
+-- 2.右外连接
+select 字段列表 from 表1 right [outer] join 表2 on 连接条件 ...;
+对于外连接，常用的是左外连接，因为右外连接的SQL也可以改造成为左外连接（两张表调换个顺序）。
+提示：
+=== Slide 31 ===
+多表查询
+内连接
+外连接
+子查询
+案例
+02
+=== Slide 32 ===
+子查询
+介绍：SQL语句中嵌套select语句，称为嵌套查询，又称子查询。
+形式：select * from t1 where column1 = (select column1 from t2 …);
+说明：子查询外部的语句可以是insert / update / delete / select 的任何一个，最常见的是 select。
+分类：
+标量子查询：子查询返回的结果为单个值
+列子查询：子查询返回的结果为一列
+行子查询：子查询返回的结果为一行
+表子查询：子查询返回的结果为多行多列
+子查询的要点是，先对需求做拆分，明确具体的步骤，然后再逐步编写SQL语句。
+提示：
+=== Slide 33 ===
+多表查询
+内连接
+外连接
+子查询
+案例
+02
+=== Slide 34 ===
+根据需求，完成多表查询的SQL语句编写
+需求：
+1. 查询 "教研部" 的 "男性" 员工，且在 "2011-05-01" 之后入职的员工信息 。2. 查询工资 低于公司平均工资的 且 性别为男 的员工信息 。3. 查询部门人数超过 10 人的部门名称 。
+4. 查询在 "2010-05-01" 后入职，且薪资高于 10000 的 "教研部" 员工信息，并根据薪资倒序排序。
+5. 查询工资 低于本部门平均工资的员工信息 。
+=== Slide 35 ===
+多表关系
+多表查询
+员工列表查询
+=== Slide 36 ===
+需求
+准备工作
+分页查询
+条件分页查询
+=== Slide 37 ===
+员工列表查询
+准备工作
+分页查询
+条件分页查询
+03
+=== Slide 38 ===
+需求
+需求：查询所有员工信息，并查询出部门名称。 （涉及到的表：emp、dept）
+=== Slide 39 ===
+准备工作
+准备数据库表 emp、emp_expr。
+准备实体类 Emp、EmpExpr。
+准备三层架构的基本代码结构：EmpController、EmpService/EmpServiceImpl、EmpMapper。
+=== Slide 40 ===
+员工列表查询
+准备工作
+分页查询
+条件分页查询
+03
+=== Slide 41 ===
+员工列表查询
+准备工作
+分页查询
+原始方式
+PageHelper分页插件
+条件分页查询
+03
+=== Slide 42 ===
+分页查询-分析
+=== Slide 43 ===
+分页查询-分析
+500条：500/10 = 50
+501条：501/10 = 50.1 --> 51
+select * from emp e left join dept d on e.dept_id = d.id limit ?,?;
+select count(*) from emp e left join dept d on e.dept_id = d.id;
+前 端
+后 端
+前端传递给后端的分页参数？
+页码：page
+每页展示记录数：pageSize
+后端给前端返回的数据？
+数据列表：List rows;
+总记录数：Long total;
+=== Slide 44 ===
+后端给前端返回的数据？
+数据列表：List rows;
+总记录数：Long total;
+分页查询-分析
+500条：500/10 = 50
+501条：501/10 = 50.1 --> 51
+前 端
+后 端
+前端传递给后端的分页参数？
+页码：page
+每页展示记录数：pageSize
+select * from emp e ... limit ?,?;
+select count(*) from emp e ...;
+=== Slide 45 ===
+分页查询前端需要给后端传递的参数 ？
+page：当前页码；pageSize：每页展示记录数
+分页查询后端需要给前端返回的结果 ？
+total：总记录数
+rows：结果列表
+=== Slide 46 ===
+分页查询-原始方式
+=== Slide 47 ===
+分页查询-原始方式
+三层架构中，每一层的职责如下：
+Controller
+接收参数(分页)
+调用Service, 进行分页查询, 获取PageResult
+响应结果
+Service
+调用Mapper接口，查询总记录数
+调用Mapper接口，查询结果列表
+封装PageResult对象, 返回
+Mapper
+SQL:
+1. select count(*) ...
+2. select ... limit ...
+/emps?page=1&pageSize=10
+=== Slide 48 ===
+分页查询-原始方式
+@GetMappingpublic Result page(@RequestParam(defaultValue = "1")Integer page,                   @RequestParam(defaultValue = "10")Integer pageSize) {    log.info("分页请求参数： {}, {}", page, pageSize);    PageResult<Emp> pageResult = empService.page(page, pageSize);    return Result.success(pageResult);}
+EmpController
+public pageResult<Emp> page(Integer page, Integer pageSize) {   //1. 获取总记录数   Long count = empMapper.count();   //2. 获取每一页的数据列表   Integer start = (page - 1) * pageSize;   List<Emp> empList = empMapper.list(start, pageSize);   //3. 封装分页结果    return new pageResult<Emp>(count, empList);}
+EmpServiceImpl
+@Mapperpublic interface EmpMapper {    @Select("select count(*) from emp e left join dept d on e.dept_id = d.id ")    public Long count(); //查询总记录数    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id limit #{start},#{pageSize}")    public List<Emp> list(Integer start , Integer pageSize); //查询结果列表
+}
+EmpMapper
+通过@RequestParam注解的defaultValue属性可以设置参数的默认值
+=== Slide 49 ===
+员工列表查询
+准备工作
+分页查询
+原始方式
+PageHelper分页插件
+条件分页查询
+03
+=== Slide 50 ===
+PageHelper是第三方提供的在Mybatis框架中用来实现分页的插件，用来简化分页操作，提高开发效率。
+PageHelper
+//统计符合条件的总记录数
+@Select("select count(*) from emp e ... ")public Long count();
+//查询结果列表
+@Select("select e.* from emp e ... limit #{start},#{pageSize}")public List<Emp> list(Integer start , Integer pageSize);
+原始方式 - mapper层
+public PageResult<Emp> page(Integer page, Integer pageSize) {    //1. 获取总记录数    Long total = empMapper.count();    //2. 获取数据列表    Integer start = (page - 1) * pageSize;    List<Emp> empList = empMapper.list(start, pageSize);    //3. 封装分页结果    return new PageResult<Emp>(total, empList);}
+原始方式 - service层
+//查询员工数据
+@Select("select e.* from emp e ... ")public List<Emp> list();
+PageHelper - mapper层
+public PageResult<Emp> page(Integer page, Integer pageSize) {    //1. 设置分页参数    PageHelper.startPage(page, pageSize);    //2. 调用Mapper接口方法    List<Emp> empList = empMapper.list();    //3. 解析并封装结果    return new PageResult(...);}
+PageHelper - service层
+=== Slide 51 ===
+使用步骤：
+引入PageHelper的依赖
+定义Mapper接口的查询方法(无需考虑分页)
+在Service方法中实现分页查询
+PageHelper
+<!-- 分页插件PageHelper --><dependency>    <groupId>com.github.pagehelper</groupId>    <artifactId>pagehelper-spring-boot-starter</artifactId>    <version>1.4.7</version></dependency>
+①.pom.xml
+//查询员工数据
+@Select("select e.* from emp e ... ")public List<Emp> list();
+②.Mapper
+public PageResult<Emp> page(Integer page, Integer pageSize) {    //1. 设置分页参数    PageHelper.startPage(page, pageSize);    //2. 调用Mapper接口方法    List<Emp> empList = empMapper.list();    //3. 解析并封装结果    return new PageResult<Emp>(...);}
+③.Service
+=== Slide 52 ===
+PageHelper实现机制
+PageHelper
+//查询员工数据
+@Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc")public List<Emp> list();
+EmpMapper
+count(0)
+limit ?,?
+总记录数
+数据列表
+Page<Emp>
+=== Slide 53 ===
+PageHelper实现机制
+select count(0) from emp e ...
+select ... from emp e ... limit ?,?
+注意事项
+SQL语句结尾不要加分号(;)
+PageHelper只会对紧跟在其后的第一条SQL语句进行分页处理
+=== Slide 54 ===
+员工列表查询
+准备工作
+分页查询
+条件分页查询
+03
+=== Slide 55 ===
+条件分页查询-分析
+已实现
+=== Slide 56 ===
+三层架构中，每一层的职责如下：
+条件分页查询-思路
+Controller
+接收参数(分页、条件)
+调用Service, 进行分页查询, 获取PageResult
+响应结果
+Service
+使用PageHelper完成分页条件查询
+封装PageResult对象, 返回
+Mapper
+SQL:
+select ... from emp e
+... where e.name like ？ and e.gender = ? and e.entry_date between ? and ? order by ...
+/emps?name=张&gender=1&begin=2007-09-01&end=2022-09-01
+=== Slide 57 ===
+条件分页查询
+@GetMappingpublic Result page(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "10")Integer pageSize,                   String name , Integer gender,                   @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,                   @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end){    log.info("分页查询，参数：{}，{}，{}，{}，{}，{}",page,pageSize,name,gender,begin,end);    PageResult<Emp> pageResult = empService.page(page,pageSize,name,gender,begin,end);    return Result.success(pageResult);}
+EmpController
+public List<Emp> list(String name, Integer gender, LocalDate begin, LocalDate end);
+EmpMapper
+日期时间类型参数接收时，需要通过 @DateTimeFormat 注解指定前端传递的日期格式
+begin=2007年09月01日&end=2022年09月01日
+begin=2007/09/01&end=2022/09/01
+<select id="list" resultType="com.itheima.pojo.Emp">    select e.*, d.name as deptName from emp e left join dept d on e.dept_id = d.id    where e.name like concat('%',#{name},'%') and e.gender = #{gender} and e.entry_date between #{begin} and #{end}</select>
+EmpMapper.xml
+=== Slide 58 ===
+@RequestParam注解的使用场景?
+@RequestParam 接收请求参数，参数名不一致时
+@RequestParam 设置请求参数的默认值
+@DateTimeFormat的使用场景?
+用于接收日期时间类型的参数，指定日期格式
+@DateTimeFormat(pattern="yyyy-MM-dd")
+=== Slide 59 ===
+程序优化
+请求参数：/emps?name=张&gender=1&begin=2007-09-01&end=2022-09-01&page=1&pageSize=10
+@GetMappingpublic Result page(@RequestParam(defaultValue = "1")Integer page,
+@RequestParam(defaultValue = "10")Integer pageSize,                   String name , Integer gender,                   @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,                   @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end){    log.info("分页查询，参数：{}，{}，{}，{}，{}，{}",page,pageSize,name,gender,begin,end);}
+EmpController
+=== Slide 60 ===
+请求参数接收优化-方案
+如果controller方法的参数较多，且未来可能继续增加，这会使得方法签名变得复杂难以维护，此时可以考虑将多个请求参数封装为一个对象。
+@Datapublic class EmpQueryParam {    private Integer page = 1; // 当前页码    private Integer pageSize = 10; // 每页记录数    private String name; // 员工姓名    private Integer gender; // 员工性别    @DateTimeFormat(pattern = "yyyy-MM-dd")    private LocalDate begin; // 入职日期    @DateTimeFormat(pattern = "yyyy-MM-dd")    private LocalDate end; // 入职日期}
+EmpQueryParam
+请求参数：/emps?name=张&gender=1&begin=2007-09-01&end=2022-09-01&page=1&pageSize=10
+@GetMappingpublic Result page(EmpQueryParam empQueryParam){    log.info("分页查询，参数：{}",empQueryParam);    PageResult<Emp> pageResult = empService.page(empQueryParam);    return Result.success(pageResult);}
+EmpController
+=== Slide 61 ===
+queryString查询参数接收方式  /emps?name=xxx&gender=xxx
+如果参数较少，controller方法中定义一个一个形参接收
+如果参数较多，controller方法中定义一个对象接收
+=== Slide 62 ===
+<select id="list" resultType="com.itheima.pojo.Emp">    select e.*, d.name as deptName from emp e left join dept d on e.dept_id = d.id    where e.name like concat('%',#{name},'%') and e.gender = #{gender} and e.entry_date between #{begin} and #{end}</select>
+EmpMapper.xml
+程序优化
+select * from emp e ... where e.name like ?
+select * from emp e ... where e.gender = ?
+select * from emp e ... where e.name like ? and e.gender = ?
+select * from emp e ... where e.gender = ? and entry_date between ? and ?
+条件写死了
+查询条件随着用户输入的条件变化而变化
+=== Slide 63 ===
+动态SQL
+随着用户的输入或外部条件的变化而变化的SQL语句，我们称为 动态SQL。
+<if>：判断条件是否成立，如果条件为true，则拼接SQL。
+<where>：根据查询条件，来生成where关键字，并会自动去除条件前面多余的and或or。
+<if test="gender != null">   and e.gender = #{gender}</if>
+<if>
+<select id="list" resultType="com.itheima.pojo.Emp">    SELECT e.*, d.name AS deptName FROM emp e LEFT JOIN dept d ON e.dept_id = d.id    where        <if test="name != null and name != ''">            e.name like concat('%',#{name},'%')        </if>        <if test="gender != null">            and e.gender = #{gender}        </if>        <if test="begin != null and end != null">            and e.entry_date between #{begin} and #{end}        </if>             order by e.update_time desc</select>
+动态查询员工信息
+<where>
+</where>
+=== Slide 64 ===
+Mybatis中动态SQL的使用场景?
+如果SQL语句是不固定的,是随着用户的输入或外部条件的变化而变化的
+MyBatis中动态SQL的<if>及<where>标签的作用?
+<if>标签：条件判断，如果条件成立，则拼接对应的sql片段
+<where>：根据查询条件，来生成where关键字，并会自动去除条件前面多余的and或or。
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+帮我生成一个实体类，用于封装数据库表emp中的数据，emp表的建表语句如下：
+create table emp(    id int unsigned primary key auto_increment comment 'ID,主键',    username varchar(20) not null unique comment '用户名',    password varchar(50) default '123456' comment '密码',    name varchar(10) not null comment '姓名',    gender tinyint unsigned not null comment '性别, 1:男, 2:女',    phone char(11) not null unique comment '手机号',    job tinyint unsigned comment '职位, 1 班主任, 2 讲师 , 3 学工主管, 4 教研主管, 5 咨询师',    salary int unsigned comment '薪资',    image varchar(300) comment '头像',    entry_date date comment '入职日期',    dept_id int unsigned comment '部门ID',    create_time datetime comment '创建时间',    update_time datetime comment '修改时间') comment '员工表';
+39
+--- notesSlide 2 ---
+你是一名java开发工程师，帮我基于SpringBoot+Mybatis的实现分页查询的接口（EmpController、EmpService、EmpServiceImpl、EmpMapper），具体要求如下：
+1. 请求方式get，请求路径为 /emps
+2. 前端传递的请求参数有，页码 page，每页记录数 pageSize。
+3. 响应结果为json格式，Controller层统一响应Result即可。json格式为：
+{
+"code": 1,
+"msg": "success",
+"data": {
+"total": 2,
+"rows": [
+{
+"id": 1,
+"username": "jinyong",
+"password": "123456",
+"name": "金庸",
+"gender": 1,
+"image": "https://web-framework.oss-cn-hangzhou.aliyuncs.com/2022-09-02-00-27-53B.jpg",
+"job": 2,
+"salary": 8000,
+"entryDate": "2015-01-01",
+"deptId": 2,
+"deptName": "教研部",
+"createTime": "2022-09-01T23:06:30",
+"updateTime": "2022-09-02T00:29:04"
+}
+]
+}
+}
+4. 要查询的表结构是员工表emp
+46
+--- notesSlide 3 ---
+你是一名java开发工程师，帮我基于SpringBoot+Mybatis的实现分页查询的接口（EmpController、EmpService、EmpServiceImpl、EmpMapper），具体要求如下：
+1. 请求方式get，请求路径为 /emps
+2. 前端传递的请求参数有，页码 page，每页记录数 pageSize。
+3. 响应结果为json格式，Controller层统一响应Result即可。json格式为：
+{
+"code": 1,
+"msg": "success",
+"data": {
+"total": 2,
+"rows": [
+{
+"id": 1,
+"username": "jinyong",
+"password": "123456",
+"name": "金庸",
+"gender": 1,
+"image": "https://web-framework.oss-cn-hangzhou.aliyuncs.com/2022-09-02-00-27-53B.jpg",
+"job": 2,
+"salary": 8000,
+"entryDate": "2015-01-01",
+"deptId": 2,
+"deptName": "教研部",
+"createTime": "2022-09-01T23:06:30",
+"updateTime": "2022-09-02T00:29:04"
+}
+]
+}
+}
+4. 要查询的表结构是员工表emp
+47
+--- notesSlide 4 ---
+你是一名java开发工程师，帮我基于SpringBoot+Mybatis的实现分页查询的接口（EmpController、EmpService、EmpServiceImpl、EmpMapper），具体要求如下：
+1. 请求方式get，请求路径为 /emps
+2. 前端传递的请求参数有，页码 page，每页记录数 pageSize。
+3. 响应结果为json格式，Controller层统一响应Result即可。json格式为：
+{
+"code": 1,
+"msg": "success",
+"data": {
+"total": 2,
+"rows": [
+{
+"id": 1,
+"username": "jinyong",
+"password": "123456",
+"name": "金庸",
+"gender": 1,
+"image": "https://web-framework.oss-cn-hangzhou.aliyuncs.com/2022-09-02-00-27-53B.jpg",
+"job": 2,
+"salary": 8000,
+"entryDate": "2015-01-01",
+"deptId": 2,
+"deptName": "教研部",
+"createTime": "2022-09-01T23:06:30",
+"updateTime": "2022-09-02T00:29:04"
+}
+]
+}
+}
+4. 要查询的表结构是员工表emp
+48

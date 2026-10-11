@@ -1,0 +1,70 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/004-后端Web开发总结.pptx
+
+=== Slide 1 ===
+Web后端开发
+总结
+=== Slide 2 ===
+Web后端开发
+Service
+Controller
+Dao
+MySQL
+=== Slide 3 ===
+Web后端开发
+Service
+Controller
+Dao
+MySQL
+过滤器
+拦截器
+IOC
+DI
+AOP
+事务管理
+全局异常处理
+Mybatis
+阿里云OSS
+JWT
+Cookie、Session
+=== Slide 4 ===
+Web后端开发
+IOC
+DI
+AOP
+事务管理
+全局异常处理
+拦截器
+Mybatis
+SpringBoot
+阿里云OSS
+JWT
+Cookie、Session
+过滤器
+JavaWeb
+解决方案
+Spring framework
+Mybatis
+web
+=== Slide 5 ===
+Web后端开发
+IOC
+DI
+AOP
+事务管理
+全局异常处理
+拦截器
+Mybatis
+SpringBoot
+SpringMVC
+Mybatis
+JWT
+阿里云OSS
+Cookie、Session
+过滤器
+JavaWeb
+解决方案
+响应数据
+接收请求
+Spring framework
+=== Slide 6 ===
+Web前端实战

@@ -1,0 +1,992 @@
+SOURCE: docs/001-阶段一-Java核心与AI开发基础/011-第十一章：集合基础.pptx
+
+=== Slide 1 ===
+第十一章：集合基础
+=== Slide 2 ===
+集合是一种容器，用来装数据的，类似于数组。
+数组定义完成并启动后，长度就固定了。
+0
+1
+2
+集合大小可变，开发中用的更多。
+什么是集合？
+有数组，为啥还学习集合？
+=== Slide 3 ===
+数组
+集合介绍
+=== Slide 4 ===
+ArrayList
+LinkedList
+Vector
+HashSet
+Collection
+Map
+TreeSet
+LinkedHashSet
+HashMap
+TreeMap
+LinedHashMap
+集合介绍
+=== Slide 5 ===
+ArrayList
+集合介绍
+=== Slide 6 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素1
+元素4
+ArrayList 长度可变原理
+=== Slide 7 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+ArrayList 长度可变原理
+=== Slide 8 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+元素11
+喂！！！
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+ArrayList 长度可变原理
+=== Slide 9 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+元素11
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+4. 将新元素添加到新数组
+ArrayList 长度可变原理
+=== Slide 10 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+4. 将新元素添加到新数组
+元素11
+ArrayList 长度可变原理
+=== Slide 11 ===
+1. 当创建 ArrayList 集合容器的时候, 底层会存在一个长度为10个大小的空数组
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+2. 扩容原数组 1.5 倍大小的新数组
+3. 将原数组数据，拷贝到新数组中
+元素3
+元素2
+元素7
+元素8
+元素9
+元素6
+元素10
+元素5
+元素1
+元素4
+4. 将新元素添加到新数组
+元素11
+ArrayList 长度可变原理
+=== Slide 12 ===
+数组: 存储的元素个数固定不变
+集合: 存储的元素个数经常发生改变
+集合和数组的使用选择
+=== Slide 13 ===
+集合介绍
+创建集合
+集合常用成员方法
+集合练习
+=== Slide 14 ===
+创建集合
+2
+=== Slide 15 ===
+创建集合
+方案1:
+方案2:
+ArrayList list = new ArrayList();list.add(1);list.add(12.3);list.add('a');list.add("abc");list.add(false);
+ArrayList<String> list = new ArrayList<>();list.add(1);list.add(12.3);list.add('a');list.add("abc");list.add(false);
+建议使用方案2，创建集合的时候加入泛型
+可以使数据严谨和规范
+=== Slide 16 ===
+集合在创建的时候如果不加泛型 <> 添加数据的时候可以是任意类型
+建议创建的时候加入泛型，保证数据的严谨和规范
+JDK7版本开始，右侧 <> 中可以省略类型
+=== Slide 17 ===
+集合介绍
+创建集合
+集合常用成员方法
+集合练习
+=== Slide 18 ===
+集合常用成员方法
+3
+=== Slide 19 ===
+方法名
+说明
+public boolean add(E e)
+将指定的元素添加到此集合的末尾
+public void add(int index,E element)
+在此集合中的指定位置插入指定的元素
+public E get(int index)
+返回指定索引处的元素
+public int size()
+返回集合中的元素的个数
+public E remove(int index)
+删除指定索引处的元素，返回被删除的元素
+public boolean remove(Object o)
+删除指定的元素，返回删除是否成功
+public E set(int index,E element)
+修改指定索引处的元素，返回被修改的元素
+ArrayList 集合常用成员方法
+=== Slide 20 ===
+集合介绍
+创建集合
+集合常用成员方法
+集合练习
+=== Slide 21 ===
+集合练习
+4
+=== Slide 22 ===
+集合存储字符串并遍历
+需求：创建一个存储字符串的集合，内部存储3个字符串元素，使用程序实现在控制台遍历该集合
+=== Slide 23 ===
+集合存储学生对象并遍历
+需求：创建一个存储学生对象的集合，存储3个学生对象，使用程序实现在控制台遍历该集合
+=== Slide 24 ===
+集合存储学生对象并遍历
+需求：创建一个存储学生对象的集合，存储3个学生对象，使用程序实现在控制台遍历该集合
+学生的姓名和年龄来自于键盘录入
+=== Slide 25 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+001
+=== Slide 26 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+001
+=== Slide 27 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+001
+=== Slide 28 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+001
+=== Slide 29 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+001
+=== Slide 30 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+001
+=== Slide 31 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+int age = 23;
+001
+=== Slide 32 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+int age = 23;
+001
+=== Slide 33 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+int age = 23;
+Student stu = new Student(...);
+001
+new Student();
+00A
+张三
+23
+=== Slide 34 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+int age = 23;
+Student stu = new Student(...);
+001
+new Student();
+00A
+张三
+23
+00A
+=== Slide 35 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+int age = 23;
+Student stu = new Student(...);
+001
+new Student();
+00A
+张三
+23
+00A
+=== Slide 36 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+方法：addStudent()
+ArrayList<Student> list
+String name = "张三";
+int age = 23;
+Student stu = new Student(...);
+list.add(stu);
+001
+new Student();
+00A
+张三
+23
+00A
+00A
+=== Slide 37 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+001
+=== Slide 38 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+001
+=== Slide 39 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+001
+=== Slide 40 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+001
+=== Slide 41 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+001
+=== Slide 42 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+Student stu = new Student(...);
+001
+new Student();
+00B
+李四
+24
+=== Slide 43 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+Student stu = new Student(...);
+001
+new Student();
+00B
+李四
+24
+00B
+=== Slide 44 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+Student stu = new Student(...);
+001
+new Student();
+00B
+李四
+24
+00B
+=== Slide 45 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+Student stu = new Student(...);
+list.add(stu);
+001
+new Student();
+00B
+李四
+24
+00B
+=== Slide 46 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+方法：addStudent()
+ArrayList<Student> list
+String name = "李四";
+int age = 24;
+Student stu = new Student(...);
+list.add(stu);
+001
+new Student();
+00B
+李四
+24
+00B
+00B
+=== Slide 47 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+001
+=== Slide 48 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+001
+=== Slide 49 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+001
+=== Slide 50 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+001
+=== Slide 51 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+001
+=== Slide 52 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+001
+=== Slide 53 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+Student stu = new Student(...);
+001
+new Student();
+00C
+王五
+25
+=== Slide 54 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+Student stu = new Student(...);
+001
+new Student();
+00C
+王五
+25
+00C
+=== Slide 55 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+Student stu = new Student(...);
+001
+new Student();
+00C
+王五
+25
+00C
+=== Slide 56 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+Student stu = new Student(...);
+list.add(stu);
+001
+new Student();
+00C
+王五
+25
+00C
+=== Slide 57 ===
+集合存储对象内存图
+public class Test {    public static void main(String[] args) {        ArrayList<Student> list = new ArrayList<>();        addStudent(list);        addStudent(list);        addStudent(list);    }    private static void addStudent(ArrayList<Student> list) {        Scanner scanner = new Scanner(System.in);        System.out.println("请输入姓名：");        String name = scanner.next();        System.out.println("请输入年龄：");        int age = scanner.nextInt();        Student stu = new Student(name, age);        list.add(stu);    }}
+堆内存
+栈内存
+方法：main()
+ArrayList<Student> list
+new ArrayList<>();
+001
+001
+new Student();
+00A
+张三
+23
+00A
+new Student();
+00B
+李四
+24
+00B
+方法：addStudent()
+ArrayList<Student> list
+String name = "王五";
+int age = 25;
+Student stu = new Student(...);
+list.add(stu);
+001
+new Student();
+00C
+王五
+25
+00C
+00C
+=== Slide 58 ===
+集合删除元素
+需求：创建一个存储String的集合，内部存储（test，张三，李四，test，test）字符串
+删除所有的test字符串，删除后，将集合剩余元素打印在控制台
+=== Slide 59 ===
+集合元素筛选
+需求：定义一个方法，方法接收一个集合对象（泛型为Student）
+方法内部将年龄低于18的学生对象找出
+并存入新集合对象，方法返回新集合
+=== Slide 60 ===
+商品管理系统
+=== SPEAKER NOTES ===
+--- notesSlide 1 ---
+4
+--- notesSlide 2 ---
+5
+--- notesSlide 3 ---
+6
+--- notesSlide 4 ---
+7
+--- notesSlide 5 ---
+8
+--- notesSlide 6 ---
+9
+--- notesSlide 7 ---
+10
+--- notesSlide 8 ---
+11
+--- notesSlide 9 ---
+12
+--- notesSlide 10 ---
+13
+--- notesSlide 11 ---
+15
+--- notesSlide 12 ---
+16
+--- notesSlide 13 ---
+17
+--- notesSlide 14 ---
+19
+--- notesSlide 15 ---
+20

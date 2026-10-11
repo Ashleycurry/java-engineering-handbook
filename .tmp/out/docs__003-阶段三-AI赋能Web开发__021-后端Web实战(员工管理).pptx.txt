@@ -1,0 +1,417 @@
+SOURCE: docs/003-阶段三-AI赋能Web开发/021-后端Web实战(员工管理).pptx
+
+=== Slide 1 ===
+Web后端开发
+Tlias系统 - 员工管理
+=== Slide 2 ===
+需求
+新增员工
+事务管理
+文件上传
+=== Slide 3 ===
+新增员工
+事务管理
+文件上传
+=== Slide 4 ===
+新增员工
+01
+=== Slide 5 ===
+需求
+员工基本信息（表：emp）
+员工工作经历信息（表：emp_expr）
+=== Slide 6 ===
+新增员工-思路
+Controller
+接收请求参数(员工信息)
+调用Service方法
+响应结果
+Service
+保存员工基本信息
+批量保存员工的工作经历信息
+Mapper
+SQL:
+insert into emp(...) values (...);
+insert into emp_expr(...) values(...),(...);
+员工基本信息（表：emp）
+员工工作经历信息（表：emp_expr）
+保存员工的基本信息
+批量保存员工的工作经历信息
+=== Slide 7 ===
+新增员工-保存员工基本信息
+@PostMappingpublic Result save(@RequestBody Emp emp){    log.info("请求参数emp: {}", emp);    empService.save(emp);    return Result.success();}
+EmpController
+public void save(Emp emp) {    //1.补全基础属性    emp.setCreateTime(LocalDateTime.now());    emp.setUpdateTime(LocalDateTime.now());    //2.保存员工基本信息    empMapper.insert(emp);}
+EmpServiceImpl
+@Insert("insert into emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time) values (#{username},#{name},#{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")void insert(Emp emp);
+EmpMapper
+=== Slide 8 ===
+新增员工-批量保存工作经历
+insert into emp_expr(...) values (?,?,?,?,?)
+insert into emp_expr(...) values (?,?,?,?,?),(?,?,?,?,?)
+insert into emp_expr(...) values (?,?,?,?,?),(?,?,?,?,?),(?,?,?,?,?)
+List<EmpExpr>
+动态SQL：<foreach>
+=== Slide 9 ===
+新增员工-批量保存工作经历
+insert into emp_expr(...) values (?,?,?,?,?),(?,?,?,?,?),(?,?,?,?,?)
+List<EmpExpr>
+动态SQL：<foreach>
+public void insertBatch(List<EmpExpr> exprList);
+EmpExprMapper.java
+<insert id="insertBatch">    insert into emp_expr (emp_id, begin, end, company, job) values    <foreach collection="exprList" item="expr" separator=",">        (#{expr.empId}, #{expr.begin}, #{expr.end}, #{expr.company}, #{expr.job})    </foreach></insert>
+EmpExprMapper.xml
+<foreach>属性说明：
+collection：集合名称
+item：集合遍历出来的元素/项
+separator：每一次遍历使用的分隔符
+open：遍历开始前拼接的片段
+close：遍历结束后拼接的片段
+=== Slide 10 ===
+在插入数据之后，如何获取到主键值 ？
+@Options(useGeneratedKeys = true, keyProperty = "id")
+2. <foreach> 动态SQL标签的作用? 其中属性的含义?
+作用：遍历集合/数组
+属性：
+collection：集合名称
+item：集合遍历出来的元素/项
+separator：每一次遍历使用的分隔符(可选)
+open：遍历开始前拼接的片段(可选)
+close：遍历结束后拼接的片段(可选)
+=== Slide 11 ===
+保存员工的基本信息成功了，而保存工作经历失败了，是否OK？
+不可以 ;
+因为这属于一个业务操作，如果保存员工信息成功了，保存工作经历信息失败了，就会造成数据库数据的不完整、不一致。
+emp
+emp_expr
+事务管理
+=== Slide 12 ===
+新增员工
+事务管理
+文件上传
+=== Slide 13 ===
+介绍&操作
+Spring事务管理
+四大特性
+事务管理
+02
+=== Slide 14 ===
+概念：事务 是一组操作的集合，它是一个不可分割的工作单位。事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作 要么同时成功，要么同时失败。
+介绍
+-- 1. 保存员工基本信息insert into emp values (39, 'Tom', '123456', '汤姆', 1, '13300001111', 1, 4000, '1.jpg', '2023-11-01', 1, now(), now());-- 2. 保存员工的工作经历信息insert into emp_expr(emp_id, begin, end, company, job) values (39,'2019-01-01', '2020-01-01', '百度', '开发'),                                                              (39,'2020-01-10', '2022-02-01', '阿里', '架构');
+添加员工操作
+默认MySQL的事务是自动提交的，也就是说，当执行一条DML语句，MySQL会立即隐式的提交事务。
+注意：
+=== Slide 15 ===
+事务控制主要三步操作：开启事务、提交事务/回滚事务。
+操作
+-- 开启事务
+start transaction; / begin;
+-- 1. 保存员工基本信息insert into emp values (39, 'Tom', '123456', '汤姆', 1, '13300001111', 1, 4000, '1.jpg', '2023-11-01', 1, now(), now());-- 2. 保存员工的工作经历信息insert into emp_expr(emp_id, begin, end, company, job) values (39,'2019-01-01', '2020-01-01', '百度', '开发'),                                                              (39,'2020-01-10', '2022-02-01', '阿里', '架构');
+-- 提交事务(全部成功) / 回滚事务(有一个失败)
+commit; / rollback;
+添加员工操作
+=== Slide 16 ===
+什么是事务 ?
+事务是一组操作的集合，是一个不可分割的工作单位。这组操作要么全部成功，要么全部失败。
+如何控制事务 ?
+开启事务：start transaction/begin;
+提交事务：commit; (全部成功)
+回滚事务：rollback; (只要有一项失败)
+场景 ?
+银行转账;
+下单扣减库存;
+=== Slide 17 ===
+新增员工-事务控制
+@Autowiredprivate EmpMapper empMapper;@Autowiredprivate EmpExprMapper empExprMapper;
+@Override
+public void save(Emp emp) {    //1.保存员工基本信息    emp.setCreateTime(LocalDateTime.now());    emp.setUpdateTime(LocalDateTime.now());    empMapper.insert(emp);
+int i = 1/0;
+//2. 保存员工的工作经历信息 - 批量    Integer empId = emp.getId();    List<EmpExpr> exprList = emp.getExprList();    if(!CollectionUtils.isEmpty(exprList)){        exprList.forEach(empExpr -> empExpr.setEmpId(empId));        empExprMapper.insertBatch(exprList);    }}
+添加员工操作
+保存员工信息成功了，保存工作经历信息失败了，就会造成数据库数据的不完整、不一致。
+=== Slide 18 ===
+@Autowiredprivate EmpMapper empMapper;@Autowiredprivate EmpExprMapper empExprMapper;
+@Override
+public void save(Emp emp) {    //1.保存员工基本信息    emp.setCreateTime(LocalDateTime.now());    emp.setUpdateTime(LocalDateTime.now());    empMapper.insert(emp);
+int i = 1/0;
+//2. 保存员工的工作经历信息 - 批量    Integer empId = emp.getId();    List<EmpExpr> exprList = emp.getExprList();    if(!CollectionUtils.isEmpty(exprList)){        exprList.forEach(empExpr -> empExpr.setEmpId(empId));        empExprMapper.insertBatch(exprList);    }}
+添加员工操作
+新增员工-事务控制
+事务
+开启事务
+提交/回滚事务
+=== Slide 19 ===
+新增员工-事务控制
+@Autowiredprivate EmpMapper empMapper;@Autowiredprivate EmpExprMapper empExprMapper;
+@Override
+public void save(Emp emp) {    //1.保存员工基本信息    emp.setCreateTime(LocalDateTime.now());    emp.setUpdateTime(LocalDateTime.now());    empMapper.insert(emp);
+int i = 1/0;
+//2. 保存员工的工作经历信息 - 批量    Integer empId = emp.getId();    List<EmpExpr> exprList = emp.getExprList();    if(!CollectionUtils.isEmpty(exprList)){        exprList.forEach(empExpr -> empExpr.setEmpId(empId));        empExprMapper.insertBatch(exprList);    }}
+添加员工操作
+事务
+开启事务
+提交/回滚事务
+Spring事务管理
+Spring事务管理
+=== Slide 20 ===
+介绍&操作
+Spring事务管理
+四大特性
+事务管理
+02
+=== Slide 21 ===
+注解：@Transactional
+作用：将当前方法交给spring进行事务管理，方法执行前，开启事务；成功执行完毕，提交事务；出现异常，回滚事务
+位置：业务（service）层的方法上、类上、接口上
+Spring事务管理-控制事务
+方法
+类
+接口
+推荐
+# 配置日志信息,查看spring事务管理的底层日志logging:  level:    org.springframework.jdbc.support.JdbcTransactionManager: debug
+application.yml
+=== Slide 22 ===
+Spring事务管理的注解@Transactional的作用是什么，可以加在什么位置？
+@Transactional：会在方法运行之前，开启事务，运行完毕后，根据运行的结果，来提交或回滚事务。
+位置：方法上、类上、接口上
+=== Slide 23 ===
+rollbackFor属性用于控制出现何种异常类型，回滚事务。(默认情况下，只有出现RuntimeException才会回滚)
+事务进阶-rollbackFor
+@Transactional(rollbackFor = {Exception.class})@Overridepublic void save(Emp emp) {    //1.保存员工基本信息    emp.setCreateTime(LocalDateTime.now());    emp.setUpdateTime(LocalDateTime.now());    empMapper.insert(emp);
+//2. 保存员工的工作经历信息
+//... 省略
+}
+EmpServiceImpl
+=== Slide 24 ===
+事务传播行为：指的就是当一个事务方法被另一个事务方法调用时，这个事务方法应该如何进行事务控制。
+事务进阶-propagation
+加入
+新建
+属性值
+含义
+REQUIRED
+【默认值】需要事务，有则加入，无则创建新事务
+REQUIRES_NEW
+需要新事务，无论有无，总是创建新事务
+SUPPORTS
+支持事务，有则加入，无则在无事务状态中运行
+NOT_SUPPORTED
+不支持事务，在无事务状态下运行,如果当前存在已有事务,则挂起当前事务
+MANDATORY
+必须有事务，否则抛异常
+NEVER
+必须没事务，否则抛异常
+. . .
+=== Slide 25 ===
+新增员工信息，记录日志
+需求：在新增员工信息时，无论是成功还是失败，都要记录操作日志。
+步骤：
+①. 准备日志表 emp_log、实体类EmpLog、Mapper接口EmpLogMapper
+②. 在新增员工时记录日志
+=== Slide 26 ===
+事务的传播行为控制的是什么 ?
+一个事务方法,调用另外一个事务方法时,事务应该如何控制(加入?新建?...)
+常见的传播行为及应用场景 ？
+REQUIRED：大部分场景
+REQUIRES_NEW：希望两个方法在独立的事务中运行，互不影响
+=== Slide 27 ===
+介绍&操作
+Spring事务管理
+四大特性
+事务管理
+02
+=== Slide 28 ===
+四大特性
+原子性
+Atomicity
+一致性
+Consistency
+隔离性
+Isolation
+持久性
+Durability
+事务是不可分割的最小单元，要么全部成功，要么全部失败
+事务完成时，必须使所有的数据都保持一致状态
+数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行
+事务一旦提交或回滚，它对数据库中的数据的改变就是永久的
+(ACID)
+=== Slide 29 ===
+新增员工
+文件上传
+=== Slide 30 ===
+新增员工
+事务管理
+文件上传
+=== Slide 31 ===
+简介
+本地存储
+阿里云OSS
+文件上传
+03
+=== Slide 32 ===
+文件上传：是指将本地图片、视频、音频等文件上传到服务器，供其他用户浏览或下载的过程。
+文件上传在项目中应用非常广泛，我们经常发微博、发微信朋友圈都用到了文件上传功能。
+简介
+=== Slide 33 ===
+文件上传
+<form action="/upload" method="post" enctype="multipart/form-data">    姓名: <input type="text" name="name" > <br>    年龄: <input type="text" name="age" > <br>    图像: <input type="file" name="file" > <br>    <input type="submit" value="上传文件" name="submit"></form>
+前端页面三要素
+@Slf4j@RestControllerpublic class UploadController {    @PostMapping("/upload")    public Result handleFileUpload(String name, Integer age, MultipartFile file) {        log.info("文件上传:{}", file);        return Result.success();    }}
+服务端接收文件
+=== Slide 34 ===
+简介
+本地存储
+阿里云OSS
+文件上传
+03
+=== Slide 35 ===
+本地存储
+@PostMapping("/upload")public Result handleFileUpload(MultipartFile file) throws Exception {    log.info("文件上传:{}", file);    // 生成唯一文件名    String uniqueFileName = generateUniqueFileName(file.getOriginalFilename());    // 保存文件    image.transferTo(new File("D:/images/" + uniqueFileName));    return Result.success();}private String generateUniqueFileName(String originalFilename) {    String randomStr = UUID.randomUUID().toString().replaceAll("-", "");    String extension = originalFilename.substring(originalFilename.lastIndexOf("."));    return randomStr + extension;}
+服务端接收文件
+=== Slide 36 ===
+如何将上传的文件存储在服务器本地？
+multipartFile.getOriginalFilename(): 获取原始文件名
+multipartFile.transferTo(File dest): 将文件转存到磁盘文件
+上传文件大小受限怎么办?
+默认上传文件的最大大小为1MB，超过大小需要在配置文件配置
+spring:  servlet:    multipart:      max-file-size: 10MB # 最大单个文件大小      max-request-size: 100MB # 最大请求总大小（包括所有文件和表单数据）
+application.yml
+=== Slide 37 ===
+无法直接访问
+磁盘满了
+磁盘坏了
+FastDFS
+MinIO
+云
+=== Slide 38 ===
+简介
+本地存储
+阿里云OSS
+文件上传
+03
+=== Slide 39 ===
+阿里云是阿里巴巴集团旗下全球领先的云计算公司，也是国内最大的云服务提供商 。
+阿里云
+语音服务
+短信服务
+邮件服务
+实人认证
+视频点播
+视频直播
+文字识别
+内容安全
+对象存储
+……
+机器翻译
+云数据库
+云服务
+=== Slide 40 ===
+阿里云对象存储OSS（Object Storage Service），是一款海量、安全、低成本、高可靠的云存储服务。使用OSS，您可以通过网络随时存储和调用包括文本、图片、音频和视频等在内的各种文件。
+阿里云OSS
+=== Slide 41 ===
+阿里云对象存储OSS（Object Storage Service），是一款海量、安全、低成本、高可靠的云存储服务。使用OSS，您可以通过网络随时存储和调用包括文本、图片、音频和视频等在内的各种文件。
+阿里云OSS
+阿里云OSS
+文件上传
+上传
+=== Slide 42 ===
+第三方服务-通用思路
+注册阿里云
+(实名认证)
+充值
+开通对象存储
+服务(OSS)
+创建bucket
+获取AccessKey
+(秘钥)
+准备工作
+参照官方SDK
+编写入门程序
+集成使用
+SDK：Software Development Kit 的缩写，软件开发工具包，包括辅助软件开发的依赖（jar包）、代码示例等，都可以叫做SDK。
+=== Slide 43 ===
+阿里云OSS-使用步骤
+注册阿里云
+(实名认证)
+充值
+开通对象存储
+服务(OSS)
+创建bucket
+获取并配置AccessKey
+(秘钥)
+参照官方SDK
+编写入门程序
+案例集成OSS
+SDK：Software Development Kit 的缩写，软件开发工具包，包括辅助软件开发的依赖（jar包）、代码示例等，都可以叫做SDK。
+Bucket：存储空间是用户用于存储对象（Object，就是文件）的容器，所有的对象都必须隶属于某个存储空间。
+=== Slide 44 ===
+阿里云OSS-入门程序
+注册阿里云
+(实名认证)
+充值
+开通对象存储
+服务(OSS)
+创建bucket
+获取并配置AccessKey
+(秘钥)
+参照官方SDK
+编写入门程序
+案例集成OSS
+在使用第三方提供的云服务或技术时，一定要参照对应的官方文档进行开发和测试。
+注意：
+=== Slide 45 ===
+阿里云OSS-案例集成
+注册阿里云
+(实名认证)
+充值
+开通对象存储
+服务(OSS)
+创建bucket
+获取并配置AccessKey
+(秘钥)
+参照官方SDK
+编写入门程序
+案例集成OSS
+=== Slide 46 ===
+阿里云OSS-案例集成
+阿里云OSS
+bucket
+bucket
+bucket
+1. 接收上传的图片
+2. 将图片存储起来（OSS）
+3. 返回图片访问的URL
+UploadController
+=== Slide 47 ===
+步骤：
+引入阿里云OSS文件上传工具类（由官方的示例代码改造而来）
+上传文件接口开发
+阿里云OSS-案例集成
+@Autowiredprivate AliyunOSSOperator aliyunOSSOperator;/** * 文件上传 */@PostMapping("/upload")public Result upload(MultipartFile file) throws Exception {    log.info("文件上传:{}", file);    String url = aliyunOSSOperator.upload(file.getBytes(), file.getOriginalFilename());    return Result.success(url);}
+UploadController
+=== Slide 48 ===
+如果将这些参数信息，写在java代码中有什么问题 ？
+不便维护与管理
+=== Slide 49 ===
+指将一些需要灵活变化的参数，配置在配置文件中，然后通过@Value注解来注入外部配置的属性。
+参数配置化
+aliyun:  oss:    endpoint: https://oss-cn-beijing.aliyuncs.com    bucketName: java-ai
+region: cn-beijing
+application.yml
+@Componentpublic class AliyunOSSOperator {    @Value("${aliyun.oss.endpoint}")    private String endpoint;    @Value("${aliyun.oss.bucketName}")    private String bucketName;
+@Value("${aliyun.oss.region}")    private String region;
+}
+AliyunOSSOperator
+@Value("${key}")
+=== Slide 50 ===
+使用@Value注解注入配置文件的配置项，如果配置项多，注入繁琐，不便于维护管理 和 复用。
+问题分析
+=== Slide 51 ===
+@ConfigurationProperties
+=== Slide 52 ===
+注入外部配置文件中的配置项的两种方式?
+@Value：一个属性一个属性的注入
+@ConfigurationProperties：批量将多个属性注入到bean对象中
+两种方式各自的使用场景？
+如果属性较少,建议@Value注入即可
+如果属性较多,考虑复用,建议使用@ConfigurationProperties
