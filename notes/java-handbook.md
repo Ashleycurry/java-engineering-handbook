@@ -6673,4 +6673,8015 @@ selectAll() {
 
 本节收束：Web = 浏览器访问的网站；一次访问的完整链路是"浏览器 → 前端服务器 → 后端服务器 → 数据库服务器"再原路返回；开发模式以"前后端分离"为主；后续课程按"后端 Web 开发、前端 Web 基础、前端 Web 案例、项目部署"四块推进。
 
+### 第二章：HTML与CSS
+
+**初始Web前端**
+
+核心结论：我们看到的网页由文字、图片、视频、音频、超链接等组成；其背后的本质是**程序员写的前端代码**，通过浏览器解析渲染后转换成用户眼中的网页。
+
+- 浏览器对代码进行解析渲染的部分，称为**浏览器内核**；
+- 提示：不同浏览器内核不同，对于相同的前端代码解析的效果可能会存在差异。
+
+**Web标准**
+
+核心结论：Web标准也称网页标准，由一系列的标准组成，大部分由 W3C（World Wide Web Consortium，万维网联盟）负责制定。三个组成部分各司其职：
+
+| 标准 | 负责内容 | 说明 |
+| --- | --- | --- |
+| HTML | 网页的**结构** | 页面元素和内容 |
+| CSS | 网页的**表现** | 页面元素的外观、位置等页面样式，如：颜色、大小等 |
+| JavaScript | 网页的**行为** | 交互效果 |
+
+Web 前端课程安排：**Web前端基础**为 HTML+CSS+JS、Vue3+Ajax（2天）；**Web前端实战**为 Vue工程化+ElementPlus、Vue3案例（4天）。
+
+**什么是HTML**
+
+核心结论：HTML（HyperText Markup Language）即**超文本标记语言**，负责网页的结构。
+
+- **超文本**：超越了文本的限制，比普通文本更强大。除了文字信息，还可以定义图片、音频、视频等内容；
+- **标记语言**：由标签 `<标签名>` 构成的语言；
+- HTML 标签都是预定义好的。例如：使用 `<h1>` 展示标题，使用 `<img>` 展示图片，使用 `<video>` 展示视频；
+- HTML 代码直接在浏览器中运行，HTML 标签由浏览器解析。
+
+标签的组成结构：
+
+```html
+<h1>HTML入门程序</h1>
+<img src="img/1.png">
+```
+
+- `<h1>` 是开始标签，`</h1>` 是结束标签，中间的"HTML入门程序"是内容；
+- `<img>` 标签通过 `src` 属性指定图片来源 `img/1.png`（属性写在开始标签中）。
+
+**什么是CSS**
+
+核心结论：CSS（Cascading Style Sheet）即**层叠样式表**，用于控制页面的样式（表现）。
+
+同一个 `<h1>` 标题，加上 CSS 样式后文字变红：
+
+```html
+<h1>HTML入门程序</h1>
+<h1 style="color:red;">HTML入门程序</h1>
+```
+
+**HTML快速入门**
+
+执行步骤：
+
+1. 新建文本文件，后缀名改为 `.html`；
+2. 编写 HTML 的基本骨架，定义标题；
+3. 在 `<body>` 中填写内容。
+
+```html
+<html>
+    <head>
+        <title>HTML快速入门</title>
+    </head>
+    <body>
+        <h1>Hello HTML</h1>
+        <img src="img/1.png">
+    </body>
+</html>
+```
+
+- **网页头部 `<head>`**：用来存放给浏览器看的信息，如：CSS 样式；`<title>` 是网页标题；
+- **网页主体 `<body>`**：用来存放给用户看的信息，如：文字、图片、视频。
+
+HTML 标签特点：
+
+- html 标签**不区分大小写**，建议小写；
+- html 标签的属性值使用**单引号/双引号都可以**；
+- html 语法结构松散，但是建议规范书写。
+
+**前端开发工具**
+
+核心结论：前端开发常用 **Visual Studio Code（简称 VS Code）**——Microsoft 于 2015 年 4 月发布的一款代码编辑器。
+
+- VS Code 对前端代码有非常强大的支持，同时也支持其他编程语言（例如：C++、Java、Python、PHP、Go 等）；
+- VS Code 提供了非常强大的插件库，大大提高了开发效率；
+- 官网：https://code.visualstudio.com
+
+安装使用注意：
+
+- 不仅要安装软件，还得安装插件；
+- 安装在一个**没有中文、不带空格**的目录下；
+- 由于安装了 IDEA 快捷键映射插件，VSCode 快捷键与 IDEA **一致**。
+
+**央视新闻案例——标题制作**
+
+核心结论：html 页面在渲染展示的时候，是**从上往下逐行解析展示**的。所以，编写页面的时候，根据页面的布局，从上往下编写。
+
+标题部分用到的标签：
+
+- **标题标签**：`<h1>` - `<h6>`；
+- **超链接标签**：`<a href="" target="">...</a>`
+  - `href`：指定资源访问的 url；
+  - `target`：指定在何处打开资源链接；`_self`：默认值，在当前页面打开；`_blank`：在空白页面打开。
+
+```html
+<body>
+    <!-- 定义一个标题，标题内容为：推进长江十年禁渔 谱写长江大保护新篇章 -->
+    <h1>推进长江十年禁渔 谱写长江大保护新篇章</h1>
+    <!-- 定义一个超链接，里面显示 央视网 -->
+    <a href="https://www.cctv.com/">央视网</a> 2024年05月15日 20:07
+</body>
+```
+
+**央视新闻案例——标题样式**
+
+核心结论：CSS 有三种引入方式——行内样式、内部样式、外部样式，区别在于"样式写在哪里"。
+
+| 引入方式 | 写法 | 说明 |
+| --- | --- | --- |
+| 行内样式 | 写在标签的 `style` 属性中 | 配合 JavaScript 使用 |
+| 内部样式 | 写在 `<style>` 标签中 | 可以写在页面任何位置，但通常约定写在 head 标签中 |
+| 外部样式 | 写在一个单独的 `.css` 文件中 | 需要通过 link 标签在网页中引入 |
+
+```html
+<!-- 行内样式 -->
+<span style="color: gray;">2024年05月15日 20:07</span>
+
+<!-- 内部样式：写在 style 标签中 -->
+<style>
+    span {
+        color: gray;
+    }
+</style>
+
+<!-- 外部样式：news.css 文件中写 span { color: gray; } -->
+<link rel="stylesheet" href="css/news.css">
+```
+
+颜色表示形式：
+
+| 表示方式 | 属性值 | 说明 | 示例 |
+| --- | --- | --- | --- |
+| 关键字 | 颜色英文单词 | red、green、blue... | red、green、blue... |
+| rgb表示法 | rgb(r,g,b) | 红绿蓝三原色，取值：0-255 | rgb(0,0,0)、rgb(255,0,0) |
+| rgba表示法 | rgba(r,g,b,a) | 红绿蓝三原色，a表示透明度，取值：0-1 | rgba(0,0,0,0.3)、rgba(255,0,0,0.5) |
+| 十六进制表示法 | #rrggbb | #开头，将数字转换成十六进制表示 | #000000、#ff0000，简写：#000、#f00 |
+
+课件中的 `color` 属性总结：`color: 设置文本内容的颜色`。
+
+**CSS选择器**
+
+核心结论：CSS 选择器是用来**选取需要设置样式的元素（标签）**的；先选中标签，再在大括号中写样式。
+
+| 选择器 | 写法 | 示例 | 示例说明 |
+| --- | --- | --- | --- |
+| 元素选择器 | 元素名称 {...} | h1 {...} | 选择页面上所有的 `<h1>` 标签 |
+| 类选择器 | .class属性值 {...} | .cls {...} | 选择页面上所有 class 属性为 cls 的标签 |
+| id选择器 | #id属性值 {...} | #hid {...} | 选择页面上 id 属性为 hid 的标签 |
+| 分组选择器 | 选择器1,选择器2 {...} | h1,h2 {...} | 选择页面上所有的 `<h1>` 和 `<h2>` 标签 |
+| 属性选择器 | 元素名称[属性] {...} | input[type] {...} | 选择页面上有 type 属性的 `<input>` 标签 |
+| 属性选择器 | 元素名称[属性名="值"] {...} | input[type="text"] {...} | 选择页面上 type 属性为 text 的 `<input>` 标签 |
+| 后代选择器 | 元素1 元素2 {...} | form input {...} | 选择 `<form>` 标签内的所有 `<input>` 标签 |
+
+最为常见的三类选择器与优先级：**id 选择器 -> 类选择器 -> 元素选择器**（id 最"专一"，优先级最高）。
+
+课件中标题时间样式的最终写法（把颜色从 gray 换成十六进制）：
+
+```html
+<style>
+    span {
+        color: #b2b2b2;
+    }
+</style>
+```
+
+**央视新闻案例——正文排版与样式**
+
+资源路径写法（引用图片、视频、CSS 文件时使用）：
+
+- **绝对路径**：绝对磁盘路径（`D:/xxx.jpg`）、绝对网络路径（`https://xxx.jpg`）；
+- **相对路径**：当前目录 `./`（可以省略）、上一级目录 `../`。
+
+正文相关标签：
+
+| 标签 | 作用 | 属性/说明 |
+| --- | --- | --- |
+| `<video>` | 视频标签 | src：指定视频的 url（绝对路径/相对路径）；controls：是否显示播放控件；width：宽度（像素/相对于父元素百分比）；height：高度（像素/相对于父元素百分比） |
+| `<img>` | 图片标签 | src、width、height |
+| `<p>` | 段落标签 | — |
+
+文本格式标签（两两一组，语义化标签带"强调"含义）：
+
+| 标签 | 作用 | 属性/说明 |
+| --- | --- | --- |
+| `<b>` / `<strong>` | 加粗 | `<strong>` 具有强调语义 |
+| `<u>` / `<ins>` | 下划线 | `<ins>` 具有强调语义 |
+| `<i>` / `<em>` | 倾斜 | `<em>` 具有强调语义 |
+| `<s>` / `<del>` | 删除线 | `<del>` 具有强调语义 |
+
+字符实体（某些符号会被浏览器当作标签解析，需要用实体写法）：
+
+| 字符实体 | 说明 |
+| --- | --- |
+| `&nbsp;` | 空格 |
+| `&lt;` | < |
+| `&gt;` | > |
+
+CSS 属性：
+
+- `line-height`：设置行高；
+- `text-indent`：首行缩进。
+
+页面布局需求（Prompt 案例）："你是一名前端开发工程师，如何设置 html 网页的整体页面占版面的 70%，并居中显示。"
+
+**盒子模型**
+
+核心结论：页面中所有的元素（标签），都可以看做是一个**盒子**，由盒子将页面中的元素包含在一个矩形区域内，通过盒子的视角更方便地进行页面布局。
+
+盒子模型组成：**内容区域（content）、内边距区域（padding）、边框区域（border）、外边距区域（margin）**。
+
+布局标签：网页开发中，会使用 `div` 和 `span` 这两个没有语义的布局标签。
+
+| 标签 | 特点 |
+| --- | --- |
+| `<div>` | 一行只显示一个（独占一行）；宽度默认是父元素的宽度，高度默认由内容撑开；可以设置宽高（width、height） |
+| `<span>` | 一行可以显示多个；宽度和高度默认由内容撑开；不可以设置宽高（width、height） |
+
+盒子模型相关 CSS 写法（padding、border、margin 的简写规律）：
+
+```css
+/* 上下 左右 */
+div {
+    width: 200px;
+    height: 100px;
+    background-color: #05a5d2;
+    padding: 20px 20px;
+    border: 20px solid #6bd5d7;
+    margin: 30px 30px;
+}
+
+/* 上 右 下 左 */
+div {
+    width: 200px;
+    height: 100px;
+    background-color: #05a5d2;
+    padding: 20px 20px 20px 20px;
+    border: 20px solid #6bd5d7;
+    margin: 30px 30px 30px 30px;
+}
+
+/* 四个方向相同 */
+div {
+    width: 200px;
+    height: 100px;
+    background-color: #05a5d2;
+    padding: 20px;
+    border: 20px solid #6bd5d7;
+    margin: 30px;
+}
+```
+
+注意事项：如果只需要设置某一个方位的边框、内边距、外边距，可以在属性名后加上 `-位置`，如：`padding-top`、`padding-left`、`padding-right` …
+
+**员工管理页面案例（综合案例）**
+
+页面原型：指在应用程序开发初期，由产品经理制作的一个早期项目模型，它用于展示页面的基本布局、功能和交互设计。通常用来帮助设计师、开发者等更好地理解和讨论最终产品的外观和行为。
+
+参照页面原型，员工管理页面整体由 4 个部分组成：顶部导航栏、搜索表单区域、表格数据展示区域、底部版权区域。
+
+**（1）顶部导航栏——flex布局**
+
+flex 是 flexible Box 的缩写，意为"弹性布局"，是一种**一维的布局模型**。flex 布局可以为元素之间提供强大的空间分布和对齐能力。通过给**父容器**添加 flex 的相关属性，来控制子元素的位置和排列方式。
+
+| 属性 | 取值 | 含义 |
+| --- | --- | --- |
+| display | flex | 使用 flex 布局 |
+| flex-direction（设置主轴） | row | 主轴方向为 x 轴，水平向右（默认） |
+| flex-direction | column | 主轴方向为 y 轴，垂直向下 |
+| justify-content（子元素在主轴上的对齐方式） | flex-start | 从头开始排列 |
+| justify-content | flex-end | 从尾部开始排列 |
+| justify-content | center | 在主轴居中对齐 |
+| justify-content | space-around | 平分剩余空间 |
+| justify-content | space-between | 先两边贴边，再平分剩余空间 |
+
+Prompt 案例："你是一名前端开发工程师，帮我生成一个HTML页面，页面整体有4个部分组成，先来实现第一个部分：1. 顶栏。内容：包含左侧的标题'Tlias智能学习辅助系统'，字体需加大加粗，以突出显示；右侧则放置'退出登录'文字链接。布局：确保标题与退出登录文本位于同一行内，分别左对齐与右对齐。"
+
+**（2）搜索表单区域——表单标签**
+
+- **表单**：在网页中主要负责数据采集功能，如注册、登录等数据采集；
+- **表单项**：表单项是组成表单的基本元素，允许用户输入或选择数据，并将这些数据提交给服务器。
+
+| 标签 | 说明 |
+| --- | --- |
+| `<form>` | 表单标签 |
+| `<input>` | 定义表单项，通过 type 属性控制输入形式（text/password/...） |
+| `<button>` | 按钮，submit、reset、button |
+| `<select>` | 定义下拉列表 |
+| `<textarea>` | 定义文本域 |
+
+表单属性：
+
+- `action`：规定当提交表单时向何处发送表单数据，URL；
+- `method`：规定用于发送表单数据的方式。GET、POST：
+  - get：表单数据拼接在 url 后面，`?username=java&age=18`，大小有限制；
+  - post：表单数据在请求体中携带，大小没有限制。
+
+Prompt 案例："再继续帮我生成第二个部分: 2. 搜索表单区域。组成：包括三个输入控件和两个操作按钮。输入控件具体为：姓名（文本输入框）、性别（下拉选择，选项包括 男/女，默认为空）、职位（下拉选择，选项包括班主任、讲师、学工主管、教研主管、咨询师，默认为空）。按钮：'查询'与'清空'按钮，用于提交表单或重置表单项。布局：所有表单项及按钮需水平排列于一行，确保美观大气。"
+
+**（3）表格数据展示区域——表格标签**
+
+| 标签 | 描述 |
+| --- | --- |
+| `<table>` | 定义表格整体 |
+| `<thead>` | 用于定义表格头部(可选) |
+| `<tbody>` | 定义表格中的主体部分(可选) |
+| `<tr>` | 表格的行，可以包裹多个 `<td>` |
+| `<td>` | 表格单元格(普通)，可以包裹内容；如果是表头单元格，可以替换为 `<th>` |
+
+Prompt 案例："再继续帮我生成第三个部分: 3. 表格展示区。表格结构：展示列包括姓名、性别（显示男/女）、头像（小图标展示）、所属部门、职位（显示班主任/讲师/学工主管/教研主管/咨询师）、入职日期、最后操作时间、操作（里包含两个按钮 编辑 与 删除）。数据模拟：基于《笑傲江湖》小说人物生成10条虚拟数据，每条数据应包含上述所有列的信息，以体现实际应用场景。样式：可适当调整表格样式，确保美观大气。"
+
+**（4）页脚版权区域**
+
+Prompt 案例："再继续帮我生成第四个部分: 4. 页脚版权区域。内容：第一行显示公司全称'江苏传智播客教育科技股份有限公司'；第二行展示版权信息，'版权所有 Copyright 2006-2024 All Rights Reserved'。设计：该区域应具有灰色背景，字体颜色为白色，居中对齐，以营造专业且统一的视觉效果。"
+
+**容易误解的地方**：`<div>` 可以设置宽高、`<span>` 不可以设置宽高，这是由它们默认的 CSS 显示方式决定的；表格的 `<thead>`、`<tbody>` 都是可选的，不分表头表体直接写 `<tr>` 也能显示，但结构中带上它们更清晰。另外表单 GET/POST 的区分不要只记"大小限制"：GET 把参数拼在 URL 上（可见），POST 放在请求体里（不可见）。
+
+本节收束：HTML 管结构（标题/超链接/图片/视频/段落/表格/表单项），CSS 管表现（三种引入方式、颜色表示、选择器、盒子模型、flex 布局）；央视新闻案例串起了标题、正文、布局的完整制作流程，员工管理案例则预演了后面 Tlias 项目页面的四大区域。
+
+### 第三章：JavaScript
+
+**什么是JavaScript**
+
+核心结论：JavaScript（简称：JS）是一门**跨平台、面向对象的脚本语言**，用来控制网页行为，实现页面的交互效果。JavaScript 和 Java 是完全不同的语言，不论是概念还是设计，但是基础语法类似。
+
+回忆 Web 标准三兄弟的分工：HTML 负责网页的结构、CSS 负责网页的表现、JavaScript 负责网页的**行为**（交互效果）。
+
+JS 的组成：
+
+- **ECMAScript**：规定了JS基础语法核心知识，包括变量、数据类型、流程控制、函数、对象等；
+- **BOM**（浏览器对象模型）：用于操作浏览器本身，如：页面弹窗、地址栏操作、关闭窗口等；
+- **DOM**（文档对象模型）：用于操作HTML文档，如：改变标签内的内容、改变标签内字体样式等。
+
+ECMA 国际（前身为欧洲计算机制造商协会）制定了标准化的脚本程序设计语言 ECMAScript，这种语言得到广泛应用；JavaScript 是遵守 ECMAScript 标准的（ES2024 是最新版本）。
+
+**JS引入方式**
+
+- **内部脚本**：将 JS 代码定义在 HTML 页面中（`<script></script>` 标签之间）
+  - JavaScript 代码必须位于 `<script></script>` 标签之间；
+  - 在 HTML 文档中，可以在任意地方，放置任意数量的 `<script>`；
+  - 一般会把脚本置于 `<body>` 元素的底部，可改善显示速度。
+- **外部脚本**：将 JS 代码定义在外部 JS 文件中，然后引入到 HTML 页面中（`<script src="js/demo.js"></script>`）
+
+```html
+<body>
+    <!-- 页面内容 -->
+    <script>
+        alert('Hello World');
+    </script>
+</body>
+```
+
+```js
+// demo.js 文件内容
+alert('Hello World');
+```
+
+JS 书写规范：结束符——每行结尾以分号结尾，结尾分号可有可无。
+
+**变量与常量**
+
+核心结论：JS 中用 `let` 关键字声明变量，用 `const` 关键字声明常量。JS 是**弱类型语言**，变量可以存放不同类型的值。
+
+变量名命名规则：
+
+- 只能用字母、数字、下划线（_）、美元符号（$）组成，且数字不能开头；
+- 变量名严格区分大小写，如 name 和 Name 是不同的变量；
+- 不能使用关键字，如：let、var、if、for 等。
+
+```html
+<script>
+    //变量
+    let a = 20;
+    a = "Hello";
+    alert(a);   // 弱类型：同一个变量可以先存数字，再存字符串
+
+    //常量
+    const PI = 3.14;
+    console.log(PI);
+    // PI = 3.5;   // 常量一旦声明，值不能改变（不可以重新赋值）
+</script>
+```
+
+注意：在早期的 js 中，声明变量还可以使用 `var`，但是并不严谨（不推荐）。
+
+**输出语句**
+
+| 语句 | 效果 |
+| --- | --- |
+| `window.alert()` | 弹出警告框（使用频次较高） |
+| `console.log()` | 写入浏览器控制台（使用频次较高） |
+| `document.write()` | 向 HTML 的 body 内输出内容 |
+
+**数据类型**
+
+JavaScript 的数据类型分为：基本数据类型和引用数据类型（对象）。基本数据类型：
+
+- **number**：数字（整数、小数、NaN(Not a Number)）；
+- **boolean**：布尔，true、false；
+- **null**：对象为空。JavaScript 是大小写敏感的，因此 null、Null、NULL 是完全不同的；
+- **undefined**：当声明的变量未初始化时，该变量的默认值是 undefined；
+- **string**：字符串，单引号、双引号、反引号皆可，推荐使用单引号。
+
+使用 `typeof` 运算符可以获取数据类型：
+
+```html
+<script>
+    let a = 20;
+    alert(typeof a);    // 获取数据类型：number
+</script>
+```
+
+**模板字符串**（字符串拼接的优雅写法）：
+
+- 语法：用反引号 `` ` ` `` 包裹（反引号在英文输入模式下按键盘的 tab 键上方波浪线 ~ 那个键）；
+- 内容拼接变量时，使用 `${}` 包住变量。
+
+```html
+<script>
+    let name = 'Tom';
+    let age = 18;
+    // 旧写法：用 + 号拼接
+    console.log('大家好, 我是新入职的' + name + ', 今年' + age + '岁了, 请多多关照');
+    // 模板字符串写法
+    console.log(`大家好, 我是新入职的${name}, 今年${age}岁了, 请多多关照`);
+</script>
+```
+
+**函数**
+
+介绍：函数（function）是被设计用来执行特定任务的代码块，方便程序的封装复用。
+
+定义与调用：
+
+```js
+// 定义：通过 function 关键字
+function functionName(参数1, 参数2 ...){
+    // 要执行的代码
+}
+
+function add(a, b){
+    return a + b;
+}
+
+// 调用：函数名称(实际参数列表)
+let result = add(10,20);
+alert(result);
+```
+
+注意：由于 JS 是弱类型语言，形参、返回值都不需要指定类型。在调用函数时，实参个数与形参个数可以不一致，但是建议一致。
+
+**匿名函数**：一种没有名称的函数，可以通过两种方式定义——函数表达式 和 箭头函数。
+
+```js
+// 函数表达式
+let add = function(a, b){
+    return a + b;
+}
+
+// 箭头函数
+let add = (a, b) => {
+    return a + b;
+}
+```
+
+匿名函数定义后，可以通过变量名直接调用：`let result = add(10,20); alert(result);`。
+
+**自定义对象**
+
+定义格式：
+
+```js
+let 对象名 = {
+    属性名1: 属性值1,
+    属性名2: 属性值2,
+    属性名3: 属性值3,
+    方法名: function (形参列表) {}
+}
+```
+
+两种写法（方法也可以简写）：
+
+```js
+let user = {
+    name: 'Tom',
+    age: 20,
+    gender: '男',
+    sing: function () {
+        alert('悠悠的唱着最炫的民族风')
+    }
+}
+
+// 方法简写形式
+let user = {
+    name: 'Tom',
+    age: 20,
+    gender: '男',
+    sing() {
+        alert('悠悠的唱着最炫的民族风')
+    }
+}
+```
+
+调用格式：
+
+```js
+console.log(user.name);   // 对象名.属性名
+user.sing();              // 对象名.方法名()
+```
+
+**JSON**
+
+核心结论：JSON（JavaScript Object Notation，JavaScript 对象标记法）是 JS 对象标记法书写的**文本**。由于其语法简单，层次结构鲜明，现多用于作为数据载体，在网络中进行数据传输（请求/响应之间来回传递的就是 JSON）。
+
+JS 对象与 JSON 文本的区别：
+
+```js
+// JS对象：key 可以不加引号
+{
+    name: "Tom",
+    age: 20,
+    gender: "男"
+}
+```
+
+```json
+// json文本：所有的key必须使用双引号引起来
+{
+    "name": "Tom",
+    "age": 20,
+    "gender": "男"
+}
+```
+
+JSON 对象的两个方法：
+
+| 方法 | 作用 |
+| --- | --- |
+| `JSON.parse(..)` | 将 json 字符串转为 js 对象 |
+| `JSON.stringify(..)` | 将 js 对象转为 json 字符串 |
+
+**DOM**
+
+核心结论：DOM（Document Object Model，文档对象模型）将标记语言的各个组成部分封装为对应的对象，JavaScript 通过 DOM 就能够对 HTML 进行操作。
+
+DOM 把文档解析成一棵"DOM树"，各部分封装为对象：
+
+- **Document**：整个文档对象；
+- **Element**：元素对象；
+- **Attribute**：属性对象；
+- **Text**：文本对象；
+- **Comment**：注释对象。
+
+JavaScript 通过 DOM，能够对 HTML 进行操作：
+
+- 改变 HTML 元素的内容；
+- 改变 HTML 元素的样式（CSS）；
+- 对 HTML DOM 事件作出反应；
+- 添加和删除 HTML 元素。
+
+DOM 操作核心思想：将网页中所有的元素当做对象来处理（标签的所有属性在该对象上都可以找到）。操作步骤：
+
+1. 获取要操作的 DOM 元素对象；
+2. 操作 DOM 对象的属性或方法（查文档或AI）。
+
+获取 DOM 对象（根据 CSS 选择器）：
+
+| 方式 | 说明 |
+| --- | --- |
+| `document.querySelector('选择器')` | 获取匹配到的**第一个**元素 |
+| `document.querySelectorAll('选择器')` | 获取匹配到的**所有**元素（得到的是一个 NodeList 节点集合，是一个伪数组——有长度、有索引的数组） |
+
+其他方式（了解）：`document.getElementById('id')`、`document.getElementsByTagName('div')`、`document.getElementsByClassName('cls')`。
+
+**JS事件监听**
+
+核心结论：事件是 HTML 事件是发生在 HTML 元素上的"事情"，比如：按钮被点击、鼠标移动到元素上、按下键盘按键。事件监听就是 JavaScript 在事件触发时，立即调用一个函数做出响应（也称为事件绑定或注册事件）。
+
+语法：
+
+```js
+事件源.addEventListener('事件类型', 事件触发执行的函数);
+```
+
+事件监听三要素：
+
+1. **事件源**：哪个 dom 元素触发了事件，要获取 dom 元素；
+2. **事件类型**：用什么方式触发，比如：鼠标单击 click；
+3. **事件触发执行的函数**：要做什么事。
+
+早期版本写法（了解）：`事件源.on事件 = function() { ... }`。区别：on 方式会被覆盖，addEventListener 方式可以绑定多次，拥有更多特性，推荐使用。
+
+```html
+<input id="btn" type="button" value="点我一下试试2">
+
+<!-- 早期 on 写法（了解） -->
+<script>
+document.querySelector('#btn').onclick = function () {
+    alert('试试就试试');
+}
+</script>
+
+<!-- addEventListener 写法（推荐） -->
+<script>
+document.querySelector('#btn').addEventListener('click',()=>{
+    alert('试试就试试');
+})
+</script>
+```
+
+常见事件分类：
+
+| 分类 | 事件 |
+| --- | --- |
+| 鼠标事件 | click：鼠标点击；mouseenter：鼠标移入；mouseleave：鼠标移出 |
+| 键盘事件 | keydown：键盘按下触发；keyup：键盘抬起触发 |
+| 焦点事件 | focus：获得焦点触发；blur：失去焦点触发 |
+| 表单事件 | input：用户输入时触发；submit：表单提交时触发 |
+
+**JS程序优化（模块化）**
+
+问题引入（复用?? 维护??）：多个页面要反复写同样的 JS 会难以复用、难以维护——解决办法是把可复用的代码抽成模块文件。
+
+事件监听示例文件 `js/eventDemo.js`：
+
+```js
+//click: 鼠标点击事件
+document.querySelector('#b2').addEventListener('click', () => {
+    console.log("我被点击了...");
+})
+
+//mouseenter: 鼠标移入
+document.querySelector('#last').addEventListener('mouseenter', () => {
+    console.log("鼠标移入了...");
+})
+
+//mouseleave: 鼠标移出
+document.querySelector('#last').addEventListener('mouseleave', () => {
+    console.log("鼠标移出了...");
+})
+```
+
+把公共函数抽到 `js/utils.js` 并使用模块化（export、import）：
+
+```js
+// js/utils.js
+export function printLog(msg){
+    console.log(msg);
+}
+```
+
+```html
+<!-- xxxx.html 中引入模块化脚本 -->
+<script src="./js/eventDemo.js" type="module"></script>
+```
+
+**案例——表格隔行换色与鼠标移入移出**
+
+- 隔行换色需求：通过 js 实现表格数据行的隔行换色效果，奇数行背景色为 `#f2e2e2`，偶数行背景色为 `#e6f7ff`（JS新语法实现）；
+- 鼠标移入移出需求：实现鼠标移入数据行时，背景色改为 `#f2e2e2`，鼠标移出时，再将背景色改为白色。
+
+**容易误解的地方**：`querySelector` 只返回**第一个**匹配元素（想操作所有同名元素要用 `querySelectorAll`）；`null` 与 `undefined` 是两个不同的值（null 表示对象为空，undefined 表示"声明了但还没初始化"）；JSON 的 key 必须用**双引号**，这不是"可有可无的美化"。事件绑定时 on 方式重复绑定会覆盖前面的处理函数，addEventListener 不会。
+
+本节收束：JS 核心语法围绕"声明（let/const）、类型（弱类型 + typeof）、函数（function/匿名函数）、对象（自定义对象 + JSON）、DOM（选择器获取元素）"五块；事件监听三要素 + addEventListener 是页面交互的入口；模块化（export/import）解决复用与维护问题。
+
+### 第四章：Vue3基础
+
+**什么是Vue**
+
+核心结论：Vue 是一款用于构建用户界面的**渐进式的 JavaScript 框架**（官方：https://cn.vuejs.org/），它的工作方式是基于数据渲染出用户看到的界面。
+
+Vue 是一个框架，也是一个生态（按需渐进使用）：
+
+- **声明式渲染** → Vue 核心包开发（局部模块改造）；
+- **组件系统** → 插件工程化开发；
+- **客户端路由 VueRouter、状态管理 Pinia/Vuex、构建工具 Vite/Webpack** → 整站开发。
+
+框架的定位：
+
+- **框架**：就是一套完整的项目解决方案，用于快速构建项目；
+- 优点：大大提升前端项目的开发效率；
+- 缺点：需要理解记忆框架的使用规则（参照官网）。
+
+课件中准备渲染的数据示例（数据在 JS 中，页面根据它渲染）：
+
+```js
+userList: [
+{"id": 1, "name": "谢逊", "image": "1.jpg", "gender": 1, "job": 1},
+{"id": 2, "name": "韦一笑", "image": "2.jpg", "gender": 1, "job": 1}
+]
+```
+
+**Vue快速入门**
+
+核心思路——**数据驱动视图**：页面不再手写死数据，而是"准备好数据，通过插值表达式渲染出来"。
+
+使用步骤：
+
+1. 准备工作：引入 Vue 模块（官方提供）、创建 Vue 程序的应用实例并控制视图的元素、准备元素(div)交给 Vue 控制；
+2. 数据驱动视图：准备数据、通过插值表达式渲染页面。
+
+```html
+<script type="module">
+import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+createApp({
+    data() {
+        return {
+            message: "Hello Vue"
+        }
+    }
+}).mount("#app");
+</script>
+
+<div id="app">
+    <h1>{{message}}</h1>
+</div>
+```
+
+- `data()` 返回的对象就是数据模型（message: 'Hello Vue'）；
+- `{{message}}` 是**插值表达式**，把数据渲染到页面对应位置；
+- `.mount("#app")` 表示 Vue 实例控制 id 为 app 的元素。
+
+**Vue常用指令**
+
+核心结论：指令是 HTML 标签上带有 `v-` 前缀的特殊属性，不同的指令具有不同的含义，可以实现不同的功能。
+
+| 指令 | 作用 |
+| --- | --- |
+| v-for | 列表渲染，遍历容器的元素或者对象的属性 |
+| v-bind | 为 HTML 标签绑定属性值，如设置 href、css 样式等 |
+| v-if/v-else-if/v-else | 条件性的渲染某元素，判定为 true 时渲染，否则不渲染 |
+| v-show | 根据条件展示某元素，区别在于切换的是 display 属性的值 |
+| v-model | 在表单元素上创建双向数据绑定 |
+| v-on | 为 HTML 标签绑定事件 |
+
+**v-for（员工列表数据渲染）**
+
+作用：列表渲染，遍历容器的元素或者对象的属性。
+
+语法：
+
+```html
+<tr v-for="(item,index) in items" :key="item.id"> {{item}}</tr>
+```
+
+参数说明：
+
+- `items` 为遍历的数组；
+- `item` 为遍历出来的元素；
+- `index` 为索引/下标，从 0 开始；可以省略，省略 index 语法：`v-for="item in items"`。
+
+key 的作用与选择：
+
+- 给元素添加的**唯一标识**，便于 vue 进行列表项的正确排序复用，提升渲染性能；
+- 推荐使用 id 作为 key（唯一），不推荐使用 index 作为 key（会变化，不对应）。
+
+注意：遍历的数组，必须在 data 中定义；要想让哪个标签循环展示多次，就在哪个标签上使用 v-for 指令。
+
+**v-bind（绑定标签属性）**
+
+作用：动态为 HTML 标签绑定属性值，如设置 href、src、style 样式等。
+
+语法：`v-bind:属性名="属性值"`，简化为 `:属性名="属性值"`。
+
+```html
+<img v-bind:src="item.image" width="30px">
+<img :src="item.image" width="30px">
+```
+
+注意：动态的为标签的属性绑定值，**不能使用插值表达式**，得使用 v-bind 指令；且绑定的数据，必须在 data 中定义。
+
+**v-if & v-show（元素显示与隐藏）**
+
+作用：这两类指令，都是用来控制元素的显示与隐藏的。
+
+| 指令 | 语法 | 原理 | 场景 |
+| --- | --- | --- | --- |
+| v-if | v-if="表达式"，表达式值为 true，显示；false，隐藏 | 基于条件判断，来控制创建或移除元素节点（条件渲染） | 要么显示，要么不显示，不频繁切换的场景 |
+| v-show | v-show="表达式"，表达式值为 true，显示；false，隐藏 | 基于 CSS 样式 display 来控制显示与隐藏 | 频繁切换显示隐藏的场景 |
+
+v-if 可以配合 v-else-if / v-else 进行链式调用条件判断：
+
+```html
+<span v-if="gender == 1">男生</span>
+<span v-else-if="gender == 2">女生</span>
+<span v-else>未知</span>
+```
+
+注意：v-else-if 必须出现在 v-if 之后，可以出现多个；v-else 必须出现在 v-if/v-else-if 之后。
+
+课件中的练习场景（员工列表中把数字渲染成文字）：
+
+```text
+job:
+1: 班主任
+2: 讲师
+3: 学工主管
+4：教研主管
+5：咨询师
+```
+
+**v-model（表单项数据采集）**
+
+作用：在表单元素上使用，双向数据绑定。可以方便的**获取**或**设置**表单项数据。
+
+语法：`v-model="变量名"`。
+
+注意：v-model 中绑定的变量，必须在 data 中定义。
+
+```js
+createApp({
+    data() {
+        return {
+            //定义数据模型，采集员工搜索表单数据
+            searchForm: {
+                name: '',
+                gender: '',
+                job: ''
+            }
+        }
+    }
+}).mount('#container')
+```
+
+```html
+<input type="text" id="name" v-model="searchForm.name">
+```
+
+**v-on（事件绑定）**
+
+作用：为 html 标签绑定事件（添加事件监听）。
+
+语法：`v-on:事件名="方法名"`，简写为 `@事件名="…"`。
+
+```html
+<div id="app">
+    <button type="button" v-on:click="handle">点我</button>
+    <button type="button" @click="handle">再点我</button>
+</div>
+```
+
+```js
+const app = createApp({
+    data() {
+        //...
+    },
+    methods: {
+        handle() {
+            console.log('试试就试试');
+        }
+    },
+}).mount("#app");
+```
+
+注意：methods 函数中的 this 指向 Vue 实例，可以通过 this 获取到 data 中定义的数据。
+
+**Ajax**
+
+核心结论：Ajax（Asynchronous JavaScript And XML，异步的 JavaScript 和 XML）用于给服务器发送请求并获取响应数据，实现**在不重新加载整个页面的情况下**与服务器交换数据并更新部分网页（如：搜索联想、用户名是否可用的校验等等）。
+
+- **数据交换**：通过 Ajax 可以给服务器发送请求，并获取服务器响应的数据；
+- **异步交互**：局部更新页面，不用整页刷新；
+- XML（Extensible Markup Language，可扩展标记语言）：本质是一种数据格式，可以用来存储复杂的数据结构。
+
+同步与异步的区别（按时间轴理解）：
+
+- **同步**：客户端请求服务器后"等待"，服务器处理的 3 秒期间客户端不能执行其他操作；
+- **异步**：客户端请求服务器后不等待，服务器处理期间客户端可以执行其他操作。
+
+**Axios**
+
+核心结论：Axios 对原生的 Ajax 进行了封装，简化书写，快速开发。官网：https://www.axios-http.cn/
+
+步骤：
+
+1. 引入 Axios 的 js 文件（参照官网）；
+2. 使用 Axios 发送请求，并获取响应结果。
+
+```html
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+
+```js
+axios({
+    method: 'GET',
+    url: 'https://web-server.itheima.net/emps/list'
+}).then((result) => {
+    console.log(result.data);
+}).catch((err) => {
+    alert(err);
+});
+```
+
+- `.then(...)` 里是**成功回调函数**；`.catch(...)` 里是**失败回调函数**；
+- 常用参数：`method`：请求方式，GET/POST；`url`：请求路径；`data`：请求数据(POST)；`params`：发送请求时携带的 url 参数，如：`...?key=val`。
+
+**Axios-请求方式别名**（推荐）：格式 `axios.请求方式(url [, data [, config]])`。
+
+```js
+axios.get('https://mock.apifox.cn/m1/3083103-0-default/emps/list').then((result) => {
+    console.log(result.data);
+}).catch((err) => {
+    console.log(err);
+});
+
+axios.post('https://mock.apifox.cn/m1/3083103-0-default/emps/update','id=1').then((result) => {
+    console.log(result.data);
+}).catch((err) => {
+    console.log(err);
+});
+```
+
+小结：Axios 发送异步请求——GET: `axios.get(url).then((res)=>{…}).catch((err)=>{…})`；POST: `axios.post(url).then((res)=>{…}).catch((err)=>{…})`。
+
+**async & await**
+
+核心结论：可以通过 async、await 让异步变为同步操作。async 用来声明一个异步方法，await 用来等待异步任务执行——可读性强、便于维护。
+
+```js
+methods: {
+    async search(){
+        //根据用户输入的搜索条件，基于axios发送异步请求(https://web-server.itheima.net/emps/list)到服务端...
+        let result = await axios.get('https://web-server.itheima.net/emps/list?name=xxx&gender=xxx&job=xxx');
+        this.employees = result.data.data;
+    }
+}
+```
+
+注意：await 关键字只在 async 函数内有效，await 关键字取代 then 函数，等待获取到请求成功的结果值。
+
+**Vue生命周期**
+
+核心结论：生命周期指一个对象从创建到销毁的整个过程；Vue 生命周期共分为**八个阶段**，每触发一个生命周期事件，会自动执行一个生命周期方法（钩子）。
+
+| 状态 | 阶段周期 |
+| --- | --- |
+| beforeCreate | 创建前 |
+| created | 创建后 |
+| beforeMount | 载入前 |
+| mounted | 挂载完成 |
+| beforeUpdate | 数据更新前 |
+| updated | 数据更新后 |
+| beforeUnmount | 组件销毁前 |
+| unmounted | 组件销毁后 |
+
+典型应用场景：在**页面加载完毕时**，发起异步请求，加载数据，渲染页面。
+
+```html
+<script type="module">
+import { createApp } from 'https://.../vue.esm-browser.js'
+const app = createApp({
+    data() {
+        return {
+            message: "Hello Vue"
+        }
+    },
+    //生命周期-钩子函数 mounted
+    mounted() {
+        console.log('Vue挂载完毕, 发送请求获取数据 ...');
+    }
+}).mount("#app");
+</script>
+```
+
+**案例——从服务器端动态获取数据渲染展示列表**
+
+需求：页面中写死的员工列表 empList 数据其实来自服务端，现需要从服务端获取：
+
+1. 根据输入的条件进行查询，从服务器端（https://web-server.itheima.net/emps/list?name=xxx&gender=xxx&job=xxx）获取数据，查询时可以传入 name、gender、job 等查询条件；
+2. 点击查询按钮时，根据输入的条件进行查询；
+3. 页面加载完毕之后，自动加载数据，渲染展示；
+4. 不要修改原有页面的结构和内容。
+
+**容易误解的地方**：v-if 与 v-show 的"隐藏"本质不同——v-if 把元素从 DOM 里移除（重建），v-show 只是改 CSS 的 display；v-bind 不能写成插值表达式（`<img src="{{...}}">` 是错误用法），绑定标签属性必须用 v-bind 或 `:`；生命周期钩子名字必须写对（如 mounted 写成 mount 不会报错但不执行）。
+
+本节收束：Vue 的核心思想是"数据驱动视图"；六个常用指令（v-for 列表渲染、v-bind 属性绑定、v-if/v-show 显示控制、v-model 双向绑定、v-on 事件）覆盖页面渲染与交互；Ajax/Axios 负责与服务器通信（含 async/await）；生命周期给出"页面加载完毕自动请求数据"的标准时点（mounted）。
+
+### 第五章：Maven基础
+
+**什么是Maven**
+
+核心结论：Maven 是一款用于管理和构建 Java 项目的工具，是 apache 旗下的一个开源项目。
+
+- Apache 软件基金会，成立于 1999 年 7 月，是目前世界上最大的最受欢迎的开源软件基金会，也是一个专门为支持开源项目而生的非盈利性组织；
+- 开源项目地址：https://www.apache.org/index.html#projects-list
+
+**Maven的作用**
+
+Maven 的三大作用：
+
+1. **依赖管理**：方便快捷的管理项目依赖的资源（jar包）；
+2. **项目构建**：标准化的跨平台（Linux、Windows、MacOS）的自动化项目构建方式（编译 compile、测试 test、打包 package、发布 deploy）；
+3. **统一项目结构**：提供标准、统一的项目结构。
+
+依赖管理在 pom.xml 中的写法示例：
+
+```xml
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.11.0</version>
+</dependency>
+```
+
+**Maven核心概念**
+
+核心结论：Apache Maven 是一个项目管理和构建工具，它基于**项目对象模型(POM)**的概念，通过一小段描述信息来管理项目的构建。官网：http://maven.apache.org/
+
+Maven 的构成要素：
+
+- **项目对象模型（POM）**：对应 pom.xml 文件；
+- **依赖管理模型（Dependency）**：管理 jar 包依赖；
+- **构建生命周期/阶段（Build lifecycle & phases）**：统一构建过程；
+- **插件**：执行具体构建任务的工具；
+- **仓库**：用于存储资源，管理各种 jar 包。
+
+仓库的分类：
+
+| 仓库 | 说明 |
+| --- | --- |
+| 本地仓库 | 自己计算机上的一个目录 |
+| 中央仓库 | 由 Maven 团队维护的全球唯一的仓库，地址：https://repo1.maven.org/maven2/ |
+| 远程仓库(私服) | 一般由公司团队搭建的私有仓库 |
+
+查找依赖（jar）的顺序：**本地仓库（1）→ 远程仓库（2）→ 中央仓库（3）**。
+
+**Maven安装**
+
+安装步骤：
+
+1. 解压 `apache-maven-3.9.4-bin.zip`；
+2. 配置本地仓库：修改 `conf/settings.xml` 中的 `<localRepository>` 为一个指定目录；
+3. 配置阿里云私服：修改 `conf/settings.xml` 中的 `<mirrors>` 标签，为其添加如下子标签；
+4. 配置环境变量：`MAVEN_HOME` 为 maven 的解压目录，并将其 bin 目录加入 `PATH` 环境变量。
+
+```xml
+<localRepository>D:\develop\apache-maven-3.9.4\mvn_repo</localRepository>
+```
+
+```xml
+<mirror>
+    <id>alimaven</id>
+    <name>aliyun maven</name>
+    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+    <mirrorOf>central</mirrorOf>
+</mirror>
+```
+
+安装测试（命令行）：
+
+```text
+mvn -v
+```
+
+注意：配置 settings.xml 中的本地仓库、私服时，一定要仔细，注意配置信息的位置和标签。
+
+**IDEA集成Maven**
+
+（1）配置 Maven 环境（全局）：配置 maven 安装目录、maven 配置文件、maven 仓库目录。
+
+（2）创建 Maven 项目：创建模块，选择 New Module，填写模块信息，选择构建工具为 Maven，点击 create，创建完成。然后编写 HelloWorld，并运行。
+
+（3）导入 Maven 项目（两种方式）：
+
+- 方式一：File -> Project Structure -> Modules -> Import Module -> 选择 maven 项目的 pom.xml；
+- 方式二：Maven 面板 -> +（Add Maven Projects）-> 选择 maven 项目的 pom.xml。
+
+建议：将要导入的 maven 项目复制到你的项目目录下；建议选择 maven 项目的 pom.xml 文件进行导入。
+
+**Maven坐标**
+
+核心结论：Maven 中的坐标是资源(jar)的**唯一标识**，通过该坐标可以唯一定位资源位置。使用坐标来定义项目或引入项目中需要的依赖。
+
+Maven 坐标主要组成：
+
+- `groupId`：定义当前 Maven 项目隶属组织名称（通常是域名反写，例如：com.itheima）；
+- `artifactId`：定义当前 Maven 项目名称（通常是模块名称，例如 order-service、goods-service）；
+- `version`：定义当前项目版本号。
+
+版本分类：
+
+- **SNAPSHOT**：功能不稳定、尚处于开发中的版本，即快照版本；
+- **RELEASE**：功能趋于稳定、当前更新停止，可以用于发行的版本。
+
+自己项目的坐标（pom.xml）：
+
+```xml
+<groupId>com.itheima</groupId>
+<artifactId>maven-project01</artifactId>
+<version>1.0-SNAPSHOT</version>
+```
+
+引入依赖的坐标（pom.xml）：
+
+```xml
+<dependency>
+    <groupId>cn.hutool</groupId>
+    <artifactId>hutool-all</artifactId>
+    <version>5.8.27</version>
+</dependency>
+```
+
+**依赖管理**
+
+（1）依赖配置：
+
+- 依赖：指当前项目运行所需要的 jar 包，一个项目中可以引入多个依赖；
+- 配置步骤：在 pom.xml 中编写 `<dependencies>` 标签 → 在 `<dependencies>` 标签中使用 `<dependency>` 引入坐标 → 定义坐标的 groupId，artifactId，version → 点击刷新按钮，引入最新加入的坐标。
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>6.1.4</version>
+</dependency>
+```
+
+注意：如果不知道依赖的坐标信息，可以到 https://mvnrepository.com/ 中搜索。
+
+（2）排除依赖：指主动断开依赖的资源，被排除的资源无需指定版本。
+
+```xml
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>6.1.4</version>
+    <exclusions>
+        <exclusion>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-observation</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+```
+
+依赖配置小结：配置依赖用 `<dependencies>...<dependency>...</dependency>...</dependencies>`；排除依赖用 `<exclusions>...</exclusions>`。注意事项：一旦依赖配置变更了，记得重新加载；引入的依赖本地仓库不存在，记得联网。
+
+**生命周期**
+
+核心结论：Maven 的生命周期就是为了对所有的 maven 项目构建过程进行抽象和统一。Maven 中有 **3 套相互独立的生命周期**：
+
+- **clean**：清理工作；
+- **default**：核心工作，如：编译、测试、打包、安装、部署等；
+- **site**：生成报告、发布站点等。
+
+每套生命周期包含一些阶段（phase），阶段是有顺序的，后面的阶段依赖于前面的阶段。
+
+三套生命周期的完整阶段链：
+
+- **clean**：pre-clean → clean → post-clean；
+- **default**：validate → initialize → generate-sources → process-sources → generate-resources → process-resources → compile → process-classes → generate-test-sources → process-test-sources → generate-test-resources → process-test-resources → test-compile → process-test-classes → test → prepare-package → package → verify → install → deploy；
+- **site**：pre-site → site → post-site → site-deploy。
+
+常用生命周期阶段的含义：
+
+| 阶段 | 作用 |
+| --- | --- |
+| clean | 移除上一次构建生成的文件 |
+| compile | 编译项目源代码 |
+| test | 使用合适的单元测试框架运行测试(junit) |
+| package | 将编译后的文件打包，如：jar、war等 |
+| install | 安装项目到本地仓库 |
+
+注意：在同一套生命周期中，**当运行后面的阶段时，前面的阶段都会运行**。
+
+执行指定生命周期阶段的两种方式：
+
+1. 在 idea 中，右侧的 maven 工具栏，选中对应的生命周期，双击执行；
+2. 在命令行中，通过命令执行：
+
+```text
+mvn clean
+mvn compile
+mvn package
+…
+```
+
+**单元测试——测试基础概念**
+
+测试：是一种用来促进鉴定软件的正确性、完整性、安全性和质量的过程。
+
+阶段划分（4 个阶段）：
+
+| 阶段 | 介绍 | 目的 | 测试人员 |
+| --- | --- | --- | --- |
+| 单元测试 | 对软件的基本组成单位进行测试，最小测试单位 | 检验软件基本组成单位的正确性 | 开发人员 |
+| 集成测试 | 将已分别通过测试的单元，按设计要求组合成系统或子系统，再进行的测试 | 检查单元之间的协作是否正确 | 开发人员 |
+| 系统测试 | 对已经集成好的软件系统进行彻底的测试 | 验证软件系统的正确性、性能是否满足指定的要求 | 测试人员 |
+| 验收测试 | 交付测试，是针对用户需求、业务流程进行的正式的测试 | 验证软件系统是否满足验收标准 | 客户/需求方 |
+
+测试方法（3 种）：
+
+- **白盒测试**：清楚软件内部结构、代码逻辑。用于验证代码、逻辑正确性；
+- **黑盒测试**：不清楚软件内部结构、代码逻辑。用于验证软件的功能、兼容性等方面；
+- **灰盒测试**：结合了白盒测试和黑盒测试的特点，既关注软件的内部结构又考虑外部表现（功能）。
+
+组合关系：单元测试用白盒测试；集成测试用灰盒测试；系统测试和验收测试用黑盒测试。
+
+**JUnit单元测试**
+
+核心结论：单元测试就是针对最小的功能单元(方法)，编写测试代码对其正确性进行测试；**JUnit** 是最流行的 Java 测试框架之一，提供了一些功能，方便程序进行单元测试（第三方公司提供）。
+
+main 方法测试 vs JUnit 单元测试：
+
+| 对比项 | main方法测试 | JUnit单元测试 |
+| --- | --- | --- |
+| 代码组织 | 测试代码与源代码未分开，难维护 | 测试代码与源代码分开，便于维护 |
+| 相互影响 | 一个方法测试失败，影响后面方法 | 一个测试方法执行失败，不会影响其它测试方法 |
+| 自动化 | 无法自动化测试，得到测试报告 | 可根据需要进行自动化测试；可自动分析测试结果，产出测试报告 |
+
+快速入门（使用 JUnit，对 UserService 中业务方法进行单元测试）：
+
+1. 在 pom.xml 中，引入 JUnit 的依赖；
+2. 在 test/java 目录下，创建测试类，并编写对应的测试方法，并在方法上声明 `@Test` 注解；
+3. 运行单元测试（测试通过：绿色；测试失败：红色）。
+
+```xml
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.9.1</version>
+</dependency>
+```
+
+```java
+@Test
+public void testGetAge(){
+    Integer age = new UserService().getAge("110002200505091218");
+    System.out.println(age);
+}
+```
+
+注意：JUnit 单元测试类名命名规范为：`XxxxxTest`【规范】。JUnit 单元测试的方法，必须声明为 public void【规定】。
+
+思考：单元测试运行不报错（绿色），就代表代码没问题，测试通过？——**并不是**（所以需要断言）。
+
+**断言**
+
+核心结论：JUnit 提供了一些辅助方法，用来帮我们确定被测试的方法是否按照预期的效果正常工作，这种方式称为**断言**。
+
+| 断言方法 | 描述 |
+| --- | --- |
+| `Assertions.assertEquals(Object exp, Object act, String msg)` | 检查两个值是否相等，不相等就报错 |
+| `Assertions.assertNotEquals(Object unexp, Object act, String msg)` | 检查两个值是否不相等，相等就报错 |
+| `Assertions.assertNull(Object act, String msg)` | 检查对象是否为null，不为null，就报错 |
+| `Assertions.assertNotNull(Object act, String msg)` | 检查对象是否不为null，为null，就报错 |
+| `Assertions.assertTrue(boolean condition, String msg)` | 检查条件是否为true，不为true，就报错 |
+| `Assertions.assertFalse(boolean condition, String msg)` | 检查条件是否为false，不为false，就报错 |
+| `Assertions.assertThrows(Class expType, Executable exec, String msg)` | 检查程序运行抛出的异常，是否符合预期 |
+
+提示：上述方法形参中的最后一个参数 msg，表示错误提示信息，可以不指定（有对应的重载方法）。
+
+为什么要使用断言：单元测试方法运行不报错，不代表业务方法没问题。通过断言可以检测方法运行结果是否和预期一致，从而判断业务方法的正确性。写法：`Assertions.assertXxxx(...)`。
+
+**JUnit常见注解**
+
+| 注解 | 说明 | 备注 |
+| --- | --- | --- |
+| `@Test` | 测试类中的方法用它修饰才能成为测试方法，才能启动执行 | 单元测试 |
+| `@ParameterizedTest` | 参数化测试的注解（可以让单个测试运行多次，每次运行时仅参数不同） | 用了该注解，就不需要 @Test 注解了 |
+| `@ValueSource` | 参数化测试的参数来源，赋予测试方法参数 | 与参数化测试注解配合使用 |
+| `@DisplayName` | 指定测试类、测试方法显示的名称（默认为类名、方法名） | — |
+| `@BeforeEach` | 用来修饰一个实例方法，该方法会在每一个测试方法执行之前执行一次 | 初始化资源(准备工作) |
+| `@AfterEach` | 用来修饰一个实例方法，该方法会在每一个测试方法执行之后执行一次 | 释放资源(清理工作) |
+| `@BeforeAll` | 用来修饰一个静态方法，该方法会在所有测试方法之前只执行一次 | 初始化资源(准备工作) |
+| `@AfterAll` | 用来修饰一个静态方法，该方法会在所有测试方法之后只执行一次 | 释放资源(清理工作) |
+
+常见问题小结：
+
+- JUnit 单元测试的方法，是否可以声明方法形参？——可以的，参数化测试：`@ParameterizedTest` + `@ValueSource`；
+- 如何实现在单元测试方法运行之前，做一些初始化操作？——`@BeforeEach`、`@BeforeAll`；
+- 如何实现在单元测试方法运行之后，释放对应的资源？——`@AfterEach`、`@AfterAll`；
+- 在 maven 项目中，test 目录存放单元测试的代码，是否可以在 main 目录中编写单元测试呢？——可以，但是不规范。
+
+实战练习：基于 AI，测试 UserService 中的 getGender 方法。
+
+**依赖范围**
+
+核心结论：依赖的 jar 包，默认情况下，可以在任何地方使用。可以通过 `<scope>…</scope>` 设置其作用范围。
+
+作用范围三个维度：主程序范围有效（main 文件夹范围内）、测试程序范围有效（test 文件夹范围内）、是否参与打包运行（package 指令范围内）。
+
+| scope值 | 主程序 | 测试程序 | 打包（运行） | 范例 |
+| --- | --- | --- | --- | --- |
+| compile（默认） | Y | Y | Y | log4j |
+| test | - | Y | - | junit |
+| provided | Y | Y | - | servlet-api |
+| runtime | - | Y | Y | jdbc驱动 |
+
+```xml
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter</artifactId>
+    <version>5.9.3</version>
+    <scope>test</scope>
+</dependency>
+```
+
+**Maven常见问题解决方案**
+
+依赖下载失败示例问题：产生原因——由于网络原因，依赖没有下载完整导致的，在 maven 仓库中生成了 `xxx.lastUpdated` 文件，该文件不删除，不会再重新下载。
+
+解决方案：
+
+1. 根据 maven 依赖的坐标，找到仓库中对应的 `xxx.lastUpdated` 文件，删除，删除之后重新加载项目即可；
+2. 通过命令（`del /s *.lastUpdated`）批量递归删除指定目录下的 `xxx.lastUpdated` 文件，删除之后重新加载项目即可；
+3. 重新加载依赖，依赖下载了之后，maven 面板可能还会报红，此时可以关闭 IDEA，重新打开 IDEA 加载此项目即可。
+
+**容易误解的地方**：生命周期的 3 套之间相互独立——执行 clean 不会影响 default 的各阶段；但同一套生命周期内部，运行后面的阶段时，前面的阶段都会运行（如执行 package 会先执行 compile 和 test）。另外 scope 为 test 的依赖（如 junit）不会被打入最终包，而 runtime 依赖（如 jdbc 驱动）编码时用不到但运行/打包需要。
+
+本节收束：Maven 用"坐标"唯一定位 jar，用"仓库（本地→私服→中央）"下载依赖，用"生命周期"标准化构建过程；JUnit + 断言 + 注解构成单元测试的标准写法；这些都是后续所有 Maven 工程（含 SpringBoot 项目）的基础设施。
+
+### 第六章：Web基础知识
+
+**Web服务器与资源分类**
+
+核心结论：Web 服务器上的资源分为静态资源和动态资源，与之对应的是两种软件架构模式。
+
+- **静态资源**：服务器上存储的不会改变的数据，通常不会根据用户的请求而变化。比如：HTML、CSS、JS、图片、视频等（负责页面展示）；
+- **动态资源**：服务器端根据用户请求和其他数据动态生成的，内容可能会在每次请求时都发生变化。比如：Servlet、JSP等（负责逻辑处理）。
+
+两种架构模式：
+
+- **B/S 架构**：Browser/Server，浏览器/服务器架构模式。客户端只需浏览器，应用程序的逻辑和数据都存在服务器端。（维护方便，体验一般）；
+- **C/S 架构**：Client/Server，客户端/服务器架构模式。需要单独开发维护客户端。（体验不错，开发维护麻烦）。
+
+本章内容结构：SpringBoot Web入门、HTTP协议、SpringBoot Web案例、分层解耦。
+
+**SpringBoot Web入门——Spring与SpringBoot**
+
+核心结论：Spring 发展到今天已经形成了一种开发生态圈，Spring 提供了若干个子项目（Spring全家桶），每个项目用于完成特定的功能，官网：spring.io。
+
+- 传统 Spring 的问题：入门难度大、配置繁琐；
+- **SpringBoot** 的价值：简化配置、快速开发——Spring Boot 可以帮助我们非常快速的构建应用程序、简化开发、提高效率。
+
+**SpringBoot Web入门程序**
+
+需求：基于 SpringBoot 开发一个 Web 应用，浏览器发起请求 `/hello` 之后，给浏览器返回一个字符串"Hello Xxx"。
+
+快速入门步骤：
+
+1. 创建 springboot 工程，并勾选 web 开发相关依赖；
+2. 定义 HelloController 类，添加方法 hello，并添加注解；
+3. 运行启动类，测试。
+
+```java
+@RestController //标识当前类是一个请求处理类
+@RequestMapping("/hello") //标识请求路径
+public class HelloController {
+    public String hello(String name){
+        System.out.println("HelloController ... hello : " + name);
+        return "Hello " + name + " ~ ";
+    }
+}
+```
+
+测试访问：`http://localhost:8080/hello?name=Heima` 返回 `"Hello Heima ~"`。
+
+提示：如果 Spring 官方脚手架连接不上，有对应的解决方案（网络问题）。
+
+**入门程序剖析**
+
+思考：为什么一个 main 方法就将 web 应用启动了？
+
+- **起步依赖**：
+  - `spring-boot-starter-web`：包含了 web 应用开发所需要的常见依赖；
+  - `spring-boot-starter-test`：包含了单元测试所需要的常见依赖；
+  - 官方提供的 starter 列表：https://docs.spring.io/spring-boot/docs/3.1.3/reference/htmlsingle/#using.build-systems.starters
+- **内嵌 Tomcat**：SpringBoot 内置了 Tomcat 服务器，所以直接运行 main 方法即可启动 web 应用。
+
+**HTTP协议**
+
+概念：HTTP（Hyper Text Transfer Protocol，超文本传输协议），规定了浏览器和服务器之间数据传输的规则。
+
+特点：
+
+- 基于 TCP 协议：面向连接，安全；
+- 基于请求-响应模型的：一次请求对应一次响应；
+- HTTP 协议是**无状态**的协议：对于事务处理没有记忆能力。每次请求-响应都是独立的；
+  - 缺点：多次请求间不能共享数据；
+  - 优点：速度快。
+
+**HTTP请求数据格式**
+
+请求数据分三部分：
+
+- **请求行**：请求数据第一行（请求方式、资源路径、协议）；
+- **请求头**：第二行开始，格式 key：value；
+- **请求体**：POST 请求时，存放请求参数（与请求头之间隔了一个空行）。
+
+请求方式对比：
+
+- **GET**：请求参数在请求行中，没有请求体，如：`/brand/findAll?name=OPPO&status=1`。GET 请求大小在浏览器中是有限制的；
+- **POST**：请求参数在请求体中，POST 请求大小是没有限制的。
+
+常见请求头：
+
+| 请求头 | 说明 |
+| --- | --- |
+| Host | 请求的主机名 |
+| User-Agent | 浏览器版本，例如 Chrome 浏览器的标识类似 Mozilla/5.0 ... Chrome/79，IE 浏览器的标识类似 Mozilla/5.0 (Windows NT ...) like Gecko |
+| Accept | 表示浏览器能接收的资源类型，如 text/*，image/* 或者 */* 表示所有 |
+| Accept-Language | 表示浏览器偏好的语言，服务器可以据此返回不同语言的网页 |
+| Accept-Encoding | 表示浏览器可以支持的压缩类型，例如 gzip, deflate 等 |
+| Content-Type | 请求主体的数据类型 |
+| Content-Length | 请求主体的大小（单位：字节） |
+
+**HTTP请求数据获取**
+
+核心结论：Web 服务器（Tomcat）对 HTTP 协议的请求数据进行解析，并进行了封装（**HttpServletRequest**），在调用 Controller 方法的时候传递给了该方法。这样，就使得程序员不必直接对协议进行操作，让 Web 开发更加便捷。
+
+```java
+@RequestMapping("/request")
+public String request(HttpServletRequest request){
+    //  1.获取请求参数name，age
+    String name = request.getParameter("name"); // Tom
+    //  2.获取请求路径uri 和 url
+    String uri = request.getRequestURI(); // /request
+    String url = request.getRequestURL().toString(); // http://localhost:8080/request
+    //  3.获取请求头 User-Agent
+    String userAgent = request.getHeader("User-Agent"); // Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+    //  4.获取请求方式
+    String method = request.getMethod(); // GET
+    //  5.获取请求的查询字符串
+    String queryString = request.getQueryString(); // name=Tomcat&age=10
+    return "request success";
+}
+```
+
+小结：HTTP 请求数据需要程序员自己解析吗？——不需要，web 服务器负责对 HTTP 请求数据进行解析，并封装为了请求对象；如何获取请求数据？——HttpServletRequest 对象里面封装了所有的请求信息。
+
+**HTTP响应数据格式**
+
+响应数据分三部分：
+
+- **响应行**：响应数据第一行（协议、状态码、描述）；
+- **响应头**：第二行开始，格式 key：value；
+- **响应体**：最后一部分，存放响应数据。
+
+状态码分类：
+
+| 分类 | 说明 |
+| --- | --- |
+| 1xx | 响应中——临时状态码，表示请求已经接收，告诉客户端应该继续请求或者如果它已经完成则忽略它 |
+| 2xx | 成功——表示请求已经被成功接收，处理已完成 |
+| 3xx | 重定向——重定向到其他地方；让客户端再发起一次请求以完成整个处理 |
+| 4xx | 客户端错误——处理发生错误，责任在客户端。如：请求了不存在的资源、客户端未被授权、禁止访问等 |
+| 5xx | 服务器错误——处理发生错误，责任在服务端。如：程序抛出异常等 |
+
+常见状态码：**200**（客户端请求成功）、**404**（请求资源不存在，URL输入有误，或者网站资源被删除了）、**500**（服务器发生不可预期的错误）。
+
+常见响应头：
+
+| 响应头 | 说明 |
+| --- | --- |
+| Content-Type | 表示该响应内容的类型，例如 text/html，application/json |
+| Content-Length | 表示该响应内容的长度（字节数） |
+| Content-Encoding | 表示该响应压缩算法，例如 gzip |
+| Cache-Control | 指示客户端应如何缓存，例如 max-age=300 表示可以最多缓存300秒 |
+| Set-Cookie | 告诉浏览器为当前页面所在的域设置 cookie |
+
+**HTTP响应数据设置**
+
+核心结论：Web 服务器对 HTTP 协议的响应数据进行了封装（**HttpServletResponse**），并在调用 Controller 方法的时候传递给了该方法。
+
+方式一：基于 HttpServletResponse 封装：
+
+```java
+@RequestMapping("/response")
+public void response(HttpServletResponse response) throws IOException {
+    // 1.设置响应状态码
+    response.setStatus(401);
+    // 2.设置响应头
+    response.setHeader("itheima","itheima");
+    // 3.设置响应体
+    response.getWriter().write("<h1>Hello Response</h1>");
+}
+```
+
+方式二：基于 ResponseEntity 封装：
+
+```java
+@RequestMapping("/response")
+public ResponseEntity<String> response() {
+    return ResponseEntity.status(401)        // 1.设置响应状态码
+            .header("group", "itcast")        // 2.设置响应头
+            .body("<h1>Hello Response</h1>"); // 3.设置响应体
+}
+```
+
+注意：响应状态码和响应头如果没有特殊要求的话，通常不手动设定。服务器会根据请求处理的逻辑，自动设置响应状态码和响应头。
+
+小结：HTTP 响应数据需要程序员自己手动设置吗？——不需要，Web 服务器对 HTTP 响应数据进行了封装（HttpServletResponse）；响应状态码、响应头需要我们手动指定吗？——通常情况下，我们无需手动制定，服务器会根据请求逻辑自动设置。
+
+**SpringBootWeb案例——用户列表渲染展示**
+
+需求：开发 web 程序，完成用户列表的渲染展示。
+
+准备工作：
+
+1. 创建一个 SpringBoot 工程，并勾选 web 依赖、lombok；
+2. 引入资料中准备好的用户数据文件(user.txt)，及前端静态页面；
+3. 定义一个实体类，用来封装用户信息；
+4. 开发服务端程序，接收请求，读取文本数据并响应。
+
+访问地址：`http://localhost:8080/list`，响应 `[{"id":1,"username":"daqiao",...}]`。
+
+两个关键知识点：
+
+- **静态资源文件存放位置**：`resources/static`；
+- **@ResponseBody 注解的作用**：将 controller 方法的返回值直接写入 HTTP 响应体；如果是对象或集合，会先转为 json，再响应；
+- `@RestController = @Controller + @ResponseBody`。
+
+服务端完整代码：
+
+```java
+@RequestMapping("/list")
+public List<User> list(){
+    //1.加载并读取文件
+    InputStream in = this.getClass().getClassLoader().getResourceAsStream("user.txt");
+    ArrayList<String> lines = IoUtil.readLines(in, StandardCharsets.UTF_8, new ArrayList<>());
+
+    //2.解析数据，封装成对象 --> 集合
+    List<User> userList = lines.stream().map(line -> {
+        String[] parts = line.split(",");
+        Integer id = Integer.parseInt(parts[0]);
+        String username = parts[1];
+        String password = parts[2];
+        String name = parts[3];
+        Integer age = Integer.parseInt(parts[4]);
+        LocalDateTime uTime = LocalDateTime.parse(parts[5],
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        return new User(id, username, password, name, age, updateTime);
+    }).collect(Collectors.toList());
+
+    //3.响应数据
+    return userList;
+}
+```
+
+⚠️ 问题：课件代码中变量声明为 `LocalDateTime uTime = LocalDateTime.parse(...)`，但创建对象时写的是 `new User(..., age, updateTime)`——`updateTime` 这个变量并不存在，代码无法编译。
+修正建议：两处命名保持一致，应写成 `new User(id, username, password, name, age, uTime)`（或把变量声明为 `updateTime`）。
+
+这样"读取文件 + 解析 + 响应"全部写在 Controller 中，存在**复用性差、难以维护**的问题——由此引出分层解耦。
+
+**分层解耦——三层架构**
+
+核心结论：按照**单一职责原则**把代码拆分为三层，便于复用与后期维护。
+
+| 层 | 职责 |
+| --- | --- |
+| controller | 控制层，接收前端发送的请求，对请求进行处理，并响应数据（接收请求、响应数据） |
+| service | 业务逻辑层，处理具体的业务逻辑（逻辑处理） |
+| dao | 数据访问层(Data Access Object)（持久层），负责数据访问操作，包括数据的增、删、改、查（数据访问） |
+
+拆分前后对比：拆分前复用性差、难以维护；拆分后复用性强、方便维护。
+
+小结：为什么要对代码进行拆分？——遵循单一职责原则，便于复用、后期维护；拆分为了哪三层？——controller（接受请求，响应数据）、service（逻辑处理）、dao（数据访问）。
+
+**分层解耦——耦合、内聚与IOC/DI思想**
+
+- **耦合**：衡量软件中各个层/各个模块的依赖关联程度；
+- **内聚**：软件中各个功能模块内部的功能联系；
+- **软件设计原则**：**高内聚低耦合**。
+
+核心结论：分层解耦的实现靠三个概念：
+
+- **控制反转（IOC，Inversion Of Control）**：对象的创建控制权由程序自身转移到外部（容器），这种思想称为控制反转；
+- **依赖注入（DI，Dependency Injection）**：容器为应用程序提供运行时，所依赖的资源，称之为依赖注入；
+- **Bean 对象**：IOC 容器中创建、管理的对象，称之为 Bean。
+
+实现分层解耦的思路：将项目中的类交给 IOC 容器管理（IOC，控制反转）；应用程序运行时需要什么对象，直接依赖容器为其提供（DI，依赖注入）。
+
+**IOC & DI入门**
+
+两步改造：
+
+1. 将 Dao 及 Service 层的实现类，交给 IOC 容器管理；
+2. 为 Controller 及 Service 注入运行时所依赖的对象。
+
+```java
+@Component
+public class UserDaoImpl implements UserDao {
+    @Override
+    public List<String> list() {
+        InputStream in = this.getClass().getClassLoader().getResourceAsStream("user.txt");
+        return IoUtil.readLines(in,StandardCharsets.UTF_8, new ArrayList<>());
+    }
+}
+```
+
+```java
+@Component
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao;
+    @Override
+    public List<User> list() {
+        //1.调用dao获取数据
+        List<String> lines = userDao.list();
+        //2...
+    }
+}
+```
+
+```java
+@RestController
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("/list")
+    public List<User> list(){
+        //1.调用service，查询用户信息
+        List<User> userList = userService.list();
+        //2...
+    }
+}
+```
+
+小结：如何将一个类交给 IOC 容器管理？——`@Component`（注意：是加在**实现类**上，而非接口上）；如何从 IOC 容器中找到该类型的 bean，然后完成依赖注入？——`@Autowired`。
+
+**IOC详解**
+
+要把某个对象交给 IOC 容器管理，需要在对应的类上加上如下注解之一：
+
+| 注解 | 说明 | 位置 |
+| --- | --- | --- |
+| `@Component` | 声明 bean 的基础注解 | 不属于以下三类时，用此注解 |
+| `@Controller` | @Component 的衍生注解 | 标注在控制层类上 |
+| `@Service` | @Component 的衍生注解 | 标注在业务层类上 |
+| `@Repository` | @Component 的衍生注解 | 标注在数据访问层类上（由于与 mybatis 整合，用的少） |
+
+注意：声明 bean 的时候，可以通过注解的 value 属性指定 bean 的名字，如果没有指定，**默认为类名首字母小写**。
+
+**组件扫描**：前面声明 bean 的四大注解，要想生效，还需要被组件扫描注解 `@ComponentScan` 扫描。该注解虽然没有显式配置，但是实际上已经包含在了启动类声明注解 `@SpringBootApplication` 中，**默认扫描的范围是启动类所在包及其子包**。
+
+小结：声明 bean 的注解有 @Controller、@Service、@Repository、@Component；在 Springboot 集成 web 开发中，声明控制器 bean 只能用 @Controller；声明 bean 的注解要想生效，需要被扫描到，启动类默认扫描当前包及其子包。
+
+**DI详解**
+
+核心结论：基于 `@Autowired` 进行依赖注入的常见方式有三种。
+
+（1）属性注入：
+
+```java
+@RestController
+public class UserController {
+    @Autowired
+    private UserService userService;
+    //......
+}
+```
+
+- 优点：代码简洁、方便快速开发；
+- 缺点：隐藏了类之间的依赖关系、可能会破坏类的封装性。
+
+（2）构造函数注入：
+
+```java
+@RestController
+public class UserController {
+    private final UserService userService;
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+}
+```
+
+- 优点：能清晰地看到类的依赖关系、提高了代码的安全性；
+- 缺点：代码繁琐、如果构造参数过多，可能会导致构造函数臃肿；
+- 注意：如果只有一个构造函数，@Autowired 注解可以省略。
+
+（3）setter 注入：
+
+```java
+@RestController
+public class UserController {
+   private UserService userService;
+   @Autowired
+   public void setUserService(UserService userService) {
+       this.userService = userService;
+   }
+}
+```
+
+- 优点：保持了类的封装性，依赖关系更清晰；
+- 缺点：需要额外编写 setter 方法，增加了代码量。
+
+**多个同类型Bean的注入问题**
+
+核心结论：`@Autowired` 注解，默认是按照**类型**进行注入的。如果存在多个相同类型的 bean，将会报出错误——三种解决方案：
+
+方案一：`@Primary`（在某个实现类上加 @Primary，标记优先注入）：
+
+```java
+@Primary
+@Service
+public class UserServiceImpl implements UserService {
+    @Override
+    public List<User> list(){
+        //省略 ……
+    }
+}
+```
+
+方案二：`@Autowired` + `@Qualifier`（按名字指定）：
+
+```java
+@RestController
+public class UserController {
+    @Autowired
+    @Qualifier("userServiceImpl")
+    private UserService userService;
+}
+```
+
+方案三：`@Resource`（JavaEE 规范注解，按名字注入）：
+
+```java
+@RestController
+public class UserController {
+    @Resource(name = "userServiceImpl")
+    private UserService userService;
+}
+```
+
+`@Resource` 与 `@Autowired` 的区别：
+
+- @Autowired 是 Spring 框架提供的注解，而 @Resource 是 JavaEE 规范提供的；
+- @Autowired 默认是按照类型注入，而 @Resource 默认是按照名称注入。
+
+**容易误解的地方**：@Component 等注解必须加在**实现类**上（加在接口上无效）；@Autowired 先按类型找，同类型有多个时才需要 @Qualifier/@Primary/@Resource 辅助；HTTP 是"无状态"协议，多次请求间不能共享数据，这是后面要用 Cookie/Session/JWT 做登录状态保持的根本原因。
+
+本节收束：SpringBoot 通过"起步依赖 + 内嵌 Tomcat"把 Web 应用启动简化为一个 main 方法；HTTP 协议规定了请求（行/头/体）与响应（行/头/体）的数据格式，Tomcat 负责解析并封装成 HttpServletRequest/HttpServletResponse；开发规范上采用 controller-service-dao 三层架构，通过 IOC（@Component 家族）与 DI（@Autowired 家族）实现分层解耦、高内聚低耦合。
+
+### 第七章：数据库
+
+**为什么需要数据库**
+
+核心结论：在 Web 后端开发的三层结构中，**Dao 层负责数据访问**——而数据不能一直存在文本文件里，需要专门的软件来存储和管理，这就是数据库引入的原因。
+
+回顾后端程序的三层分工：
+
+- **Controller**：接收请求、响应数据；
+- **Service**：逻辑处理；
+- **Dao**：数据访问；
+- **数据库**：数据最终存储的位置。
+
+此前把数据存在文件里，随着数据量变大、并发变多，会"不便维护、管理"。所以企业开发中后端数据都交给数据库管理。
+
+**数据库核心概念：DB、DBMS、SQL**
+
+核心结论：三个最基础的名词要先分清——数据库是"仓库"，DBMS 是"管理仓库的软件"，SQL 是"操作仓库的语言"。
+
+- **数据库（DataBase，DB）**：是存储和管理数据的仓库；
+- **数据库管理系统（DataBase Management System，DBMS）**：操纵和管理数据库的大型软件；
+- **SQL（Structured Query Language）**：操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准。
+
+关系图理解：客户端发起操作 → 通过 SQL 语言 → 交给 DBMS（数据库管理系统）执行 → DBMS 管理着多个数据库 → 每个数据库中又有若干张表。
+
+**数据库产品**
+
+核心结论：市面上数据库产品很多，但都遵循 SQL 统一标准；本课程学习的是开源免费的 MySQL。
+
+| 产品 | 说明 |
+| --- | --- |
+| Oracle | 收费的大型数据库，Oracle 公司的产品 |
+| SQL Server | MicroSoft 公司收费的中型的数据库。C#、.net 等语言常使用 |
+| PostgreSQL | 开源免费中小型的数据库 |
+| DB2 | IBM 公司的大型收费数据库产品 |
+| SQLite | 嵌入式的微型数据库。如：作为 Android 内置数据库 |
+| MariaDB | 开源免费的中小型的数据库 |
+| MySQL | 开源免费的中小型数据库。Sun 公司收购了 MySQL，Oracle 收购 Sun 公司 |
+
+这些产品都遵循 SQL 这一**统一标准**，所以学会 SQL 之后，换数据库产品时大部分操作是通用的。
+
+本份课件的课程结构为：**MySQL 概述、SQL 语句、多表设计、多表查询、事务**；课件正文实际覆盖了"MySQL 概述"与"SQL 语句"两部分内容（DDL、DML、DQL）。
+
+**MySQL 安装**
+
+核心结论：MySQL 官方提供商业版和社区版两种版本，课程采用免费的最新社区版 8.0.34。
+
+- **商业版（MySQL Enterprise Edition）**：收费，可以试用 30 天；官方提供技术支持；
+- **社区版（MySQL Community Server）**：免费；MySQL 官方不提供技术支持。
+
+本课程采用的是 MySQL 的最新社区版（MySQL Community Server 8.0.34）。
+
+下载地址：https://dev.mysql.com/downloads/mysql/ （安装按资料中的文档操作）。
+
+**MySQL 连接**
+
+核心结论：安装完成后通过命令行即可连接 MySQL 服务器，基本语法是 `mysql -u用户名 -p密码`，可选的 `-h`、`-P` 用于指定服务器 IP 与端口。
+
+连接语法：
+
+```
+mysql –u用户名 –p密码 [-h数据库服务器IP地址 -P端口号]
+```
+
+例如完整写法：`mysql -hxxx -Pxxx -uxxx -pxxx`，回车后输入密码即可连接。
+
+⚠️ 问题：课件连接语法中 `-u` 和 `-p` 前用的是全角破折号"–"（而 `-h`、`-P` 前是正常的半角减号"-"），符号混用；如果照着课件直接复制输入，命令会执行失败。
+修正建议：命令中所有参数前缀都使用**半角减号"-"**，即 `mysql -u用户名 -p密码 [-h数据库服务器IP地址 -P端口号]`。
+
+细节说明：企业开发中很少直接使用命令行，而是使用图形化工具连接数据库（见下文 DataGrip）。
+
+**关系型数据库与数据模型**
+
+核心结论：MySQL 是关系型数据库——由多张相互连接的二维表组成；数据的存储层级是：数据库 → 表 → 数据（记录）。
+
+- **关系型数据库**：建立在关系模型基础上，由多张相互连接的二维表组成的数据库（RDBMS）；
+- 特点：
+  - 使用表存储数据，格式统一，便于维护；
+  - 使用 SQL 语言操作，标准统一，使用方便，可用于复杂查询。
+
+举例理解：一家公司可以用"员工表"和"部门表"两张二维表存储数据，两张表之间通过字段建立连接（如员工表里的部门 ID 关联部门表）。
+
+数据库的完整数据模型层级：
+
+- 客户端（发起 SQL 操作）；
+- 数据库服务器（运行 DBMS）；
+- DBMS 管理多个数据库（数据库 1、数据库 2……）；
+- 每个数据库中有多张表（表 1、表 2……）；
+- 表中存放具体的数据（记录）。
+
+结论：**数据是如何在数据库中存储的？——数据库 -> 表 -> 数据(记录)。**
+
+**SQL 语言分类**
+
+核心结论：SQL 按功能分为四大类——DDL、DML、DQL、DCL；本阶段重点学习前三种。
+
+| 分类 | 全称 | 说明 |
+| --- | --- | --- |
+| DDL | Data Definition Language | 数据定义语言，用来定义数据库对象（数据库，表，字段） |
+| DML | Data Manipulation Language | 数据操作语言，用来对数据库表中的数据进行增删改 |
+| DQL | Data Query Language | 数据查询语言，用来查询数据库中表的记录 |
+| DCL | Data Control Language | 数据控制语言，用来创建数据库用户、控制数据库的访问权限 |
+
+本份课件的 SQL 内容组织：DDL（数据库、表结构-创建、表结构-查询修改删除）、DML、DQL。
+
+**DDL——数据库操作**
+
+核心结论：数据库的 DDL 操作按"查询——使用——创建——删除"四类记忆：查所有库、查当前库、切换库、建库、删库。
+
+完整语法：
+
+```sql
+-- 查询所有数据库
+show databases;
+-- 查询当前数据库
+select database();
+-- 使用/切换数据库
+use 数据库名;
+-- 创建数据库
+create database [if not exists] 数据库名 [default charset utf8mb4];
+-- 删除数据库
+drop database [if exists] 数据库名;
+```
+
+细节说明：
+
+- 上述语法中的 `database`，也可以替换成 `schema`。如：`create schema db01;`
+- MySQL8 版本中，默认字符集为 utf8mb4；
+- `[if not exists]`、`[if exists]` 用方括号括起表示可选，加上可以避免"重复创建报错/删除不存在的库报错"。
+
+容易误解的地方：同一个数据库服务器中，**数据库的名字不可以相同**；MySQL8 版本默认的字符集是 **utf8mb4**（不是 utf8）。
+
+**MySQL 客户端工具——DataGrip**
+
+核心结论：命令行客户端存在"无提示、操作繁琐、无历史记录"的缺点，企业开发中常用图形化工具 DataGrip。
+
+- 命令行方式的问题：无提示、操作繁琐、无历史记录；
+- **DataGrip**：JetBrains 旗下的一款数据库管理工具，是管理和开发 MySQL、Oracle、PostgreSQL 的理想解决方案；
+- 官网：https://www.jetbrains.com/zh-cn/datagrip/
+- 安装：参考资料中提供的《DataGrip安装手册》。
+
+**DDL——表结构创建**
+
+核心结论：创建表的核心是"字段名 + 字段类型 + 约束 + 注释"的组合，语法结构固定。
+
+创建表的语法：
+
+```sql
+create table tablename(
+    字段1 字段类型 [约束] [comment 字段1注释],
+    ......
+    字段2 字段类型 [约束] [comment 字段2注释]
+)[comment 表注释];
+```
+
+**约束**：约束是作用于表中字段上的规则，用于限制存储在表中的数据。目的是**保证数据库中数据的正确性、有效性和完整性**。
+
+| 约束 | 描述 | 关键字 |
+| --- | --- | --- |
+| 非空约束 | 限制该字段值不能为 null | not null |
+| 唯一约束 | 保证字段的所有数据都是唯一、不重复的 | unique |
+| 主键约束 | 主键是一行数据的唯一标识，要求非空且唯一 | primary key |
+| 默认约束 | 保存数据时，如果未指定该字段值，则采用默认值 | default |
+| 外键约束 | 让两张表的数据建立连接，保证数据的一致性和完整性 | foreign key |
+
+例如页面上"性别默认男、姓名非空、id 唯一标识"的需求，就分别对应 default、not null、primary key 三种约束。
+
+几个常见问题：
+
+- MySQL 数据库中分为哪几类约束？——primary key、not null、unique、default、foreign key；
+- 如何实现主键自增的效果？——定义主键的时候指定关键字 `auto_increment`；
+- 一个字段上是否可以添加多个约束？——可以，多个约束之间使用**空格**分开。
+
+**DDL——表结构创建之数据类型**
+
+核心结论：MySQL 数据类型众多，主要分三类：数值类型、字符串类型、日期时间类型。
+
+两个必须掌握的选择要点：
+
+- **unsigned**：数值类型在定义时后面加 unsigned 关键字表示无符号类型，只能取 0 及正数；不加默认是 signed，表示可以取负数；
+- **char 与 varchar 的区别**：char 是**定长字符串**，varchar 是**变长字符串**；
+  - 如果一个字段的长度是固定的，建议使用 char；如：身份证号、手机号；
+  - 如果一个字段的长度不是固定的，建议使用 varchar；如：用户名、姓名。
+
+**员工表设计案例**
+
+核心结论：根据页面原型设计表结构，遵循"分析原型 → 分析字段 → 建表"三步，并为基础表补充 id、create_time、update_time 三个基础字段。
+
+步骤：
+
+1. 阅读并分析页面原型及需求；
+2. 分析表中包含哪些字段，以及字段的类型、约束；
+3. 创建表结构（添加基础字段 id、create_time、update_time）。
+
+细节说明：id 作为主键唯一标识一行数据；create_time、update_time 用于记录数据的创建时间与更新时间，是企业表设计的通用基础字段。
+
+**DDL——表结构的查询、修改、删除**
+
+核心结论：表结构的操作围绕"查询——修改——删除"展开，查询用 show/desc，修改用 alter 系列，删除用 drop。
+
+完整语法：
+
+```sql
+show tables; -- 查询当前数据库的所有表
+desc 表名; -- 查询表结构
+show create table 表名; -- 查询建表语句
+
+alter table 表名 add 字段名 类型(长度) [comment 注释] [约束]; -- 添加字段
+alter table 表名 modify 字段名 新数据类型(长度); -- 修改字段类型
+alter table 表名 change 旧字段名 新字段名 类型(长度) [comment 注释] [约束]; -- 修改字段名与字段类型
+alter table 表名 drop column 字段名; -- 删除字段
+alter table 表名 rename to 新表名; -- 修改表名
+
+drop table [if exists] 表名; -- 删除表
+```
+
+细节说明与容易误解的地方：
+
+- `modify` 只改字段类型，`change` 可以同时改字段名和字段类型，两者不要混用；
+- **注意：在删除表时，表中的全部数据也会被删除**（这是 drop 与 delete 的本质区别，delete 只删数据不删表结构）。
+
+**DML——数据操作语言**
+
+核心结论：DML 英文全称是 Data Manipulation Language（数据操作语言），用来对数据库中表的数据记录进行**增、删、改**操作，对应 INSERT、UPDATE、DELETE 三条语句。
+
+**DML——insert 添加数据**
+
+四种插入写法：
+
+```sql
+-- 指定字段添加数据
+insert into 表名(字段名1, 字段名2) values (值1, 值2);
+-- 全部字段添加数据
+insert into 表名 values (值1, 值2, ...);
+-- 批量添加数据（指定字段）
+insert into 表名 (字段名1, 字段名2) values (值1, 值2), (值1, 值2);
+-- 批量添加数据（全部字段）
+insert into 表名 values (值1, 值2, ...), (值1, 值2, ...);
+```
+
+注意：
+
+- 插入数据时，指定的字段顺序需要与值的顺序是**一一对应**的；
+- 字符串和日期型数据应该包含在引号中（单引号、双引号都可以）；
+- 插入的数据大小/长度，应该在字段的规定范围内（如字段类型是 varchar(10)，就不能插入超过 10 个字符的内容）。
+
+**DML——update 修改数据**
+
+语法：
+
+```sql
+-- 修改数据
+update 表名 set 字段名1 = 值1, 字段名2 = 值2, .... [where 条件];
+```
+
+注意：修改语句的条件可以有，也可以没有；**如果没有条件，则会修改整张表的所有数据**——这是初学者最容易踩的坑，执行 UPDATE 前先确认 where 条件是否写对。
+
+**DML——delete 删除数据**
+
+语法：
+
+```sql
+-- 删除数据
+delete from 表名 [where 条件];
+```
+
+注意：
+
+- DELETE 语句的条件可以有，也可以没有；如果没有条件，则会**删除整张表的所有数据**；
+- DELETE 语句**不能删除某一个字段的值**（如果要操作，可以使用 UPDATE，将该字段的值置为 NULL）。
+
+**DQL——数据查询语言总览**
+
+核心结论：DQL 英文全称是 Data Query Language（数据查询语言），用来查询数据库表中的记录，关键字是 **SELECT**；它是 SQL 中使用最频繁、语法最丰富的一类。
+
+完整的 DQL 语句语法：
+
+```sql
+select
+    字段列表
+from
+    表名列表
+where
+    条件列表
+group by
+    分组字段列表
+having
+    分组后条件列表
+order by
+    排序字段列表
+limit
+    分页参数
+```
+
+DQL 按功能分为五个部分（本课件逐一讲解）：
+
+1. 基本查询（select...from...）；
+2. 条件查询（where）；
+3. 分组查询（group by）；
+4. 排序查询（order by）；
+5. 分页查询（limit）。
+
+**DQL——基本查询**
+
+核心结论：基本查询解决"查哪些字段"的问题，支持查询指定字段、全部字段（通配符）、字段别名、去重。
+
+语法：
+
+```sql
+-- 查询多个字段
+select 字段1,字段2,字段3 from 表名;
+-- 查询所有字段(通配符)
+select * from 表名;
+-- 为查询字段设置别名，as关键字可以省略
+select 字段1 [as 别名1], 字段2 [as 别名2] from 表名;
+-- 去除重复记录
+select distinct 字段列表 from 表名;
+```
+
+注意：`*` 号代表查询所有字段，在实际开发中尽量少用（不直观、影响效率）。
+
+小结：基本查询语法是 `select 字段列表 from 表名`；为字段设置别名用 `字段名 [as] 别名`；去除重复记录用 `distinct`。
+
+**DQL——条件查询**
+
+核心结论：条件查询通过 where 子句过滤记录，由比较运算符和逻辑运算符组合条件。
+
+语法：
+
+```sql
+-- 条件查询
+select 字段列表 from 表名 where 条件列表;
+```
+
+比较运算符：
+
+| 比较运算符 | 功能 |
+| --- | --- |
+| > | 大于 |
+| >= | 大于等于 |
+| < | 小于 |
+| <= | 小于等于 |
+| = | 等于 |
+| <> 或 != | 不等于 |
+| between ... and ... | 在某个范围之内（含最小、最大值） |
+| in(...) | 在 in 之后的列表中的值，多选一 |
+| like 占位符 | 模糊匹配（_匹配单个字符，%匹配任意个字符） |
+| is null | 是 null |
+
+逻辑运算符：
+
+| 逻辑运算符 | 功能 |
+| --- | --- |
+| and 或 && | 并且（多个条件同时成立） |
+| or 或 \|\| | 或者（多个条件任意一个成立） |
+| not 或 ! | 非，不是 |
+
+小结：如何进行 null 值的判断？——`is null`、`is not null`（注意不能写成 `= null`）；模糊匹配中的通配符？——`%`（任意个字符）、`_`（一个字符）；如何组装多个查询条件？——`and` / `or`。
+
+**DQL——分组查询**
+
+核心结论：分组查询 = "分组 + 聚合"——先按 group by 的字段分组，再对每组用聚合函数做纵向计算。
+
+**聚合函数**：将一列数据作为一个整体，进行纵向计算。
+
+| 函数 | 功能 |
+| --- | --- |
+| count | 统计数量 |
+| max | 最大值 |
+| min | 最小值 |
+| avg | 平均值 |
+| sum | 求和 |
+
+注意：
+
+- null 值不参与所有聚合函数的运算；
+- 统计数量可以使用：`count(*)`、`count(字段)`、`count(常量)`，推荐使用 `count(*)`。
+
+分组查询语法：
+
+```sql
+-- 分组查询
+select 字段列表 from 表名 [where 条件列表] group by 分组字段名 [having 分组后过滤条件];
+```
+
+**where 与 having 的区别**：
+
+- 执行时机不同：where 是分组之前进行过滤，不满足 where 条件，不参与分组；而 having 是分组之后对结果进行过滤；
+- 判断条件不同：where 不能对聚合函数进行判断，而 having 可以。
+
+注意：
+
+- 分组之后，查询的字段一般为聚合函数和分组字段，查询其他字段无任何意义；
+- 执行顺序：where > 聚合函数 > having。
+
+小结：DQL 语句中 where 与 having 的区别？——执行时机不同（where -> group by -> having）；判断条件不同（having 后可以用聚合函数，where 不可以）。
+
+**DQL——排序查询**
+
+核心结论：排序查询用 order by 控制结果顺序，升序 asc（默认，可不写）、降序 desc；支持多字段排序。
+
+排序方式：升序（asc），降序（desc）；默认为升序 asc，是可以不写的。
+
+语法：
+
+```sql
+-- 排序查询
+select 字段列表 from 表名 [where 条件列表] [group by 分组字段名 having 分组后过滤条件] order by 排序字段 排序方式;
+```
+
+注意：如果是多字段排序，**当第一个字段值相同时，才会根据第二个字段进行排序**。
+
+课件中的排序示例解读：
+
+- `... order by age;` —— 按 age 升序排序（asc 省略）；
+- `... order by age desc, score asc;` —— 先按 age 降序排序，age 相同时再按 score 升序排序；
+- `... order by age, score, update_time desc;` —— 先按 age 升序，age 相同按 score 升序，再相同按 update_time 降序。
+
+**DQL——分页查询**
+
+核心结论：分页查询用 limit 限制返回的记录范围，语法是 `limit 起始索引, 查询记录数`。
+
+语法：
+
+```sql
+-- 分页查询
+select 字段 from 表名 [where 条件] [group by 分组字段 having 过滤条件] [order by 排序字段] limit 起始索引,查询记录数;
+```
+
+说明：
+
+- 起始索引**从 0 开始**；
+- 分页查询是数据库的**方言**，不同的数据库有不同的实现，MySQL 中是 LIMIT；
+- 如果起始索引为 0，起始索引可以省略，直接简写为 `limit 10`。
+
+容易误解的地方：项目开发中，前端传递过来的是**页码**，需要转换为起始索引，公式为：**（页码 - 1）* 每页展示记录数**。例如每页展示 10 条，查询第 3 页的数据，起始索引 = (3-1) * 10 = 20，即 `limit 20, 10`。
+
+⚠️ 问题：课件分页查询语法示例上方的注释写成了 `-- 排序查询`，与内容（分页查询语法）不符，属于笔误。
+修正建议：该注释应写为 `-- 分页查询`。
+
+小结：本章围绕"数据库是什么——SQL 怎么分类——DDL 建库建表——DML 增删改——DQL 查询"的脉络展开。DDL 用 show/create/alter/drop 管理库表结构；DML 用 insert/update/delete 操作数据，删改不带 where 会作用于整表；DQL 用 select 一条语句完成了基本查询、条件查询、分组查询、排序查询、分页查询五类需求，其中 where 与 having 的区别、分页索引换算公式是重点。
+
+### 第八章：后端Web基础——Java操作数据库
+
+**Java 操作数据库的技术体系**
+
+核心结论：Java 程序操作数据库有多种技术方案，从底层的 JDBC 到高层的各持久层框架层层封装；本课程主线是 **JDBC → MyBatis**。
+
+常见技术：
+
+- **JDBC**：(Java DataBase Connectivity)，就是使用 Java 语言操作关系型数据库的一套 API；
+- **MyBatis**、**MyBatisPlus**、**Spring Data JPA**、**Hibernate**：在 JDBC 基础之上封装的上层框架。
+
+学习路径：先理解 JDBC 的底层原理（最原始的方式），再学习 MyBatis（企业最常用的持久层框架），后续还有 MyBatisPlus 等增强工具。
+
+**JDBC——介绍**
+
+核心结论：JDBC 的本质是 **sun 公司官方定义的一套操作所有关系型数据库的规范（接口）**，各数据库厂商提供驱动 jar 包实现这套接口，程序员面向接口编程即可操作所有数据库。
+
+- 本质：sun 公司官方定义的一套操作所有关系型数据库的规范，即接口；
+- 各个数据库厂商去实现这套接口，提供数据库**驱动** jar 包；
+- 我们可以使用这套接口（JDBC）编程，**真正执行的代码是驱动 jar 包中的实现类**。
+
+结构理解：Java 程序 → JDBC（接口规范）→ 各厂商驱动实现（Mysql 实现、Oracle 实现、SqlServer 实现）。
+
+这样设计的好处：Java 代码只依赖 JDBC 接口；换数据库时只需更换驱动 jar 包，业务代码基本不用改。
+
+**JDBC——入门程序**
+
+需求：基于 JDBC 程序，执行 update 语句 `update user set age = 25 where id = 1`。
+
+步骤：
+
+1. 准备工作：创建一个 maven 项目，引入依赖；并准备数据库表 user；
+2. 代码实现：编写 JDBC 程序，操作数据库。
+
+在 pom.xml 中引入 MySQL 驱动依赖：
+
+```xml
+<dependency>
+    <groupId>com.mysql</groupId>
+    <artifactId>mysql-connector-j</artifactId>
+    <version>8.0.33</version>
+</dependency>
+```
+
+JDBC 程序代码（五个固定步骤）：
+
+```java
+//1. 注册驱动
+Class.forName("com.mysql.cj.jdbc.Driver");
+//2. 获取连接
+String url = "jdbc:mysql://localhost:3306/web01";
+String username = "root";
+String password = "1234";
+Connection connection = DriverManager.getConnection(url, username, password);
+//3. 获取SQL语句执行对象
+Statement statement = connection.createStatement();
+//4. 执行SQL
+int i = statement.executeUpdate("update user set age = 25 where id = 1");
+//5. 释放资源
+statement.close();
+connection.close();
+```
+
+细节说明：
+
+- **注册驱动**：`Class.forName("com.mysql.cj.jdbc.Driver")` 加载驱动类（8.x 版本驱动类名带 `cj`）；
+- **获取连接**：url 的格式是 `jdbc:mysql://主机:端口/数据库名`，本例连接本机 3306 端口上的 web01 库；
+- **执行 SQL**：`statement.executeUpdate()` 用于执行 DML 语句；
+- **释放资源**：用完必须关闭，否则连接泄漏。
+
+小结：什么是 JDBC？——sun 公司提供的一套操作关系型数据库的 API（规范）；JDBC 操作数据库步骤——注册驱动、获取连接、获取执行对象、执行 SQL、释放资源。
+
+**JDBC——查询数据**
+
+核心结论：查询使用 `executeQuery()` 方法，返回 **ResultSet（结果集对象）**，通过 `next()` 逐行遍历、`getXxx()` 按列取值。
+
+需求：基于 JDBC 执行如下 select 语句，将查询结果封装到 User 对象中。
+
+SQL：`select * from user where username = 'daqiao' and password = '123456'`
+
+ResultSet（结果集对象）：`ResultSet rs = statement.executeQuery();`
+
+- **next()**：将光标从当前位置向前移动一行，并判断当前行是否为有效行，返回值为 boolean；
+  - true：有效行，当前行有数据；
+  - false：无效行，当前行没有数据；
+- **getXxx(…)**：获取数据，可以根据列的编号获取，也可以根据列名获取（推荐）。
+
+结果解析步骤（遍历结果集）：
+
+```java
+while (resultSet.next()) {
+    int id = resultSet.getInt("id");
+    //...省略
+}
+```
+
+小结：
+
+- JDBC 程序执行 DML 语句？——`int rowsAffected = statement.executeUpdate();`
+- 执行 DQL 语句？——`ResultSet rs = statement.executeQuery();`
+- DQL 语句执行完毕结果集 ResultSet 解析？——`resultSet.next()` 光标往下移动一行；`resultSet.getXxx()` 获取字段数据。
+
+**JDBC——预编译 SQL**
+
+核心结论：JDBC 中执行 SQL 有两种方式——**静态 SQL（参数硬编码）** 与 **预编译 SQL（参数动态传递）**；预编译 SQL 使用 PreparedStatement，能防止 SQL 注入且性能更高。
+
+方式 1：静态 SQL（参数硬编码，使用 Statement）：
+
+```java
+Statement statement = connection.createStatement();
+int i = statement.executeUpdate("update user set age = 25 where id = 1");
+System.out.println("SQL执行完毕, 影响的记录数为: " + i);
+```
+
+方式 2：预编译 SQL（参数动态传递，使用 PreparedStatement，`?` 是参数占位符）：
+
+```java
+PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM user WHERE username = ? AND password = ?");
+pstmt.setString(1, "daqiao");
+pstmt.setString(2, "123456");
+ResultSet resultSet = pstmt.executeQuery();
+```
+
+预编译 SQL 的两大优势：
+
+1. **优势一：可以防止 SQL 注入，更安全**。
+   SQL 注入：通过控制输入来修改事先定义好的 SQL 语句，以达到执行代码对服务器进行攻击的方法。
+2. **优势二：性能更高**。
+   SQL 语句在数据库执行前要经过：SQL 语法解析检查 → 优化 SQL → 编译 SQL → 执行 SQL，并进入缓存。例如依次执行 `delete from user where id = 1;`、`delete from user where id = 2;`、`delete from user where id = 3;` 三条静态 SQL，每条结构都不一样，需要编译 3 次；而 `delete from user where id = ?;` 只需编译 1 次，之后传入不同参数即可复用（3 次执行、1 次编译）。
+
+小结：如何执行预编译 SQL？——用 PreparedStatement + `?` 占位符 + setXxx 传参；为什么要使用预编译 SQL？——安全（防止 SQL 注入）、性能更高。
+
+**MyBatis——介绍**
+
+核心结论：MyBatis 是一款优秀的**持久层框架**，用于**简化 JDBC 的开发**。
+
+- MyBatis 本是 Apache 的一个开源项目 iBatis，2010 年这个项目由 apache 迁移到了 google code，并且改名为 MyBatis。2013 年 11 月迁移到 Github；
+- 官网：https://mybatis.org/mybatis-3/zh_CN/index.html
+
+三层架构中的位置：
+
+- **controller（控制层）**：接收请求、响应数据；
+- **service（业务层）**：逻辑处理；
+- **dao（持久层）**：数据访问——**Mybatis 就工作在这一层**。
+
+对比 JDBC 的逐步操作（注册驱动、获取连接、写 SQL、解析结果、释放资源），Mybatis 的开发"简洁、优雅"，是当今企业开发的主流选择。
+
+**MyBatis——入门程序**
+
+核心结论：使用 Mybatis 查询所有用户数据，只需"建工程、备表、写配置、定接口"四步，SQL 写在 Mapper 接口的注解上。
+
+准备工作与步骤：
+
+1. 创建 SpringBoot 工程、引入 Mybatis 相关依赖；
+2. 准备数据库表 user、实体类 User；
+3. 配置 Mybatis（在 application.properties 中配置数据库连接信息）；
+4. 编写 Mybatis 程序：编写 Mybatis 的持久层接口，定义 SQL（注解/XML）。
+
+细节说明：Mybatis 的持久层接口**命名规范为 XxxMapper**，也称为 **Mapper 接口**。
+
+小结（SpringBoot + Mybatis 入门程序操作步骤）：
+
+- 准备工作：创建 springboot 工程，引入 Mybatis 相关依赖；准备数据库表、实体类；
+- application.properties 中配置数据库连接信息；
+- 定义 Mapper 接口（@Mapper），编写 SQL。
+
+关于单元测试：SpringBoot 的单元测试类上需要加 **@SpringBootTest** 注解——它会在单元测试运行时，加载 springBoot 的环境。
+
+注意：测试类所在包需要与**引导类包名相同**（或放在引导类所在包的子包下）。
+
+**MyBatis——辅助配置**
+
+**配置 SQL 提示**：
+
+核心结论：默认在 Mybatis 中配置的 SQL 语句是不识别的（不会高亮、没有智能提示），可以做配置解决。
+
+- 产生原因：idea 和数据库没有建立连接，不识别表信息；
+- 解决方式：在 idea 中配置 MySQL 数据库连接。
+
+**配置 Mybatis 的日志输出**：
+
+核心结论：默认情况下，在 Mybatis 中，SQL 语句执行时看不到 SQL 语句的执行日志；加入如下配置，即可查看日志。
+
+```properties
+#mybatis的配置
+mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+```
+
+加上这条配置后，控制台会打印出真正执行的 SQL 语句、参数与返回结果，便于调试。
+
+**JDBC VS Mybatis**
+
+核心结论：相比 JDBC 的"硬编码、繁琐、资源浪费、性能降低"，SpringBoot + Mybatis 只需一个配置（application.properties）加一个 Mapper 接口。
+
+JDBC 方式操作查询（对比用，完整代码）：
+
+```java
+//1.准备工作
+Class.forName("com.mysql.cj.jdbc.Driver");
+String url = "jdbc:mysql://localhost:3306/web";
+Connection connection = DriverManager.getConnection(url, "root", "1234");
+PreparedStatement ps = connection.prepareStatement("select * from user");
+
+//2. 执行SQL, 处理结果
+List<User> userList = new ArrayList<>();
+ResultSet resultSet = ps.executeQuery();
+while (resultSet.next()) {
+    int id = resultSet.getInt("id");
+    String username = resultSet.getString("username");
+    String name = resultSet.getString("name");
+    String password = resultSet.getString("password");
+    int age = resultSet.getInt("age");
+    User user = new User(id, username, password, name, age);
+    userList.add(user);
+}
+
+//3.释放资源
+resultSet.close();
+ps.close();
+connection.close();
+```
+
+可以看到 JDBC 的问题：**硬编码**（url、账号密码、SQL 都写死在代码里）、**繁琐**（大量重复的取值、封装代码）、**资源浪费**（每次都要获取/释放连接）、**性能降低**。
+
+SpringBoot + Mybatis 方式：
+
+application.properties（数据库连接信息交给配置文件）：
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/web
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=1234
+```
+
+UserMapper（只需一个接口 + 注解 SQL）：
+
+```java
+@Mapper
+public interface UserMapper {
+    @Select("select * from user")
+    public List<User> findAll();
+}
+```
+
+对比之下，MyBatis 不需要手写驱动加载、连接获取、结果封装、资源释放——这些都由框架完成，这就是"持久层框架简化 JDBC 开发"的含义。
+
+**数据库连接池**
+
+核心结论：数据库连接池是个容器，负责分配、管理数据库连接（Connection）；它让应用可以**重复使用**现有连接，而不是每次重新建立。
+
+- 数据库连接池是个容器，负责分配、管理数据库连接（Connection）；
+- 它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；
+- 释放空闲时间超过最大空闲时间的连接，来避免因为没有释放连接而引起的数据库连接遗漏。
+
+优势：
+
+- 资源重用；
+- 提升系统响应速度；
+- 避免数据库连接遗漏。
+
+**常见产品**：
+
+- **Druid（德鲁伊）**：Druid 连接池是阿里巴巴开源的数据库连接池项目；功能强大，性能优秀，是 Java 语言最好的数据库连接池之一；
+- **C3P0**；
+- **DBCP**；
+- **Hikari**：SpringBoot 默认使用的连接池。
+
+**标准接口**：DataSource——官方（sun）提供的数据库连接池接口，由第三方组织实现此接口；功能：获取连接。
+
+**切换数据库连接池（切换为 Druid）**：
+
+pom.xml 中引入 Druid 起步依赖：
+
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid-spring-boot-starter</artifactId>
+    <version>1.2.19</version>
+</dependency>
+```
+
+application.properties 中配置连接池类型：
+
+```properties
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+spring.datasource.url=jdbc:mysql://localhost:3306/web
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=1234
+```
+
+小结：数据库连接池是一个容器，负责分配、管理数据库连接（Connection）；优势：资源复用、提升系统响应速度；接口：DataSource；产品：C3P0、DBCP、Druid、Hikari（默认）。
+
+**MyBatis——增删改查操作**
+
+核心结论：Mybatis 中通过 @Delete/@Insert/@Update/@Select 注解即可完成增删改查，SQL 中用 `#{}` 引用参数。
+
+**删除用户——delete**
+
+需求：根据 ID 删除用户信息。
+
+SQL：`delete from user where id = 5;`
+
+Mapper 接口（参数用 `#{}` 动态传递）：
+
+```java
+@Delete("delete from user where id = #{id}")
+public void deleteById(Integer id);
+```
+
+注意：DML 语句执行完毕的返回值，表示该 DML 语句执行完毕**影响的行数**，也可以接收返回值：
+
+```java
+@Delete("delete from user where id = #{id}")
+public Integer deleteById(Integer id);
+```
+
+**Mybatis 中的 # 号与 $ 号**（面试题）：
+
+| 符号 | 说明 | 场景 | 优缺点 |
+| --- | --- | --- | --- |
+| #{…} | 占位符。执行时，会将 #{…} 替换为 ?，生成预编译 SQL | 参数值传递 | 安全、性能高（推荐） |
+| ${…} | 拼接符。直接将参数拼接在 SQL 语句中，存在 SQL 注入问题 | 表名、字段名动态设置时使用 | 不安全、性能低 |
+
+示例对比：
+
+```java
+@Delete("delete from dept where id = #{id}")
+```
+
+```java
+@Select("select id,name,score from ${tableName} order by ${sortField}")
+```
+
+小结（面试题）：Mybatis 中 # 与 $ 的区别是什么？——# 是占位符，会替换为 ? 生成预编译 SQL（推荐）；$ 是字符串拼接符号，将参数值直接拼接在 SQL 中。
+
+**新增用户——insert**
+
+需求：添加一个用户。
+
+SQL：`insert into user(username,password,name,age) values('zhouyu','123456','周瑜',20);`
+
+Mapper 接口（`#{}` 中写的是**对象属性名**）：
+
+```java
+@Insert("insert into user(username,password,name,age) values(#{username},#{password},#{name},#{age})")
+public void insert(User user);
+```
+
+**修改用户——update**
+
+需求：根据 ID 更新用户信息。
+
+SQL：`update user set username = 'zhouyu', password = '123456', name = '周瑜', age = 20 where id = 1;`
+
+Mapper 接口：
+
+```java
+@Update("update user set username=#{username}, password=#{password}, name=#{name}, age=#{age} where id=#{id}")
+public void update(User user);
+```
+
+**查询用户——select**
+
+需求：根据用户名和密码查询用户信息。
+
+SQL：`select * from user where username = 'zhouyu' and password = '123456';`
+
+Mapper 接口（多个参数用 @Param 起名）：
+
+```java
+@Select("select * from user where username=#{username} and password=#{password}")
+public User findByUsernameAndPassword(@Param("username") String uname, @Param("password") String pwd);
+```
+
+细节说明：**@Param 注解的作用是为接口的方法形参起名字**（对应 `#{}` 中的名称）。
+
+补充说明：基于官方骨架创建的 springboot 项目中，接口编译时会保留方法形参名，@Param 注解**可以省略**（`#{}` 中直接写形参名）：
+
+```java
+@Select("select * from user where username=#{uname} and password=#{pwd}")
+public User findByUsernameAndPassword(String uname, String pwd);
+```
+
+**MyBatis——XML 映射配置**
+
+核心结论：在 Mybatis 中，既可以通过注解配置 SQL 语句，也可以通过 **XML 配置文件**配置 SQL 语句；XML 映射文件必须遵守"同包同名 + namespace 全限定名 + id 与方法名一致"三条规则。
+
+三条规则：
+
+1. XML 映射文件的名称与 Mapper 接口名称一致，并且将 XML 映射文件和 Mapper 接口放置在**相同包下**（同包同名）；
+2. XML 映射文件的 **namespace 属性为 Mapper 接口全限定名**一致；
+3. XML 映射文件中 sql 语句的 **id 与 Mapper 接口中的方法名**一致，并保持返回类型一致。
+
+**MybatisX** 是一款基于 IDEA 的快速开发 Mybatis 的插件，为效率而生（可在 IDEA 插件市场安装，方便接口与 XML 之间跳转）。
+
+到底使用注解开发还是 XML 开发？——使用 Mybatis 的注解，主要是来完成一些**简单的增删改查**功能；如果需要实现**复杂的 SQL** 功能，建议使用 **XML** 来配置映射语句。官方说明：https://mybatis.net.cn/getting-started.html
+
+小结（XML 映射文件的定义规则）：XML 文件名称与 Mapper 接口名称一致，并且放置在相同包下（同包同名）；XML 文件的 namespace 属性为 Mapper 接口全限定名一致；XML 文件中 sql 语句的 id 与 Mapper 接口中的方法名一致。
+
+**SpringBoot 配置文件**
+
+核心结论：SpringBoot 项目提供了多种属性配置方式（properties、yaml、yml）；application.properties 配置多了会显得臃肿、层级结构不清晰，yml 格式更简洁、以数据为中心。
+
+**application.properties** 的问题：臃肿、层级结构不清晰。
+
+```properties
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/web01
+spring.datasource.username=root
+spring.datasource.password=1234
+```
+
+**application.yaml / application.yml**（同样的配置，层级结构清晰）：
+
+```yaml
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/web01
+    username: root
+    password: 1234
+```
+
+**yml 配置文件格式**：
+
+- 数值前边必须有**空格**，作为分隔符（如 `port: 8080`，冒号后面必须有空格）；
+- 使用**缩进**表示层级关系，缩进时，**不允许使用 Tab 键，只能用空格**（idea 中会自动将 Tab 转换为空格）；
+- 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可；
+- `#` 表示注释，从这个字符一直到行尾，都会被解析器忽略。
+
+配置示例：
+
+```yaml
+#配置服务器相关信息
+server:
+  port: 8080
+  address: 127.0.0.1
+```
+
+**定义对象/Map 集合**：
+
+```yaml
+user:
+  name: 张三
+  age: 18
+  password: 123456
+```
+
+**定义数组/List/Set 集合**：
+
+```yaml
+hobby:
+  - java
+  - game
+  - sport
+```
+
+注意：在 yml 格式的配置文件中，如果配置项的值是以 **0 开头**的，值需要使用 `''` 引起来，因为以 0 开头在 yml 中表示 **8 进制**的数据。
+
+⚠️ 问题：课件"配置文件格式"一页中，properties 与 yml 示例的驱动类名写的是 `com.mysql.jdbc.Driver`（旧版类名），而课件前面"JDBC VS Mybatis"一页及依赖版本（mysql-connector-j 8.0.33）用的是 `com.mysql.cj.jdbc.Driver`——前后写法不一致；在 MySQL Connector/J 8.x 下使用旧类名会输出弃用警告。
+修正建议：统一写成新类名 `com.mysql.cj.jdbc.Driver`。
+
+小结：SpringBoot 支持哪几类配置文件？——application.properties、application.yaml、application.yml；yml 配置文件的特点及格式？——简洁、以数据为中心，用缩进表示层级、冒号后必须跟空格、不允许 Tab 缩进；注意 yml 配置文件中以 0 开头的值表示八进制，如果想表示其本身含义，需要用 `''` 引起来。
+
+小结：本章围绕"JDBC 原理 → JDBC 入门与查询 → 预编译 SQL → MyBatis 简化开发 → 连接池 → MyBatis 增删改查与 XML 映射 → SpringBoot 配置文件"展开。JDBC 五步（注册驱动、获取连接、执行对象、执行 SQL、释放资源）是理解一切的底层基础；MyBatis 用 Mapper 接口 + 注解/XML 把 JDBC 的繁琐编码全部屏蔽；`#{}` 与 `${}` 的区别、@Param 的作用、XML 映射三规则、yml 格式要点是本章的高频考点。
+
+### 第九章：Web后端实战——部门管理
+
+**实战项目介绍：Tlias 智能学习辅助系统**
+
+核心结论：从本章开始进入 **Web 后端实战**——开发"Tlias 智能学习辅助系统"；这是对整个后端基础知识的综合运用。
+
+课程全景回顾（Web 开发(AI)）：
+
+- Web 前端基础：HTML、CSS、JavaScript、Vue3；
+- Web 后端基础：Maven、Web 基础知识；
+- Web 后端实战：MySQL、JDBC、Mybatis、Tlias 案例；
+- Web 前端实战：Tlias 案例；
+- Web 项目部署：Linux、Docker。
+
+项目需求清单：
+
+- **部门管理**：查询、新增、修改、删除；
+- **员工管理**：查询、新增、修改、删除；
+- **文件上传**；
+- **报表统计**；
+- **登录认证**；
+- **日志管理**；
+- **班级、学员管理**（实战内容）。
+
+本份课件（部门管理）的章节结构：**准备工作、查询部门、删除部门、新增部门、修改部门、日志技术**。其中"准备工作"又包含：开发规范-开发模式、开发规范-Restful 风格、工程搭建。
+
+**开发规范——开发模式**
+
+核心结论：当前最为主流的开发模式是**前后端分离**；它解决了传统前后端混合开发"难以维护、分工不明确、不便管理"的问题。
+
+**前后端混合开发**的问题：难以维护、分工不明确、不便管理。
+
+**前后端分离开发**（当前最为主流的开发模式）：
+
+- 前端开发与后端开发通过**接口文档**协作：双方阅读接口文档进行开发，前端负责接收原型+需求进行页面开发，后端负责接口开发；
+- 核心思想：以**接口文档**为桥梁——前端开发读接口文档、后端开发读接口文档，请求与响应遵循文档约定。
+
+完整的开发流程：
+
+1. 需求分析；
+2. 接口设计（产出 **API 接口文档**）；
+3. 前后端并行开发（遵守规范）；
+4. 测试（前端、后端分别测试）；
+5. 前后端联调测试。
+
+小结：什么是前后端分离开发？——前端项目、后端项目开发和部署都是分开的；具体的开发流程？——需求分析 -> 接口设计 -> 前后端并行开发 -> 测试 -> 联调。
+
+**开发规范——RESTful 风格**
+
+核心结论：REST（REpresentational State Transfer，表述性状态转换）是一种软件架构风格；它的核心是 **URL 定位资源、HTTP 动词描述操作**，使接口"简洁、规范、优雅"。
+
+**传统风格 url** 的问题（不规范、难维护）——同一个操作有多种命名方式，没有统一标准：
+
+| 传统风格url | 请求方式 | 含义 |
+| --- | --- | --- |
+| http://localhost:8080/user/getById?id=1 | GET | 查询id为1的用户 |
+| http://localhost:8080/user/saveUser | POST | 新增用户 |
+| http://localhost:8080/user/updateUser | POST | 修改用户 |
+| http://localhost:8080/user/deleteUser?id=1 | GET | 删除id为1的用户 |
+
+例如"新增用户"就出现了 `/user/addUser`、`/user/add`、`/user/insertUser`、`/user/insert`、`/user/saveUser`、`/user/save` 这么多写法，混乱难维护。
+
+**REST 风格 url**（URL 定位资源、HTTP 动词描述操作、简洁规范优雅）：
+
+| REST风格url | 请求方式 | 含义 |
+| --- | --- | --- |
+| http://localhost:8080/users/1 | GET | 查询id为1的用户 |
+| http://localhost:8080/users/1 | DELETE | 删除id为1的用户 |
+| http://localhost:8080/users | POST | 新增用户 |
+| http://localhost:8080/users | PUT | 修改用户 |
+
+对比要点：
+
+- URL 中只出现**资源名**（users）与**资源标识**（1），不再出现动词（如 getById、saveUser）；
+- 操作语义由 HTTP 请求方式表达：**GET 查询、POST 新增、PUT 修改、DELETE 删除**；
+- 注意：REST 是风格，是约定方式，约定不是规定，可以打破；
+- 描述功能模块通常使用**复数形式（加 s）**，表示此类资源，而非单个资源。如：users、books...。
+
+小结：REST 风格的特点？——URL 定义资源、HTTP 动词描述操作；REST 风格中的四种请求方式及对应的操作？——GET：查询、POST：新增、PUT：修改、DELETE：删除。
+
+**接口测试工具 Apifox**
+
+核心结论：前后端并行开发时，需要借助接口测试工具进行接口请求测试和 Mock 数据——**Apifox** 就是一款集 Api 文档、Api 调试、Api Mock、Api 测试于一体的一体化协作平台。
+
+两个思考（为什么需要它）：
+
+- 前后端都在并行开发，后端开发完对应的接口之后，如何对接口进行请求测试呢？
+- 前后端都在并行开发，前端开发过程中，如何获取到数据，测试页面的渲染展示呢？
+
+- 介绍：Apifox 是一款集成了 Api 文档、Api 调试、Api Mock、Api 测试的一体化协作平台；
+- 作用：接口文档管理、接口请求测试、Mock 服务；
+- 官网：https://apifox.com/
+
+为什么要使用 Apifox？——由于浏览器地址栏发起的请求，都是 GET 方式的请求，如果我们需要发起 POST、PUT、DELETE 方式的请求，就需要借助于这类工具。
+
+**工程搭建**
+
+核心结论：实战项目从前端"原型 + 需求"出发，按三步搭建工程骨架：建工程引依赖、建库表配连接、准备基础代码（实体类 + 统一响应结果封装类）。
+
+步骤：
+
+1. 创建 SpringBoot 工程，并引入 web 开发起步依赖、mybatis、mysql 驱动、lombok；
+2. 创建数据库表 dept，并在 application.yml 中配置数据库的基本信息；
+3. 准备基础代码结构，并引入实体类 Dept 及统一的响应结果封装类 Result。
+
+**统一的响应结果封装类 Result**：
+
+为什么需要它？如果后端直接响应原始数据（如 `{"id": 1, "name": "教研部", "updateTime": "2024-10-20 00:00:00"}` 或数组 `[{...}]`），前端处理时"不便管理、难以维护"；统一封装后，所有接口响应格式一致。
+
+响应规范：
+
+```json
+{
+  "code": 1,
+  "msg": "操作成功",
+  "data": …
+}
+```
+
+```json
+{
+  "code": 0,
+  "msg": "密码错误",
+  "data": …
+}
+```
+
+Result 类代码：
+
+```java
+@Data
+public class Result {
+   private Integer code; //编码：1成功，0为失败
+   private String msg; //错误信息
+   private Object data; //数据
+}
+```
+
+细节说明：code 为 1 表示成功、0 表示失败；data 使用 Object 类型，可以存放任意返回数据（对象、集合等）。
+
+**查询部门——接口开发**
+
+需求：根据页面原型，实现部门列表的查询接口。
+
+**思路分析——三层架构每一层的职责**：
+
+- **Controller**：接收请求、调用 Service 层、响应结果；
+- **Service**：调用 Mapper 接口方法；
+- **Mapper**：执行 SQL——`select * from dept order by update_time desc;`
+
+**功能实现**（三层代码）：
+
+Controller（接收请求，处理响应）：
+
+```java
+@RestController
+public class DeptController {
+    @Autowired
+    private DeptService deptService;
+
+    @GetMapping("/depts")
+    public Result findAll(){
+        List<Dept> deptList = deptService.findAll();
+        return Result.success(deptList);
+    }
+}
+```
+
+Service（业务处理）：
+
+```java
+@Service
+public class DeptServiceImpl implements DeptService {
+    @Autowired
+    private DeptMapper deptMapper;
+
+    @Override
+    public List<Dept> findAll() {
+        return deptMapper.findAll();
+    }
+}
+```
+
+Dao/Mapper（数据访问操作——增删改查）：
+
+```java
+@Mapper
+public interface DeptMapper {
+    /**
+     * 查询全部部门
+     */
+   @Select("select * from dept order by update_time desc")
+   public List<Dept> findAll();
+}
+```
+
+**数据封装**
+
+核心结论：实体类属性名和数据库表查询返回的字段名一致，Mybatis 会**自动封装**；如果不一致，不能自动封装。
+
+解决方案（三种）：
+
+1. **手动结果映射**：通过 @Results 及 @Result 进行手动结果映射：
+
+```java
+@Results({
+    @Result(column = "create_time", property = "createTime"),
+    @Result(column = "update_time", property = "updateTime")
+})
+@Select("select id, name, create_time, update_time from dept order by update_time desc")
+public List<Dept> findAll();
+```
+
+2. **起别名**：在 SQL 语句中，对不一样的列名起别名，别名和实体类属性名一样：
+
+```java
+@Select("select id, name, create_time createTime, update_time updateTime from dept ...")
+public List<Dept> findAll();
+```
+
+3. **开启驼峰命名**（推荐）：如果字段名与属性名符合驼峰命名规则，mybatis 会自动通过驼峰命名规则映射：
+
+```yaml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+```
+
+小结：Mybatis 默认数据封装的规则？——实体类属性名和数据库表的字段名一致，mybatis 会自动封装；如果字段名与实体类属性名不一致，如何解决？——手动结果映射 @Results、@Result；起别名；开启驼峰命名开关（要求：xxx_abc -> xxxAbc）。
+
+**前后端联调测试**
+
+核心结论：前后端的联调测试就是启动前端工程（Nginx）与后端工程，让真实的浏览器请求打到后端接口上，验证数据是否能正常渲染。
+
+操作步骤：
+
+1. 将资料中提供的前端工程文件夹中的压缩包，拷贝到一个**没有中文、不带空格**的目录下，解压；
+2. 启动 nginx，访问测试：http://localhost:90 。
+
+**Nginx 的反向代理**：
+
+- 问题：前端工程请求服务器的地址为 `http://localhost:90/api/depts`，是如何访问到后端的 tomcat 服务器（8080）的？
+- 答案：**Nginx 的反向代理**。
+
+反向代理是一种网络架构，通过代理服务器为后端的服务器做代理，客户端的请求直接请求代理服务器，然后转发给后端的服务器（安全、灵活、负载均衡）。
+
+Nginx/conf/nginx.conf 配置：
+
+```
+server {
+  listen 90;
+  #省略...
+  location ^~ /api/ {
+    rewrite ^/api/(.*)$ /$1 break;
+    proxy_pass http://localhost:8080;
+  }
+}
+```
+
+配置指令说明：
+
+- **location**：用于定义匹配路径匹配的规则；
+- **^~ /api/**：表示精确匹配，即只匹配以 /api/ 开头的路径；
+- **rewrite**：该指令用于重写匹配到的路径（`rewrite ^/api/(.*)$ /$1 break;` 把 `/api/xxx` 重写为 `/xxx`）；
+- **proxy_pass**：该指令用于代理转发，它将匹配到的请求转发给位于后端的指令服务器（这里转发给 http://localhost:8080）。
+
+流程理解：浏览器请求 `http://localhost:90/api/depts` → Nginx 匹配到 `/api/` 前缀 → 重写路径为 `/depts` → 转发到 `http://localhost:8080/depts`（后端 Tomcat）。
+
+小结：什么是反向代理？——反向代理是一种网络架构技术，通过反向代理服务器为后端服务器做代理（安全、灵活、负载均衡）；Nginx 中反向代理的配置？——location（定义路径匹配方式）+ rewrite（路径重写指令）+ proxy_pass（代理转发指令）。
+
+**删除部门——需求分析**
+
+需求：根据 ID 删除部门。
+
+- 删除的条件：主键 ID。
+
+**思路分析——三层架构每一层的职责**：
+
+- **Controller**：接收请求参数（/depts?id=8）、调用 Service 层、响应结果；
+- **Service**：调用 Mapper 接口方法；
+- **Mapper**：执行 SQL——`delete from dept where id = ?`
+
+**Controller 接收参数**（简单参数）——接收请求参数：`DELETE /depts?id=8`
+
+方式一：通过原始的 HttpServletRequest 对象获取请求参数（繁琐、手动类型转换）：
+
+```java
+@DeleteMapping("/depts")
+public Result delete(HttpServletRequest request){
+    String idStr = request.getParameter("id");
+    int id = Integer.parseInt(idStr);
+    System.out.println("根据ID删除部门: " + id);
+    return Result.success();
+}
+```
+
+方式二：通过 Spring 提供的 @RequestParam 注解，将请求参数绑定给方法形参：
+
+```java
+@DeleteMapping("/depts")
+public Result delete(@RequestParam("id") Integer deptId){
+    System.out.println("根据ID删除部门: " + deptId);
+    return Result.success();
+}
+```
+
+注意：@RequestParam 注解 **required 属性默认为 true**，代表该参数必须传递，如果不传递将报错。如果参数可选，可以将属性设置为 false。
+
+方式三：如果请求参数名与形参变量名相同，**直接定义方法形参**即可接收（省略 @RequestParam）：
+
+```java
+@DeleteMapping("/depts")
+public Result delete(@RequestParam("id") Integer id){
+    System.out.println("根据ID删除部门: " + id);
+    return Result.success();
+}
+```
+
+小结（简单参数接收方式）：
+
+- 方式一：通过原始的 HttpServletRequest 对象获取——`String xxx = request.getParameter("xxx");`
+- 方式二：通过 @RequestParam 注解进行参数绑定——`public Result del(@RequestParam("id")Integer deptId){}`
+- 方式三：保证请求参数名与形参变量名相同，直接接收（推荐）；
+- 注意事项：一旦加了 @RequestParam 注解，该参数必须传递，因为默认 required 为 true。
+
+**删除部门——功能实现**：
+
+Controller：
+
+```java
+@DeleteMapping("/depts")
+public Result delete(Integer id){
+    System.out.println("根据ID删除部门数据: " + id);
+    deptService.delete(id);
+    return Result.success();
+}
+```
+
+Service：
+
+```java
+@Override
+public void delete(Integer id) {
+    deptMapper.delete(id);
+}
+```
+
+Mapper：
+
+```java
+@Delete("delete from dept where id = #{id}")
+void delete(Integer id);
+```
+
+**新增部门——需求分析**
+
+需求：往 dept 表插入一条数据。
+
+**思路分析——三层架构每一层的职责**：
+
+- **Controller**：接收请求参数（/depts，请求体 `{"name":"教研部"}`）、调用 Service 层、响应结果；
+- **Service**：**补全基础属性**（create_time、update_time 由后端生成）；
+- **Mapper**：执行 SQL——`insert into dept (name,create_time,update_time) values (?,?,?)`
+
+**Controller 接收参数**（JSON 格式参数）：
+
+核心结论：JSON 格式的参数，通常会使用一个实体对象进行接收。
+
+规则：JSON 数据的**键名与方法形参对象的属性名相同**，并需要使用 **@RequestBody** 注解标识。
+
+接收 json 格式的请求参数：`POST /depts  {"name":"教研部"}`
+
+```java
+@PostMapping("/depts")
+public Result add(@RequestBody Dept dept){
+    System.out.println("添加部门: " + dept);
+    deptService.add(dept);
+    return Result.success();
+}
+```
+
+实体类 Dept：
+
+```java
+public class Dept {
+    private Integer id;
+    private String name;
+    private LocalDateTime createTime;
+    private LocalDateTime updateTime;
+}
+```
+
+**新增部门——功能实现**：
+
+Controller：
+
+```java
+@PostMapping("/depts")
+public Result add(@RequestBody Dept dept){
+    System.out.println("添加部门: " + dept);
+    deptService.add(dept);
+    return Result.success();
+}
+```
+
+Service（补全基础属性）：
+
+```java
+@Override
+public void add(Dept dept) {
+    dept.setCreateTime(LocalDateTime.now());
+    dept.setUpdateTime(LocalDateTime.now());
+    deptMapper.add(dept);
+}
+```
+
+Mapper：
+
+```java
+@Insert("insert into dept(name, create_time, update_time) values(#{name}, #{createTime}, #{updateTime})")
+void add(Dept dept);
+```
+
+小结：如何接收 JSON 格式的请求参数？——通常通过实体对象接收，保证 json 格式的键名与对象属性名保持一致，并添加 @RequestBody 注解；json 格式的请求参数适用场景？——主要在 POST、PUT 请求中，在请求体传递请求参数。
+
+**修改部门——查询回显**
+
+需求：修改部门包含两个功能——**查询回显**、**修改数据**。查询回显即"根据 ID 查询部门"，把数据填充回页面表单。
+
+**需求分析**：根据 ID 查询部门。
+
+**思路分析——三层架构每一层的职责**：
+
+- **Controller**：接收请求参数（/depts/1，**路径参数**）、调用 Service 层、响应结果；
+- **Service**：调用 Mapper 接口方法；
+- **Mapper**：执行 SQL——`select * from dept where id = ?`
+
+**Controller 接收参数**（路径参数）：
+
+核心结论：路径参数是通过请求 URL 直接传递的参数，使用 `{…}` 来标识该路径参数，需要使用 **@PathVariable** 获取路径参数。
+
+接收请求参数（路径参数）：`GET /depts/1`
+
+```java
+@GetMapping("/depts/{id}")
+public Result getInfo(@PathVariable("id") Integer deptId){
+    System.out.println("根据ID查询部门数据: " + deptId);
+    Dept dept = deptService.getInfo(id);
+    return Result.success(dept);
+}
+```
+
+如果路径参数名与形参变量名相同，@PathVariable 注解的 value 属性可以省略：
+
+```java
+@GetMapping("/depts/{id}")
+public Result getInfo(@PathVariable Integer id){
+    System.out.println("根据ID查询部门数据: " + id);
+    Dept dept = deptService.getInfo(id);
+    return Result.success(dept);
+}
+```
+
+⚠️ 问题：课件第一段代码中，方法形参定义为 `@PathVariable("id") Integer deptId`，但方法体内调用写成 `deptService.getInfo(id)`——`id` 这个变量并不存在（形参名是 deptId），代码无法编译。
+修正建议：调用处应与形参名保持一致，写为 `deptService.getInfo(deptId)`（或把形参名直接定义为 `id`，即第二种简化写法）。
+
+**查询回显——功能实现**：
+
+Controller：
+
+```java
+@GetMapping("/depts/{id}")
+public Result getInfo(@PathVariable Integer id){
+    System.out.println("根据ID查询部门数据: " + id);
+    Dept dept = deptService.getInfo(id);
+    return Result.success(dept);
+}
+```
+
+Service：
+
+```java
+@Override
+public Dept getInfo(Integer id) {
+    return deptMapper.getById(id);
+}
+```
+
+Mapper：
+
+```java
+@Select("select id, name, create_time, update_time from dept where id = #{id}")
+Dept getById(Integer id);
+```
+
+小结：如何接收路径参数？——@PathVariable 注解来声明获取的是路径参数；在 url 中是否可以携带多个路径参数呢，如：/depts/1/0？——可以。
+
+**修改部门——修改数据**
+
+**思路分析**（参照接口文档）——三层架构每一层的职责：
+
+- **Controller**：接收请求参数（json 格式，`{"id":1,"name":"教研部"}`）、调用 Service 层、响应结果；
+- **Service**：**补全基础属性**（update_time）；
+- **Mapper**：执行 SQL——`update dept set name = ? , update_time = ? where id = ?`
+
+**功能实现**：
+
+Controller：
+
+```java
+@PutMapping("/depts")
+public Result update(@RequestBody Dept dept){
+    System.out.println("修改部门数据: " + dept);
+    deptService.update(dept);
+    return Result.success();
+}
+```
+
+Service：
+
+```java
+@Override
+public void update(Dept dept) {
+    dept.setUpdateTime(LocalDateTime.now());
+    deptMapper.update(dept);
+}
+```
+
+Mapper：
+
+```java
+@Update("update dept set name = #{name}, update_time = #{updateTime} where id = #{id}")
+void update(Dept dept);
+```
+
+**@RequestMapping 注解**
+
+核心结论：一个完整的请求路径，应该是**类上的 @RequestMapping 的 value 属性 + 方法上的 @RequestMapping 的 value 属性**。
+
+小结：@RequestMapping 注解可以加在哪儿？——类上（可选的）、方法上；一个完整的请求路径 = 类上 + 方法上的。
+
+**日志技术**
+
+核心结论：程序中的日志用来记录应用程序的运行信息、状态信息、错误信息等；它能解决 System.out.println "只能输出到控制台、不便于扩展维护"的问题。
+
+- 为什么需要日志：System.out.println 只能输出到控制台、不便于扩展、维护；
+- 程序中的日志，好比生活中的日记，可以记录你生活中的点点滴滴——程序中用来记录应用程序的运行信息、状态信息、错误信息等；
+- 日志的作用：**数据追踪、性能优化、问题排查、系统监控**。
+
+常见日志框架：
+
+- **JUL**：这是 JavaSE 平台提供的官方日志框架，也被称为 JUL（java.util.logging）。配置相对简单，但不够灵活，性能较差；
+- **Log4j**：一个流行的日志框架，提供了灵活的配置选项，支持多种输出目标；
+- **Logback**：基于 Log4j 升级而来，提供了更多的功能和配置选项，性能优于 Log4j；
+- **Slf4j**（Simple Logging Facade for Java）：简单日志门面，提供了一套日志操作的标准接口及抽象类，允许应用程序使用不同的底层日志框架。
+
+课件 Logback 部分的知识结构：Logback 快速入门、Logback 配置文件详解、Logback 日志级别。
+
+**Logback 快速入门**
+
+核心结论：两步上手——引入依赖（配置文件）+ 定义 Logger 对象记录日志。
+
+准备工作：
+
+- 引入 logback 的依赖（springboot 项目中该依赖已传递）：
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.4.11</version>
+</dependency>
+```
+
+- 配置文件 logback.xml。
+
+记录日志：定义日志记录对象 Logger，记录日志：
+
+```java
+private static final Logger log = LoggerFactory.getLogger(LogTest.class);
+@Test
+public void testLog(){
+    log.debug("开始计算...");
+    int sum = 0;
+    int[] nums = {1, 5, 3, 2, 1, 4, 5, 4, 6, 7, 4, 34, 2, 23};
+    for (int i = 0; i <= nums.length; i++) {
+        sum += nums[i];
+    }
+    log.info("计算结果为: "+sum);
+    log.debug("结束计算...");
+}
+```
+
+⚠️ 问题：课件代码中循环条件写成 `for (int i = 0; i <= nums.length; i++)`，当 i 等于 nums.length 时访问 `nums[nums.length]` 会数组越界，程序运行抛出 ArrayIndexOutOfBoundsException。
+修正建议：循环条件应改为 `i < nums.length`。
+
+小结：Logback 记录日志的步骤？——引入 logback 的依赖、配置文件 logback.xml；定义日志记录对象 Logger，调用方法（debug/info/…）记录日志。
+
+**Logback 配置文件详解**
+
+核心结论：logback.xml 是对 Logback 输出的日志进行控制的配置文件，可以配置输出的格式、位置及日志开关等。
+
+- 配置文件名：logback.xml；
+- 该配置文件是对 Logback 日志框架输出的日志进行控制的，可以来配置输出的格式、位置及日志开关等；
+- 常用的两种输出日志的位置：**控制台、系统文件**。
+
+```xml
+<!-- 控制台输出 -->
+<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">...</appender>
+
+<!-- 系统文件输出 -->
+<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">...</appender>
+
+<root level="ALL">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+</root>
+```
+
+细节说明：root 标签中 level 可以开启日志（ALL）、关闭日志（OFF）；`<appender-ref>` 引用上面定义的两个输出位置——即日志同时输出到控制台与文件。
+
+**Logback 日志级别**
+
+核心结论：日志级别指的是日志信息的类型，常见级别由低到高为 trace、debug、info、warn、error。
+
+| 日志级别 | 说明 | 记录方式 |
+| --- | --- | --- |
+| trace | 追踪，记录程序运行轨迹【使用很少】 | log.trace("...") |
+| debug | 调试，记录程序调试过程中的信息，实际应用中一般将其视为最低级别【使用较多】 | log.debug("...") |
+| info | 记录一般信息，描述程序运行的关键事件，如：网络连接、io操作【使用较多】 | log.info("...") |
+| warn | 警告信息，记录潜在有害的情况【使用较多】 | log.warn("...") |
+| error | 错误信息【使用较多】 | log.error("...") |
+
+```xml
+<root level="info">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+</root>
+```
+
+细节说明：可以在配置文件中，灵活的控制输出哪些类型的日志——**大于等于配置的日志级别的日志才会输出**（例如配置 level="info"，则 info、warn、error 输出，trace、debug 不输出）。
+
+**优化案例日志记录**
+
+核心结论：实战项目中将原有的 System.out.println 替换为日志记录——使用 **@Slf4j** 注解即可省略手写 Logger 对象。
+
+```java
+@RestController
+public class DeptController {
+    private static final Logger log = LoggerFactory.getLogger(DeptController.class);
+
+    @Autowired
+    private DeptService deptService;
+
+    /**
+     * 根据ID删除部门
+     */
+    @DeleteMapping("/depts")
+    public Result delete(Integer id){
+        log.info("根据ID删除部门: {}", id); //System.out.println("根据ID删除部门: " + id);
+        deptService.delete(id);
+        return Result.success();
+    }
+}
+```
+
+配合 logback.xml 的 root 配置使用：
+
+```xml
+<root level="info">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+</root>
+```
+
+细节说明：
+
+- 加上 **@Slf4j** 注解后，可以直接使用 `log` 对象，不再需要手写 `LoggerFactory.getLogger(...)`；
+- 日志参数使用 **{} 占位符**：`log.info("根据ID删除部门: {}", id)` 比字符串拼接更高效优雅。
+
+小结：Logback 日志级别有哪些，依次从低到高？——trace, debug, info, warn, error；常用的有哪些？具体的使用场景？——debug：记录程序的调试信息；info：记录正常系统运行日志、重要信息；error：记录错误异常信息。
+
+小结：本章以一个完整的部门管理模块贯穿了 Web 后端实战的开发流程：先理解前后端分离与 RESTful 规范，用 Apifox 测接口，搭建带 Result 统一响应封装的工程；然后逐功能实现查询（三层职责、数据封装）、删除（简单参数三种接收方式）、新增（JSON 参数 @RequestBody）、修改（路径参数 @PathVariable + @PutMapping）；最后引入日志技术，用 Logback（@Slf4j、占位符、级别配置）替换 System.out.println。三层职责划分、请求参数接收方式（简单参数/路径参数/JSON 参数）是本章的核心考点。
+
+### 第十章：Web后端实战——员工管理
+
+**员工管理需求总览**
+
+核心结论：员工管理是 Tlias 系统的核心模块，比部门管理复杂得多——它涉及多表设计（员工表 + 工作经历表）、多表查询、分页查询、事务管理、文件上传、异常处理、数据统计等知识点，本章由三份课件组成。
+
+三份课件的内容结构：
+
+- 第一份：多表关系、多表查询、员工列表查询（准备工作、分页查询、条件分页查询）；
+- 第二份：新增员工、事务管理（介绍与操作、四大特性）、文件上传（简介、本地存储、阿里云OSS）；
+- 第三份：删除员工、修改员工（查询回显、修改数据）、异常处理、员工信息统计（职位统计、性别统计）。
+
+**多表关系——概述**
+
+核心结论：项目开发中，在进行数据库表结构设计时，会根据业务需求及业务模块之间的关系，分析并设计表结构；由于业务之间相互关联，所以各个表结构之间也存在着各种联系。
+
+多表关系分为三种：
+
+1. **一对多（多对一）**；
+2. **一对一**；
+3. **多对多**。
+
+**一对多关系**
+
+场景：部门与员工的关系（一个部门下有多个员工）。一的一方是父表，多的一方是子表（员工表为子表、部门表为父表）。
+
+建表语句（部门表与员工表）：
+
+```sql
+create table dept(
+  id int unsigned primary key auto_increment comment 'ID',
+  name varchar(10) not null unique comment '部门名称',
+  create_time datetime comment '创建时间',
+  update_time datetime comment '修改时间'
+) comment '部门表' ;
+
+create table emp(
+  id int unsigned primary key auto_increment comment 'ID,主键',
+  username varchar(20) not null unique comment '用户名',
+  password varchar(32) not null comment '密码',
+  name varchar(10) not null comment '姓名',
+  gender tinyint unsigned not null comment '性别, 1:男, 2:女',
+  phone char(11) not null unique comment '手机号',
+  job tinyint unsigned comment '职位, 1:班主任,2:讲师...',
+  salary int unsigned comment '薪资',
+  image varchar(255) comment '头像',
+  entry_date date comment '入职日期',
+  create_time datetime comment '创建时间',
+  update_time datetime comment '修改时间’,
+  dept_id int unsigned comment '关联的部门ID’,
+) comment '员工表’;
+```
+
+⚠️ 问题：课件员工表建表语句有两类语法错误——①从 `update_time` 字段的注释开始出现了**中英文引号混用**（开头是英文单引号 `'`，结尾却是中文右单引号 `’`，如 `comment '修改时间’`、`'关联的部门ID’`、`'员工表’`）；②`dept_id` 是最后一个字段却带了多余逗号（`dept_id int unsigned comment '关联的部门ID’,`）。
+修正建议：注释字符串首尾统一使用英文单引号，并删掉最后一个字段 `dept_id` 行尾的逗号，即 `update_time datetime comment '修改时间',`、`dept_id int unsigned comment '关联的部门ID'`、`) comment '员工表';`。按上述修正后语句才能正常执行。
+
+一对多的关系如何实现？——**在数据库表中多的一方，添加字段，来关联一的一方的主键**（员工表中添加 dept_id 字段，关联部门表的 id）。
+
+**外键约束**
+
+核心结论：两张表虽然在字段上建立了关联，但在数据库层面并未建立关联，无法保证数据的一致性和完整性——解决方案是**外键约束**。
+
+- 现象：部门数据可以直接删除，然而还有部分员工归属于该部门下，此时就出现了数据的不完整、不一致问题；
+- 原因：目前上述的两张表，在数据库层面，并未建立关联，所以是无法保证数据的一致性和完整性的；
+- 解决方案：外键约束。
+
+为字段添加外键约束的语法（可以在创建表时、或表结构创建完成后）：
+
+```sql
+-- 创建表时指定
+create table 表名(
+字段名 数据类型,
+...
+[constraint] [外键名称] foreign key (外键字段名) references 主表 (字段名)
+);
+```
+
+```sql
+-- 建完表后，添加外键
+alter table 表名 add constraint 外键名称 foreign key (外键字段名) references 主表(字段名);
+```
+
+**物理外键与逻辑外键**：
+
+- **物理外键**：概念——使用 foreign key 定义外键关联另外一张表。缺点：
+  - 影响增、删、改的效率（需要检查外键关系）；
+  - 仅用于单节点数据库，不适用与分布式、集群场景；
+  - 容易引发数据库的死锁问题，消耗性能。
+- **逻辑外键**：概念——在业务层逻辑中，解决外键关联。通过逻辑外键，就可以很方便的解决上述问题。
+
+小结：数据库中的外键约束的作用？——多表操作中保证数据的一致性、完整性和正确性；物理外键与逻辑外键的选择？——逻辑外键（推荐）。
+
+**一对一关系**
+
+- 案例：用户 与 身份证信息 的关系；
+- 关系：一对一关系，多用于**单表拆分**，将一张表的基础字段放在一张表中，其他字段放在另一张表中，以提升操作效率；
+- 实现：在任意一方加入外键，关联另外一方的主键，并且**设置外键为唯一的（UNIQUE）**。
+
+涉及的表示例：用户基本信息表（tb_user）、用户身份信息表（tb_user_card）。
+
+小结：数据库中如何体现一对一的表关系？——一对一，其实是一种特殊的一对多。在任意一方添加外键，关联另外一方的主键。
+
+**多对多关系**
+
+- 案例：学生 与 课程的关系；
+- 关系：一个学生可以选修多门课程，一门课程也可以供多个学生选择；
+- 实现：**建立第三张中间表，中间表至少包含两个外键，分别关联两方主键**。
+
+涉及的表示例：学生表（tb_student）、课程表（tb_course）、学生课程关系表（tb_student_course，其中包含 course_id 与 student_id 两个外键字段）。
+
+小结：数据库中如何体现多对多的表关系？——需要建立一张中间表，中间表中有两个外键字段，分别关联两方的主键。
+
+**多表设计案例**
+
+需求：请根据资料中提供的页面原型，设计员工模块涉及到的表结构。
+
+步骤：
+
+1. 阅读页面原型及需求文档，分析各个模块涉及到的表结构，及表结构之间的关系；
+2. 根据页面原型及需求文档，分析各个表结构中具体的字段及约束。
+
+**多表查询**
+
+核心结论：多表查询指从多张表中查询数据；多表查询时必须消除无效的**笛卡尔积**，其分类为：连接查询（内连接、外连接）和子查询。
+
+- 多表查询：指从多张表中查询数据；
+- **笛卡尔积**：指在数学中，两个集合（A 集合和 B 集合）的所有组合情况（在多表查询时，需要消除无效的笛卡尔积）。
+
+多表查询的分类：
+
+- **连接查询**：
+  - **内连接**：相当于查询 A、B 交集部分数据；
+  - **外连接**：
+    - **左外连接**：查询左表所有数据（包括两张表交集部分数据）；
+    - **右外连接**：查询右表所有数据（包括两张表交集部分数据）。
+- **子查询**。
+
+**内连接语法**（内连接查询的是两张表交集部分的数据）：
+
+```sql
+-- 1.隐式内连接 (常见)
+select 字段列表 from 表1 , 表2 where 连接条件 ...;
+-- 2.显式内连接
+select 字段列表 from 表1 [inner] join 表2 on 连接条件 ... ;
+```
+
+给表起别名（简化书写）：
+
+```sql
+select 字段列表 from 表1 [as] 别名1, 表2 [as] 别名2 where 条件 ...;
+```
+
+注意：一旦为表指定了别名，就要通过别名来指定字段名，而不能再使用表名了。
+
+**外连接语法**（外连接分为左外连接和右外连接）：
+
+```sql
+-- 1.左外连接 (常见)
+select 字段列表 from 表1 left [outer] join 表2 on 连接条件 ...;
+-- 2.右外连接
+select 字段列表 from 表1 right [outer] join 表2 on 连接条件 ...;
+```
+
+提示：对于外连接，常用的是左外连接，因为右外连接的 SQL 也可以改造成为左外连接（两张表调换个顺序）。
+
+**子查询**：
+
+- 介绍：SQL 语句中嵌套 select 语句，称为嵌套查询，又称子查询；
+- 形式：`select * from t1 where column1 = (select column1 from t2 …);`
+- 说明：子查询外部的语句可以是 insert / update / delete / select 的任何一个，最常见的是 select；
+- 分类：
+  - **标量子查询**：子查询返回的结果为单个值；
+  - **列子查询**：子查询返回的结果为一列；
+  - **行子查询**：子查询返回的结果为一行；
+  - **表子查询**：子查询返回的结果为多行多列。
+
+提示：子查询的要点是，先对需求做拆分，明确具体的步骤，然后再逐步编写 SQL 语句。
+
+**多表查询练习**（根据需求，完成多表查询的 SQL 语句编写）：
+
+1. 查询"教研部"的"男性"员工，且在"2011-05-01"之后入职的员工信息；
+2. 查询工资低于公司平均工资的且性别为男的员工信息；
+3. 查询部门人数超过 10 人的部门名称；
+4. 查询在"2010-05-01"后入职，且薪资高于 10000 的"教研部"员工信息，并根据薪资倒序排序；
+5. 查询工资低于本部门平均工资的员工信息。
+
+**员工列表查询——需求与准备**
+
+需求：查询所有员工信息，并查询出部门名称（涉及到的表：emp、dept）。
+
+准备工作：
+
+1. 准备数据库表 emp、emp_expr；
+2. 准备实体类 Emp、EmpExpr；
+3. 准备三层架构的基本代码结构：EmpController、EmpService/EmpServiceImpl、EmpMapper。
+
+课件中的 AI 辅助素材（备注页）：通过给 AI 提供 emp 表建表语句，让 AI 生成封装 emp 表数据的实体类 Emp；再通过提示词（要求：GET /emps、请求参数 page/pageSize、Controller 统一 Result 响应、返回 JSON 包含 total 与 rows 列表——rows 元素包含 id、username、password、name、gender、image、job、salary、entryDate、deptId、deptName、createTime、updateTime 等字段）让 AI 生成基于 SpringBoot + Mybatis 的分页查询接口（EmpController、EmpService、EmpServiceImpl、EmpMapper）。
+
+**员工列表查询——分页查询分析**
+
+核心结论：分页查询需要前后端约定：前端传页码与每页记录数，后端返回数据列表与总记录数；总页数由总记录数计算得出。
+
+- 前端传递给后端的分页参数：
+  - 页码：page；
+  - 每页展示记录数：pageSize。
+- 后端给前端返回的数据：
+  - 数据列表：List rows;
+  - 总记录数：Long total;
+- 总页数计算：500 条数据，每页 10 条：500/10 = 50 页；501 条：501/10 = 50.1 --> 51 页（向上取整）。
+
+分页查询涉及的两条 SQL：
+
+```sql
+select * from emp e left join dept d on e.dept_id = d.id limit ?,?;
+select count(*) from emp e left join dept d on e.dept_id = d.id;
+```
+
+小结：分页查询前端需要给后端传递的参数？——page：当前页码；pageSize：每页展示记录数；分页查询后端需要给前端返回的结果？——total：总记录数；rows：结果列表。
+
+**分页查询——原始方式**
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收参数（分页）、调用 Service 进行分页查询获取 PageResult、响应结果；
+- **Service**：调用 Mapper 接口查询总记录数、调用 Mapper 接口查询结果列表、封装 PageResult 对象返回；
+- **Mapper**：执行 SQL——1. `select count(*) ...`  2. `select ... limit ...`。
+
+请求示例：`/emps?page=1&pageSize=10`
+
+EmpController：
+
+```java
+@GetMapping
+public Result page(@RequestParam(defaultValue = "1")Integer page,
+                   @RequestParam(defaultValue = "10")Integer pageSize) {
+    log.info("分页请求参数： {}, {}", page, pageSize);
+    PageResult<Emp> pageResult = empService.page(page, pageSize);
+    return Result.success(pageResult);
+}
+```
+
+EmpServiceImpl：
+
+```java
+public pageResult<Emp> page(Integer page, Integer pageSize) {
+   //1. 获取总记录数
+   Long count = empMapper.count();
+   //2. 获取每一页的数据列表
+   Integer start = (page - 1) * pageSize;
+   List<Emp> empList = empMapper.list(start, pageSize);
+   //3. 封装分页结果
+    return new pageResult<Emp>(count, empList);
+}
+```
+
+EmpMapper：
+
+```java
+@Mapper
+public interface EmpMapper {
+    @Select("select count(*) from emp e left join dept d on e.dept_id = d.id ")
+    public Long count(); //查询总记录数
+
+    @Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id limit #{start},#{pageSize}")
+    public List<Emp> list(Integer start , Integer pageSize); //查询结果列表
+}
+```
+
+细节说明：通过 @RequestParam 注解的 **defaultValue 属性**可以设置参数的默认值。
+
+⚠️ 问题：EmpServiceImpl 中写的是 `public pageResult<Emp> page(...)`，而 EmpController 中用的是 `PageResult<Emp>`——同一分页结果类大小写不一致（pageResult / PageResult），Java 中类名大小写敏感，照抄会导致找不到符号、无法编译。
+修正建议：统一类名，均使用 `PageResult<Emp>`（类名首字母大写）。
+
+**分页查询——PageHelper 分页插件**
+
+核心结论：PageHelper 是第三方提供的在 Mybatis 框架中用来实现分页的插件，用来**简化分页操作，提高开发效率**。
+
+对比理解（原始方式 vs PageHelper）：
+
+原始方式 - mapper 层（需要手写两条 SQL）：
+
+```java
+//统计符合条件的总记录数
+@Select("select count(*) from emp e ... ")
+public Long count();
+//查询结果列表
+@Select("select e.* from emp e ... limit #{start},#{pageSize}")
+public List<Emp> list(Integer start , Integer pageSize);
+```
+
+原始方式 - service 层（手动计算 start、手动封装）：
+
+```java
+public PageResult<Emp> page(Integer page, Integer pageSize) {
+    //1. 获取总记录数
+    Long total = empMapper.count();
+    //2. 获取数据列表
+    Integer start = (page - 1) * pageSize;
+    List<Emp> empList = empMapper.list(start, pageSize);
+    //3. 封装分页结果
+    return new PageResult<Emp>(total, empList);
+}
+```
+
+PageHelper - mapper 层（只写查询，不管分页）：
+
+```java
+//查询员工数据
+@Select("select e.* from emp e ... ")
+public List<Emp> list();
+```
+
+PageHelper - service 层（一条 startPage 搞定）：
+
+```java
+public PageResult<Emp> page(Integer page, Integer pageSize) {
+    //1. 设置分页参数
+    PageHelper.startPage(page, pageSize);
+    //2. 调用Mapper接口方法
+    List<Emp> empList = empMapper.list();
+    //3. 解析并封装结果
+    return new PageResult(...);
+}
+```
+
+**使用步骤**：
+
+1. 引入 PageHelper 的依赖：
+
+```xml
+<!-- 分页插件PageHelper -->
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper-spring-boot-starter</artifactId>
+    <version>1.4.7</version>
+</dependency>
+```
+
+2. 定义 Mapper 接口的查询方法（无需考虑分页）：
+
+```java
+//查询员工数据
+@Select("select e.* from emp e ... ")
+public List<Emp> list();
+```
+
+3. 在 Service 方法中实现分页查询：
+
+```java
+public PageResult<Emp> page(Integer page, Integer pageSize) {
+    //1. 设置分页参数
+    PageHelper.startPage(page, pageSize);
+    //2. 调用Mapper接口方法
+    List<Emp> empList = empMapper.list();
+    //3. 解析并封装结果
+    return new PageResult<Emp>(...);
+}
+```
+
+**PageHelper 实现机制**：
+
+Mapper 中只写查询：
+
+```java
+//查询员工数据
+@Select("select e.*, d.name deptName from emp e left join dept d on e.dept_id = d.id order by e.update_time desc")
+public List<Emp> list();
+```
+
+PageHelper 在底层自动补充执行：
+
+```sql
+select count(0) from emp e ...
+select ... from emp e ... limit ?,?
+```
+
+底层拿到"总记录数"和"数据列表"后封装为 `Page<Emp>` 对象供上层解析。
+
+注意事项：
+
+- SQL 语句**结尾不要加分号（;）**；
+- PageHelper 只会对**紧跟在其后的第一条 SQL 语句**进行分页处理。
+
+**条件分页查询**
+
+条件分页查询在已实现的分页查询基础上增加过滤条件。请求示例：`/emps?name=张&gender=1&begin=2007-09-01&end=2022-09-01`
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收参数（分页、条件）、调用 Service 进行分页查询获取 PageResult、响应结果；
+- **Service**：使用 PageHelper 完成分页条件查询、封装 PageResult 对象返回；
+- **Mapper**：执行 SQL——`select ... from emp e ... where e.name like ? and e.gender = ? and e.entry_date between ? and ? order by ...`
+
+EmpController：
+
+```java
+@GetMapping
+public Result page(@RequestParam(defaultValue = "1")Integer page, @RequestParam(defaultValue = "10")Integer pageSize,
+                   String name , Integer gender,
+                   @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
+                   @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end){
+    log.info("分页查询，参数：{}，{}，{}，{}，{}，{}",page,pageSize,name,gender,begin,end);
+    PageResult<Emp> pageResult = empService.page(page,pageSize,name,gender,begin,end);
+    return Result.success(pageResult);
+}
+```
+
+EmpMapper：
+
+```java
+public List<Emp> list(String name, Integer gender, LocalDate begin, LocalDate end);
+```
+
+EmpMapper.xml：
+
+```xml
+<select id="list" resultType="com.itheima.pojo.Emp">
+    select e.*, d.name as deptName from emp e left join dept d on e.dept_id = d.id
+    where e.name like concat('%',#{name},'%') and e.gender = #{gender} and e.entry_date between #{begin} and #{end}
+</select>
+```
+
+细节说明：日期时间类型参数接收时，需要通过 **@DateTimeFormat** 注解指定前端传递的日期格式——`@DateTimeFormat(pattern = "yyyy-MM-dd")`。
+
+小结：@RequestParam 注解的使用场景？——接收请求参数、参数名不一致时；设置请求参数的默认值；@DateTimeFormat 的使用场景？——用于接收日期时间类型的参数，指定日期格式。
+
+**条件分页查询——请求参数接收优化**
+
+核心结论：如果 Controller 方法的参数较多且未来可能继续增加，方法签名会变得复杂难以维护，此时可以把多个请求参数**封装为一个对象**。
+
+请求参数：`/emps?name=张&gender=1&begin=2007-09-01&end=2022-09-01&page=1&pageSize=10`
+
+封装类 EmpQueryParam：
+
+```java
+@Data
+public class EmpQueryParam {
+    private Integer page = 1; // 当前页码
+    private Integer pageSize = 10; // 每页记录数
+    private String name; // 员工姓名
+    private Integer gender; // 员工性别
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate begin; // 入职日期
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate end; // 入职日期
+}
+```
+
+优化后的 EmpController：
+
+```java
+@GetMapping
+public Result page(EmpQueryParam empQueryParam){
+    log.info("分页查询，参数：{}",empQueryParam);
+    PageResult<Emp> pageResult = empService.page(empQueryParam);
+    return Result.success(pageResult);
+}
+```
+
+小结（queryString 查询参数接收方式 `/emps?name=xxx&gender=xxx`）：如果参数较少，controller 方法中定义一个一个形参接收；如果参数较多，controller 方法中定义一个对象接收。
+
+**程序优化——动态 SQL**
+
+核心结论：条件分页查询中把所有条件"写死"在 SQL 里不行——查询条件要随着用户输入的变化而变化，这就需要**动态 SQL**。
+
+问题：原 SQL `select * from emp e ... where e.name like ?` 等写法条件写死了；而实际需求中，查询条件随着用户输入的条件变化而变化（可能只按姓名查、只按性别查、按多个条件组合查）。
+
+**动态 SQL** 定义：随着用户的输入或外部条件的变化而变化的 SQL 语句，我们称为动态 SQL。
+
+Mybatis 提供的两个动态 SQL 标签：
+
+- `<if>`：判断条件是否成立，如果条件为 true，则拼接 SQL；
+
+```xml
+<if test="gender != null">
+   and e.gender = #{gender}
+</if>
+```
+
+- `<where>`：根据查询条件，来生成 where 关键字，并会自动去除条件前面多余的 and 或 or。
+
+动态查询员工信息的完整写法：
+
+```xml
+<select id="list" resultType="com.itheima.pojo.Emp">
+    SELECT e.*, d.name AS deptName FROM emp e LEFT JOIN dept d ON e.dept_id = d.id
+    <where>
+        <if test="name != null and name != ''">
+            e.name like concat('%',#{name},'%')
+        </if>
+        <if test="gender != null">
+            and e.gender = #{gender}
+        </if>
+        <if test="begin != null and end != null">
+            and e.entry_date between #{begin} and #{end}
+        </if>
+    </where>
+    order by e.update_time desc
+</select>
+```
+
+小结：Mybatis 中动态 SQL 的使用场景？——如果 SQL 语句是不固定的，是随着用户的输入或外部条件的变化而变化的；MyBatis 中动态 SQL 的 `<if>` 及 `<where>` 标签的作用？——`<if>` 标签：条件判断，如果条件成立，则拼接对应的 sql 片段；`<where>`：根据查询条件来生成 where 关键字，并会自动去除条件前面多余的 and 或 or。
+
+**新增员工——需求与思路**
+
+需求：新增员工，涉及两张表——员工基本信息（表：emp）与员工工作经历信息（表：emp_expr）。
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收请求参数（员工信息）、调用 Service 方法、响应结果；
+- **Service**：保存员工基本信息、批量保存员工的工作经历信息；
+- **Mapper**：执行 SQL——`insert into emp(...) values (...);` 与 `insert into emp_expr(...) values(...),(...);`。
+
+**新增员工——保存员工基本信息**
+
+EmpController：
+
+```java
+@PostMapping
+public Result save(@RequestBody Emp emp){
+    log.info("请求参数emp: {}", emp);
+    empService.save(emp);
+    return Result.success();
+}
+```
+
+EmpServiceImpl：
+
+```java
+public void save(Emp emp) {
+    //1.补全基础属性
+    emp.setCreateTime(LocalDateTime.now());
+    emp.setUpdateTime(LocalDateTime.now());
+    //2.保存员工基本信息
+    empMapper.insert(emp);
+}
+```
+
+EmpMapper：
+
+```java
+@Insert("insert into emp(username, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time) values (#{username},#{name},#{gender},#{phone},#{job},#{salary},#{image},#{entryDate},#{deptId},#{createTime},#{updateTime})")
+void insert(Emp emp);
+```
+
+**新增员工——批量保存工作经历**
+
+核心结论：一名员工可以有多条工作经历，需要**批量**插入 emp_expr 表，使用动态 SQL 的 `<foreach>` 标签实现。
+
+一次插入多条记录的思路：`insert into emp_expr(...) values (?,?,?,?,?)` 逐条拼接到 `insert into emp_expr(...) values (?,?,?,?,?),(?,?,?,?,?),...`，把 `List<EmpExpr>` 中的数据遍历拼接到 SQL 中。
+
+EmpExprMapper.java：
+
+```java
+public void insertBatch(List<EmpExpr> exprList);
+```
+
+EmpExprMapper.xml：
+
+```xml
+<insert id="insertBatch">
+    insert into emp_expr (emp_id, begin, end, company, job) values
+    <foreach collection="exprList" item="expr" separator=",">
+        (#{expr.empId}, #{expr.begin}, #{expr.end}, #{expr.company}, #{expr.job})
+    </foreach>
+</insert>
+```
+
+`<foreach>` 属性说明：
+
+- **collection**：集合名称；
+- **item**：集合遍历出来的元素/项；
+- **separator**：每一次遍历使用的分隔符（可选）；
+- **open**：遍历开始前拼接的片段（可选）；
+- **close**：遍历结束后拼接的片段（可选）。
+
+**获取主键值**：在插入数据之后，如何获取到插主键 id 值？——使用 **@Options(useGeneratedKeys = true, keyProperty = "id")**。
+
+小结：`<foreach>` 动态 SQL 标签的作用？——遍历集合/数组。
+
+**事务管理——问题的引出**
+
+问题：保存员工的基本信息成功了，而保存工作经历失败了，是否 OK？——**不可以**；因为这属于一个业务操作，如果保存员工信息成功了，保存工作经历信息失败了，就会造成数据库数据的不完整、不一致。
+
+**事务的概念**：事务是一组操作的集合，它是一个不可分割的工作单位。事务会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作**要么同时成功，要么同时失败**。
+
+添加员工操作（两条 SQL 一起构成一个业务）：
+
+```sql
+-- 1. 保存员工基本信息
+insert into emp values (39, 'Tom', '123456', '汤姆', 1, '13300001111', 1, 4000, '1.jpg', '2023-11-01', 1, now(), now());
+-- 2. 保存员工的工作经历信息
+insert into emp_expr(emp_id, begin, end, company, job) values
+(39,'2019-01-01', '2020-01-01', '百度', '开发'),
+(39,'2020-01-10', '2022-02-01', '阿里', '架构');
+```
+
+注意：默认 MySQL 的事务是**自动提交**的，也就是说，当执行一条 DML 语句，MySQL 会立即隐式的提交事务。
+
+**事务的操作（SQL 层面）**：事务控制主要三步操作——开启事务、提交事务/回滚事务：
+
+```sql
+-- 开启事务
+start transaction; / begin;
+-- 1. 保存员工基本信息
+insert into emp values (39, 'Tom', '123456', '汤姆', 1, '13300001111', 1, 4000, '1.jpg', '2023-11-01', 1, now(), now());
+-- 2. 保存员工的工作经历信息
+insert into emp_expr(emp_id, begin, end, company, job) values
+(39,'2019-01-01', '2020-01-01', '百度', '开发'),
+(39,'2020-01-10', '2022-02-01', '阿里', '架构');
+-- 提交事务(全部成功) / 回滚事务(有一个失败)
+commit; / rollback;
+```
+
+小结：什么是事务？——事务是一组操作的集合，是一个不可分割的工作单位。这组操作要么全部成功，要么全部失败；如何控制事务？——开启事务：start transaction/begin;、提交事务：commit;（全部成功）、回滚事务：rollback;（只要有一项失败）；场景？——银行转账；下单扣减库存。
+
+**Spring 事务管理——@Transactional**
+
+核心结论：在 Spring 中管理事务只需一个注解——**@Transactional**。
+
+- 注解：**@Transactional**；
+- 作用：将当前方法交给 spring 进行事务管理，方法执行前，开启事务；成功执行完毕，提交事务；出现异常，回滚事务；
+- 位置：业务（service）层的方法上、类上、接口上（推荐加在方法上）。
+
+演示代码（用 `int i = 1/0;` 模拟异常，观察事务回滚）：
+
+```java
+@Autowired
+private EmpMapper empMapper;
+@Autowired
+private EmpExprMapper empExprMapper;
+
+@Override
+public void save(Emp emp) {
+    //1.保存员工基本信息
+    emp.setCreateTime(LocalDateTime.now());
+    emp.setUpdateTime(LocalDateTime.now());
+    empMapper.insert(emp);
+
+    int i = 1/0;
+
+    //2. 保存员工的工作经历信息 - 批量
+    Integer empId = emp.getId();
+    List<EmpExpr> exprList = emp.getExprList();
+    if(!CollectionUtils.isEmpty(exprList)){
+        exprList.forEach(empExpr -> empExpr.setEmpId(empId));
+        empExprMapper.insertBatch(exprList);
+    }
+}
+```
+
+可以配置日志查看 Spring 事务管理的底层日志：
+
+```yaml
+# 配置日志信息,查看spring事务管理的底层日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+```
+
+小结：Spring 事务管理的注解 @Transactional 的作用是什么，可以加在什么位置？——@Transactional：会在方法运行之前，开启事务，运行完毕后，根据运行的结果，来提交或回滚事务。位置：方法上、类上、接口上。
+
+**事务进阶——rollbackFor**
+
+核心结论：@Transactional 默认只在出现 **RuntimeException** 时回滚；要让其他异常也触发回滚，需要配置 rollbackFor 属性。
+
+- **rollbackFor 属性**用于控制出现何种异常类型，回滚事务（默认情况下，只有出现 RuntimeException 才会回滚）。
+
+```java
+@Transactional(rollbackFor = {Exception.class})
+@Override
+public void save(Emp emp) {
+    //1.保存员工基本信息
+    emp.setCreateTime(LocalDateTime.now());
+    emp.setUpdateTime(LocalDateTime.now());
+    empMapper.insert(emp);
+
+    //2. 保存员工的工作经历信息
+    //... 省略
+}
+```
+
+**事务进阶——propagation（事务传播行为）**
+
+核心结论：**事务传播行为**指的就是当一个事务方法被另一个事务方法调用时，这个事务方法应该如何进行事务控制（加入现有事务？还是新建事务？）。
+
+传播行为属性值表：
+
+| 属性值 | 含义 |
+| --- | --- |
+| REQUIRED | 【默认值】需要事务，有则加入，无则创建新事务 |
+| REQUIRES_NEW | 需要新事务，无论有无，总是创建新事务 |
+| SUPPORTS | 支持事务，有则加入，无则在无事务状态中运行 |
+| NOT_SUPPORTED | 不支持事务，在无事务状态下运行，如果当前存在已有事务，则挂起当前事务 |
+| MANDATORY | 必须有事务，否则抛异常 |
+| NEVER | 必须没事务，否则抛异常 |
+
+**应用案例——记录操作日志**：
+
+需求：在新增员工信息时，无论是成功还是失败，都要记录操作日志。
+
+步骤：
+
+1. 准备日志表 emp_log、实体类 EmpLog、Mapper 接口 EmpLogMapper；
+2. 在新增员工时记录日志（日志记录方法需要用 REQUIRES_NEW——无论业务事务回滚与否，日志都要落库，所以日志方法应运行在独立的新事务中）。
+
+小结：事务的传播行为控制的是什么？——一个事务方法调用另外一个事务方法时，事务应该如何控制（加入？新建？…）；常见的传播行为及应用场景？——REQUIRED：大部分场景；REQUIRES_NEW：希望两个方法在独立的事务中运行，互不影响。
+
+**事务的四大特性（ACID）**
+
+核心结论：事务有四大特性——原子性、一致性、隔离性、持久性，简称 ACID。
+
+| 特性 | 英文 | 说明 |
+| --- | --- | --- |
+| 原子性 | Atomicity | 事务是不可分割的最小单元，要么全部成功，要么全部失败 |
+| 一致性 | Consistency | 事务完成时，必须使所有的数据都保持一致状态 |
+| 隔离性 | Isolation | 数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行 |
+| 持久性 | Durability | 事务一旦提交或回滚，它对数据库中的数据的改变就是永久的 |
+
+**文件上传——简介**
+
+核心结论：文件上传是指将本地图片、视频、音频等文件上传到服务器，供其他用户浏览或下载的过程；在项目中应用非常广泛（发微博、发微信朋友圈都用到了文件上传功能）。
+
+前端页面三要素（表单代码）：
+
+```html
+<form action="/upload" method="post" enctype="multipart/form-data">
+    姓名: <input type="text" name="name" > <br>
+    年龄: <input type="text" name="age" > <br>
+    图像: <input type="file" name="file" > <br>
+    <input type="submit" value="上传文件" name="submit">
+</form>
+```
+
+从代码可以读出三个关键点：表单以 **POST** 方式提交（method="post"）；编码类型为 **multipart/form-data**；文件项使用 **input type="file"**。
+
+服务端接收文件（使用 **MultipartFile** 类型接收）：
+
+```java
+@Slf4j
+@RestController
+public class UploadController {
+    @PostMapping("/upload")
+    public Result handleFileUpload(String name, Integer age, MultipartFile file) {
+        log.info("文件上传:{}", file);
+        return Result.success();
+    }
+}
+```
+
+**文件上传——本地存储**
+
+将上传的文件存储在服务器本地的代码：
+
+```java
+@PostMapping("/upload")
+public Result handleFileUpload(MultipartFile file) throws Exception {
+    log.info("文件上传:{}", file);
+    // 生成唯一文件名
+    String uniqueFileName = generateUniqueFileName(file.getOriginalFilename());
+    // 保存文件
+    image.transferTo(new File("D:/images/" + uniqueFileName));
+    return Result.success();
+}
+
+private String generateUniqueFileName(String originalFilename) {
+    String randomStr = UUID.randomUUID().toString().replaceAll("-", "");
+    String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+    return randomStr + extension;
+}
+```
+
+⚠️ 问题：课件代码中方法形参是 `MultipartFile file`，前面的 log 与文件名生成也都用的是 `file`，但保存文件时却写成 `image.transferTo(...)`——`image` 这个变量并不存在，代码无法编译。
+修正建议：保存文件应使用形参名，写为 `file.transferTo(new File("D:/images/" + uniqueFileName));`。
+
+小结：如何将上传的文件存储在服务器本地？——`multipartFile.getOriginalFilename()`：获取原始文件名；`multipartFile.transferTo(File dest)`：将文件转存到磁盘文件。
+
+上传文件大小受限怎么办？——默认上传文件的最大大小为 **1MB**，超过大小需要在配置文件配置：
+
+```yaml
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB # 最大单个文件大小
+      max-request-size: 100MB # 最大请求总大小（包括所有文件和表单数据）
+```
+
+本地存储的局限性：无法直接访问、磁盘满了、磁盘坏了——因此企业开发中会选择 **FastDFS、MinIO** 等分布式文件系统或**云**存储方案。
+
+**文件上传——阿里云 OSS**
+
+- 阿里云是阿里巴巴集团旗下全球领先的云计算公司，也是国内最大的云服务提供商；提供语音服务、短信服务、邮件服务、实人认证、视频点播、视频直播、文字识别、内容安全、对象存储、机器翻译、云数据库等云服务；
+- **阿里云对象存储 OSS（Object Storage Service）**：是一款海量、安全、低成本、高可靠的云存储服务。使用 OSS，您可以通过网络随时存储和调用包括文本、图片、音频和视频等在内的各种文件。
+
+**第三方服务-通用思路**（使用第三方云服务的通用流程）:
+
+1. 注册阿里云（实名认证）；
+2. 充值；
+3. 开通对象存储服务（OSS）；
+4. 创建 bucket；
+5. 获取 AccessKey（秘钥）——即准备工作；
+6. 参照官方 SDK 编写入门程序；
+7. 集成使用。
+
+关键名词：
+
+- **SDK**：Software Development Kit 的缩写，软件开发工具包，包括辅助软件开发的依赖（jar 包）、代码示例等，都可以叫做 SDK；
+- **Bucket**：存储空间是用户用于存储对象（Object，就是文件）的容器，所有的对象都必须隶属于某个存储空间。
+
+注意：在使用第三方提供的云服务或技术时，一定要**参照对应的官方文档**进行开发和测试。
+
+**阿里云 OSS——案例集成**
+
+案例目标：1. 接收上传的图片；2. 将图片存储起来（OSS）；3. 返回图片访问的 URL。
+
+步骤：
+
+1. 引入阿里云 OSS 文件上传工具类（由官方的示例代码改造而来）；
+2. 上传文件接口开发：
+
+```java
+@Autowired
+private AliyunOSSOperator aliyunOSSOperator;
+
+/**
+ * 文件上传
+ */
+@PostMapping("/upload")
+public Result upload(MultipartFile file) throws Exception {
+    log.info("文件上传:{}", file);
+    String url = aliyunOSSOperator.upload(file.getBytes(), file.getOriginalFilename());
+    return Result.success(url);
+}
+```
+
+**参数配置化**：
+
+问题：如果将这些参数信息（endpoint、bucketName、region、AccessKey 等）写在 java 代码中有什么问题？——**不便维护与管理**。
+
+- **参数配置化**：指将一些需要灵活变化的参数，配置在配置文件中，然后通过 **@Value** 注解来注入外部配置的属性。
+
+application.yml：
+
+```yaml
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: java-ai
+    region: cn-beijing
+```
+
+AliyunOSSOperator（@Value 注入）：
+
+```java
+@Component
+public class AliyunOSSOperator {
+    @Value("${aliyun.oss.endpoint}")
+    private String endpoint;
+    @Value("${aliyun.oss.bucketName}")
+    private String bucketName;
+    @Value("${aliyun.oss.region}")
+    private String region;
+}
+```
+
+@Value 注入格式：`@Value("${key}")`。
+
+**问题分析**：使用 @Value 注解注入配置文件的配置项，如果配置项多，注入繁琐，不便于维护管理和复用。
+
+**@ConfigurationProperties**（批量注入）：可以批量将多个属性注入到 bean 对象中。
+
+小结：注入外部配置文件中的配置项的两种方式？——@Value：一个属性一个属性的注入；@ConfigurationProperties：批量将多个属性注入到 bean 对象中；两种方式各自的使用场景？——如果属性较少，建议 @Value 注入即可；如果属性较多、考虑复用，建议使用 @ConfigurationProperties。
+
+**删除员工——需求分析**
+
+需求：根据 ID 删除单个员工信息、根据 ID 批量删除员工信息。
+
+- 其实，删除单条数据也是一种特殊的批量删除，所以，删除员工的功能，我们只需要**开发一个接口**就可以了。
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收请求参数（ID 值）、调用 Service 方法、响应结果；
+- **Service**：批量删除员工基本信息、批量删除员工的工作经历信息；
+- **Mapper**：执行 SQL——`delete from emp where id in (?,?,?);` 与 `delete from emp_expr where emp_id in (?,?,?);`。
+
+⚠️ 问题：课件 Mapper 职责图中 SQL 写成了 `delete emp where id in (?,?,?);` 和 `delete emp_expr where emp_id in(?,?,?);`——都**缺少 from 关键字**，MySQL 中 delete 语句必须写为 `delete from 表名`，照抄无法执行。
+修正建议：应写为 `delete from emp where id in (?,?,?);` 和 `delete from emp_expr where emp_id in (?,?,?);`（课件后续 EmpMapper.xml 中的写法就是正确的）。
+
+**删除员工——Controller 接收请求参数**
+
+接收请求参数：`DELETE /emps?ids=1,2,3`
+
+方式一：在 Controller 方法中通过**数组**来接收：
+
+```java
+@DeleteMapping
+public Result delete(Integer[] ids){
+    log.info("根据id批量删除员工:{} ", ids);
+    return Result.success();
+}
+```
+
+方式二：在 Controller 方法中通过**集合**来接收：
+
+```java
+@DeleteMapping
+public Result delete(@RequestParam List<Integer> ids){
+    log.info("根据id批量删除员工:{} ", ids);
+    return Result.success();
+}
+```
+
+**删除员工——Service & Mapper**
+
+EmpServiceImpl（删除两张表的数据，加事务保证一致性）：
+
+```java
+@Transactional(rollbackFor = {Exception.class})
+public void deleteByIds(List<Integer> ids) {
+    //1. 根据ID删除员工基本信息
+    empMapper.deleteByIds(ids);
+    //2. 根据ID删除员工的工作经历信息
+    empExprMapper.deleteByEmpIds(ids);
+}
+```
+
+EmpMapper.xml（动态 SQL 拼接 in 列表）：
+
+```xml
+<!-- 根据ID批量删除员工信息 -->
+<delete id="deleteByIds">
+  delete from emp where id in
+  <foreach collection="ids" item="id" separator="," open="(" close=")">
+     #{id}
+  </foreach>
+</delete>
+```
+
+EmpExprMapper.xml：
+
+```xml
+<!--根据员工ID批量删除员工工作经历信息-->
+<delete id="deleteByEmpIds">
+  delete from emp_expr where emp_id in
+  <foreach collection="empIds" item="empId" separator="," open="(" close=")">
+      #{empId}
+  </foreach>
+</delete>
+```
+
+这里 `<foreach>` 的 open="(" 与 close=")" 正好组成 `in (...)` 的括号，separator="," 生成逗号分隔的参数列表。
+
+**修改员工——查询回显**
+
+需求：修改员工包含两个功能——查询回显、修改数据；查询回显需要根据 ID 查询员工的详细信息（基本信息 + 工作经历信息）。
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收请求参数（ID 值）、调用 Service 方法、响应结果；
+- **Service**：调用 mapper 查询员工详细信息（基本信息、工作经历信息）；
+- **Mapper**：执行 SQL——`select ... from emp e left join emp_expr ee on e.id = ee.emp_id where e.id = ?`。
+
+EmpController：
+
+```java
+@GetMapping("/{id}")
+public Result getInfo(@PathVariable Integer id){
+    log.info("根据id查询员工信息, id: {}", id);
+    Emp emp = empService.getInfo(id);
+    return Result.success(emp);
+}
+```
+
+EmpMapper.xml——**resultMap 自定义结果集**（解决多表查询字段名与属性名不一致、以及一对多嵌套集合的封装问题）：
+
+```xml
+<!--自定义结果集ResultMap-->
+<resultMap id="empResultMap" type="com.itheima.pojo.Emp">
+    <id column="id" property="id" />
+    <result column="username" property="username" />
+    <result column="password" property="password" />
+    <result column="name" property="name" />
+    <result column="gender" property="gender" />
+    <result column="image" property="image" />
+    <result column="entry_date" property="entryDate" />
+    <result column="dept_id" property="deptId" />
+    <result column="create_time" property="createTime" />
+    <result column="update_time" property="updateTime" />
+    <!--封装exprList-->
+    <collection property="exprList" ofType="com.itheima.pojo.EmpExpr">
+        <id column="ee_id" property="id"/>
+        <result column="ee_company" property="company"/>
+        <result column="ee_job" property="job"/>
+        <result column="ee_begin" property="begin"/>
+        <result column="ee_end" property="end"/>
+        <result column="ee_empid" property="empId"/>
+    </collection>
+</resultMap>
+```
+
+EmpMapper.xml——查询语句（用 resultMap 引用上面的定义，并为工作经历字段起别名）：
+
+```xml
+<!-- 根据ID查询员工的详细信息 -->
+<select id="getById" resultMap="empResultMap">
+    select
+        e.*,
+        ee.id ee_id,
+        ee.company ee_company,
+        ee.job ee_job,
+        ee.begin ee_begin,
+        ee.end ee_end,
+        ee.emp_id ee_empid
+    from emp e left join emp_expr ee on e.id = ee.emp_id
+    where e.id = #{id}
+</select>
+```
+
+小结：Mybatis 中封装查询结果，什么时候用 resultType，什么时候用 resultMap？——如果查询返回的字段名与实体的属性名可以直接对应上，用 resultType；如果查询返回的字段名与实体的属性名对应不上，或实体属性比较复杂，可以通过 resultMap 手动封装（`<collection>` 用于封装一对多的集合属性）。
+
+**修改员工——修改数据**
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收请求参数、调用 Service 方法、响应结果；
+- **Service**：根据 ID 修改员工的基本信息、根据 ID 修改工作经历信息；
+- **Mapper**：执行 SQL——`update emp set ....`、`delete emp_expr where...`、`insert into emp_expr...`（工作经历信息采用**先删除再添加**的方式）。
+
+EmpController：
+
+```java
+@PutMapping
+public Result update(@RequestBody Emp emp){
+    log.info("修改员工信息, {}", emp);
+    empService.update(emp);
+    return Result.success();
+}
+```
+
+EmpServiceImpl（事务保证两表一致性）：
+
+```java
+@Transactional(rollbackFor=Exception.class)
+public void update(Emp emp) {
+    //1. 根据ID更新员工基本信息
+    emp.setUpdateTime(LocalDateTime.now());
+    empMapper.updateById(emp);
+    //2. 根据员工ID删除员工的工作经历信息 【删除老的】
+    empExprMapper.deleteByEmpIds(Arrays.asList(emp.getId()));
+    //3. 新增员工的工作经历数据 【新增新的】
+    Integer empId = emp.getId();
+    List<EmpExpr> exprList = emp.getExprList();
+    if(!CollectionUtils.isEmpty(exprList)){
+        exprList.forEach(empExpr -> empExpr.setEmpId(empId));
+        empExprMapper.insertBatch(exprList);
+    }
+}
+```
+
+EmpMapper.xml（静态 SQL 版本）：
+
+```xml
+<!--根据ID更新员工基本信息-->
+<update id="updateById">
+    UPDATE emp
+    SET
+        username = #{username},
+        password = #{password},
+        name = #{name},
+        gender = #{gender},
+        phone = #{phone},
+        job = #{job},
+        salary = #{salary},
+        image = #{image},
+        entry_date = #{entryDate},
+        dept_id = #{deptId},
+        update_time = #{updateTime}
+    WHERE id = #{id}
+</update>
+```
+
+静态写法的缺点：**不灵活、扩展性差**——不管传了哪些字段，所有列都会被更新。
+
+**修改员工——程序优化（`<set>` 标签）**：
+
+- `<set>`：替换 set 关键字，去除字段之后多余的逗号（,）。
+
+动态 SQL 版本：
+
+```xml
+<!-- 根据ID修改员工基本信息 -->
+<update id="updateById">
+  update emp
+  <set>
+    <if test="username != null and username != ''">username=#{username},</if>
+    <if test="password != null and password != ''">password #{password},</if>
+    <if test="name != null and name != ''">name = #{name},</if>
+    <if test="gender != null">gender = #{gender},</if>
+    <if test="phone != null and phone != ''">phone = #{phone},</if>
+    <if test="job != null">job = #{job},</if>
+    <if test="salary != null">salary = #{salary},</if>
+    <if test="image != null and image != ''">image = #{image},</if>
+    <if test="entryDate != null">entry_date = #{entryDate},</if>
+    <if test="deptId != null">dept_id = #{deptId},</if>
+    <if test="updateTime != null">update_time = #{updateTime}</if>
+  </set>
+  where id = #{id}
+</update>
+```
+
+EmpMapper.java：
+
+```java
+/**
+ * 根据ID更新员工基本信息
+ */
+void updateById(Emp emp);
+```
+
+⚠️ 问题：课件动态 SQL 中 password 条件写成了 `<if test="password != null and password != ''">password #{password},</if>`——`password` 后面**缺少等号**（其他所有条件都是 `字段 = #{字段}` 的格式），拼接出的 SQL 是 `password ?`，语法错误无法执行。
+修正建议：应写为 `password = #{password},`。
+
+**异常处理**
+
+核心结论：项目开发及运行过程中，不可避免的会出现各种异常；如果各层不做统一处理，出现异常时默认返回的结果不符合规范——解决方案是**全局异常处理器**。
+
+- 项目开发及运行过程中，不可避免的会出现各种异常；
+- 各层（Controller、Service、Mapper）当前对异常的现状：未做处理（如果在各层写 try-catch 处理，会导致代码臃肿，不推荐）；
+- 目标效果：正常请求返回正常结果、异常请求统一返回规范的异常结果——由**全局异常处理器**统一拦截处理。
+
+GlobalExceptionHandler：
+
+```java
+@Slf4j
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler
+    public Result handleException(Exception e){
+        log.error("全局异常处理器, 拦截到异常", e);
+        return Result.error("对不起,服务器异常,请稍后重试");
+    }
+}
+```
+
+小结：如何定义一个全局异常处理器？——@RestControllerAdvice = @ControllerAdvice + @ResponseBody（标识这是一个全局异常处理器）、@ExceptionHandler（标识处理异常的方法）。
+
+**员工信息统计——职位统计**
+
+需求：统计各个职位的员工人数（输出职位列表与对应人数列表）。
+
+响应数据示例：
+
+```json
+{
+  "code": 1,
+  "msg": "success",
+  "data": {
+    "jobList": ["教研主管","学工主管","其他","班主任","咨询师","讲师"],
+    "dataList": [1,1,2,6,8,13]
+  }
+}
+```
+
+封装类 JobOption：
+
+```java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class JobOption {
+    private List jobList; //职位列表
+    private List dataList; //人数列表
+}
+```
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收请求、调用 Service 方法、响应结果；
+- **Service**：调用 mapper 方法获取职位统计数据、解析数据封装统计结果（JobOption）；
+- **Mapper**：执行 SQL。
+
+ReportController：
+
+```java
+@GetMapping("/empJobData")
+public Result getEmpJobData(){
+    log.info("统计各个职位的员工人数");
+    JobOption jobOption = reportService.getEmpJobData();
+    return Result.success(jobOption);
+}
+```
+
+ReportServiceImpl（用 stream 从 Map 列表中提取 pos 与 num 两列）：
+
+```java
+public JobOption getEmpJobData() {
+    List<Map<String,Object>> list = empMapper.countEmpJobData();
+    List<Object> jobList = list.stream().map(dataMap -> dataMap.get("pos")).toList();
+    List<Object> dataList = list.stream().map(dataMap -> dataMap.get("num")).toList();
+    return new JobOption(jobList, dataList);
+}
+```
+
+ReportMapper（用 case when 把职位编码翻译为职位名称）：
+
+```xml
+<select id="countEmpJobData" resultType="java.util.Map">
+    select
+        (case when job = 1 then '班主任'
+            when job = 2 then '讲师'
+            when job = 3 then '学工主管'
+            when job = 4 then '教研主管'
+            when job = 5 then '咨询师'
+            else '其他'end) as pos,
+        count(*) as num
+    from emp
+    group by job order by num
+</select>
+```
+
+**case 流程控制函数**语法：
+
+```sql
+-- 语法一：
+case when cond1 then res1 [when cond2 then res2] else res end ;
+-- 语法二(适用于等值匹配)：
+case expr when val1 then res1 [when val2 then res2] else res end ;
+```
+
+**员工信息统计——性别统计**
+
+需求：统计男性和女性员工的人数。
+
+响应数据示例：
+
+```json
+{
+  "code": 1,
+  "msg": "success",
+  "data": [
+    {"name": "男性员工","value": 5},
+    {"name": "女性员工","value": 6}
+  ]
+}
+```
+
+返回类型：`List<Map>`
+
+ReportController：
+
+```java
+@GetMapping("/empGenderData")
+public Result getEmpGenderData(){
+    log.info("统计员工性别信息");
+    List<Map> genderList = reportService.getEmpGenderData();
+    return Result.success(genderList);
+}
+```
+
+ReportServiceImpl：
+
+```java
+@Override
+public List<Map> getEmpGenderData() {
+    return empMapper.countEmpGenderData();
+}
+```
+
+EmpMapper：
+
+```java
+List<Map> countEmpGenderData();
+```
+
+EmpMapper.xml（用 if 函数把性别编码翻译为文本）：
+
+```xml
+<!-- 统计员工的性别信息 -->
+<select id="countEmpGenderData" resultType="java.util.Map">
+    select
+        if(gender = 1, '男', '女') as name,
+        count(*) as value
+    from emp group by gender ;
+</select>
+```
+
+⚠️ 问题：课件响应数据示例中 name 的值为"男性员工"/"女性员工"，而 EmpMapper.xml 的 SQL 实际查询输出的是 `if(gender = 1, '男', '女')`，即 name 为"男"/"女"——响应示例与 SQL 输出值前后不一致。
+修正建议：两者统一，例如把 SQL 改为 `if(gender = 1, '男性员工', '女性员工') as name`，或按"男/女"更新响应数据示例。
+
+**if 流程控制函数**语法：
+
+- `if(expr,val1,val2)`：如果表达式 expr 成立，取 val1，否则取 val2；
+- `ifnull(expr,val1)`：如果 expr 不为 null，取自身，否则取 val1。
+
+小结：本章以员工管理为核心展开，知识链条是——多表关系（一对多/一对一/多对多、外键约束、逻辑外键）→ 多表查询（内连接/外连接/子查询、resultType 与 resultMap）→ 分页查询（原始方式、PageHelper、条件查询与动态 SQL `<if>/<where>`）→ 新增员工（`<foreach>` 批量插入、@Options 获取主键）→ 事务管理（@Transactional、rollbackFor、propagation、ACID）→ 文件上传（MultipartFile、本地存储、阿里云 OSS、@Value/@ConfigurationProperties）→ 删除员工（数组/集合接收批量参数）→ 修改员工（resultMap 嵌套封装、`<set>` 动态 SQL）→ 全局异常处理（@RestControllerAdvice + @ExceptionHandler）→ 数据统计（case when、if/ifnull 函数）。每一处数据库操作都要考虑事务与 SQL 的正确性，这是实战开发的关键意识。
+
+### 第十一章：Web后端实战——登录认证
+
+**登录认证需求概述**
+
+核心结论：登录认证包含两个部分——**登录功能**（用户名密码正确即登录成功）与**登录校验**（只有登录成功的员工才能访问后台数据）。
+
+- 登录功能：实现用户名密码验证，登录成功后返回员工信息；
+- 登录校验：解决"未登录也能访问系统功能"的安全漏洞。
+
+**登录功能——思路分析**
+
+- 怎么样才算登录成功了呢？——用户名和密码都输入正确，登录成功；否则，登录失败；
+- 登录功能的本质是什么？——**查询**：根据用户名和密码查询员工信息。
+
+三层架构中，每一层的职责如下：
+
+- **Controller**：接收请求参数（用户名、密码）、调用 Service 方法、响应结果；
+- **Service**：根据用户名和密码查询员工信息、判定，组装数据并返回；
+- **Mapper**：执行 SQL——`select * from emp where username = ? and password = ?`
+
+**联调测试引出的问题**：
+
+问题：在未登录情况下，我们也可以直接访问部门管理、员工管理等功能。
+
+需求：**只有员工登录成功，才可以访问后台系统中的数据**——这就需要在系统中加入"登录校验"（对 Login 之外的 Emp、Dept、Report 等接口进行统一拦截）。
+
+**登录校验思路**
+
+核心结论：登录校验 = **登录标记**（登录成功后存下标记，后续每次请求都能取到）+ **统一拦截**（所有请求进来先检查标记）。
+
+- **登录标记**：用户登录成功之后，在后续的每一次请求中，都可以获取到该标记。【会话技术】；
+- **统一拦截**：过滤器 Filter、拦截器 Interceptor。
+
+整体数据流：浏览器请求 → Web 服务器（统一拦截先行）→ 校验登录标记（标记在登录成功时"存"，在后续请求"取"）→ 通过则访问 Login、Emp、Dept、Report 等接口。
+
+登录校验涉及的技术内容：会话技术、JWT 令牌、过滤器 Filter、拦截器 Interceptor。
+
+**会话技术**
+
+核心结论：要"在多次请求间共享登录标记"，就要用到会话技术；主流方案有 Cookie、Session、令牌三种。
+
+- **会话**：用户打开浏览器，访问 web 服务器的资源，会话建立，直到有一方断开连接，会话结束。在一次会话中可以包含多次请求和响应；
+- **会话跟踪**：一种维护浏览器状态的方法，服务器需要识别多次请求是否来自于同一浏览器，以便在同一次会话的多次请求间共享数据；
+- **会话跟踪方案**：
+  - 客户端会话跟踪技术：Cookie；
+  - 服务端会话跟踪技术：Session；
+  - 令牌技术。
+
+**方案一：Cookie**
+
+原理：登录成功后，服务器通过响应头 **Set-Cookie: name=value** 把数据写入浏览器；浏览器后续每次请求都通过请求头 **Cookie: name=value** 把数据带回服务器。
+
+优缺点：
+
+- 优点：HTTP 协议中支持的技术；
+- 缺点：
+  - 移动端 APP 无法使用 Cookie；
+  - 不安全，用户可以自己禁用 Cookie；
+  - Cookie 不能跨域。
+
+**跨域**的区分：三个维度——协议、IP/域名、端口。例如 http://192.168.150.200:90 与 http://192.168.150.100:8080 之间协议相同但 IP 与端口都不同，属于跨域，Cookie 无法在这些地址间共享。
+
+小结：Cookie 会话跟踪方案的原理？——响应头：Set-Cookie；请求头：Cookie；优缺点？——优点：HTTP 协议中支持的技术；缺点：移动端 APP 无法使用 Cookie、不安全（用户可以自己禁用 Cookie）、Cookie 不能跨域。
+
+**方案二：Session**
+
+原理：**Session 的底层是基于 Cookie 的**。登录成功后服务器创建 Session 对象（服务端存储），并把 `JSESSIONID` 通过响应头 Set-Cookie: JSESSIONID=1 写入浏览器；后续请求浏览器带着 Cookie: JSESSIONID=1，服务器据此找到对应的 Session 取数据。
+
+优缺点：
+
+- 优点：存储在服务端，安全；
+- 缺点：
+  - 服务器集群环境下无法直接使用 Session；
+  - Cookie 的缺点（移动端无法使用、用户可禁用、不能跨域）。
+
+小结：Session 会话跟踪方案的原理？——Session 的底层是基于 Cookie 的（Set-Cookie、Cookie）；优缺点？——优点：存储在服务端，安全；缺点：服务器集群环境下无法直接使用 Session、Cookie 的缺点。
+
+**方案三：令牌技术（主流方案）**
+
+原理：登录成功后服务器**生成令牌**返回给浏览器（不存储）；浏览器后续请求携带令牌；服务器**校验令牌**合法性。令牌由服务端用算法校验，不依赖服务端存储，也不依赖 Cookie。
+
+优缺点：
+
+- 优点：
+  - 支持 PC 端、移动端；
+  - 解决集群环境下的认证问题；
+  - 减轻服务器端存储压力；
+- 缺点：需要自己实现。
+
+Cookie 与 Session 是"传统方案"，令牌技术是当前"主流方案"。
+
+小结：令牌会话跟踪方案的优缺点？——优点：支持 PC 端、移动端、解决集群环境下的认证问题、减轻服务器端存储压力；缺点：需要自己实现。
+
+**JWT 令牌——介绍**
+
+核心结论：JWT（JSON Web Token）是令牌技术的事实标准，它是一种简洁的、自包含的格式，用于在通信双方以 json 数据格式安全地传输信息。
+
+- 全称：JSON Web Token（https://jwt.io/）；
+- 定义了一种简洁的、自包含的格式，用于在通信双方以 json 数据格式安全的传输信息；
+- 组成：
+  - 第一部分：**Header（头）**，记录令牌类型、签名算法等。例如：{"alg":"HS256","type":"JWT"}；
+  - 第二部分：**Payload（有效载荷）**，携带一些自定义信息、默认信息等。例如：{"id":"1","username":"Tom"}；
+  - 第三部分：**Signature（签名）**，防止 Token 被篡改、确保安全性。将 header、payload 融入，并加入指定秘钥，通过指定签名算法计算而来。
+
+JWT 令牌的形态是三段 Base64 编码用点号连接：
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.JTdCJTIybmFtZSUyMiUzQSUyMlRvbSUyMiUyQyUyMmlhdCUyMiUzQTE1MTYyMzkwMjIlN0Q=.SflKxwRJSMeKKF2QT4fwpMeJf...
+```
+
+数字签名计算方式：`数字签名(header.payload，secret)`——拿前两段加上秘钥，用签名算法算出第三段。
+
+**Base64**：是一种基于 64 个可打印字符（A-Z a-z 0-9 + /）来表示二进制数据的编码方式。
+
+**JWT 令牌——生成与解析**
+
+核心结论：使用官方提供的 jjwt 依赖和 Jwts 工具类即可生成、解析 JWT 令牌。
+
+1. 引入 jjwt 的依赖：
+
+```xml
+<dependency>
+    <groupId>io.jsonwebtoken</groupId>
+    <artifactId>jjwt</artifactId>
+    <version>0.9.1</version>
+</dependency>
+```
+
+2. 调用官方提供的工具类 **Jwts** 来生成或解析 jwt 令牌。
+
+生成令牌：
+
+```java
+@Test
+public void testGenJwt() {
+    Map<String, Object> claims = new HashMap<>();
+    claims.put("id", 10);
+    claims.put("username", "itheima");
+    String jwt = Jwts.builder()
+            .signWith(SignatureAlgorithm.HS256, "SVRIRUlNQQ==")
+            .addClaims(claims)
+            .setExpiration(new Date(System.currentTimeMillis() + 12*3600*1000))
+            .compact();
+    System.out.println(jwt);
+}
+```
+
+解析令牌：
+
+```java
+@Test
+public void testParseJwt() throws Exception {
+    String jwtToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...";
+    Claims claims = Jwts.parser()
+            .setSigningKey("SVRIRUlNQQ==")
+            .parseClaimsJws(jwtToken)
+            .getBody();
+    System.out.println(claims);
+}
+```
+
+小结：
+
+- JWT 令牌由哪几个部分组成，每个部分都存储什么内容？——header（头），记录令牌类型、签名算法；payload（载荷），携带一些自定义的信息；signature（签名），防止被篡改，保证安全性。
+- JWT 令牌生成及校验？——Jwts.builder()...（生成）、Jwts.parser()...（解析校验）。
+- JWT 令牌解析（校验）时什么情况会报错？——JWT 令牌被篡改 或 过期失效了。
+
+⚠️ 问题：课件小结文字写成"signature（签名），**访问**被篡改，保证安全性"——"访问"一词语义不通，正确含义是"防止被篡改"。
+修正建议：应改为"signature（签名），防止被篡改，保证安全性"。
+
+注意事项：JWT 校验时使用的**签名秘钥，必须和生成 JWT 令牌时使用的秘钥是配套的**。
+
+**登录成功后——生成令牌**
+
+实现思路：
+
+1. 定义 JWT 令牌操作工具类（课件提示：基于 AI 生成工具类）；
+2. 登录完成后，调用工具类生成 JWT 令牌，并返回给前端。
+
+流程：用户请求 Login 接口 → 登录成功 → 生成 JWT 令牌 → 响应给浏览器；浏览器后续带令牌请求 Emp、Dept、Report 等接口 → 统一拦截校验令牌。
+
+**过滤器 Filter**
+
+核心结论：Filter 是 JavaWeb 三大组件之一，用于拦截请求实现通用功能——登录校验就是它的典型应用。
+
+- 概念：Filter 过滤器，是 JavaWeb 三大组件（**Servlet、Filter、Listener**）之一；
+- 过滤器可以把对资源的请求拦截下来，从而实现一些特殊的功能；
+- 过滤器一般完成一些通用的操作，比如：**登录校验、统一编码处理、敏感字符处理**等。
+
+**Filter 快速入门**：
+
+1. 定义 Filter：定义一个类，实现 Filter 接口，并实现其所有方法：
+
+```java
+@WebFilter(urlPatterns = "/*")
+public class DemoFilter implements Filter {
+    //初始化方法, web服务器启动, 创建Filter实例时调用, 只调用一次
+    public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println("init ...");
+    }
+    //拦截到请求时,调用该方法,可以调用多次
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws Exception{
+        System.out.println("拦截到了请求...");
+        chain.doFilter(servletRequest, servletResponse);
+    }
+    //销毁方法, web服务器关闭时调用, 只调用一次
+    public void destroy() {
+        System.out.println("destroy ... ");
+    }
+}
+```
+
+2. 配置 Filter：Filter 类上加 **@WebFilter** 注解，配置拦截路径；引导类上加 **@ServletComponentScan** 开启 Servlet 组件支持：
+
+```java
+@ServletComponentScan
+@SpringBootApplication
+public class TliasManagementApplication {
+```
+
+小结：Filter 的开发步骤？——定义：定义一个类实现 Filter 接口（init、doFilter、destroy）；配置：@WebFilter(urlPatterns="/*")、@ServletComponentScan。
+
+注意事项：如果过滤器中不执行放行操作，过滤器拦截到请求之后，就不会访问对应的资源；**放行**：`chain.doFilter(request,response)`。
+
+**令牌校验 Filter**
+
+校验逻辑的两个思考：
+
+- 所有的请求，拦截到了之后，都需要校验令牌吗？——有一个**例外**，登录请求（/login）不需要校验；
+- 拦截到请求后，什么情况下才可以放行，执行业务操作？——**有令牌，且令牌校验通过（合法）**；否则都返回未登录错误结果。
+
+**令牌校验 Filter 流程**（六个步骤）：
+
+1. 获取请求 url；
+2. 判断请求 url 中是否包含 login，如果包含，说明是登录操作，放行；
+3. 获取请求头中的令牌（token）；
+4. 判断令牌是否存在，如果不存在，响应 401；
+5. 解析 token，如果解析失败，响应 401；
+6. 放行。
+
+流程图的判定链：请求 → 判断是否是登录请求（是→放行；否→获取请求路径）→ 获取请求头 token → 判断是否有 token（否→响应 401；是→解析 token）→ 解析失败响应 401 / 解析成功放行。
+
+**Filter 详解——执行流程**
+
+核心结论：Filter 的执行分为"放行前 → 放行 → 资源 → 放行后"四段：放行后访问对应资源，**资源访问完成后，还会回到 Filter 中执行放行后的逻辑**（不是重新执行整个 Filter）。
+
+- 问题 1：放行后访问对应资源，资源访问完成后，还会回到 Filter 中吗？——**会**；
+- 问题 2：如果回到 Filter 中，是重新执行还是执行放行后的逻辑呢？——执行**放行后**逻辑。
+
+**Filter 详解——拦截路径**
+
+Filter 可以根据需求，配置不同的拦截资源路径：
+
+| 拦截路径 | urlPatterns值 | 含义 |
+| --- | --- | --- |
+| 拦截具体路径 | /login | 只有访问 /login 路径时，才会被拦截 |
+| 目录拦截 | /emps/* | 访问/emps下的所有资源，都会被拦截 |
+| 拦截所有 | /* | 访问所有资源，都会被拦截 |
+
+**Filter 详解——过滤器链**
+
+- 介绍：一个 web 应用中，可以配置多个过滤器，这多个过滤器就形成了一个**过滤器链**；
+- 顺序：注解配置的 Filter，优先级是按照**过滤器类名（字符串）的自然排序**。
+
+执行顺序理解：Filter1 放行前 → 放行 → Filter2 放行前 → 放行 → 资源 → Filter2 放行后 → Filter1 放行后。
+
+小结：过滤器的执行流程？——放行前 -> 放行 -> 资源 -> 放行后；配置的过滤器的拦截路径 /* 与 /emps/* 分别代表什么意思？——/*：表示拦截所有；/emps/*：表示目录拦截，拦截 /emps 下的所有资源；什么是过滤器链？——项目中的多个过滤器就形成了一个过滤器链。
+
+**拦截器 Interceptor**
+
+核心结论：拦截器是 **Spring 框架提供的**动态拦截方法调用的机制，类似于过滤器，主要用来**动态拦截控制器方法的执行**。
+
+- 概念：是一种动态拦截方法调用的机制，类似于过滤器。Spring 框架中提供的，主要用来动态拦截控制器方法的执行；
+- 作用：拦截请求，在指定的方法调用前后，根据业务需要执行预先设定的代码。
+
+**Interceptor 快速入门**：
+
+1. 定义拦截器，实现 **HandlerInterceptor** 接口，并实现其所有方法：
+
+```java
+@Component
+public class DemoInterceptor implements HandlerInterceptor {
+    //目标资源方法执行前执行，返回true：放行，返回false：不放行
+    @Override
+    public boolean preHandle(HttpServletRequest req, HttpServletResponse resp, Object handler) throws Exception {
+        return true;
+    }
+    //目标资源方法执行后执行
+    @Override
+    public void postHandle(HttpServletRequest req, HttpServletResponse resp, Object handler, ModelAndView mv) throws Exception {
+        System.out.println("preHandle...");
+    }
+    //视图渲染完毕后执行，最后执行
+    @Override
+    public void afterCompletion(HttpServletRequest req, HttpServletResponse resp, Object handler, Exception ex) throws Exception {
+        System.out.println("afterCompletion...");
+    }
+}
+```
+
+2. 注册拦截器：定义配置类实现 WebMvcConfigurer：
+
+```java
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Autowired
+    private DemoInterceptor demoInterceptor;
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(demoInterceptor).addPathPatterns("/**");
+    }
+}
+```
+
+⚠️ 问题：课件 DemoInterceptor 中 postHandle 方法体内打印的是 `System.out.println("preHandle...")`——打印文案与方法名不匹配（明显是从 preHandle 复制后未修改）；同一页注释文字"放回 true：放行"应为"返回 true"。
+修正建议：postHandle 中应打印 `"postHandle..."`；注释应写"返回 true：放行，返回 false：不放行"。
+
+小结：拦截器 Interceptor 的使用步骤？——定义：实现 HandlerInterceptor 接口（preHandle、postHandle、afterCompletion）；配置：定义一个配置类实现 WebMvcConfigurer 接口，注册拦截器（/**）。
+
+**令牌校验 Interceptor**
+
+流程与令牌校验 Filter 完全一致（六个步骤）：
+
+1. 获取请求 url；
+2. 判断请求 url 中是否包含 login，如果包含，说明是登录操作，放行；
+3. 获取请求头中的令牌（token）；
+4. 判断令牌是否存在，如果不存在，响应 401；
+5. 解析 token，如果解析失败，响应 401；
+6. 放行。
+
+这套校验逻辑既可以写在 Filter 里，也可以写在 Interceptor 里（实际开发常使用拦截器方式）。
+
+**拦截器详解——拦截路径**
+
+拦截器可以根据需求，配置不同的拦截路径（明确"需要拦截哪些资源、不需要拦截哪些资源"）：
+
+| 拦截路径 | 含义 | 举例 |
+| --- | --- | --- |
+| /* | 一级路径 | 能匹配/depts，/emps，/login，不能匹配 /depts/1 |
+| /** | 任意级路径 | 能匹配/depts，/depts/1，/depts/1/2 |
+| /depts/* | /depts下的一级路径 | 能匹配/depts/1，不能匹配/depts/1/2，/depts |
+| /depts/** | /depts下的任意级路径 | 能匹配/depts，/depts/1，/depts/1/2，不能匹配/emps/1 |
+
+**拦截器详解——执行流程与 Filter 的对比**
+
+拦截器的执行流程：preHandle（放行前）→ Controller（目标资源）→ postHandle → afterCompletion。
+
+**Filter 与 Interceptor 区别**：
+
+- **接口规范不同**：过滤器需要实现 Filter 接口，而拦截器需要实现 HandlerInterceptor 接口；
+- **拦截范围不同**：过滤器 Filter 会拦截所有的资源，而 Interceptor 只会拦截 Spring 环境中的资源。
+
+小结：拦截器中的拦截路径 /* 与 /** 的区别是什么？——/*：只能拦截一级路径，如：/depts，/emps；/**：拦截任意级路径，如：/depts，/depts/1；过滤器与拦截器的区别？——接口规范不同、拦截范围不同。
+
+小结：本章围绕登录认证展开：先实现登录功能（本质是一次按用户名密码的查询），再解决"未登录也能访问"的问题——登录校验 = 登录标记（会话技术：Cookie/Session/令牌对比，JWT 是主流令牌方案）+ 统一拦截（Filter 与 Interceptor 两套机制，执行流程、拦截路径各有讲究）。JWT 的三段结构（Header/Payload/Signature）、秘钥配套原则、Filter 的放行与过滤器链、Interceptor 的三个回调方法、/* 与 /** 的区别是本章的核心考点。
+
+### 第十二章：Web后端进阶——AOP
+
+**什么是 AOP**
+
+核心结论：AOP（Aspect Oriented Programming，面向切面编程、面向方面编程），可简单理解为就是**面向特定方法编程**——在不修改原始方法代码的前提下，对特定方法进行功能增强。
+
+学习场景：案例中部分业务方法运行较慢，需要定位执行耗时较长的方法（接口），此时需要统计每一个业务方法的执行耗时。
+
+原始方式：在每个业务方法内部手写统计耗时的代码（以 `DeptServiceImpl` 为例）：
+
+```java
+public List<Dept> list() {
+    List<Dept> deptList = deptMapper.list();
+    return deptList;
+}
+public void delete(Integer id) {
+    deptMapper.delete(id);
+}
+public Dept getById(Integer id) {
+    Dept dept = deptMapper.getById(id);
+    return dept;
+}
+```
+
+改造后（每个方法都插入统计代码）：
+
+```java
+public List<Dept> list() {
+    long beginTime = System.currentTimeMillis();
+    List<Dept> deptList = deptMapper.list();
+    long endTime = System.currentTimeMillis();
+    log.info("执行耗时: {} ms", endTime - beginTime);
+    return deptList;
+}
+public void delete(Integer id) {
+    long beginTime = System.currentTimeMillis();
+    deptMapper.delete(id);
+    long endTime = System.currentTimeMillis();
+    log.info("执行耗时: {} ms", endTime - beginTime);
+}
+public Dept getById(Integer id) {
+    long beginTime = System.currentTimeMillis();
+    Dept dept = deptMapper.getById(id);
+    long endTime = System.currentTimeMillis();
+    log.info("执行耗时: {} ms", endTime - beginTime);
+    return dept;
+}
+//其他方法省略...
+```
+
+AOP 方式：定义一个切面类，把"统计耗时"这段公共逻辑集中写一次，通过切入点表达式指定作用于哪些方法：
+
+```java
+@Slf4j
+@Aspect
+@Component
+public class RecordTimeAspect {
+    @Around("execution(* com.itheima.service.*.*(..))")
+    public Object recordTime(ProceedingJoinPoint pjp) throws Throwable {
+        long beginTime = System.currentTimeMillis();
+        Object result = pjp.proceed();
+        long endTime = System.currentTimeMillis();
+        log.info("执行耗时:{}ms", endTime - beginTime);
+        return result;
+    }
+}
+```
+
+AOP 的四大优势：
+
+- 减少重复代码；
+- 代码无侵入（原始业务方法一行都不用改）；
+- 提高开发效率；
+- 维护方便。
+
+提示：**AOP 是一种思想**，而 Spring 框架中对这种思想进行了实现，我们要学习的就是 **Spring AOP**。
+
+⚠️ 问题：课件中切面类名写作 `RecordTimeApsect`（Aspect 拼成了 Apsect），且第 2 页代码中 `recordTime` 方法缺少 `throws Throwable` 声明——`pjp.proceed()` 声明抛出 Throwable，不声明或不捕获将无法通过编译；第 7 页代码只写了 `@Aspect`、`@Component` 两个注解却直接使用 `log.info`，缺少 `@Slf4j` 注解（Lombok 未生成 log 字段）。
+修正建议：类名应为 `RecordTimeAspect`；方法签名应为 `public Object recordTime(ProceedingJoinPoint pjp) throws Throwable`；使用 `log` 前须在类上加 `@Slf4j`。
+
+**AOP 快速入门**
+
+需求：统计所有业务层方法的执行耗时。
+
+开发步骤：
+
+1. 导入依赖：在 pom.xml 中引入 AOP 的依赖：
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-aop</artifactId>
+</dependency>
+```
+
+2. 编写 AOP 程序：针对于特定的方法根据业务需要进行编程（AOP 程序 - RecordTimeAspect）：
+
+```java
+@Slf4j
+@Aspect
+@Component
+public class RecordTimeAspect {
+    @Around("execution(* com.itheima.service.impl.*.*(..))")
+    public Object recordTime(ProceedingJoinPoint pjp) throws Throwable {
+        long beginTime = System.currentTimeMillis();   // 获取方法运行的开始时间
+        Object result = pjp.proceed();                 // 运行原始方法
+        long endTime = System.currentTimeMillis();     // 获取方法运行结束时间，计算执行耗时
+        log.info("执行耗时: {} ms", endTime - beginTime);
+        return result;
+    }
+}
+```
+
+小结：
+
+- SpringAOP 程序的开发步骤？——引入 AOP 的依赖；编写 AOP 的程序（公共的逻辑代码）；
+- SpringAOP 的应用场景？——记录系统的操作日志、事务管理、权限控制，等等。
+
+**AOP 核心概念**
+
+核心结论：AOP 有五个核心概念，理解它们才能看懂 AOP 程序的结构。
+
+- **连接点（JoinPoint）**：可以被 AOP 控制的方法（暗含方法执行时的相关信息）；
+- **通知（Advice）**：指那些重复的逻辑，也就是共性功能（最终体现为一个方法）；
+- **切入点（PointCut）**：匹配连接点的条件，通知仅会在切入点方法执行时被应用；
+- **切面（Aspect）**：描述通知与切入点的对应关系（通知 + 切入点）；
+- **目标对象（Target）**：通知所应用的对象。
+
+五者关系示意：切面类中定义通知（共性逻辑）与切入点表达式，切入点表达式负责挑选出需要增强的连接点，通知最终应用到目标对象上——"切面 = 通知 + 切入点"。
+
+**AOP 执行流程（动态代理）**
+
+核心结论：Spring AOP 底层通过**动态代理**实现——程序运行时，Spring 为原始的目标对象生成一个**代理对象**；Controller 注入的 Service 实际上就是这个代理对象，请求先进入代理对象，代理对象在执行目标方法的前后织入通知逻辑，再调用目标对象完成原始操作。
+
+流程代码示意：
+
+```java
+public class DeptServiceProxy implements DeptService {
+    @Override
+    public List<Dept> list() {
+        long begin = System.currentTimeMillis();
+        List<Dept> deptList = 目标对象.list()；//伪代码
+        long end = System.currentTimeMillis();
+        log.info("执行耗时 : {} ms", (end-begin));
+        return deptList;
+    }
+}
+```
+
+```java
+@Aspect
+public class RecordTimeAspect {
+    @Around("execution(* com.itheima.service.impl.*.*(..))")
+    public Object recordTime(ProceedingJoinPoint joinPoint) throws Throwable {
+        long begin = System.currentTimeMillis();
+        Object result = joinPoint.proceed();   //调用原始操作
+        long end = System.currentTimeMillis();
+        log.info("执行耗时 : {} ms", (end-begin));
+        return result;
+    }
+}
+```
+
+```java
+public class DeptController {
+    @Autowired
+    private DeptService deptService;
+
+    @GetMapping
+    public Result list(){
+        List<Dept> deptList = deptService.list();
+        return Result.success(deptList);
+    }
+}
+```
+
+```java
+public class DeptServiceImpl implements DeptService {
+    @Autowired
+    private DeptMapper deptMapper;
+
+    @Override
+    public List<Dept> list() {
+        List<Dept> deptList = deptMapper.list();
+        return deptList;
+    }
+}
+```
+
+执行链路：浏览器请求 → DeptController 调用 deptService.list()（代理对象）→ 代理对象执行"通知中的放行前逻辑 → 目标对象.list() → 放行后逻辑" → 返回结果。注意上面 `DeptServiceProxy` 中的 `目标对象.list()` 是课件标注的**伪代码**，用于说明代理对象内部会调用原始目标对象。
+
+小结（核心概念回顾）：连接点（JoinPoint）、切入点（PointCut）、通知（Advice）、切面（Aspect）、目标对象（Target）。
+
+**通知类型**
+
+根据通知方法执行时机的不同，将通知类型分为以下常见的五类：
+
+- **@Around**：环绕通知，此注解标注的通知方法在目标方法前、后都被执行；
+- **@Before**：前置通知，此注解标注的通知方法在目标方法前被执行；
+- **@After**：后置通知，此注解标注的通知方法在目标方法后被执行，无论是否有异常都会执行；
+- **@AfterReturning**：返回后通知，此注解标注的通知方法在目标方法后被执行，有异常不会执行；
+- **@AfterThrowing**：异常后通知，此注解标注的通知方法发生异常后执行。
+
+两个注意点：
+
+- 注意 1：**@Around 环绕通知需要自己调用 ProceedingJoinPoint.proceed() 来让原始方法执行**，其他通知不需要考虑目标方法执行；
+- 注意 2：**@Around 环绕通知方法的返回值，必须指定为 Object**，来接收原始方法的返回值。
+
+**@PointCut 抽取公共切点表达式**
+
+该注解的作用是将公共的切点表达式抽取出来，需要用到时引用该切点表达式即可。
+
+- `private`：仅能在当前切面类中引用该表达式；
+- `public`：在其他外部的切面类中也可以引用该表达式。
+
+小结：
+
+- 常见的通知类型有哪些？分别在什么时候执行？——@Before（前置通知）、@After（后置通知）、@Around（环绕通知，重点）、@AfterReturning（返回后通知）、@AfterThrowing（异常后通知）；
+- @PointCut 注解的作用是什么？——抽取公共的切点表达式，提高复用性。
+
+**通知顺序**
+
+当有多个切面的切入点都匹配到了目标方法，目标方法运行时，多个通知方法都会被执行。执行顺序规则：
+
+- 不同切面类中，默认按照切面类的**类名字母排序**：
+  - 目标方法**前**的通知方法：字母排名靠前的**先**执行；
+  - 目标方法**后**的通知方法：字母排名靠前的**后**执行。
+- 用 **@Order(数字)** 加在切面类上来控制顺序：
+  - 目标方法**前**的通知方法：数字小的**先**执行；
+  - 目标方法**后**的通知方法：数字小的**后**执行。
+
+容易误解的地方："前先执行、后后执行"意味着 @Order 数值小的切面在最外层——进入目标方法时它最先执行通知，返回时它最后执行通知，形成"先进后出"的洋葱结构。
+
+**切入点表达式**
+
+介绍：描述切入点方法的一种表达式。
+
+作用：用来决定项目中的哪些方法需要加入通知。
+
+常见形式：
+
+- `execution(……)`：根据方法的签名来匹配；
+- `@annotation(……)`：根据注解匹配。
+
+**execution 切入点表达式**
+
+execution 主要根据方法的返回值、包名、类名、方法名、方法参数等信息来匹配，语法为：
+
+```
+execution(访问修饰符?  返回值  包名.类名.?方法名(方法参数) throws 异常?)
+```
+
+其中带 `?` 的表示可以省略的部分：
+
+- 访问修饰符：可省略（比如：public、protected）；
+- 包名.类名：可省略；
+- throws 异常：可省略（注意是方法上**声明抛出**的异常，不是实际抛出的异常）。
+
+可以使用通配符描述切入点：
+
+- `*`：单个独立的任意符号，可以通配任意返回值、包名、类名、方法名、任意类型的一个参数，也可以通配包、类、方法名的一部分；
+- `..`：多个连续的任意符号，可以通配任意层级的包，或任意类型、任意个数的参数。
+
+示例：
+
+```
+execution(* com.*.service.*.update*(*))
+execution(* com.itheima..DeptService.*(..))
+```
+
+根据业务需要，可以使用 且（&&）、或（||）、非（!）来组合比较复杂的切入点表达式。
+
+小结：
+
+- execution 切入点表达式的完整语法？——`execution(访问修饰符? 返回值 包名.类名.?方法名(方法参数) throws 异常?)`；
+- 通配符有哪些？——`*`：单个独立的任意符号；`..`：多个连续的任意符号。
+
+书写建议：
+
+- 所有业务方法名在命名时尽量规范，方便切入点表达式快速匹配。如：findXxx，updateXxx；
+- 描述切入点方法通常基于接口描述，而不是直接描述实现类，增强拓展性；
+- 在满足业务需要的前提下，尽量缩小切入点的匹配范围。如：包名尽量不使用 `..`，使用 `*` 匹配单个包。
+
+**@annotation 切入点表达式**
+
+@annotation 切入点表达式，用于匹配标识有特定注解的方法。
+
+写法：`@annotation(注解全类名)`。
+
+应用场景选择：
+
+- 如果 execution 切入点表达式方便描述指定的方法，就使用 execution 表达式；
+- 否则，就使用 @annotation 切入点表达式。
+
+**连接点（JoinPoint）**
+
+核心结论：在 Spring 中用 JoinPoint 抽象了连接点，用它可以获得方法执行时的相关信息，如目标类名、方法名、方法参数等。
+
+- 对于 **@Around** 通知，获取连接点信息只能使用 **ProceedingJoinPoint**；
+- 对于**其它四种**通知，获取连接点信息只能使用 **JoinPoint**，它是 ProceedingJoinPoint 的父类型。
+
+@Around 环绕通知获取连接点信息：
+
+```java
+@Around("execution(* com.itheima.service.DeptService.*(..))")
+public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+    String className = joinPoint.getTarget().getClass().getName(); //获取目标类名
+    Signature signature = joinPoint.getSignature(); //获取目标方法签名
+    String methodName = joinPoint.getSignature().getName(); //获取目标方法名
+    Object[] args = joinPoint.getArgs(); //获取目标方法运行参数
+    Object res = joinPoint.proceed(); //执行原始方法,获取返回值（环绕通知）
+    return res;
+}
+```
+
+其它通知获取连接点信息（以 @Before 为例）：
+
+```java
+@Before("execution(* com.itheima.service.DeptService.*(..))")
+public void before(JoinPoint joinPoint) {
+    String className = joinPoint.getTarget().getClass().getName(); //获取目标类名
+    Signature signature = joinPoint.getSignature(); //获取目标方法签名
+    String methodName = joinPoint.getSignature().getName(); //获取目标方法名
+    Object[] args = joinPoint.getArgs(); //获取目标方法运行参数
+}
+```
+
+**AOP 案例——记录操作日志**
+
+需求：将案例中增、删、改相关接口的操作日志记录到数据库表中。
+
+日志信息包含：操作人、操作时间、执行方法的全类名、执行方法名、方法运行时参数、返回值、方法执行时长。
+
+两问两答：
+
+- 采用哪种通知类型？——**@Around 环绕通知**（因为需要方法执行时长与返回值）；
+- 切入点表达式该怎么写？——由于增、删、改方法名我们定义的比较规范，分别为 save、delete、update：
+
+```java
+@Around("execution(* com.itheima.controller.*.save(..)) ||" +
+        "execution(* com.itheima.controller.*.delete(..)) ||" +
+        "execution(* com.itheima.controller.*.update(..))")
+```
+
+也可以改用注解方式定义切入点（结合自定义注解 @Log 使用）：
+
+```java
+@Around("@annotation(com.itheima.anno.Log)")
+```
+
+课件中基于 AI 生成的 Prompt（用于让 AI 生成记录操作日志的 AOP 程序）："请帮我基于 Spring AOP 实现记录系统所有增、删、改功能接口的操作日志。具体信息如下：…"
+
+Prompt 详细内容：
+
+1. 日志信息包含：操作人、操作时间、执行方法的全类名、执行方法名、方法运行时参数、返回值、方法执行时长；
+2. 功能接口所在包为 com.itheima.controller；
+3. 日志表为 operate_log 表，对应的实体类为 OperateLog。具体表结构如下：
+
+```sql
+create table operate_log(
+    id int unsigned primary key auto_increment comment 'ID',
+    operate_emp_id int unsigned comment '操作人ID',
+    operate_time datetime comment '操作时间',
+    class_name varchar(100) comment '操作的类名',
+    method_name varchar(100) comment '操作的方法名',
+    method_params varchar(1000) comment '方法参数',
+    return_value varchar(2000) comment '返回值',
+    cost_time bigint comment '方法执行耗时, 单位:ms'
+) comment '操作日志表';
+```
+
+4. 并且已经提供了 OperateLogMapper 接口来操作 operate_log，并在其中已经定义好了 insert 方法用来保存日志数据。
+
+**获取当前登录员工（ThreadLocal）**
+
+三个关键问题：
+
+- 员工登录成功后，哪里存储的有当前登录员工的信息？——**给客户端浏览器下发的 jwt 令牌中**；
+- 如何从 jwt 令牌中获取到当前登录的员工信息？——**获取请求头中传递的 jwt 令牌，并解析**；
+- TokenFilter 中已经解析了令牌的信息，如何将其传递给 AOP 程序、Controller、Service 呢？——**ThreadLocal**。
+
+Prompt（基于 AI 生成该功能）："我在令牌校验过滤器 TokenFilter 中获取了 jwt 令牌，并对其进行解析获取到了当前登录员工的 ID，如何将这个 ID 传递给 AOP 程序、Controller、Service 中呢？"
+
+**ThreadLocal 介绍**
+
+核心结论：**ThreadLocal 并不是一个 Thread，而是 Thread 的局部变量**（线程本地变量）。ThreadLocal 为每个线程提供一份单独的存储空间，具有**线程隔离**的效果，不同的线程之间不会相互干扰。
+
+结构示意：每个线程（Thread-1、Thread-2、Thread-3、Thread-4……）内部都各有一份自己的线程本地变量存储区（ThreadLocalMap），互不影响。
+
+ThreadLocal 常用方法：
+
+- `public void set(T value)`：设置当前线程的线程局部变量的值；
+- `public T get()`：返回当前线程所对应的线程局部变量的值；
+- `public void remove()`：移除当前线程的线程局部变量。
+
+**获取当前登录员工——具体操作步骤**
+
+1. 定义 ThreadLocal 操作的工具类，用于操作当前登录员工 ID；
+2. 在 TokenFilter 中，解析完当前登录员工 ID，将其存入 ThreadLocal（用完之后需将其删除）；
+3. 在 AOP 程序中，从 ThreadLocal 中获取当前登录员工的 ID。
+
+数据流转：TokenFilter（解析令牌 → 存入 ThreadLocal）→ OperateLogAspect / Controller / Service（从 ThreadLocal 中取出当前员工 ID）→ Mapper（落库）。
+
+小结：
+
+- 什么是 ThreadLocal？——ThreadLocal 其实是线程的局部变量，为每个线程提供单独一份存储空间，具有线程隔离的效果，不同的线程之间不会相互干扰；
+- ThreadLocal 的应用场景？——在同一个线程/同一个请求中，进行数据共享。
+
+容易误解的地方：ThreadLocal 用完必须 `remove()`（课件在操作步骤中特别强调了"用完之后需将其删除"）——Web 服务器用的是线程池，线程会被复用；不清理会导致下一个请求读到上一个请求残留的数据（数据串用），也可能造成内存泄漏。
+
+本节收束：AOP 是"面向特定方法编程"的思想，Spring AOP 通过动态代理为匹配切入点的方法织入通知；开发 AOP 只需"引入依赖 + 写切面类（通知 + 切入点表达式 + @Aspect/@Component 注解）"两步；配合 ThreadLocal 可以在同一次请求的过滤器、AOP、Controller、Service 之间安全共享当前登录员工信息，完成操作日志等横切功能。
+
+### 第十三章：Maven 高级
+
+**本章内容概览**
+
+Maven 高级包含三块内容：**分模块设计与开发**、**继承与聚合**、**私服**。
+
+**为什么需要分模块设计**
+
+问题引入：若商城系统把"商品模块、搜索模块、购物车模块、订单模块"全部写在一个工程里，随着业务增长会出现两个突出问题——**不便维护**、**难以复用**。
+
+解决方案：**分模块设计**——将一个大项目拆分成若干个子模块，同时把各模块共用的部分抽取为**通用组件**，这样方便项目的管理维护、扩展，也方便模块间的相互引用、资源共享。
+
+**分模块设计——三种拆分策略**
+
+- 策略一：**按照功能模块拆分**，比如：公共组件、商品模块、搜索模块、购物车模块、订单模块等。示例：mall-common、mall-goods、mall-search、mall-cart、mall-order；
+- 策略二：**按层拆分**，比如：公共组件、实体类、控制层、业务层、数据访问层。示例：mall-common、mall-pojo、mall-controller、mall-service、mall-mapper；
+- 策略三：**按照功能模块 + 层拆分**。示例：mall-common、mall-goods-controller、mall-goods-service、mall-order-controller、mall-order-service。
+
+**分模块开发实战**
+
+以 tlias 案例为例的模块拆分：
+
+- 创建 maven 模块 **tlias-pojo**，存放实体类；
+- 创建 maven 模块 **tlias-utils**，存放相关工具类。
+
+注意事项：**分模块开发需要先针对模块功能进行设计，再进行编码**。不会先将工程开发完毕，然后进行拆分。
+
+小结：
+
+- 什么是分模块设计？——将项目按照功能模块/层拆分成若干个子模块；
+- 为什么要分模块设计？——方便项目的管理维护、扩展，也方便模块间的相互引用、资源共享；
+- 注意事项？——先设计，再编码。
+
+**继承**
+
+问题引入：tlias-pojo、tlias-utils、tlias-web-management 三个工程都要使用 lombok，于是每个工程的 pom.xml 里都重复粘贴了一遍同样的 `<dependency>` 配置（版本 1.18.34）——**繁琐**且难以统一管理。
+
+概念：继承描述的是两个工程间的关系，与 java 中的继承相似，**子工程可以继承父工程中的配置信息**，常见于依赖关系的继承。
+
+作用：**简化依赖配置、统一管理依赖**。
+
+实现：`<parent> … </parent>`。
+
+工程结构：新建父工程 **tlias-parent**，tlias-pojo、tlias-utils、tlias-web-management 均继承它。
+
+**继承关系实现——三步**
+
+1. 创建 maven 模块 tlias-parent，该工程为父工程，**设置打包方式为 pom**（默认 jar）：
+
+```xml
+<groupId>com.itheima</groupId>
+<artifactId>tlias-parent</artifactId>
+<version>1.0-SNAPSHOT</version>
+<packaging>pom</packaging>
+```
+
+2. 在子工程的 pom.xml 文件中，配置继承关系：
+
+```xml
+<parent>
+    <groupId>com.itheima</groupId>
+    <artifactId>tlias-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../tlias-parent/pom.xml</relativePath>
+</parent>
+```
+
+3. 在父工程中配置各个工程共有的依赖（子工程会自动继承父工程的依赖）。
+
+关于父工程自身：父工程 tlias-parent 一般也要继承 Spring Boot 提供的父工程 spring-boot-starter-parent：
+
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.10</version>
+    <relativePath/>
+</parent>
+```
+
+**Maven 打包方式说明**：
+
+- **jar**：普通模块打包，springboot 项目基本都是 jar 包（内嵌 tomcat 运行）；
+- **war**：普通 web 程序打包，需要部署在外部的 tomcat 服务器中运行；
+- **pom**：父工程或聚合工程，该模块不写代码，仅进行依赖管理。
+
+小结：
+
+- Maven 的继承关系实现步骤？——①创建父工程，设置打包方式为 pom，并继承 spring-boot-starter-parent；②在子工程中配置继承关系；③在父工程中配置各个工程的共有依赖；
+- 在子工程中，配置了继承关系之后，坐标中的 **groupId 是可以省略的**，因为会自动继承父工程的（groupId）；
+- **relativePath** 指定父工程的 pom 文件的相对位置（如果不指定，将从本地仓库/远程仓库查找）；
+- 若父子工程都配置了同一个依赖的不同版本，**以子工程的为准**。
+
+⚠️ 问题：课件第 14 页工程结构示意图注写为 `spring-boot-stater-parent`（stater 拼写有误），同页下方 XML 中写的是正确的 `spring-boot-starter-parent`，图注与代码拼写不一致；同一页子工程 `<relativePath>../ tlias-parent/pom.xml</relativePath>` 中 `../` 与 `tlias-parent` 之间多了一个空格，路径写法不规范。
+修正建议：图注应写 `spring-boot-starter-parent`（starter 意为"启动器"）；relativePath 应为 `../tlias-parent/pom.xml`。
+
+**版本锁定**
+
+问题引入：各子工程引用的依赖版本散落在各子工程中，如何统一管理各个依赖的版本呢？
+
+在 maven 中，可以在父工程的 pom 文件中通过 **`<dependencyManagement>`** 来统一管理依赖版本。
+
+父工程（统一管理版本，此处以 JWT 令牌为例）：
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <!--JWT令牌-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+子工程（引入所需依赖，**无需指定版本**）：
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt</artifactId>
+    </dependency>
+</dependencies>
+```
+
+**自定义属性/引用属性**
+
+进一步改进：把版本号抽取为属性，通过 `${属性名}` 引用，避免版本号到处散落：
+
+```xml
+<properties>
+    <lombok.version>1.18.30</lombok.version>
+    <jjwt.version>0.9.1</jjwt.version>
+</properties>
+```
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+    </dependency>
+</dependencies>
+```
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <!--JWT令牌-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+小结：`<dependencyManagement>` 与 `<dependencies>` 的区别是什么？
+
+- `<dependencies>` 是**直接依赖**，在父工程配置了依赖，子工程会直接继承下来；
+- `<dependencyManagement>` 是**统一管理依赖版本**，不会直接依赖，还需要在子工程中引入所需依赖（无需指定版本）。
+
+**聚合**
+
+概念：**将多个模块组织成一个整体，同时进行项目的构建**。
+
+- 聚合工程：一个不具有业务功能的"空"工程（有且仅有一个 pom 文件）；
+- 作用：快速构建项目（无需根据依赖关系手动构建，直接在聚合工程上构建即可）；
+- 实现：maven 中可以通过 `<modules>` 设置当前聚合工程所包含的子模块名称。
+
+父工程（聚合工程）中的配置：
+
+```xml
+<!--聚合-->
+<modules>
+    <module>../tlias-pojo</module>
+    <module>../tlias-utils</module>
+    <module>../tlias-web-management</module>
+</modules>
+```
+
+注意：聚合工程中所包含的模块，在构建时，会**自动根据模块间的依赖关系设置构建顺序**，与聚合工程中模块的配置书写位置无关。
+
+小结：
+
+- maven 中如何实现聚合关系？——`<modules>...</modules>`；
+- maven 中继承与聚合的联系与区别？——
+  - 联系：继承与聚合都属于设计型模块，打包方式都为 pom，常将两种关系制作到同一个 pom 文件中；
+  - 区别：继承用于简化依赖配置、统一管理依赖版本，是在**子工程**中配置继承关系；聚合用于快速构建项目，是在**父工程（聚合工程）**中配置聚合的模块。
+
+**私服——介绍**
+
+问题场景：团队中的 A 开发了 tlias-utils 工具包，B 需要使用它——直接从中央仓库拿不到团队私有资源（图中用 X 表示），需要一个团队内部的共享仓库。
+
+概念：**私服是一种特殊的远程仓库，它是架设在局域网内的仓库服务，用来代理位于外部的中央仓库**，用于解决团队内部的资源共享与资源同步问题。
+
+依赖查找顺序：**本地仓库 → 私服 → 中央仓库**。
+
+注意：私服在企业项目开发中，一个项目/公司只需要一台即可（**无需我们自己搭建，会使用即可**）。
+
+小结：
+
+- Maven 私服的作用是什么？——解决团队内部的资源共享与资源同步问题；
+- 有了私服之后依赖查找的顺序是什么样的？——本地仓库 → 私服 → 中央仓库。
+
+**私服——资源上传与下载**
+
+使用私服需要配置三类信息：
+
+- 连接私服的地址（url 地址）；
+- 访问私服的用户名/密码；
+- 上传资源的位置（url 地址）。
+
+**项目版本说明**：
+
+- **RELEASE（发行版本）**：功能趋于稳定、当前更新停止，可以用于发行的版本，存储在私服中的 RELEASE 仓库中；
+- **SNAPSHOT（快照版本）**：功能不稳定、尚处于开发中的版本，即快照版本，存储在私服的 SNAPSHOT 仓库中。
+
+相关命令：**install**（安装到本地仓库）、**deploy**（发布到私服）。资源（如 tlias-utils）通过 deploy 上传到私服，其他开发者（如 B）就能从私服下载依赖（如 logback 等依赖也经由私服的 central 代理仓库下载）。
+
+**步骤 1：设置私服的访问用户名/密码**（settings.xml 中的 servers 中配置）：
+
+```xml
+<server>
+    <id>maven-releases</id>
+    <username>admin</username>
+    <password>admin</password>
+</server>
+<server>
+    <id>maven-snapshots</id>
+    <username>admin</username>
+    <password>admin</password>
+</server>
+```
+
+**步骤 2：IDEA 的 maven 工程的 pom 文件中配置上传（发布）地址**：
+
+```xml
+<distributionManagement>
+    <repository>
+        <id>maven-releases</id>
+        <url>http://192.168.150.101:8081/repository/maven-releases/</url>
+    </repository>
+    <snapshotRepository>
+        <id>maven-snapshots</id>
+        <url>http://192.168.150.101:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+</distributionManagement>
+```
+
+说明：`<repository>` 对应 **RELEASE 版本**的上传地址；`<snapshotRepository>` 对应 **SNAPSHOT 版本**的上传地址。
+
+**步骤 3：设置私服依赖下载的仓库组地址**（settings.xml 中的 mirrors、profiles 中配置）：
+
+```xml
+<mirror>
+    <id>maven-public</id>
+    <mirrorOf>*</mirrorOf>
+    <url>http://192.168.150.101:8081/repository/maven-public/</url>
+</mirror>
+```
+
+```xml
+<profile>
+    <id>allow-snapshots</id>
+    <activation>
+        <activeByDefault>true</activeByDefault>
+    </activation>
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <url>http://192.168.150.101:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</profile>
+```
+
+小结：私服上传资源及下载资源的步骤？——**固定的，参照讲义操作即可**。
+
+容易误解的地方：`<dependencyManagement>` 只是"版本管理清单"，本身不会引入依赖——子工程如果在 `<dependencies>` 里不写对应的依赖坐标，父工程中管理的那个依赖就不会生效；反过来，一旦子工程引入，就可以省略 `<version>`。
+
+本节收束：Maven 高级解决的是**多模块工程的工程化问题**——分模块设计与开发负责把大项目拆小、把公共代码沉淀为通用组件；继承（pom 打包的父工程 + `<parent>` + 共有依赖 + `<dependencyManagement>` 版本锁定 + `<properties>` 自定义属性）让依赖配置集中管理；聚合（`<modules>`）让多模块一次性构建；私服则通过"本地仓库 → 私服 → 中央仓库"的查找顺序完成团队内部的资源共享与同步。
+
+### 第十四章：SpringBoot 原理
+
+**本章内容概览**
+
+SpringBoot 原理篇包含三块内容：**配置优先级**、**Bean 管理**、**SpringBoot 原理**（起步依赖、自动配置）。这部分内容"熟练使用、面试高频、汲取思想"。
+
+**配置优先级——三种配置文件格式**
+
+SpringBoot 中支持三种格式的配置文件：
+
+- ① `application.properties`：
+
+```properties
+server.port=8081
+```
+
+- ② `application.yml`：
+
+```yaml
+server:
+  port: 8082
+```
+
+- ③ `application.yaml`：
+
+```yaml
+server:
+  port: 8083
+```
+
+注意：虽然 SpringBoot 支持多种格式配置文件，但是在项目开发时，推荐统一使用一种格式的配置（**yml 是主流**）。
+
+**配置优先级——Java 系统属性与命令行参数**
+
+SpringBoot 除了支持配置文件属性配置，还支持 **Java 系统属性**和**命令行参数**的方式进行属性配置：
+
+- Java 系统属性：`-Dserver.port=9000`；
+- 命令行参数：`--server.port=10010`。
+
+打包运行的操作步骤：
+
+1. 执行 maven 打包指令 **package**；
+2. 执行 java 指令，运行 jar 包：
+
+```
+java -Dserver.port=9000 -jar tlias-web-management-0.0.1-SNAPSHOT.jar --server.port=10010
+```
+
+注意：Springboot 项目进行打包时，需要引入插件 **spring-boot-maven-plugin**（基于官网骨架创建项目，会自动添加该插件）。
+
+**配置优先级总表（低 → 高）**
+
+- application.yaml（忽略）；
+- application.yml；
+- application.properties；
+- java 系统属性（-Dxxx=xxx）；
+- 命令行参数（--xxx=xxx）。
+
+容易误解的地方：优先级列表中的"忽略"是指在多个配置文件**同时存在且配置冲突**时，application.yaml 的优先级最低、看起来像被忽略——并不意味着 SpringBoot 不支持 .yaml 扩展名；实际优先级场景中，命令行参数 > Java 系统属性 > properties > yml > yaml。
+
+**Bean 管理——Bean 的作用域**
+
+Spring 支持五种作用域，后三种在 web 环境才生效：
+
+| 作用域 | 说明 |
+| --- | --- |
+| singleton | 容器内同名称的 bean 只有一个实例（单例）（默认） |
+| prototype | 每次使用该 bean 时会创建新的实例（非单例/多例） |
+| request | 每个请求范围内会创建新的实例（web 环境中，了解） |
+| session | 每个会话范围内会创建新的实例（web 环境中，了解） |
+| application | 每个应用范围内会创建新的实例（web 环境中，了解） |
+
+通过 **@Scope** 注解配置作用域，例如把 DeptController 配置为 prototype：
+
+```java
+@Scope("prototype")
+@RequestMapping("/depts")
+@RestController
+public class DeptController {
+}
+```
+
+注意：默认 singleton 的 bean，在容器启动时被创建，可以使用 **@Lazy** 注解来延迟初始化（延迟到第一次使用时）。
+
+**单例的 bean（singleton）**
+
+```java
+@Slf4j
+@RestController
+@Scope("singleton")
+public class DeptController {
+    @Autowired
+    private DeptService deptService;
+
+    @GetMapping("/depts")
+    public Result list(){
+        log.info("查询全部部门数据");
+        List<Dept> deptList = deptService.findAll();
+        return Result.success(deptList);
+    }
+}
+```
+
+注意：实际开发当中，绝大部分的 Bean 是单例的，也就是说绝大部分 Bean 不需要配置 scope 属性。DeptController 这种不保存数据的 bean 属于**无状态的 bean**，单例能**节约资源、提升性能**。
+
+**多例的 bean（prototype）**
+
+```java
+@Component
+public class DataProcessor {
+    private List<EmpModel> dataList = new ArrayList<EmpModel>(); //暂存数据
+    private Integer errCount = 0; //错误数据统计
+    @Autowired
+    private EmpMapper empMapper;
+
+    public void process(List<Emp> empList){
+        dataList = empList.stream().map( emp -> {
+            // 数据处理
+        }).toList();
+    }
+
+    public void handle(){
+        // ...
+    }
+}
+```
+
+DataProcessor 内部保存了数据（dataList、errCount），属于**有状态的 bean**，多个线程同时操作会出现数据不一致问题，因此需要加 `@Scope("prototype")` 声明为多例。
+
+**面试题**
+
+面试题 1：Spring 容器的 bean 是单例的还是多例的？单例的 bean 是什么时候实例化的？
+
+- 默认是**单例**的；
+- 单例的 bean，默认是**项目启动时**实例化的（通过 @Lazy 可以延迟初始化）。
+
+面试题 2：Spring 容器的 bean 是线程安全的吗？
+
+- bean 的线程安全取决于 bean 的**状态**及 bean 的**作用域**；
+- 单例 bean：如果是**无状态**的 bean，内部不保存任何状态信息，则是线程安全的；
+- 单例 bean：如果是**有状态**的 bean，内部会保存状态信息，多个线程会同时操作该 bean 时，可能会出现数据不一致的问题，这样的 bean 则是线程不安全的。
+
+**Bean 管理——第三方 Bean**
+
+注册 bean 的常用注解：@Component 及其衍生注解 @Controller、@Service、@Repository——但这些注解只能用于**自定义类**。
+
+问题：如果要管理的 bean 对象来自于**第三方**（不是自定义的），是无法用 @Component 及衍生注解声明 bean 的，就需要用到 **@Bean 注解**。
+
+若要管理的第三方 bean 对象较多，建议对这些 bean 进行集中分类配置，可以通过 **@Configuration 注解声明一个配置类**。
+
+方式一——启动类中声明（不推荐）：
+
+```java
+@SpringBootApplication
+public class SpringbootWebConfigApplication {
+
+    @Bean //将方法返回值交给IOC容器管理,成为IOC容器的bean对象
+    public AliyunOSSOperator aliyunOSSOperator(AliyunOSSProperties ossProperties) {
+        return new AliyunOSSOperator(ossProperties);
+    }
+}
+```
+
+方式二——配置类中声明（推荐）：
+
+```java
+@Configuration
+public class OSSConfig {
+    @Bean
+    public AliyunOSSOperator aliyunOSSOperator(AliyunOSSProperties ossProperties) {
+        return new AliyunOSSOperator(ossProperties);
+    }
+}
+```
+
+两个注意点：
+
+- 通过 @Bean 注解的 **name 或 value 属性**可以声明 bean 的名称，如果不指定，**默认 bean 的名称就是方法名**；
+- 如果第三方 bean 需要依赖其它 bean 对象，直接在 bean 定义方法中**设置形参**即可，容器会根据类型自动装配。
+
+小结：
+
+- 什么时候使用 @Component 声明 bean，什么时候使用 @Bean 注解？——一般如果是项目中**自定义的类**，使用 @Component 及其衍生注解；如果是**引入第三方依赖中的类**，使用 @Bean 注解。
+
+**SpringBoot 原理——整体认识**
+
+SpringBoot 的两大核心是**起步依赖**与**自动配置**：以前的开发方式依赖、配置繁琐，SpringBoot 让开发变得简单、快捷。
+
+**起步依赖原理**
+
+常见的起步依赖：
+
+- spring-boot-starter-web；
+- spring-boot-starter-aop；
+- spring-boot-starter-test；
+- mybatis-spring-boot-starter；
+- pagehelper-spring-boot-starter；
+- spring-boot-starter-…。
+
+原理：起步依赖本质上是**依赖传递**——引入一个 starter，它会通过自身的 pom 配置把所需的一整套依赖传递进来，从而简化依赖配置。
+
+**什么是自动配置**
+
+SpringBoot 的自动配置就是当 spring 项目启动后，一些**配置类、bean 对象就自动存入到了 IOC 容器中**，不需要我们手动去声明，从而简化了开发，省去了繁琐的配置操作。
+
+**自动配置实现方案**
+
+场景引入：假设第三方工具包 itheima-utils 中定义了 TokenParser（带 @Component 注解），我们的项目引入该工具包后，TokenParser 的 bean 能否被扫描到？
+
+方案一——**@ComponentScan 扫描指定的包**：
+
+```java
+@ComponentScan({"com.example","com.itheima"})
+@SpringBootApplication
+public class SpringbootWebConfigApplication {
+    //...
+}
+```
+
+第三方工具包中的类：
+
+```java
+@Component
+public class TokenParser {
+    public void parse(){
+        System.out.println("TokenParser ... parse ...");
+    }
+}
+```
+
+缺陷：@ComponentScan 必须把所有用到的包都列出来（`,"com.alibaba","com.google",...})`），**性能低、使用繁琐**。
+
+方案二——**@Import 导入**（更方便、优雅）：
+
+```java
+@Import({TokenParser.class, HeaderConfig.class})
+@SpringBootApplication
+public class SpringbootWebConfig2Application {
+    //...
+}
+```
+
+其中配置类：
+
+```java
+@Configuration
+public class HeaderConfig {
+    @Bean
+    public HeaderParser headerParser(){
+        return new HeaderParser();
+    }
+    @Bean
+    public HeaderGenerator headerGenerator(){
+        return new HeaderGenerator();
+    }
+}
+```
+
+**@Import 导入的类会被 Spring 加载到 IOC 容器中**，导入形式主要有以下几种：
+
+- 导入普通类；
+- 导入配置类；
+- 导入 ImportSelector 接口实现类；
+- @EnableXxxx 注解，封装 @Import 注解。
+
+小结：
+
+- 为什么第三方依赖中使用 @Component 及其衍生注解声明 bean 不生效？——基于 @Component 及其衍生注解声明的 bean 要想生效，需要被**组件扫描注解扫描到**（默认只扫描引导类所在包及其子包）；
+- 有哪些方案可以使其生效呢？——通过 @ComponentScan 注解扫描指定的包；通过 @Import 注解将其导入到 IOC 容器中（四种常见方式：普通类、配置类、ImportSelector 实现类、@EnableXxx）。
+
+**自动配置——源码跟踪**
+
+**@SpringBootApplication**：该注解标识在 SpringBoot 工程引导类上，是 SpringBoot 中最最最重要的注解。该注解由三个部分组成：
+
+1. **@SpringBootConfiguration**：该注解与 @Configuration 注解作用相同，用来声明当前也是一个配置类；
+2. **@ComponentScan**：组件扫描，默认扫描当前引导类所在包及其子包；
+3. **@EnableAutoConfiguration**：SpringBoot 实现自动化配置的核心注解。
+
+**@EnableAutoConfiguration 内部逻辑**：自动配置类（XxxAutoConfiguration）如何被加载？
+
+- 在低版本（2.7.0 以前）的 springboot 中，自动配置类（XxxAutoConfiguration）是**定义在 spring.factories 文件中**；
+- 新版本中则通过 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports` 文件配置。
+
+思考：全部自动配置类都注册为 IOC 容器的 bean 吗？——**NO!** 源码中 `String[] selectImports(...)` 返回的自动配置类还要经过条件筛选，SpringBoot 会根据 **@Conditional 注解**进行**条件装配**。
+
+**@Conditional 条件注解**
+
+作用：按照一定的条件进行判断，**在满足给定条件后才会注册对应的 bean 对象到 Spring IOC 容器中**。
+
+位置：**方法、类**（方法上——针对于当前这个方法声明的 bean；类上——针对于这个类中所有的方法声明的 bean）。
+
+@Conditional 本身是一个父注解，派生出大量的子注解：
+
+- **@ConditionalOnClass**：判断环境中是否有对应字节码文件，才注册 bean 到 IOC 容器；
+- **@ConditionalOnMissingBean**：判断环境中没有对应的 bean（类型或名称），才注册 bean 到 IOC 容器；
+- **@ConditionalOnProperty**：判断配置文件中有对应属性和值，才注册 bean 到 IOC 容器。
+
+小结：
+
+- @Conditional 及其衍生注解的作用是什么？——满足给定条件后，注册对应的 bean 对象到 Spring IOC 容器中；
+- @Conditional 及其衍生注解可以作用在什么地方？——方法上（针对于当前这个方法声明的 bean）、类上（针对于这个类中所有的方法声明的 bean）；
+- 自己定义自动配置类的核心是什么？如何完成自动配置？——定义自动配置类；将自动配置类配置在 `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports` 文件中。
+
+**自定义 starter**
+
+场景：在实际开发中，经常会定义一些公共组件，提供给各个项目团队使用。而在 SpringBoot 的项目中，一般会将这些公共组件封装为 SpringBoot 的 **starter**（包含了**起步依赖**和**自动配置**的功能）——SpringBoot 官方与其它技术提供方的各种 starter 都是如此：既有自动配置功能，又有依赖管理功能。
+
+需求：自定义 **aliyun-oss-spring-boot-starter**，完成阿里云 OSS 操作工具类 AliyunOSSOperator 的自动配置。
+
+目标：引入起步依赖之后，要想使用阿里云 OSS，**注入 AliyunOSSOperator 直接使用即可**。
+
+步骤：
+
+1. 创建 aliyun-oss-spring-boot-starter 模块；
+2. 创建 aliyun-oss-spring-boot-autoconfigure 模块，在 starter 中引入该模块；
+3. 在 aliyun-oss-spring-boot-autoconfigure 模块中定义自动配置功能，并定义自动配置文件 `META-INF/spring/xxxx.imports`。
+
+结构理解：starter 模块只负责**依赖管理功能**（引入 autoconfigure 模块及其它所需依赖）；autoconfigure 模块负责**自动配置功能**（写自动配置类 + imports 文件）。
+
+本节收束：配置优先级（命令行参数 > Java 系统属性 > properties > yml > yaml）决定了同一属性在多层配置下的最终取值；Bean 管理回答了"bean 何时创建、是否线程安全（单例 + 无状态才安全）、第三方类如何注册（@Bean + @Configuration）"；SpringBoot 原理揭示了"起步依赖 = 依赖传递"、"自动配置 = @EnableAutoConfiguration + AutoConfiguration.imports 文件 + @Conditional 条件装配"，而自定义 starter 正是把这两大机制组合起来封装公共组件的标准做法。
+
+### 第十五章：Web后端开发总结
+
+**整体知识框架——三层架构**
+
+Web 后端开发的主干是经典三层架构，一次请求的处理链路为：
+
+浏览器请求 → **Controller**（控制层）→ **Service**（业务层）→ **Dao**（数据访问层）→ **MySQL**（数据库）→ 逐层返回结果 → 响应给浏览器。
+
+- **Controller**：负责接收请求、接收请求参数、响应数据；
+- **Service**：负责业务逻辑处理（含事务控制）；
+- **Dao**：负责数据访问，与数据库交互；
+- **MySQL**：数据的最终存储位置。
+
+**技术栈全景（按课件归类）**
+
+至此，Web 后端开发阶段接触到的全部技术组件可以按大块归类回顾：
+
+- **JavaWeb 基础**：过滤器 Filter（登录校验的统一拦截入口）；
+- **会话与认证方案**：Cookie、Session（传统会话跟踪方案）、JWT 令牌（主流方案，登录认证的核心）；
+- **Spring framework 解决方案**：
+  - **IOC**：控制反转，bean 对象交给容器管理；
+  - **DI**：依赖注入，bean 之间自动装配；
+  - **AOP**：面向切面编程，把日志、耗时统计等公共逻辑剥离出业务方法；
+  - **事务管理**：@Transactional，保证业务方法的一致性；
+  - **全局异常处理**：@RestControllerAdvice 统一处理项目中抛出的异常；
+  - **拦截器 Interceptor**：登录校验等统一拦截（与 Filter 相互配合）；
+- **SpringMVC（web 层能力）**：接收请求、响应数据；
+- **Mybatis（数据层框架）**：操作 MySQL 数据库（注解、XML 映射、动态 SQL、PageHelper 分页）；
+- **SpringBoot**：统一整合 Spring、SpringMVC、Mybatis 等框架，通过起步依赖与自动配置简化工程搭建；
+- **第三方解决方案**：阿里云 OSS（文件存储）。
+
+**学习路径回顾（课件总结视角）**
+
+从 JavaWeb 基础（Filter、Cookie、Session）出发，经由 Spring framework 提供 IOC/DI/AOP/事务/异常处理/拦截器六大解决方案，再由 SpringMVC 负责请求接收与数据响应、Mybatis 负责数据库访问、SpringBoot 负责整体整合，最后叠加 JWT、阿里云 OSS 等项目实战常用组件——这条主线构成了后端案例（Tlias 智能学习辅助系统）的全部技术底座。
+
+本节收束：Web 后端部分至此全部结束。掌握"三层架构的职责划分 + 各框架解决的问题"，比记住单个注解更重要——Controller 解决"怎么接、怎么回"，Service 解决"业务怎么做、事务怎么保"，Dao 解决"数据怎么存、怎么取"，而 Spring 全家桶与各类组件则围绕这三层提供通用能力的支撑。
+
+### 第十六章：Web前端实战——Vue 工程化与 Element Plus
+
+**本章在课程中的位置**
+
+Web 开发整体蓝图：Web 前端基础（HTML、CSS、JavaScript、Vue3、Ajax/Axios）→ Web 后端基础（Maven、Web 基础知识、MySQL、JDBC、Mybatis）→ Web 后端实战（Tlias 案例）→ **Web 前端实战（Vue 工程化、Element Plus、Tlias 案例）** → Web 项目部署（Linux、Docker）。本章进入"Web 前端实战"，学习 **Vue 工程化**与 **Element Plus**。
+
+**什么是 Vue**
+
+核心结论：Vue 是一款用于构建用户界面的**渐进式的 JavaScript 框架**（官方：https://cn.vuejs.org/）。
+
+示例数据（界面由数据渲染而来）：
+
+```
+[
+  {"id": 1, "name": "谢逊", "image": "1.jpg", "gender": 1, "job": 1},
+  {"id": 2, "name": "韦一笑", "image": "2.jpg", "gender": 1, "job": 1}
+]
+```
+
+Vue 的核心能力：**基于数据渲染出用户看到的界面**。
+
+Vue 是一个框架，也是一个生态：
+
+- 声明式渲染、组件系统（Vue 核心包）；
+- 客户端路由（VueRouter）；
+- 状态管理（Pinia、Vuex）；
+- 构建工具（Vite、Webpack）。
+
+从使用方式看，Vue 的开发呈递进关系：**Vue 核心包开发**（局部模块改造）→ **Vue 工程化开发**（整站开发）。
+
+**前端工程化**
+
+问题引入（小白眼中的前端开发）：命名乱（image、pic、picture 混用）、代码不规范——导致**不规范、难维护、难复用**。
+
+工程化的四个方面：
+
+- **模块化**：项目划分若干模块，单独开发、维护，提高效率；
+- **组件化**：将页面的各个组成部分封装为一个一个的组件，提高复用；
+- **规范化**：提供标准统一的目录结构、编码规范、开发流程；
+- **自动化**：项目的构建、开发、测试、打包、部署。
+
+前端工程化定义：在企业级的前端项目开发中，把前端开发所需的**工具、技术、流程、经验**等进行**规范化、标准化**——达到统一规范、提高复用、便于维护的目标。
+
+**环境准备——NodeJS 与 npm**
+
+- **create-vue** 是 Vue 官方提供的最新的脚手架工具，用于快速生成一个工程化的 Vue 项目；
+- create-vue 提供了如下功能：统一的目录结构、本地调试、热部署、单元测试、集成打包上线；
+- 依赖环境：**NodeJS**（安装 NodeJS 后即自带 npm）；
+- **npm**：Node Package Manager，是 NodeJS 的软件包管理器（`npm install xxxx` 从远程仓库下载并安装第三方包）。
+
+**Vue 项目——创建**
+
+创建一个工程化的 Vue 项目，执行命令：
+
+```
+npm create vue@3.3.4
+```
+
+执行后会进入交互式问答（括号内为默认值）：
+
+- **Project name**：项目名称，默认值 vue-project，可输入想要的项目名称；
+- **Add TypeScript?**：是否加入 TypeScript 组件？默认值 No；
+- **Add JSX Support?**：是否加入 JSX 支持？默认值 No；
+- **Add Vue Router ...**：是否为单页应用程序开发添加 Vue Router 路由管理组件？默认值 No；
+- **Add Pinia ...**：是否添加 Pinia 组件来进行状态管理？默认值 No；
+- **Add Vitest ...**：是否添加 Vitest 来进行单元测试？默认值 No；
+- **Add an End-to-End ...**：是否添加端到端测试？默认值 No；
+- **Add ESLint for code quality?**：是否添加 ESLint 来进行代码质量检查？默认值 No。
+
+提示：执行上述指令，将会安装并执行 create-vue，它是 Vue 官方的项目脚手架工具。
+
+**Vue 项目——安装依赖**
+
+进入项目目录，执行命令安装当前项目的依赖：
+
+```
+npm install
+```
+
+注意：创建项目以及安装依赖的过程，都是需要联网的。
+
+**Vue 项目——项目结构**
+
+使用 **VS Code** 打开 Vue 项目，各目录/文件的职责：
+
+- 配置信息目录：Vue 项目的配置信息，如：端口号等；
+- **package.json**：项目配置文件，包括项目名、版本号、依赖包、版本等；
+- **src**：源代码存放目录（写代码的文件夹）；
+- **node_modules**：下载的第三方包存放目录；
+- **assets**：静态资源目录，存放图片、字体……；
+- **components**：组件目录，存放通用组件；
+- **App.vue**：根组件；
+- **main.js**：入口文件。
+
+**Vue 项目——启动**
+
+执行命令：
+
+```
+npm run dev
+```
+
+就可以启动 Vue 项目。访问项目：打开浏览器，在浏览器地址栏访问 **http://localhost:5173** 就可以访问到 Vue 项目。
+
+**Vue 项目操作小结**
+
+- 创建：`npm create vue@版本号`；
+- 安装依赖：`npm install`；
+- 启动：`npm run dev`。
+
+**Vue 项目开发流程**
+
+整体流程：默认首页 ← 入口文件 ← 根组件（项目由入口文件加载根组件，根组件渲染出默认首页）。
+
+**单文件组件（SFC）**：`*.vue` 是 Vue 项目中的组件文件，在 Vue 项目中也称为单文件组件（SFC，Single-File Components）。Vue 的单文件组件会将一个组件的**逻辑（JS）、模板（HTML）和样式（CSS）封装在同一个文件里**（*.vue）：
+
+- `<template>`：模板部分，由它生成 HTML；
+- `<style>`：当前组件的 CSS 样式；
+- `<script>`：控制模板的数据及行为。
+
+**API 风格——选项式 API 与组合式 API**
+
+Vue 的组件有两种不同的风格：**选项式 API** 和 **组合式 API**。
+
+选项式 API写法：
+
+```html
+<script>
+export default {
+    data(){ //声明响应式对象
+        return {
+            count: 0
+        }
+    },
+    methods: { //声明方法，可以通过组件实例访问
+        increment: function(){
+            this.count++ ;
+        }
+    },
+    mounted(){ //声明钩子函数
+        console.log('Vue mounted ...');
+    }
+}
+</script>
+<template>
+    <button @click="increment">count:{{ count }}</button>
+</template>
+```
+
+组合式 API写法：
+
+```html
+<script setup>
+import { ref,onMounted } from 'vue';
+
+const count = ref(0);  //声明响应式变量
+function increment(){  //声明函数
+    count.value++;
+}
+onMounted(()=>{ //声明钩子函数
+    console.log('Vue Mounted ...');
+})
+</script>
+<template>
+    <button @click="increment">count:{{ count }}</button>
+</template>
+```
+
+两种风格的说明：
+
+- **选项式 API**：可以用包含多个选项的对象来描述组件的逻辑，如：data，methods，mounted 等。选项定义的属性都会暴露在函数内部的 this 上，它会指向当前的组件实例；
+- **组合式 API**：是 Vue3 提供的一种基于函数的组件编写方式，通过使用函数来组织和复用组件的逻辑。它提供了一种更灵活、更可组合的方式来编写组件。
+
+**组合式 API 关键点**
+
+- **ref()**：接收一个内部值，返回一个响应式的 ref 对象，此对象只有一个指向内部值的属性 value；
+- **onMounted()**：在组合式 API 中的钩子方法，注册一个回调函数，在组件挂载完成后执行；
+- **setup**：是一个标识，告诉 Vue 需要进行一些处理，让我们可以更简洁地使用组合式 API；
+- 注意：在 Vue 中的组合式 API 使用时，**是没有 this 对象的**，this 对象是 undefined。
+
+小结：
+
+- 在组合式 API 中有没有 this？——没有 this；
+- 在组合式 API 中如何更新响应式数据内容？——`xxx.value`。
+
+**案例——用户列表数据渲染**
+
+需求：在 Vue 项目中基于组合式 API 完成用户列表数据渲染。要求在页面加载完毕之后，发送异步请求，加载数据，渲染表格。
+
+项目中用到 axios，就需要安装 axios 的依赖：
+
+```
+npm install axios
+```
+
+**什么是 Element Plus**
+
+- Element：是**饿了么团队**研发的，基于 **Vue3**，面向设计师和开发者的**组件库**；
+- 组件：组成网页的部件，例如 超链接、按钮、图片、表格、表单、分页条等等；
+- 官网：https://element-plus.org/zh-CN/#/zh-CN。
+
+**Element Plus——快速入门**
+
+准备工作：
+
+1. 创建 vue 项目；
+2. 参照官方文档，安装 Element Plus 组件库（在当前工程的目录下）：
+
+```
+npm install element-plus@2.4.4 --save
+```
+
+3. main.js 中引入 Element Plus 组件库（参照官方文档）：
+
+```javascript
+//引入ElementPlus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
+createApp(App).use(ElementPlus).mount('#app')
+```
+
+4. 制作组件：访问 Element 官方文档，复制组件代码，调整。
+
+ElementPlus 的使用步骤小结：
+
+- 安装：`npm install element-plus@2.4.4 --save`；
+- 引入：在 main.js 中引入 Element Plus（参照官方文档）；
+- 组件：访问官方文档中的组件，调整成我们需要的样子即可。
+
+⚠️ 问题：课件第 36 页"ElementPlus 的使用步骤"中安装命令写为 `npm install element-plus@2.4.4 –save`，其中 `–` 是全角破折号（而第 35 页写的是半角 `--save`）——命令照抄到终端执行会报错。
+修正建议：应统一使用半角连字符：`npm install element-plus@2.4.4 --save`。
+
+**常见组件——表格组件**
+
+用于展示多条结构类似的数据，可对数据进行排序、筛选、对比或其他自定义操作。
+
+表格组件使用的关键点：表格组件使用时关键点在于清楚表格中**绑定的数据 data**，以及**每一列要展示的属性信息**。项目开发中的数据应该是 **Ajax 异步请求服务端，服务器端返回**。
+
+**常见组件——分页条组件**
+
+当数据量过多时，使用分页操作分解数据。
+
+默认 Element Plus 的组件是**英文**的，如果希望使用中文语言，可以在 main.js 中做如下配置：
+
+```javascript
+//引入中文语言
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+
+createApp(App).use(ElementPlus, { locale: zhCn }).mount('#app')
+```
+
+**常见组件——对话框组件**
+
+在**保留当前页面状态**的情况下，告知用户并承载相关操作。
+
+Dialog 对话框组件使用的关键点：通过 **model-value/v-model 给定的 boolean 值**，来控制 Dialog 的显示与隐藏。
+
+**常见组件——表单组件**
+
+表单包含 输入框、单选框、下拉选择、多选框 等用户输入的组件。使用表单，可以收集、验证和提交数据。
+
+表单组件使用的关键点：
+
+- 表单项数据采集：**v-model 数据绑定**；
+- 表单数据提交：**事件绑定**。
+
+**案例——ElementPlus 综合页面**
+
+需求：制作目标页面，并异步获取数据完成页面展示——包含两部分工作：页面布局、动态加载数据并渲染展示。
+
+本节收束：Vue 工程化用 create-vue 脚手架 + npm 完成了"规范化项目结构"的第一步，单文件组件（SFC）把模板、逻辑、样式收拢在一个 .vue 文件中，组合式 API（`<script setup>` + ref + onMounted，注意没有 this、更新用 `xxx.value`）是 Vue3 的主流写法；Element Plus 则提供开箱即用的表格、分页条、对话框、表单等组件——"安装 → main.js 引入 → 复制文档组件代码调整"三步即可在项目中直接使用。
+
+### 第十七章：Web前端实战——Tlias 智能学习辅助系统
+
+**案例概述**
+
+本章基于 Vue3 + Element Plus 完成 Tlias 智能学习辅助系统的**前端**开发，功能模块包括：开发模式、整体布局、部门管理、员工管理、登录/退出，以及**班级管理（自己实现）、学员管理（自己实现）**两个练习模块。
+
+**开发模式——前后端分离**
+
+当前最为主流的开发模式：**前后端分离**。
+
+- 前端开发、后端开发两条线并行，双方共同依据**接口文档**（阅读-开发），前端按**原型+需求**开发页面，通过**请求/响应**与服务端交互；
+- 开发流程：**需求分析 → 接口定义 → 前后端并行开发 → 测试 → 前后端联调测试**。
+
+小结：什么是前后端分离开发模式？——前后端开发人员**独立开发，独立部署**；需求的开发流程如上五步。
+
+**整体布局——准备工作**
+
+1. 导入资料中准备的基础工程到 VS Code；
+2. 启动前端项目，访问该项目。
+
+**整体布局——页面布局**
+
+页面主体采用 Element Plus 的 **Container 布局容器**：
+
+- `<el-container>`：外层容器；
+- `<el-header>`：顶栏容器；
+- `<el-aside>`：侧边栏容器；
+- `<el-main>`：主要区域容器；
+- `<el-footer>`：底栏容器。
+
+整体布局 = 顶部栏（el-header）+ 左侧菜单（el-aside）+ 右侧主区域（el-main）。
+
+**整体布局——动态菜单（Vue Router）**
+
+**介绍**：Vue Router 是 Vue 的官方路由。为 Vue 提供富有表现力、可配置的、方便的路由（https://router.vuejs.org/zh）。Vue 中的**路由**：路径与组件的对应关系。
+
+**组成（三个核心部分）**：
+
+- **Router 实例**：路由实例，基于 createRouter 函数创建，维护了应用的路由信息（routes）；
+- **`<router-link>`**：路由链接组件，浏览器会解析成 `<a>`；
+- **`<router-view>`**：动态视图组件，用来渲染展示与路由路径对应的组件。
+
+工作方式示意：routes 中配置"路径 → 组件"的映射（如 `/stu` → `/views/stu/index.vue`、`/emp` → `/views/emp/index.vue`、`/dept` → `/views/dept/index.vue`）；`<router-link to='/emp'>员工管理</router-link>` 发出路由请求，`<router-view></router-view>` 随路径变化动态渲染对应组件。
+
+**案例路由实现**：采用**嵌套路由**——App.vue 中放置 `<router-view></router-view>` 渲染 layout/index.vue；layout/index.vue 内部再放一个 `<router-view>` 用来渲染 index/index.vue（首页）、dept/index.vue（部门管理）等子页面；左侧菜单通过 `<router-link>` 切换路径。
+
+小结：
+
+- Vue 的路由指的是什么？——Vue Router 是 Vue 官方的路由，描述的是路径与组件的对应关系；
+- Vue Router 中的三个核心组成部分？——router 实例（维护应用的路由信息 routes）、`<router-link>`（路由链接组件）、`<router-view>`（动态视图组件）。
+
+课件基于 AI 生成动态路由的 Prompt（用于 /layout/index.vue 左侧菜单点击后右侧跳转）：
+
+"你是一名前端开发工程师，现在基于 Vue3+ElementPlus 开发了一个前端项目。制作了一个页面 /layout/index.vue，页面中左侧是菜单，右侧是主展示区域，现在想点击左侧的菜单右侧跳转到对应的主展示区域。具体的规则如下：
+
+1. 点击首页，展示 /index/index.vue；
+2. 点击班级管理，展示 /clazz/index.vue；
+3. 点击学员管理，展示 /stu/index.vue；
+4. 点击部门管理，展示 /dept/index.vue；
+5. 点击员工管理，展示 /emp/index.vue；
+6. 点击员工信息统计，展示 /report/emp/index.vue；
+7. 点击学员信息统计，展示 /report/stu/index.vue；
+8. 点击日志信息统计，展示 /log/index.vue；
+9. 当访问 /login 路径时，则要展示的是独立的登录页面 /login/index.vue，不是在右侧的主展示区域展示。目前 /layout/index.vue 中具体的页面内容如下……"
+
+**部门管理——列表查询（页面布局）**
+
+根据页面原型、需求说明、接口文档，先完成页面的基本布局，涉及组件：
+
+- **Button 按钮组件**（新增按钮等）；
+- **Table 表格组件**（展示部门列表）。
+
+课件基于 AI 生成表格的 Prompt：
+
+"你是一名前端开发工程师，现需要基于 Vue3+ElementPlus，开发一个表格，具体需求如下：表格需要带边框，并且表格最后有一列操作，操作中包含：修改、删除两个按钮。表格中要渲染展示的列包括：序号、部门名称、最后修改时间。具体的 json 格式如下：{ "code": 1, "msg": "success", "data": [ { "id": 1, "name": "学工部", "createTime": "2022-09-01T23:06:29", "updateTime": "2022-09-01T23:06:29" }, { "id": 2, "name": "教研部", "createTime": "2022-09-01T23:06:29", "updateTime": "2022-09-01T23:06:29" } ] }"。
+
+**部门管理——列表查询（加载数据）**
+
+需求：在打开页面之后，需要**自动加载**全部部门数据，展示在表格中（钩子函数 onMounted + Axios 发送异步请求）。
+
+前后端分离开发模式中，前后端是并行开发的，前端如何进行接口请求测试？——**Mock.js 来生成测试的假数据**、**基于 Apifox 提供的 Mock 服务进行测试**。
+
+直接在 vue 组件中基于 axios 发送异步请求存在的问题（dept/index.vue 示例）：
+
+```javascript
+const search = async () => {
+    const result = await axios.get('https://apifoxmock.com/m1/3128855-default/depts');
+    if (result.data.code) {
+        deptList.value = result.data.data;
+    }
+};
+```
+
+两个问题：**请求路径难以维护**、**数据解析繁琐**。
+
+**部门管理——列表查询（程序优化）**
+
+为解决上述问题，在前端项目开发时，通常会定义：
+
+- **请求处理的工具类 request.js**（封装 axios 异步请求的基本信息、拦截器）；
+- **API 模块文件**（如 dept.js），与服务端进行异步交互的逻辑封装到单独的 api 中；
+
+utils/request.js：
+
+```javascript
+import axios from 'axios'
+//创建axios实例对象
+const request = axios.create({
+    baseURL: 'https://apifoxmock.com...',
+    timeout: 600000
+})
+//axios的响应 response 拦截器
+request.interceptors.response.use(
+    (response) => { //成功回调
+        return response.data
+    },
+    (error) => { //失败回调
+        return Promise.reject(error)
+    }
+)
+export default request
+```
+
+api/dept.js：
+
+```javascript
+import request from '@/utils/request'
+//部门列表查询
+export const queryAllApi = () =>  request.get('/depts');
+```
+
+dept/index.vue：
+
+```javascript
+import { queryAllApi } from '@/api/dept'
+//...省略
+//动态加载数据-查询部门
+const search = async () => {
+    const result = await queryAllApi()
+    deptList.value = result.data
+}
+```
+
+**vite.config.js 代理配置**：开发阶段前端（5173 端口）直接请求后端（8080 端口）会跨域，在 vite.config.js 中配置前端请求服务器信息：
+
+```javascript
+server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        secure: false,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+}
+```
+
+请求链路（含代理转发过程）：dept.js 中写 `'/api'` 开头的路径 → request.js 组装成 `/api/depts` → vite 代理捕获 `/api` 前缀并 rewrite 去掉 → `/depts` → 转发到 `http://localhost:8080/depts`。
+
+小结：
+
+- 请求处理工具类：request.js——封装 axios 异步请求的基本信息（拦截器）；
+- api/xxx.js——封装模块异步交互的代码；
+- vite.config.js——配置代理规则。
+
+**部门管理——新增部门**
+
+根据页面原型、需求说明、接口文档，先完成页面的基本布局，涉及组件：
+
+- **Dialog 对话框组件**；
+- **Form 表单组件**。
+
+提示：**新增部门和编辑部门可以共用一个 Dialog 对话框**。
+
+**新增部门——表单校验**（Element Plus 的 form 表单组件提供了表单校验功能），具体步骤如下：
+
+1. 定义表单校验规则，通过 **rules 属性**与表单绑定；
+2. 通过 **prop 属性**绑定对应的表单项；
+3. 通过 **ref 属性**注册表单的引用，表单提交时校验表单，校验通过则允许提交表单。
+
+dept/index.vue 示例：
+
+```javascript
+const deptFormRef = ref()
+const rules = ref({//表单校验规则
+    name: [
+        { required: true, message: '请输入部门名称', trigger: 'blur' },
+        { min: 2, max: 10, message: '部门名称的长度在2-10之间', trigger: 'blur' }
+    ]
+})
+```
+
+```html
+<el-form :model="dept" :rules="rules" ref="deptFormRef">
+    <el-form-item label="部门名称" label-width="80px" prop="name">
+        <el-input v-model="dept.name" autocomplete="off" />
+    </el-form-item>
+    <el-button type="primary" @click="save">保存</el-button>
+</el-form>
+```
+
+```javascript
+const save = () => {
+    //表单校验
+    deptFormRef.value.validate(async (valid) => {
+        if(valid) {
+            //...
+        }
+    })
+}
+```
+
+**部门管理——修改部门**
+
+对于修改操作，通常会分为两步进行：① **查询回显**、② **保存修改**。
+
+交互逻辑：
+
+- 点击 编辑 按钮，根据 ID 进行查询，弹出对话框，完成页面回显展示（查询回显）；
+- 点击 确定 按钮，保存修改后的数据，完成数据更新操作（保存修改）。
+
+**部门管理——删除部门**
+
+交互逻辑：点击删除按钮，需要删除当前这条数据，删除完成之后，刷新页面，展示出最新的数据。
+
+由于删除是一个比较危险的操作，为避免误操作，通常会在点击删除之后，**弹出确认框进行确认**——使用 Element 组件：**ElMessageBox 消息弹出框组件**。
+
+**员工管理——需求分析**
+
+员工管理包含四个功能：**条件分页查询、新增员工、修改员工、删除员工**。
+
+**员工管理——条件分页查询（页面布局）**
+
+页面由四部分组成：**搜索栏、按钮、数据展示表格、分页条**。
+
+**搜索表单**：如果表单封装的数据较多，建议绑定到一个对象中：
+
+```javascript
+//搜索表单对象
+let searchEmp = ref({
+    name: '',
+    gender: '',
+    date: []
+})
+```
+
+日期选择器返回的是数组（如 `['2025-01-01', '2025-12-31']`），而查询接口需要 begin、end 两个参数，因此需要 **watch() 侦听**做一次转换：
+
+```javascript
+//搜索表单对象
+let searchEmp = ref({
+    name: '',
+    gender: '',
+    date: [],
+    begin: '',
+    end: ''
+})
+```
+
+侦听效果：`date` 变化为 `['2025-01-01', '2025-12-31']` 时，自动拆分为 `begin='2025-01-01'`、`end='2025-12-31'`。
+
+**watch 侦听函数**：
+
+- 作用：侦听一个或多个响应式数据源，并在数据源变化时调用传入的回调函数；
+- 用法：
+  1. 导入 watch 函数；
+  2. 执行 watch 函数，传入要侦听的响应式数据源（ref 对象）和回调函数。
+
+```javascript
+import { ref, watch } from 'vue'
+const a = ref('')
+watch(a, (newVal , oldVal) => { //侦听a的变化
+    console.log(`a的值为: newVal: ${newVal}, oldVal: ${oldVal}`);
+})
+```
+
+**watch 侦听对象**：
+
+侦听对象的单个属性：
+
+```javascript
+import { ref, watch } from 'vue'
+const user = ref({name:'', age:10})
+watch( () => user.value.name , (newVal , oldVal) => {  //侦听user对象中name的变化
+    console.log(`a的值为: newVal: ${newVal}, oldVal: ${oldVal}`);
+})
+```
+
+侦听对象的全部属性：
+
+```javascript
+import { ref, watch } from 'vue'
+const user = ref({name:'', age:10})
+watch(user, (newVal , oldVal) => {  //侦听user对象中的全部属性的变化
+    console.log(`a的值为: newVal: ${newVal}, oldVal: ${oldVal}`);
+}, {deep: true})
+```
+
+第三个可选参数，常见两个选项：
+
+- **deep**（boolean）：是否深度侦听，默认浅层侦听；
+- **immediate**（boolean）：是否在侦听创建时立即触发回调函数。
+
+小结：
+
+- watch 侦听函数的作用？——侦听一个或多个响应式数据源，并在数据源变化时调用所给的回调函数；
+- watch 函数调用时传入的参数？——参数一：侦听的源（可以是一个 ref 对象、一个函数等）；参数二：侦听的源发生变化时触发的回调函数；参数三：可选，是一个对象（deep、immediate）；
+- 能否侦听对象的一个属性或全部属性？——可以：侦听一个属性时第一个参数传递函数 `() => user.value.name`；侦听全部属性时第三个参数传递对象指定 `deep: true` 深度侦听。
+
+**员工管理——条件分页查询（页面交互）**
+
+三类触发时机：
+
+- 页面加载完毕后，查询员工信息列表；
+- 点击查询按钮，查询员工信息列表；
+- 当**页码、每页展示记录数发生变化**时，查询员工信息列表。
+
+**员工管理——新增员工（页面布局）**
+
+新增员工信息的表单包含两个部分：
+
+- **员工的基本信息**；
+- **员工的工作经历信息**。
+
+表单项数据动态展示：
+
+- 性别（男/女）；
+- 职位（班主任/讲师/学工主管/教研主管/...）；
+- 所属部门（动态查询）。
+
+**员工管理——新增员工（页面交互）**
+
+- 添加工作经历：下方就会增加一个工作经历信息（添加元素）；
+- 删除工作经历：删除当前这一个工作经历信息（删除元素）。
+
+关键认识：**Vue 是基于数据驱动视图展示的**——工作经历列表的数组增删决定界面上行数的增删。
+
+保存逻辑：
+
+- 点击保存之后，发送异步请求到服务端，提交数据；
+- 保存完毕之后，如果成功，关闭对话框，重新加载列表数据；
+- 保存完毕之后，如果失败，提示错误信息。
+
+**表单校验规则**：
+
+- 用户名：必填，长度 2-20；
+- 姓名：必填，长度 2-10；
+- 性别：必填；
+- 手机号：必填，符合手机号规则。
+
+课件基于 AI 生成"新增员工 Dialog 表单"的 Prompt（要点）：
+
+"接下来，要完成的是新增员工的功能，当点击页面上的'新增员工'按钮后，要弹出一个 Dialog 对话框，在对话框中要承载一个用户信息的 form 表单。具体的要求如下：
+
+1. 该对话框中的 form 表单在新增和修改员工时，使用的是同一个表单。所以在新增员工时，表单标题显示为'新增员工'，修改员工时，表单标题显示为'修改员工'；
+2. 表单分为两个部分展示，一个部分是员工的基本信息，另外一部分为员工的工作经历信息；
+3. 员工的基本信息，包括以下几项，每一行展示两个表单项：
+   - 第一行：用户名和姓名。两个表单项均为输入框，用户名的输入框提示信息'请输入员工用户名，2-20个字'；姓名输入框提示信息'请输入员工姓名，2-10个字'；
+   - 第二行：性别和手机号。性别为下拉框，展示男、女，男提交的值为 1，女提交的值为 2；手机号为输入框；
+   - 第三行：职位和薪资。职位为下拉框，展示班主任（提交值为 1）、讲师（提交值为 2）、学工主管（提交值为 3）、教研主管（提交值为 4）、咨询师（提交值为 5）；薪资为输入框，提示信息'请输入员工薪资'；
+   - 第四行：所属部门和入职日期。所属部门为下拉框，先写死两个测试数据；入职日期为日期选择组件，可以选择日期，展示和提交的值格式都类似于 2024-05-09；
+   - 第五行：头像。这一列有点特殊，为图片上传组件，上传完图片后，要展示出预览图；
+4. 在两个部分之间，添加一个按钮，按钮名为'添加工作经历'；
+5. 员工的工作经历信息，包括以下几项，在一行中要展示这三个表单项：时间（包括开始时间和结束时间，是一个日期范围组件）、公司（输入框，提示信息'请输入公司名称'）、职位（输入框，提示信息'请输入职位'）。时间、公司、职位这三个表单项要在一行中显示；
+6. 在表单的下方，有两个按钮，一个是保存，一个是取消；
+7. 先不考虑表单校验；
+8. 上述表单，最后对应的数据模型为：
+
+```json
+{
+    "image": "https://web-framework.oss-cn-hangzhou.aliyuncs.com/2022-09-03-07-37-38222.jpg",
+    "username": "linpingzhi",
+    "name": "林平之",
+    "gender": 1,
+    "job": 1,
+    "entryDate": "2022-09-18",
+    "deptId": 1,
+    "phone": "18809091234",
+    "salary": 8000,
+    "exprList": [
+        {
+            "company": "百度科技股份有限公司",
+            "job": "java开发",
+            "begin": "2012-07-01",
+            "end": "2019-03-03"
+        },
+        {
+            "company": "阿里巴巴科技股份有限公司",
+            "job": "架构师",
+            "begin": "2019-03-15",
+            "end": "2023-03-01"
+        }
+    ]
+}
+```
+
+⚠️ 问题：课件该 Prompt 讲稿中"手机号"表单项的提示信息写成了"请输入员工姓名"（应为手机号相关提示），且需求条目出现两个"5."（工作经历信息与表单按钮条）、"在表单的方"缺"下"字。
+修正建议：手机号提示信息应改为"请输入员工手机号"之类；需求条目编号应连续重排；"在表单的方"应为"在表单的下方"。
+
+**员工管理——修改员工**
+
+两步操作：
+
+1. 点击"编辑"按钮，执行**根据 ID 查询员工信息，页面回显**（查询回显步骤：为"编辑"按钮绑定事件；发送异步请求，根据 ID 查询员工详细信息，页面回显）；
+2. 点击"保存"按钮，执行修改操作（保存数据步骤：点击保存按钮，执行修改数据操作）。
+
+备注：**添加员工与修改员工使用的是同一个表单**，需要根据 id 判断到底执行新增还是修改。
+
+**员工管理——删除员工**
+
+在删除员工信息时，有两个操作入口：
+
+- 点击每条记录之后的"删除"按钮，删除当前这条记录（删除单个：为"删除"按钮绑定事件，触发事件调用函数；发送异步请求到服务端，根据 id 删除员工信息）；
+- 选择前面的复选框，选中要删除的员工，点击"批量删除"之后，会批量删除员工信息（批量删除：为表格的复选框绑定事件，点击复选框之后，获取到目前选中的条件的 id，多个 id 可以封装到数组中；为"批量删除"按钮绑定事件，发送异步请求到服务端，根据 id 批量删除员工信息）。
+
+**登录与退出——登录**
+
+步骤：
+
+- 为"登录"按钮绑定事件，点击登录按钮发送异步请求到服务端，执行登录操作；
+- 为"取消"按钮绑定事件，点击取消按钮，清空登录表单数据。
+
+问题：目前执行登录操作，登录成功之后，并没有将令牌信息起来，在后续的每次操作中，也就拿不到登录时的令牌信息了。
+
+方案：需要在登录成功后，将令牌等信息**存储**起来。在后续的请求中，再将令牌取出来，携带到服务端。
+
+⚠️ 问题：课件此处文字"并没有将令牌信息起来"缺字，语义不完整。
+修正建议：应为"并没有将令牌信息**存储**起来"。
+
+**localStorage**（存储令牌的载体）：
+
+- localStorage 是浏览器提供的本地存储机制（5MB）；
+- 存储形式为 key-value 形式，键和值都是字符串类型；
+- API 方法：
+  - `localStorage.setItem(key, value)`；
+  - `localStorage.getItem(key)`；
+  - `localStorage.removeItem(key)`；
+  - `localStorage.clear()`。
+
+**携带令牌访问服务端（axios 请求拦截器）**：在后续的每一次 Ajax 请求中都获取 localStorage 中的令牌，在请求头中将令牌携带到服务端——如果每个请求单独写（部门管理-查询/新增/修改/删除、员工管理-查询……每个 axios 都写一遍）非常**繁琐**，因此使用 **axios 请求 request 拦截器**统一处理：
+
+```javascript
+//axios的请求 request 拦截器, 在请求头中添加token
+request.interceptors.request.use(
+    (config) => { //成功回调
+        //在请求头中添加token
+        const data = JSON.parse(localStorage.getItem('loginUser'))
+        if (data && data.token) {
+            config.headers.token = data.token
+        }
+        return config
+    },
+    (error) => { //失败回调
+        return Promise.reject(error)
+    }
+)
+```
+
+**登录与退出——功能完善（401 处理）**
+
+问题：目前，即使用户未登录的情况下访问服务器，服务器会响应 401 状态码，但是前端并不会跳转到登录页面。
+
+方案：在 **axios 响应 response 拦截器**中统一处理：
+
+```javascript
+//axios的响应 response 拦截器
+request.interceptors.response.use(
+    (response) => { //成功回调
+        return response.data
+    },
+    (error) => { //失败回调
+        if(error.response.status == 401){ //跳转登录页面
+            ElMessage.error('登录失效, 请重新登录')
+            router.push('/login')
+        }else {
+            ElMessage.error('接口访问异常')
+        }
+        return Promise.reject(error)
+    }
+)
+```
+
+**登录与退出——退出**
+
+退出功能包含两件事：
+
+- 展示当前登录用户；
+- 退出登录。
+
+**打包部署——打包**
+
+前端开发、后端开发依据接口文档并行（阅读-开发），前端完成开发后进行**打包**：运行 **build** 命令，生成 **dist** 目录产物。
+
+**打包部署——部署（Nginx）**
+
+介绍：**Nginx 是一款轻量级的 Web 服务器/反向代理服务器**及电子邮件（IMAP/POP3）代理服务器。其特点是占有内存少，并发能力强，在各大型互联网公司都有非常广泛的使用。官网：https://nginx.org/。
+
+部署：
+
+- 部署：将打包好的 **dist 目录下的文件**，复制到 nginx 安装目录的 **html 目录**下；
+- 启动：双击 **nginx.exe** 文件即可，Nginx 服务器默认占用 **80 端口号**；
+- 访问：http://localhost:80。
+
+注意：Nginx 默认占用 80 端口号，如果 80 端口号被占用，可以在 **nginx.conf** 中修改端口号（也可用命令 `netstat -ano | findStr 80` 查看端口占用情况）。
+
+⚠️ 问题：课件中该排查命令写为 `netstat –ano | findStr  80`，其中 `–` 是全角破折号——照抄到命令行执行会失败。
+修正建议：应使用半角连字符：`netstat -ano | findStr 80`。
+
+**前端项目的打包部署小结**：
+
+- 打包：运行 build → dist；
+- 部署：将 dist 目录下的打包好的文件 → nginx/html 目录中；
+- nginx 命令：
+  - 启动：`nginx.exe`；
+  - 重载：`nginx.exe -s reload`；
+  - 停止：`nginx.exe -s stop`。
+
+**班级管理与学员管理（自己实现）**
+
+课件要求：参照部门管理/员工管理的实现思路，**自己动手完成班级管理与学员管理**两个模块的前端功能。
+
+本节收束：前端实战串起了整个前端知识链——前后端分离模式（接口文档 + 并行开发）、Vue Router 嵌套路由实现整体布局与动态菜单、Element Plus 组件（Container/Button/Table/Dialog/Form/ElMessageBox）搭建页面、axios 的 request/response 拦截器统一处理令牌携带与 401 跳转、localStorage 保存登录信息，最后 build + Nginx 完成打包部署——前端项目从开发到上线的完整闭环至此形成。
+
+### 第十八章：项目部署——Linux
+
+**本章在课程中的位置**
+
+Web 开发蓝图中的"Web 项目部署"环节（Linux、Docker），本章学习 **Linux** 部分：服务器操作系统的使用、常用命令、软件安装与项目部署。服务器上通常需要搭建**软件环境（mysql、redis、MQ 等）**并完成项目部署。
+
+**Linux 概述——Linux 是什么**
+
+- Linux 是一套**免费使用和自由传播**的操作系统；
+- 操作系统分类对比：
+  - 桌面操作系统：Windows（用户数量最多）、Mac OS（操作体验好，办公人士首选）、Linux（用户数量少）；
+  - 移动设备操作系统：Android（基于 Linux、开源，主要用于智能手机、平板、智能电视）、IOS（苹果公司开发、不开源，用于苹果公司的产品）、HarmonyOS（华为公司开发、开源，目前用于华为公司的产品）；
+  - 服务器操作系统：Unix（安全、稳定、付费）、**Linux（安全、稳定、免费、占有率高）**、Windows Server（付费、占有率低）。
+
+**Linux 系统版本——内核版与发行版**
+
+Linux 系统分为**内核版**和**发行版**：
+
+- 内核版：由 Linux 核心团队开发、维护；免费、开源；负责**控制硬件**；
+- 发行版：基于 Linux 内核版进行扩展；由各个 Linux 厂商开发、维护；有收费版本和免费版本。
+
+常见发行版：
+
+- **Ubuntu**：以桌面应用为主，免费；
+- **RedHat**：面向企业用户，收费；
+- **CentOS**：RedHat 的社区版，免费；
+- **Fedora**：功能完备、快速更新，免费；
+- **openSUSE**：对个人完全免费、图形界面华丽；
+- **红旗 Linux**：北京中科红旗软件技术有限公司开发。
+
+**Linux 系统安装**
+
+安装方式：
+
+- **物理机安装**：直接将操作系统安装到服务器硬件上；
+- **虚拟机安装**：通过虚拟机软件安装。
+
+**虚拟机（Virtual Machine）**指通过软件模拟的具有完整硬件系统功能、运行在完全隔离环境中的完整计算机系统。常见虚拟机软件：VMWare WorkStation、VirtualBox、VMLite WorkStation（通过虚拟机软件来模拟计算机硬件）。
+
+安装流程要点：
+
+1. 直接双击运行资料中的 VMWare 安装程序，根据提示完成安装即可；
+2. 安装完毕之后，需要配置网络，才可以在 windows 系统上连接虚拟机上的 linux 系统；
+3. 挂载镜像：解压 CentOS7 的镜像压缩包到磁盘目录，然后双击 .vmx 文件完成挂载，然后启动服务器（root/1234）；
+4. 虚拟机网络编辑器 → NAT 模式 → 子网 IP 设置为 192.168.100.0；
+5. 查看 IP 地址的命令：`ip addr`；
+6. 如果没有 IP 地址：执行 start-ens33.sh 脚本，手动激活 ens33 网卡；
+7. 启动/停止/重启 Linux 系统：图形化界面/命令（`init 0`：关闭，`init 6`：重启）。
+
+**远程连接**
+
+问题引入：公司在北京，服务器可能在上海/天津/香港/海外，该如何进行软件安装/项目部署？——使用**远程连接**工具。
+
+常用的 **SSH（Secure Shell，安全外壳协议）**远程连接工具：Putty、SecureCRT、Xshell、FinalShell 等。
+
+FinalShell 使用：直接双击运行 FinalShell 的安装程序完成安装即可，然后新建连接输入服务器信息连接到 Linux。
+
+**Linux 目录介绍**
+
+Linux 系统中的目录特点：
+
+- `/` 是所有目录的**顶点**；
+- 目录结构像一颗**倒挂的树**。
+
+Linux 目录结构说明：
+
+- **bin**：存放二进制可执行文件；
+- **boot**：存放系统引导时使用的各种文件；
+- **dev**：存放设备文件；
+- **etc**：存放系统配置文件；
+- **home**：存放系统用户的文件；
+- **lib**：存放程序运行所需的共享库和内核模块；
+- **opt**：额外安装的可选应用程序包所放置的位置；
+- **root**：超级用户目录；
+- **sbin**：存放二进制可执行文件，只有 root 用户才能访问；
+- **tmp**：存放临时文件；
+- **usr**：存放系统应用程序；
+- **var**：存放运行时需要改变数据的文件，例如日志文件。
+
+问题：Linux 系统中的路径 `/itheima` 与 `itheima` 有区别吗？——**有**：`/itheima` 是**绝对路径**，指根目录 `/` 下的 itheima 目录；`itheima` 是**相对路径**，指当前目录下的 itheima 目录。
+
+**Linux 常用命令——命令格式与使用技巧**
+
+Linux 命令格式：`command [-options] [parameter]`
+
+- command：命令名；
+- [-options]：选项，可用来对命令进行控制，也可以省略（可选）；
+- [parameter]：参数，可以是零个、一个或多个（可选）。
+
+使用技巧：
+
+- Tab 键自动补全；
+- 连续两次 Tab 键，给出操作提示；
+- 使用上下箭头快速调出曾经使用过的命令；
+- 使用 clear 命令或 Ctrl+l 快捷键实现清屏。
+
+**目录操作命令**
+
+**ls**：
+
+- 作用：显示指定目录下的内容；
+- 语法：`ls [-al] [dir]`；
+- 选项：
+  - `-a`：显示所有文件及目录（. 开头的隐藏文件也会列出）；
+  - `-l`：除文件名称外，同时将文件类型（d 表示目录，- 表示文件）、权限、拥有者、文件大小等信息详细列出；
+- 提示：由于我们使用 ls 命令时经常需要加入 -l 选项，所以 Linux 为 `ls -l` 命令提供了一种简写方式，即 **ll**。
+
+**cd**：
+
+- 作用：用于切换当前工作目录，即进入指定目录；
+- 语法：`cd [dirName]`；
+- 说明：
+  - `.` 表示目前所在的目录；
+  - `..` 表示目前目录位置的上级目录；
+  - `~` 表示用户的 home 目录；
+- 举例：
+  - `cd ..` → 切换到当前目录的上级目录；
+  - `cd ~` → 切换到用户的 home 目录；
+  - `cd /usr/local` → 切换到 /usr/local 目录；
+  - `cd -` → 切换到上一次所在目录。
+
+**mkdir**：
+
+- 作用：创建目录；
+- 语法：`mkdir [-p] dirName`；
+- 说明：`-p`：确保目录名称存在，不存在的就创建一个。通过此选项，可以实现多层目录同时创建；
+- 举例：
+  - `mkdir itcast` → 在当前目录下，建立一个名为 itcast 的子目录；
+  - `mkdir -p itcast/test` → 在 itcast 目录中创建 test 子目录，若 itcast 目录不存在，则建立一个。
+
+**rm**：
+
+- 作用：删除文件或者目录；
+- 语法：`rm [-rf] name`；
+- 说明：
+  - `-r`：将目录及目录中所有文件（目录）逐一删除，即递归删除；
+  - `-f`：无需确认，直接删除；
+- 举例：
+  - `rm -r itcast/` → 删除名为 itcast 的目录和目录中所有文件，删除前需确认；
+  - `rm -rf itcast/` → 无需确认，直接删除名为 itcast 的目录和目录中所有文件；
+  - `rm -f hello.txt` → 无需确认，直接删除 hello.txt 文件。
+
+小结：查看目录命令？——`ls [-al]`；切换目录命令？——`cd`；创建目录命令？——`mkdir [-p]`；删除目录命令？——`rm [-rf]`。
+
+⚠️ 注意：`rm -rf` 是危险操作（无需确认直接递归删除），使用时必须反复核对路径。
+
+**文件操作命令（查看内容）**
+
+**cat**：
+
+- 作用：用于显示文件的所有内容；
+- 语法：`cat [-n] fileName`；
+- 说明：`-n`：由 1 开始对所有输出的行数编号；
+- 举例：`cat /etc/profile` → 查看 /etc 目录下的 profile 文件内容。
+
+**more**：
+
+- 作用：以分页的形式显示文件内容；
+- 语法：`more fileName`；
+- 操作说明：
+  - 回车键 → 向下滚动一行；
+  - 空格键 → 向下滚动一屏；
+  - b → 返回上一屏；
+  - q 或 Ctrl+C → 退出 more；
+- 举例：`more /etc/profile` → 以分页方式显示 /etc 目录下的 profile 文件内容。
+
+**head**：
+
+- 作用：查看文件开头的内容；
+- 语法：`head [-n] fileName`；
+- 说明：`-n`：输出文件开头的 n 行内容；
+- 举例：
+  - `head 1.log` → 默认显示 1.log 文件开头的 10 行内容；
+  - `head -20 1.log` → 显示 1.log 文件开头的 20 行内容。
+
+**tail**：
+
+- 作用：查看文件末尾的内容；
+- 语法：`tail [-nf] fileName`；
+- 说明：
+  - `-n`：输出文件末尾的 n 行内容；
+  - `-f`：动态读取文件末尾内容并显示，通常用于日志文件的内容输出；
+- 举例：
+  - `tail 1.log` → 默认显示 1.log 文件末尾 10 行的内容；
+  - `tail -20 1.log` → 显示 1.log 文件末尾 20 行的内容；
+  - `tail -f 1.log` → 动态读取 1.log 文件末尾内容并显示（实时刷新）。
+
+小结：cat、more、head、tail 都可以查看文件的内容，之间有什么区别？——cat：查看文件内容，一次性查看所有内容，适用于查看**小文件**；more：**分页**查看文件内容，适用于查看大文件；head：查看文件**开头**部分的内容；tail：查看文件**结尾**部分的内容。
+
+**拷贝移动命令**
+
+**cp**：
+
+- 作用：用于复制文件或目录；
+- 语法：`cp [-r] source dest`；
+- 选项：`-r`：如果复制的是目录需要使用此选项，此时将复制该目录下所有的子目录和文件；
+- 举例：
+  - `cp hello.txt itcast/` → 将 hello.txt 复制到 itcast 目录中；
+  - `cp hello.txt ./hi.txt` → 将 hello.txt 复制到当前目录，并改名为 hi.txt；
+  - `cp -r itcast/ ./itheima/` → 将 itcast 目录和目录下所有文件复制到 itheima 目录下；
+  - `cp -r itcast/* ./itheima/` → 将 itcast 目录下所有文件复制到 itheima 目录下。
+
+**mv**：
+
+- 作用：为文件或目录**重命名**、或将文件或目录**移动到其它位置**（第二个参数是已存在的目录执行移动）；
+- 语法：`mv source dest`；
+- 举例：
+  - `mv hello.txt hi.txt` → 将 hello.txt 改名为 hi.txt；
+  - `mv hi.txt itheima/` → 将文件 hi.txt 移动到 itheima 目录中；
+  - `mv hi.txt itheima/hello.txt` → 将 hi.txt 移动到 itheima 目录中，并改名为 hello.txt；
+  - `mv itcast/ itheima/` → 如果 itheima 目录**不存在**，将 itcast 目录改名为 itheima；
+  - `mv itcast/ itheima/` → 如果 itheima 目录**存在**，将 itcast 目录移动到 itheima 目录中。
+
+小结：拷贝与移动的命令是什么？——**cp、mv**；mv 命令什么时候执行移动，什么时候执行重命名？——`mv source dest`：如果第二个参数 dest 是已存在的目录，就执行移动；否则就是重命名。
+
+**打包压缩命令——tar**
+
+- 作用：对文件进行打包、解包、压缩、解压；
+- 语法：`tar [-zcxvf] fileName [files]`；
+- 说明：
+  - 包文件后缀为 `.tar` 表示只是完成了打包，并没有压缩；
+  - 包文件后缀为 `.tar.gz` 表示打包的同时还进行了压缩；
+- 选项：
+  - `-z`：z 代表的是 gzip，通过 gzip 命令处理文件，gzip 可以对文件压缩或者解压；
+  - `-c`：c 代表的是 create，即创建新的包文件；
+  - `-x`：x 代表的是 extract，实现从包文件中还原文件；
+  - `-v`：v 代表的是 verbose，显示命令的执行过程；
+  - `-f`：f 代表的是 file，用于指定包文件的名称。
+
+打包：
+
+- `tar -cvf hello.tar hello` → 将当前目录下所有文件打包，打包后的文件名为 hello.tar；
+- `tar -zcvf hello.tar.gz hello` → 将当前目录下所有文件打包并压缩，打包后的文件名为 hello.tar.gz。
+
+解包：
+
+- `tar -xvf hello.tar` → 将 hello.tar 文件进行解包，并将解包后的文件放在当前目录；
+- `tar -zxvf hello.tar.gz` → 将 hello.tar.gz 文件进行解压，并将解压后的文件放在当前目录；
+- `tar -zxvf hello.tar.gz -C /usr/local` → 将 hello.tar.gz 文件进行解压，解压到指定的 /usr/local 目录中。
+
+小结：
+
+- 如何将 itheima 目录下的所有内容，打成一个 tar.gz 的压缩包？——`tar -zcvf itheima.tar.gz itheima`；
+- 如果将 tomcat.tar.gz 压缩包中的内容解压出来？——`tar -zxvf tomcat.tar.gz`（解压到当前目录）或 `tar -zxvf tomcat.tar.gz -C /usr/local`（解压到指定目录）。
+
+**文本编辑命令——vi/vim**
+
+**vi**：
+
+- 作用：vi 命令是 Linux 系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于 Windows 中的记事本；
+- 语法：`vi fileName`；
+- 说明：
+  - vim 是从 vi 发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行着色（更常用）；
+  - 要使用 vim 命令，需要我们自己完成安装。可以使用下面的命令来完成安装：`yum install vim`。
+
+**vim**：作用：对文件内容进行编辑，vim 其实就是一个文本编辑器；语法：`vim fileName`。
+
+**vi/vim 编辑器三种模式的切换**：
+
+- 打开文件进入**命令模式**（vim filename）；
+- 输入 **i、a、o** 进入**插入模式**（编辑文本）；
+- 在插入模式按 **ESC** 回到命令模式；
+- 在命令模式输入 **`:`** 进入**底行模式**；
+- 在底行模式按 **ESC** 回到命令模式；
+- 底行模式常用命令：
+  - **`:wq`** → 保存并退出；
+  - **`:q!`** → 退出（不保存）。
+
+**查找命令**
+
+**find**：
+
+- 作用：在指定目录下查找文件；
+- 语法：`find dirName -option fileName`；
+- 举例：
+  - `find . -name "*.log"` → 在当前目录及其子目录下查找 .log 结尾文件；
+  - `find /itcast -name "*.log"` → 在 /itcast 目录及其子目录下查找 .log 结尾的文件。
+
+⚠️ 问题：课件 find 命令示例中写为 `find . –name "*.log"`，其中 `–name` 的短横线是全角破折号（同页另一条示例 `find /itcast -name` 用的却是半角）；另外 `find /itcast -name "*. log"` 的引号内 `.` 与 `log` 之间多了一个空格（应为 `"*.log"`）——照抄执行无法正确匹配文件。
+修正建议：应统一为半角：`find . -name "*.log"`、`find /itcast -name "*.log"`。
+
+**grep**：
+
+- 作用：从指定文件中查找指定的文本内容；
+- 语法：`grep [-inAB] word fileName`；
+- 选项：
+  - `-i`：检索的关键字忽略（ignore）大小写；
+  - `-n`：显示关键字所在的这一行的行号；
+  - `-A`：输出关键字所在行及之后（After）的几行记录（如：-A5 表示输出关键字所在行之后的 5 行记录）；
+  - `-B`：输出关键字所在行及之前（Before）的几行记录（如：-B5 表示输出关键字所在行之前的 5 行记录）；
+- 举例：
+  - `grep Hello HelloWorld.java` → 查找 HelloWorld.java 文件中出现的 Hello 字符串的位置；
+  - `grep hello *.java` → 查找当前目录中所有 .java 结尾的文件中包含 hello 字符串的位置。
+
+小结：find 与 grep 都是查找命令，两者之间的区别是什么？——**find 命令是根据文件的属性（如：文件名）来查找文件的**；**grep 命令是根据指定的关键字，来查找文件内容的**。
+
+**Linux 软件安装——安装方式介绍**
+
+- **二进制发布包安装**：软件已经针对具体平台编译打包发布，只要解压，修改配置即可；
+- **rpm 安装**：软件已经按照 redhat 的包管理规范进行打包，使用 rpm 命令进行安装，不能自行解决库依赖问题；
+- **yum 安装**：一种在线软件安装方式，本质上还是 rpm 安装，自动下载安装包并安装，安装过程中自动解决库依赖问题；
+- **源码编译安装**：软件以源码工程的形式发布，需要自己编译打包。
+
+**安装 JDK**
+
+1. 使用 FinalShell 自带的上传工具将 jdk 的二进制发布包上传到 Linux；
+2. 解压安装包，命令为：
+
+```
+tar -zxvf jdk-17.0.10_linux-x64_bin.tar.gz -C /usr/local
+```
+
+3. 配置环境变量，使用 vim 命令修改 /etc/profile 文件，在文件末尾加入如下配置：
+
+```
+export JAVA_HOME=/usr/local/jdk-17.0.10
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+4. 重新加载 profile 文件，使更改的配置立即生效，命令为：
+
+```
+source /etc/profile
+```
+
+5. 检查安装是否成功，命令为：
+
+```
+java -version
+```
+
+**安装 MySQL**
+
+准备工作：卸载 Linux 系统中自带的 mysql/mariadb 安装包，否则 MySQL 将安装失败：
+
+```
+rpm -qa | grep mariadb
+rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64
+```
+
+⚠️ 问题：课件中上述两条命令写为 `rpm –qa | grep mariadb` 与 `rpm –e –nodeps ...`，其中 `–qa`、`–e`、`–nodeps` 的短横线均为全角破折号——照抄执行会提示命令错误。
+修正建议：应使用半角连字符：`rpm -qa | grep mariadb`、`rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64`。
+
+后续步骤：
+
+1. 下载并上传 mysql 安装包；
+2. 解压安装包到当前目录，并将解压后的文件夹移动到 /usr/local 目录下，改名为 mysql：
+
+```
+tar -xvf mysql-8.0.30-linux-glibc2.12-x86_64.tar.xz
+```
+
+3. 配置环境变量（编辑 /etc/profile，追加内容）：
+
+```
+export MYSQL_HOME=/usr/local/mysql
+export PATH=$MYSQL_HOME/bin:$PATH
+```
+
+4. 注册 MySQL 为系统服务：
+
+```
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+chkconfig --add mysql
+```
+
+**安装 MySQL——初始化与启动**
+
+初始化数据库：
+
+```
+groupadd mysql
+useradd -r -g mysql -s /bin/false mysql
+mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+```
+
+初始化完毕后，日志中会输出 mysql 的 root 用户的临时密码，记得复制记录下来。
+
+启动服务登录 MySQL：
+
+```
+systemctl start mysql
+mysql -uroot -pxxxxx
+```
+
+配置 MySQL 的 root 用户的密码，授权远程访问：
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+CREATE USER 'root'@'%' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+```
+
+⚠️ 问题：课件中上述三条 SQL 语句结尾的引号写成了全角右单引号（`BY '1234’;`、`'root'@'%’;`）——照抄执行会产生 SQL 语法错误。
+修正建议：SQL 语句中必须使用半角单引号：`BY '1234';`、`TO 'root'@'%';`。
+
+**防火墙操作**
+
+- 查看防火墙状态：`systemctl status firewalld`、`firewall-cmd --state`；
+- 关闭防火墙：`systemctl stop firewalld`；
+- 开启防火墙：`systemctl start firewalld`；
+- 永久关闭防火墙：`systemctl disable firewalld`；
+- 开放指定端口：`firewall-cmd --zone=public --add-port=8080/tcp --permanent`；
+- 关闭指定端口：`firewall-cmd --zone=public --remove-port=8080/tcp --permanent`；
+- 立即生效：`firewall-cmd --reload`；
+- 查看开放的端口：`firewall-cmd --zone=public --list-ports`。
+
+注意：
+
+1. systemctl 是管理 Linux 中服务的命令，可以对服务进行启动、停止、重启、查看状态等操作；
+2. firewall-cmd 是 Linux 中专门用于控制防火墙的命令；
+3. 为了保证系统安全，**生产服务器的防火墙不建议关闭**。
+
+**安装 Nginx（源码编译方式）**
+
+1. 安装 nginx 运行时需要的依赖：
+
+```
+yum install -y pcre pcre-devel zlib zlib-devel openssl openssl-devel
+```
+
+2. 上传 nginx 的源码包；
+3. 解压源码包到当前目录：`tar -zxvf nginx-1.20.2.tar.gz`；
+4. 进入到解压目录（`cd nginx-1.20.2`）后，执行指令：
+
+```
+./configure --prefix=/usr/local/nginx
+```
+
+5. 执行编译 nginx 的指令：`make`；
+6. 执行安装 nginx 的指令，安装到上述指定的 /usr/local/nginx 目录：`make install`；
+7. 进入到 nginx 安装目录 /usr/local/nginx，启动 nginx 服务：`sbin/nginx`。
+
+**项目部署——前端项目部署**
+
+1. 将"资料/06.项目部署/前端/页面资源"文件夹下的打包好的静态资源，上传到 nginx 的 **html 目录**中；
+2. 配置 nginx 的配置文件，在 **conf/nginx.conf** 中配置反向代理服务器及路径重写规则：
+
+```
+server {
+    listen       80;
+    server_name  localhost;
+    client_max_body_size 10m;
+
+    location / {
+        root   html;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location ^~ /api/ {
+        rewrite ^/api/(.*)$ /$1 break;
+        proxy_pass http://localhost:8080;
+    }
+}
+```
+
+3. 在 nginx 的安装目录中，执行 sbin 目录下的 nginx 命令启动 nginx 服务：`sbin/nginx` 或 `sbin/nginx -s reload`。
+
+小结：nginx 启动、停止、重新加载操作？——启动：`sbin/nginx`；停止：`sbin/nginx -s quit`；重新加载：`sbin/nginx -s reload`。
+
+**项目部署——后端项目部署**
+
+1. 执行 maven 的父工程中的 **package** 生命周期，对项目进行打包【打包之前，先连接上服务器数据库，先测试通过】；
+2. 在 linux 服务器的 /usr/local 目录下，创建一个目录 tlias-app，将 jar 包上传到服务器的 **/usr/local/tlias-app** 目录中；
+3. 然后在命令行执行命令，运行 jar 包：`java -jar xxxxxx.jar`。
+
+上述执行运行 jar 包之后，会占用前台窗口，窗口关闭服务也就停了。可以使用 **nohup** 指令，后台运行服务，执行指令：
+
+```
+nohup java -jar xxxxxx.jar &> tlias.log &
+```
+
+查看进程：
+
+```
+ps -ef | grep xxxx
+```
+
+**Linux 中的特殊符号**：
+
+- `|`：**管道符**。将前面命令的输出，作为后面命令的输入。如：`ps -ef | grep java`；
+- `>` 与 `>>`：**重定向符号**。将前面的文本内容，输出到后面的文件中（`>`：覆盖重定向，`>>`：追加重定向）。如：`echo 'Hello Linux' > 1.log`。
+
+小结：
+
+- 如何让 linux 中的命令在后台运行，不占用前台窗口？——`nohup .... &>xxx.log &`；
+- 查看系统进程的命令？杀死系统进程的命令？——`ps -ef`（`ps -ef | grep java` 检索 java 进程）、`kill -9 xxxx`。
+
+本节收束：Linux 是服务器部署的基石——先理解目录结构（`/` 为顶点、绝对/相对路径）与命令格式，再掌握六类常用命令（目录操作 ls/cd/mkdir/rm、文件查看 cat/more/head/tail、拷贝移动 cp/mv、打包压缩 tar、文本编辑 vi/vim、查找 find/grep），随后用二进制/rpm/yum/源码编译等方式安装 JDK、MySQL、Nginx 三件套，最后完成前端（dist 静态资源 + nginx.conf 反向代理）与后端（jar 包 + nohup 后台运行）的项目部署。
+
+### 第十九章：项目部署——Docker
+
+**什么是 Docker**
+
+核心结论：**Docker 就是一款快速构建、运行、管理应用的工具**。
+
+**引入：Linux 中安装 MySQL 的痛点回顾**
+
+回顾 Linux 中安装 MySQL 的完整过程（终端操作回放）：
+
+```
+[root@heima ~]# # 查看已安装的MySQL
+[root@heima ~]# rpm -qa | grep mysql
+[root@heima ~]# rpm -qa | grep mariadb
+mariadb-libs-5.5.68-1.el7.x86_64
+[root@heima ~]# # 卸载MySQL
+[root@heima ~]# rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64
+[root@heima ~]# # 上传MySQL的安装包
+[root@heima ~]# # 解压缩
+[root@heima ~]# tar -xvf mysql-8.0.30-linux-glibc2.12-x86_64.tar.xz
+[root@heima ~]# # 移动&重命名
+[root@heima ~]# mv mysql-8.0.30-linux-glibc2.12-x86_64 /usr/local/mysql
+[root@heima ~]# # 切换目录
+[root@heima ~]# cd /usr/local/mysql
+[root@heima mysql]# # 配置环境变量
+[root@heima mysql]# vim /etc/profile
+[root@heima mysql]# # 刷新环境变量，立即生效
+[root@heima mysql]# source /etc/profile
+[root@heima mysql]# # 注册MySQL为系统服务
+[root@heima mysql]# cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+[root@heima mysql]# chkconfig --add mysql
+[root@heima mysql]# # 创建一个用户组, 组名就叫mysql
+[root@heima mysql]# groupadd mysql
+[root@heima mysql]# # 创建一个系统用户 mysql, 并归属于用户组 mysql
+[root@heima mysql]# useradd -r -g mysql -s /bin/false mysql
+[root@heima mysql]# # 初始化mysql
+[root@heima mysql]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+[root@heima mysql]# # 启动MySQL服务
+[root@heima mysql]# systemctl start mysql
+[root@heima mysql]# # 通过初始化时的临时密码，登录MySQL
+[root@heima mysql]# mysql -uroot -pxxxxx
+[root@heima mysql]# # 修改root用户的密码
+[root@heima mysql]# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+[root@heima mysql]# # 后续省略
+```
+
+三大痛点：**命令太太太多，记不住**；**步骤太太太多，易出错**；**安装包哪里下载，找不到**。
+
+⚠️ 问题：课件终端回放中，`rpm -qa | grep mariadb` 查询输出的安装包为 `mariadb-libs-5.5.68-1.el7.x86_64`，但下一行卸载命令写的是 `rpm -e --nodeps mariadb-libs-5.5.60-1.el7_5.x86_64`——卸载的包名版本（5.5.60-1.el7_5）与查询结果（5.5.68-1.el7）不一致，照抄执行会提示"未安装软件包"。
+修正建议：卸载时应复制查询结果中的真实包名：`rpm -e --nodeps mariadb-libs-5.5.68-1.el7.x86_64`。
+
+**如何解决？——一条命令安装 MySQL**
+
+```
+[root@heima ~]#
+docker run -d --name mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123 mysql:8
+|
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+72a69066d2fe: Pull complete
+93619dbc5b36: Pull complete
+99da31dd6142: Pull complete
+626033c43d70: Pull complete
+Status: Downloaded newer image for mysql:latest
+a6cec8ff4765ca0876d0453f3ccab205fca29b5dce74f8cfbad8d76571bf79be
+[root@heima ~]#
+```
+
+⚠️ 问题：课件此处演示命令指定了 `mysql:8`，但下方执行输出显示 `Unable to find image 'mysql:latest' locally`、`Status: Downloaded newer image for mysql:latest`——命令与实际输出（mysql:latest）前后不一致。
+修正建议：使用 `mysql:8` 时输出应显示 mysql:8 的镜像信息；演示输出应与命令保持一致。
+
+**Docker 快速入门——正式安装 MySQL**
+
+先停掉虚拟机中的 MySQL，确保你的虚拟机已经安装 Docker，且网络开通的情况下，执行下面命令即可安装 MySQL：
+
+```
+docker run -d \
+--name mysql \
+-p 3307:3306 \
+-e TZ=Asia/Shanghai \
+-e MYSQL_ROOT_PASSWORD=123 \
+mysql:8
+```
+
+**镜像和容器**
+
+核心概念：
+
+- 当我们利用 Docker 安装应用时，Docker 会自动搜索并下载**应用镜像（image）**。镜像不仅包含应用本身，还包含应用运行所需要的**环境、配置、系统函数库**。Docker 会在运行镜像时创建一个**隔离环境，称为容器（container）**；
+- **镜像仓库**：存储和管理镜像的平台，Docker 官方维护了一个公共仓库：**Docker Hub**。
+
+结构理解：Client 执行 `docker run` → Docker Server 中的 docker daemon 守护进程从镜像仓库拉取 images → 运行生成 Container。
+
+小结：
+
+- 什么是镜像？——将应用所需的运行环境、配置文件、系统函数库等与应用一起打包得到的就是镜像；
+- 什么是容器？——为每个镜像的应用进程创建的隔离运行环境就是容器；
+- 什么是镜像仓库？——存储和管理镜像的平台就是镜像仓库；DockerHub 是目前最大的镜像仓库，其中包含各种常见的应用镜像。
+
+**docker run 命令解读**
+
+以 `docker run -d \ --name mysql \ -p 3307:3306 \ -e TZ=Asia/Shanghai \ -e MYSQL_ROOT_PASSWORD=123 \ mysql:8` 为例：
+
+- `docker run`：创建并运行一个容器，`-d` 是让容器在**后台运行**；
+- `--name mysql`：给容器起个名字，必须唯一；
+- `-p 3307:3306`：设置**端口映射**（宿主机端口 3307 映射到容器内端口 3306）；
+- `-e KEY=VALUE`：是设置**环境变量**；
+- `mysql:8`：指定运行的镜像的名字、版本。
+
+端口映射理解：MySQL 容器内部监听 3306 端口，通过 `-p 3307:3306` 映射后，外部通过 `jdbc:mysql://192.168.100.128:3307` 访问宿主机 3307 端口即可连接到容器中的 MySQL。
+
+**镜像命名规范**
+
+镜像名称一般分两部分组成：**[repository]:[tag]**。
+
+- repository 就是镜像名（如 mysql）；
+- tag 是镜像的版本（如 8）。
+
+注意：在没有指定 tag 时，默认是 **latest**，代表最新版本的镜像。
+
+小结：
+
+- docker run 命令中的常见参数：`-d`（让容器后台运行）、`--name`（给容器命名，唯一）、`-e`（环境变量）、`-p`（宿主机端口映射到容器内端口）；
+- 镜像名称结构：Repository:TAG（镜像名 + 版本号）。
+
+**Docker 核心——常见命令**
+
+Docker 最常见的命令就是操作镜像、容器的命令，详见官方文档：https://docs.docker.com/ 。
+
+命令图谱（按对象分类）：
+
+- 镜像操作：
+  - `docker build`：构建镜像；
+  - `docker pull`：从镜像仓库拉取镜像到本地；
+  - `docker push`：推送本地镜像到镜像仓库；
+  - `docker images`：查看本地镜像列表；
+  - `docker rmi`：删除镜像；
+  - `docker save`：保存镜像为文件；
+  - `docker load`：加载镜像文件；
+- 容器操作：
+  - `docker run`：创建并运行容器；
+  - `docker stop`：停止容器；
+  - `docker start`：启动（已停止的）容器；
+  - `docker ps`：查看容器；
+  - `docker rm`：删除容器；
+  - `docker logs`：查看容器日志；
+  - `docker exec`：进入容器执行命令。
+
+**常见命令演练需求**：
+
+1. 查看 DockerHub，搜索 Nginx 镜像，查看镜像的名称；
+2. 拉取 Nginx 镜像（比较耗时）；
+3. 查看本地镜像列表；
+4. 创建并运行 Nginx 容器；
+5. 查看容器；
+6. 停止容器；
+7. 再次启动容器；
+8. 进入 Nginx 容器；
+9. 删除容器。
+
+**数据卷——介绍**
+
+**数据卷（volume）是一个虚拟目录，是容器内目录与宿主机目录之间映射的桥梁**。
+
+问题场景（利用 Nginx 容器部署静态资源）：
+
+- 需求：创建 Nginx 容器，修改 nginx 容器内的 html 目录下的 index.html 文件，查看变化；将静态资源部署到 nginx 的 html 目录；
+- 难点：容器内没有 vim 等编辑工具，直接修改容器内文件很麻烦——因此需要把容器内目录（如 /usr/share/nginx/html、/etc/nginx/conf）映射到宿主机文件系统的数据卷，通过操作宿主机上的目录（数据卷实际存储在宿主机的 /var/lib/docker/volumes/xxx/_data）来间接操作容器内文件。
+
+**数据卷——操作命令**
+
+| 命令 | 说明 |
+| --- | --- |
+| docker volume create | 创建数据卷 |
+| docker volume ls | 查看所有数据卷 |
+| docker volume rm | 删除指定数据卷 |
+| docker volume inspect | 查看某个数据卷的详情 |
+| docker volume prune | 清除所有未使用的数据卷 |
+
+注意：在执行 docker run 命令时，使用 **`-v 数据卷:容器内目录`** 形式可以完成数据卷挂载（**数据卷不存在，会自动创建**）。
+
+小结：
+
+- 什么是数据卷？——数据卷是一个虚拟目录，它将宿主机目录映射到容器内目录，方便我们操作容器内文件，或者方便迁移容器产生的数据；
+- 如何挂载数据卷？——在创建容器时，利用 `-v 数据卷名:容器内目录` 完成挂载；容器创建时，如果发现挂载的数据卷不存在时，会自动创建；
+- 数据卷的常见命令有哪些？——`docker volume ls`（查看数据卷）、`docker volume rm`（删除数据卷）、`docker volume inspect`（查看数据卷详情）、`docker volume prune`（删除未使用的数据卷）。
+
+**本地目录挂载**
+
+命令格式：
+
+```
+docker run -d --name 容器名 -p 宿主机端口:容器端口 -v 宿主机目录或文件:容器内目录或文件 镜像名
+```
+
+注意：**本地目录必须以 / 或 ./ 开头**，如果直接以名称开头，会被识别为**数据卷**而非本地目录：
+
+- `-v mysql:/var/lib/mysql` 会被识别为一个数据卷，数据卷叫 mysql；
+- `-v ./mysql:/var/lib/mysql` 会被识别为当前目录下的 mysql 目录。
+
+**数据卷挂载 vs 本地目录挂载**：
+
+- 数据卷挂载：`-v 数据卷:容器内目录或文件`；数据卷名字不能以 / 或 ./ 开头（如 html、conf）；宿主机目录固定为 /var/lib/docker/volumes/xxx/_data；
+- 本地目录挂载：`-v 宿主机目录或文件:容器内目录或文件`；宿主机目录或文件必须以 / 或 ./ 开头（如 /root/mysql/data）；宿主机目录任意指定。
+
+**需求演练——创建 MySQL 容器并实现本地目录挂载**：
+
+创建 MySQL 容器，并基于本地目录挂载实现 MySQL 容器数据目录、配置文件、初始化脚本的目录挂载（官方文档）：
+
+- 挂载 /root/mysql/data 到容器内的 /var/lib/mysql 目录；
+- 挂载 /root/mysql/init 到容器内的 /docker-entrypoint-initdb.d 目录（资料中的 sql 脚本）；
+- 挂载 /root/mysql/conf 到容器内的 /etc/mysql/conf.d 目录。
+
+**自定义镜像**
+
+概念：**镜像就是包含了应用程序、程序运行的系统函数库、运行配置等文件的文件包。构建镜像的过程其实就是把上述文件打包的过程**。
+
+部署一个 Java 应用的步骤（传统方式）：
+
+1. 准备一个 Linux 服务器；
+2. 安装 JDK 并配置环境变量；
+3. 拷贝 Jar 包；
+4. 运行 Jar 包。
+
+构建一个 Java 镜像的步骤：
+
+1. 准备一个 Linux 运行环境（BaseImage，如 CentOS 7，含 /etc、/lib、/proc、/bin 等）；
+2. 安装 JDK 并配置环境变量；
+3. 拷贝 Jar 包；
+4. 编写运行脚本，运行 Jar 包（如 `java -jar xx.jar`）。
+
+**镜像结构**：
+
+- **入口（Entrypoint）**：镜像运行入口，一般是程序启动的脚本和参数；
+- **层（Layer）**：添加安装包、依赖、配置等，每次操作都形成新的一层；
+- **基础镜像（BaseImage）**：应用依赖的系统函数库、环境、配置、文件等。
+
+**Dockerfile**
+
+Dockerfile 就是一个**文本文件**，其中包含一个个的**指令（Instruction）**，用指令来说明要执行什么操作来构建镜像。将来 Docker 可以根据 Dockerfile 帮我们构建镜像。
+
+常见指令如下：
+
+| 指令 | 说明 | 示例 |
+| --- | --- | --- |
+| FROM | 指定基础镜像 | FROM centos:7 |
+| ENV | 设置环境变量，可在后面指令使用 | ENV key=value |
+| COPY | 拷贝本地文件到镜像的指定目录 | COPY ./jdk17.tar.gz /tmp |
+| RUN | 执行Linux的shell命令，一般是安装过程的命令 | RUN tar -zxvf /tmp/jdk17.tar.gz |
+| EXPOSE | 指定容器运行时监听的端口，是给镜像使用者看的 | EXPOSE 8080 |
+| ENTRYPOINT | 镜像中应用的启动命令，容器运行时调用 | ENTRYPOINT java -jar xx.jar |
+
+我们可以基于 CentOS7 基础镜像，利用 Dockerfile 描述镜像结构（完整示例）：
+
+```dockerfile
+# 使用 CentOS 7 作为基础镜像
+FROM centos:7
+# 添加 JDK 到镜像中
+COPY jdk17.tar.gz /usr/local/
+RUN tar -xzf /usr/local/jdk17.tar.gz -C /usr/local/ &&  rm /usr/local/jdk17.tar.gz
+# 设置环境变量
+ENV JAVA_HOME=/usr/local/jdk-17.0.10
+ENV PATH=$JAVA_HOME/bin:$PATH
+# 创建应用目录
+RUN mkdir -p /app
+WORKDIR /app
+# 复制应用 JAR 文件到容器
+COPY app.jar app.jar
+# 暴露端口
+EXPOSE 8080
+# 运行命令
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+```
+
+编写好了 Dockerfile 之后，可以利用下面命令来构建镜像：
+
+```
+docker build -t myImage:1.0 .
+```
+
+- `-t`：是给镜像起名，格式依然是 repository:tag 的格式，不指定 tag 时，默认为 latest；
+- `.`：是指定 Dockerfile 所在目录，如果就在当前目录，则指定为"."。
+
+小结：
+
+- 镜像的结构是怎样的？——镜像中包含了应用程序所需要的运行环境、函数库、配置、以及应用本身等各种文件，这些文件分层打包而成；
+- Dockerfile 是做什么的？——Dockerfile 就是利用固定的指令来描述镜像的结构和构建过程，这样 Docker 才可以依次来构建镜像；
+- 构建镜像的命令是什么？——`docker build -t 镜像名 Dockerfile目录`。
+
+课件基于 AI 生成 Dockerfile 的 Prompt：
+
+"你是一名 java 开发工程师，基于 Springboot 开发了一个 web 项目，并将其打成一个 jar 包，名字为 app.jar，现需要将其制作为一个 docker 镜像，请帮我编写一份 Dockerfile 文件：jar 包的名字叫 app.jar；基础镜像为 centos:7，里面没有 jdk 的环境；jdk 的安装包为 jdk17.tar.gz；请参照上述提供的信息，帮我编写一份 docker 文件"。
+
+**网络**
+
+默认情况下，所有容器都是以 **bridge 方式**连接到 Docker 的一个**虚拟网桥**上：宿主机上的 docker0 网桥地址为 172.17.0.1/16，各容器（mysql、java 应用等）通过 eth0 接口（宿主机侧对应 vethX/vethY/vethZ）接入，分别获得 172.17.0.2、172.17.0.3、172.17.0.4 等地址。
+
+**加入自定义网络的容器才可以通过容器名互相访问**，Docker 的网络操作命令如下：
+
+| 命令 | 说明 |
+| --- | --- |
+| docker network create | 创建一个网络 |
+| docker network ls | 查看所有网络 |
+| docker network rm | 删除指定网络 |
+| docker network prune | 清除未使用的网络 |
+| docker network connect | 使指定容器连接加入某网络 |
+| docker network disconnect | 使指定容器连接离开某网络 |
+| docker network inspect | 查看网络详细信息 |
+
+**项目部署——服务端部署**
+
+需求：将我们开发的 tlias-web-management 项目打包为镜像，并部署。
+
+步骤：
+
+1. 准备 MySQL 容器，并创建 tlias 数据库及表结构（已完成）；
+2. 准备 java 应用（tlias 项目）镜像，部署 Docker 容器，运行测试：
+   - 修改 tlias 项目的配置文件，修改数据库服务地址及 logback 日志文件存放地址，打 jar 包；
+   - 编写 Dockerfile 文件；
+   - 构建 Docker 镜像；
+   - 部署 Docker 容器。
+
+**项目部署——前端部署**
+
+需求：创建一个新的 nginx 容器，将资料中提供的前端项目的静态资源部署到 nginx 中。
+
+步骤：
+
+1. 部署 nginx 容器（设置目录映射）：
+   - `-v /root/tlias-nginx/html:/usr/share/nginx/html`；
+   - `-v /root/tlias-nginx/conf/nginx.conf:/etc/nginx/nginx.conf`；
+2. 将部署的前端资源文件及配置文件上传至服务器，执行命令创建 nginx 容器。
+
+**手动部署的问题**：当系统涉及多个容器（mysql、nginx、tlias-server、redis、mq、order-server、admin-server……）时，一个个手动部署**繁琐**，且**不便于统一管理**。
+
+**DockerCompose**
+
+**Docker Compose 通过一个单独的 docker-compose.yml 模板文件（YAML 格式）来定义一组相关联的应用容器**，帮助我们实现多个相互关联的 Docker 容器的快速部署。
+
+概念对应：一个 yml 文件描述一个**项目（Project）**，其中的每个应用容器是一个**服务（Service）**：
+
+```yaml
+services:
+  containerA:
+    image: A
+    container_name: A
+    ports:
+      - "11:11"
+  containerB:
+    image: B
+    container_name: B
+    ports:
+      - "22:22"
+  containerC:
+    image: C
+    container_name: C
+    ports:
+      - "33:33"
+```
+
+**docker run 命令与 compose 写法对照**：
+
+原 docker run 命令：
+
+```
+docker run -d \
+--name nginx-tlias \
+-v /usr/local/app/html:/usr/share/nginx/html \
+-v /usr/local/app/conf/nginx.conf:/etc/nginx/nginx.conf \
+--network itheima \
+-p 80:80 \
+nginx:1.20.2
+```
+
+对应的 docker-compose.yml：
+
+```yaml
+services:
+  nginx-tlias:
+    image: "nginx:1.20.2"
+    container_name: nginx-tlias
+    volumes:
+      - "/usr/local/app/html:/usr/share/nginx/html"
+      - "/usr/local/app/conf/nginx.conf:/etc/nginx/nginx.conf"
+    networks:
+      - itheima
+    ports:
+      - "80:80"
+
+networks:
+  itheima:
+    name: itheima
+```
+
+课件基于 AI 做转换的 Prompt："将下面这条 Docker 创建容器的命令，帮我转换成 docker-compose.yml 文件的写法，并添加上注释。命令如下：docker run -d --name nginx-tlias -v /usr/local/app/html:/usr/share/nginx/html -v /usr/local/app/conf/nginx.conf:/etc/nginx/nginx.conf --network itheima -p 80:80 nginx:1.20.2"。
+
+**基于 DockerCompose 快速部署 tlias 系统**
+
+涉及到的服务：MySQL 数据库、服务端、前端 nginx。
+
+步骤：
+
+1. 准备资源（tlias.sql，服务端的 jdk17、jar 包、Dockerfile，前端项目打包文件、nginx.conf）；
+2. 准备 docker-compose.yml 配置文件；
+3. 基于 DockerCompose 快速构建项目。
+
+**DockerCompose 命令**
+
+Docker Compose 的命令格式：`docker compose [OPTIONS] [COMMAND]`
+
+选项参数说明：
+
+| 类型 | 参数或指令 | 说明 |
+| --- | --- | --- |
+| Options | -f | 指定compose文件的路径和名称 |
+| Options | -p | 指定project名称 |
+| Commands | up | 创建并启动所有service容器 |
+| Commands | down | 停止并移除所有容器、网络 |
+| Commands | ps | 列出所有启动的容器 |
+| Commands | logs | 查看指定容器的日志 |
+| Commands | stop | 停止容器 |
+| Commands | start | 启动容器 |
+| Commands | restart | 重启容器 |
+| Commands | top | 查看运行的进程 |
+
+本节收束：Docker 用"镜像 + 容器"把"装环境"变成"拉镜像、跑容器"——`docker run` 一条命令即可完成过去几十步的 MySQL 安装；数据卷/本地目录挂载（`-v`）解决容器内文件操作与数据持久化问题；Dockerfile（FROM/ENV/COPY/RUN/EXPOSE/ENTRYPOINT）把"部署 Java 应用的步骤"固化为镜像构建脚本；自定义网络解决容器间互访；Docker Compose 则用一份 docker-compose.yml 把"mysql + 服务端 + nginx"这类多容器系统一键编排部署。
+
+### 第二十章：Web 开发完结
+
+**Web 开发阶段全景回顾**
+
+至此，Web 开发（AI）全部学习完成。整个阶段的知识全景如下：
+
+- **Web 前端基础**：
+  - HTML（页面结构）；
+  - CSS（页面样式）；
+  - JavaScript（页面行为）；
+  - Vue3（前端框架基础）；
+  - Ajax/Axios（异步请求交互）；
+- **Web 后端基础**：
+  - Maven（项目构建与依赖管理）；
+  - Web 基础知识（HTTP、Tomcat、请求响应、分层解耦等）；
+  - MySQL（关系型数据库）；
+  - JDBC（Java 操作数据库的基础技术）；
+  - Mybatis（持久层框架）；
+- **Web 后端实战**：Tlias 案例（部门管理、员工管理、登录认证、AOP 操作日志等）；
+- **Web 前端实战**：
+  - Vue 工程化（create-vue、单文件组件、组合式 API）；
+  - Element Plus（组件库）；
+  - Tlias 案例（整体布局、部门管理、员工管理、登录退出、打包部署）；
+- **Web 项目部署**：
+  - Linux（操作系统、常用命令、软件安装、项目部署）；
+  - Docker（镜像与容器、数据卷、自定义镜像、网络、Docker Compose）。
+
+**学习路径主线梳理**
+
+从"看的页面"到"上线的系统"，整个 Web 开发的学习主线为：
+
+1. 会用 HTML/CSS/JavaScript/Vue3/Axios 写出前端页面并发出异步请求；
+2. 会用 Maven 管理工程、用 MySQL 存储数据、用 JDBC/Mybatis 让 Java 操作数据库；
+3. 用 SpringBoot + SpringMVC + Mybatis 三层架构完成后端接口开发（含事务、AOP、全局异常处理、拦截器与登录认证）；
+4. 用 Vue 工程化 + Element Plus 完成前端工程开发，并与后端接口联调（前后端分离）；
+5. 用 Linux + Docker（Docker Compose）把系统部署到服务器上线运行。
+
+**完结**
+
+课件以"Web 开发 - 完结 -"收束本阶段，并给出**后续学习路线**的指引——在掌握前端、后端、数据库与部署的完整闭环之后，可继续沿课程规划的方向深入学习。
+
+本节收束：本阶段笔记（第一至二十章）完整覆盖了 Web 开发五大板块的全部课件内容——HTML/CSS/JavaScript/Vue3/Ajax、Maven/Web 基础/MySQL/JDBC/Mybatis、Tlias 后端实战、Vue 工程化/Element Plus/Tlias 前端实战、Linux/Docker 项目部署——达到"能独立完成一个前后端分离 Web 系统从开发到部署"的目标。
+
 <!--CONTINUE-->
+
+## 指令集模块
+
+本模块汇总三个阶段的命令、接口、环境变量、启动方式与访问链接。正文各章均已随知识点讲解，此处按分类统一收集、便于速查；后续阶段的新增内容将合并到对应分类中，不重复堆叠。
+
+**一、Java 编译、运行与版本检查**
+
+- 编译：`javac 程序名.java`（例 `javac HelloWorld.java`）→ 把 `.java` 源代码翻译成 JVM 可执行的 `.class` 字节码文件（编译工具）；
+- 运行：`java 程序名`（例 `java HelloWorld`）→ 启动 JVM 执行程序（执行工具）；
+- 版本检查：`java -version`、`javac -version`（安装 JDK 后验证是否成功；重新配置环境变量后也用它检测）；
+- 程序开发三步：编写（.java 源代码）→ 编译（javac）→ 运行（java）；
+- 提醒：命令中的短横线必须是半角 `-`；课件中多处印成全角 `–`，不可照抄（`java –version` 会报"命令不存在"类错误）。
+
+**二、DOS（命令行窗口）常用命令**
+
+打开方式：Win + R → 输入 `cmd` → 回车。
+
+| 命令 | 作用 |
+| --- | --- |
+| 盘符: | 切换盘符：`D:`、`E:` |
+| dir | 查看当前路径下的文件信息 |
+| cd | 进入单级目录 `cd itheima`；回退到上一级 `cd ..`；回退到盘符根目录 `cd /` |
+| cls | 清屏 |
+| tab | 自动补全指定字符开头的单词 |
+| ↑ 键 / ↓ 键 | 查看历史命令 |
+| exit | 退出 |
+
+**三、环境变量**
+
+- **Path**（Windows）：配置程序所在路径，使 javac、java 等命令能在任意目录直接使用；配置值示例 `E:\develop\Java\jdk21\bin`（按自己电脑的实际安装路径配置，不要照抄）；配置入口：此电脑 → 属性 → 高级系统设置 → 高级 → 环境变量；
+- **JAVA_HOME**（Windows）：JDK 的安装目录——其他技术（如 Maven）通过它找到 JDK；
+- **MAVEN_HOME**（Windows）：Maven 解压目录，并把其 bin 目录加入 Path；
+- **Linux（/etc/profile 末尾追加，改完执行 `source /etc/profile` 立即生效）**：
+
+```bash
+export JAVA_HOME=/usr/local/jdk-17.0.10
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+**四、IDEA 常用快捷键**
+
+| 快捷键 | 作用 |
+| --- | --- |
+| psvm + 回车 | 快速生成 main 方法 |
+| sout + 回车 | 快速生成输出语句 |
+| Ctrl + Alt + L | 格式化代码 |
+| Alt + Shift + ↑ | 上移当前行 |
+| Alt + Shift + ↓ | 下移当前行 |
+| Alt + 回车 | 导入包，自动修正 |
+| Ctrl + N | 查找类 |
+| Ctrl + R | 替换文本 |
+| Ctrl + F | 查找文本 |
+| Shift + F6 | 重构-重命名 |
+| Ctrl + X | 剪切当前行 |
+| Ctrl + D | 复制行 |
+| Ctrl + / | 批量加入单行注释，再按一次取消 |
+| Ctrl + Shift + / | 批量加入多行注释，再按一次取消 |
+| Alt + 1 | 快速打开或隐藏工程面板 |
+| F2 | 高亮错误或警告快速定位 |
+| Ctrl + F12 | 显示当前文件的结构 |
+
+**五、Java 常用 API 与接口**
+
+- **Scanner**（键盘录入）：`Scanner sc = new Scanner(System.in);` → `sc.nextInt()`、`sc.nextDouble()`、`sc.next()`、`sc.nextLine()`；
+- **Random**（随机数）：`Random r = new Random();` → `r.nextInt()`（int 范围内的随机数）、`r.nextInt(n)`（0 ~ n-1）；
+- **String**（字符串）：`length()`、`charAt(int)`（⚠️ 课件误拼为 chatAt）、`equals(s)`、`equalsIgnoreCase(s)`、`substring(begin,end)`（包左不包右）、`substring(begin)`、`indexOf(s)`、`contains(s)`、`startsWith/endsWith`、`replace(a,b)`、`split(regex)`、`toCharArray()`、`trim()`、`toUpperCase()/toLowerCase()`、`valueOf(x)`；
+- **StringBuilder**（可变字符串）：`new StringBuilder(s)`、`append(x)`、`reverse()`、`length()`、`toString()`（支持链式编程）；
+- **包装类与类型转换**：`Integer.parseInt(str)`、`Double.parseDouble(str)`、`Integer.valueOf(x)`、`toBinaryString/toOctalString/toHexString`、自动装箱与拆箱；
+- **ArrayList**（集合基础）：`new ArrayList<E>()`、`add(e)`、`add(index,e)`、`get(index)`、`set(index,e)`、`remove(index)`、`size()`；
+- **集合体系（进阶）**：`Collection/List/Set/Map` 接口；`HashSet/TreeSet/LinkedHashSet`；`HashMap` 的 `put/get/remove/size/containsKey/keySet/values/entrySet`；迭代器 `iterator()/hasNext()/next()`；增强 for；`Collections.sort()`；
+- **Stream 流**：获取流 `list.stream()`、`Arrays.stream(数组)`、`Stream.of(...)`；中间方法 `filter/map/limit/skip/distinct/sorted/Stream.concat`；终结方法 `forEach/count/collect`；收集 `collect(Collectors.toList()/toSet()/toMap(...))`；
+- **日期时间（JDK8 时间 API）**：`LocalDate/LocalTime/LocalDateTime` 的 `now()`、`of(...)`、`plusXxx()/minusXxx()`、`getXxx()`、`format()`、`parse()`、`isBefore/isAfter`；格式化 `DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")`；
+- **工具类**：`Objects.equals(a,b)`（防空指针）；`Arrays.stream/sort/toString` 等；
+- **File 类**：`new File(路径)`、`createNewFile()`、`mkdir()/mkdirs()`、`exists()`、`isFile()/isDirectory()`、`length()`、`getName()/getAbsolutePath()`、`listFiles()`、`delete()`；
+- **IO 流**：字节流 `FileInputStream/FileOutputStream`（`read()/write()`，-1 是结尾信号）；字符流 `FileReader/FileWriter`；缓冲流 `BufferedInputStream/BufferedOutputStream`、`BufferedReader.readLine()/BufferedWriter`；资源释放 `close()`（或用 try-with-resources 自动关）；`Properties` 读写配置文件（`setProperty/getProperty/load/store`）；
+- **多线程**：`Thread`（`start()/run()/sleep(ms)`、`getName/setName`）、`Runnable`、`Callable + FutureTask`（`ft.get()` 取返回值）；线程池 `Executors.newFixedThreadPool(n)`，或手动 `new ThreadPoolExecutor(...)` 精确控制 7 个参数（拒绝策略默认 `ThreadPoolExecutor.AbortPolicy`）；
+- **网络编程**：TCP——客户端 `new Socket(host, port)`、`getInputStream/getOutputStream`，服务端 `new ServerSocket(port)`、`accept()`；UDP——`DatagramSocket` 的 `send/receive` + `DatagramPacket` 打包数据；
+- **反射与动态代理**：`Class.forName(全类名)`、`getConstructor()/getDeclaredConstructor().newInstance()`、`getDeclaredMethod/getDeclaredField`；`Proxy.newProxyInstance(类加载器, 接口数组, 处理器)` 生成代理对象；
+- **单元测试（JUnit）**：`@Test`、`Assertions.assertEquals(期望值, 实际值)`；
+- **JDBC**：`DriverManager.getConnection(url, user, pwd)`；URL 格式 `jdbc:mysql://主机:端口/数据库名`（例 `jdbc:mysql://localhost:3306/web01`）；`conn.prepareStatement(sql)` → `setXxx(占位符索引, 值)` → `executeUpdate()/executeQuery()` → `ResultSet` 的 `next()/getXxx()`；连接池 Druid：`DruidDataSourceFactory.createDataSource(Properties)`；
+- **MyBatis**：注解 `@Mapper`、`@Select/@Insert/@Update/@Delete`、`@Param`、`#{}` 预编译占位符；日志配置 `mybatis.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl`；
+- **Spring / SpringBoot 常用注解**：
+  - 组件声明：`@Controller`、`@RestController`、`@Service`、`@Repository`、`@Component`（生效前提：被 `@ComponentScan` 扫描到，默认扫描启动类所在包及其子包）；
+  - 依赖注入：`@Autowired`；
+  - 启动类：`@SpringBootApplication`（由 @SpringBootConfiguration、@EnableAutoConfiguration、@ComponentScan 三部分组成）；
+  - 请求与响应：`@RequestMapping/@GetMapping/@PostMapping/@PutMapping/@DeleteMapping`、`@RequestParam/@PathVariable/@RequestBody`、`@ResponseBody`、`@DateTimeFormat`；
+  - 配置类与第三方整合：`@Configuration/@Bean/@Import`、`@ConfigurationProperties/@EnableConfigurationProperties`、`@ConditionalOnClass` 等条件注解、`@Value("${...}")`；
+  - 事务与 AOP：`@Transactional`；`@Aspect/@Pointcut/@Around/@Before/@Order`；日志 `@Slf4j`（Lombok）；
+  - 全局处理与过滤器：`@RestControllerAdvice/@ExceptionHandler`、`@WebFilter/@ServletComponentScan`、Lombok `@Data`；
+  - 常用配置示例：`server.port=8081`、`spring.datasource.url/username/password/driver-class-name`、`mybatis.configuration.log-impl=...`（application.properties 或 application.yml 中配置）。
+
+**六、Maven 命令与配置**
+
+- 版本检查：`mvn -v`；
+- 构建生命周期：`mvn clean`（清理）、`mvn compile`（编译）、`mvn package`（打包，生成 jar/war）、`mvn install`（安装到本地仓库）、`mvn deploy`（发布到私服）；
+- 本地仓库配置（conf/settings.xml）：`<localRepository>D:\develop\apache-maven-3.9.4\mvn_repo</localRepository>`；
+- 阿里云镜像（settings.xml 的 `<mirrors>` 中配置）：`http://maven.aliyun.com/nexus/content/groups/public/`（mirrorOf 为 central）；
+- 中央仓库：`https://repo1.maven.org/maven2/`；依赖坐标可在 `https://mvnrepository.com/` 搜索；
+- 私服（Nexus）上传：settings.xml 的 `<servers>` 配置用户名/密码（id 分别为 maven-releases、maven-snapshots）；pom.xml 中 `<distributionManagement>` 配置上传地址（`http://192.168.150.101:8081/repository/maven-releases/` 对应 RELEASE 版本、`.../maven-snapshots/` 对应 SNAPSHOT 版本）；依赖下载走仓库组 `http://192.168.150.101:8081/repository/maven-public/`；
+- 聚合工程打包：在父工程执行 package 生命周期，可一次性构建所有模块。
+
+**七、MySQL 命令与配置**
+
+- 命令行连接：`mysql -u用户名 -p密码 [-h数据库服务器IP地址 -P端口号]`（企业开发一般使用图形化工具，如 DataGrip）；
+- Windows 下载：`https://dev.mysql.com/downloads/mysql/`；
+- Linux 安装/初始化：`rpm -qa | grep mariadb`（查自带 mariadb）、`rpm -e --nodeps mariadb-libs-版本号`（卸载，版本号以实际查询结果为准）、`groupadd mysql`、`useradd -r -g mysql -s /bin/false mysql`、`mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data`（初始化后控制台输出 root 临时密码，记得记录）；启动服务：`systemctl start mysql`；
+- 修改 root 密码与授权远程访问（Linux 安装后配置）：
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+CREATE USER 'root'@'%' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+```
+
+- SQL 四大分类与核心语句：DDL（`show databases`、`select database()`、`use 库名`、`create database [if not exists] 库名 [default charset utf8mb4]`、`create table 表名(...)`、`drop database/table`）；DML（`insert into 表名(...) values(...)`、`update 表名 set ... where ...`、`delete from 表名 where ...`）；DQL（`select ... from ... where ... group by ... having ... order by ... limit ...`）；DCL（用户与权限控制，见上面 GRANT）；
+- Java 连接串：`jdbc:mysql://localhost:3306/web01`（格式：`jdbc:mysql://主机:端口/数据库名`）。
+
+**八、前端命令（npm / Vue 工程化 / Axios）**
+
+- 创建 Vue 工程：`npm create vue@3.3.4`；
+- 安装依赖：`npm install`；
+- 启动开发服务器：`npm run dev`（默认 `http://localhost:5173`）；
+- 安装 axios：`npm install axios`；
+- 安装 Element Plus：`npm install element-plus@2.4.4 --save`；main.js 中引入：
+
+```javascript
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+
+createApp(App).use(ElementPlus).mount('#app')
+```
+
+- Axios 用法：`axios.get(url).then(result => ...)`、`axios.post(url, 数据).then(...)`；async/await 写法：`let result = await axios.get(url)`；
+- Vue3 / Axios CDN（非工程化页面直接引入）：`https://unpkg.com/vue@3/dist/vue.esm-browser.js`、`https://unpkg.com/axios/dist/axios.min.js`。
+
+**九、Linux 常用命令**
+
+- 基础：`ip addr`（查看 IP）、`init 0`（关机）、`init 6`（重启）、`clear` 或 Ctrl+l（清屏）、Tab 键补全；
+- 目录操作：`ls [-al]`（简写 `ll`）、`cd`（`cd ..` 上级、`cd ~` home、`cd -` 上次目录）、`mkdir [-p]`、`rm [-rf]`（⚠️ 危险操作，注意核对路径）；
+- 文件查看：`cat [-n]`（一次性看小文件）、`more`（分页看大文件；回车翻一行、空格翻一屏、b 上一屏、q 退出）、`head [-n]`（看开头）、`tail [-nf]`（看结尾，`-f` 动态刷新，常用于日志）；
+- 拷贝移动：`cp [-r] source dest`、`mv source dest`（第二个参数是已存在目录则为移动，否则为重命名）；
+- 打包压缩：`tar -zcvf 包名.tar.gz 目标`（打包并压缩）、`tar -zxvf 包名.tar.gz [-C 目录]`（解压到指定目录）；`.tar` 只打包不压缩用 `-cvf/-xvf`；
+- 文本编辑：`vim fileName`（i/a/o 进入插入模式、ESC 回命令模式、`:` 进底行模式、`:wq` 保存退出、`:q!` 不保存退出；安装 `yum install vim`）；
+- 查找：`find 目录 -name "*.log"`（按文件名查找）、`grep [-inAB] 关键字 文件`（按内容查找，`-i` 忽略大小写、`-n` 行号、`-A/-B` 前后几行）；
+- 服务与防火墙：`systemctl start/stop/status/restart/enable/disable 服务名`；`firewall-cmd --state`、`systemctl stop/start firewalld`、`firewall-cmd --zone=public --add-port=8080/tcp --permanent`、`firewall-cmd --zone=public --remove-port=...`、`firewall-cmd --reload`、`firewall-cmd --zone=public --list-ports`（生产服务器不建议关闭防火墙）；
+- 环境变量生效：`source /etc/profile`。
+
+**十、Nginx 安装与操作**
+
+- 安装依赖：`yum install -y pcre pcre-devel zlib zlib-devel openssl openssl-devel`；
+- 解压源码：`tar -zxvf nginx-1.20.2.tar.gz`，进入目录后 `./configure --prefix=/usr/local/nginx`；
+- 编译安装：`make`、`make install`；
+- 启动 / 停止 / 重载（在 /usr/local/nginx 目录下）：`sbin/nginx`、`sbin/nginx -s quit`、`sbin/nginx -s reload`。
+
+**十一、Docker 命令**
+
+- 镜像：`docker build -t myImage:1.0 .`（构建，格式 `docker build -t 镜像名 Dockerfile目录`）、`docker images`（查看）、`docker pull/docker push`（拉取/推送）、`docker rmi`（删除）、`docker save/docker load`（保存为文件/加载镜像文件）；
+- 容器：`docker run -d --name mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=123 mysql:8`（`-d` 后台运行、`--name` 命名唯一、`-e` 环境变量、`-p` 端口映射：宿主机端口:容器内端口）；`docker ps`（查看容器）、`docker stop/start/restart`、`docker logs`（日志）、`docker exec`（进入容器执行命令）、`docker rm`（删除容器）；
+- 数据卷：`docker volume create/ls/rm/inspect/prune`；
+- 网络：`docker network create/ls/rm/prune`；
+- Docker Compose：命令格式 `docker compose [OPTIONS] [COMMAND]`；选项 `-f`（指定 compose 文件路径和名称）、`-p`（指定 project 名称）；命令 `up`（创建并启动所有 service 容器）、`down`（停止并移除所有容器、网络）、`ps`（列出启动的容器）、`logs`、`stop/start/restart`、`top`（查看运行的进程）。
+
+**十二、项目启动与部署方式**
+
+- Java 程序：IDEA 中运行 main 方法，或命令行 `javac` + `java`；
+- SpringBoot 后端项目：IDEA 中运行引导类（默认端口 8080）；上线时打成 jar 包后 `java -jar xxxxxx.jar` 运行；Linux 后台运行（不占用前台窗口）：
+
+```bash
+nohup java -jar xxxxxx.jar &> tlias.log &
+```
+
+- SpringBoot 端口覆盖示例：`java -Dserver.port=9000 -jar tlias-web-management-0.0.1-SNAPSHOT.jar --server.port=10010`（命令行参数优先级高于系统属性）；
+- 前端项目：开发时 `npm run dev`；部署时把打包产物放到 Nginx 的 html 目录，在 conf/nginx.conf 中配置静态资源与 `/api/` 反向代理（`rewrite ^/api/(.*)$ /$1 break;` + `proxy_pass http://localhost:8080;`），启动 `sbin/nginx` 后用 `http://localhost:80` 访问；
+- Linux 部署位置约定：后端 jar 包上传到 `/usr/local/tlias-app`；前端静态资源上传到 Nginx 的 html 目录；
+- Docker 部署：`docker run ...` 单容器启动，或 `docker compose up -d` 一键编排（MySQL + 服务端 + Nginx）。
+
+**十三、课件访问链接汇总**
+
+- 工具与插件：通义灵码 IDEA 插件下载 `https://lingma.aliyun.com/lingma/download`；VS Code：https://code.visualstudio.com ；DataGrip：https://www.jetbrains.com/zh-cn/datagrip/ ；Apifox：https://apifox.com/ ；
+- Maven：官网 http://maven.apache.org/ ；中央仓库 `https://repo1.maven.org/maven2/`；阿里云镜像 `http://maven.aliyun.com/nexus/content/groups/public/`；依赖坐标搜索 https://mvnrepository.com/ ；Apache 项目列表 https://www.apache.org/index.html#projects-list ；
+- Spring：官网 spring.io；官方 starter 列表：`https://docs.spring.io/spring-boot/docs/3.1.3/reference/htmlsingle/#using.build-systems.starters` ；
+- MyBatis：中文官网 https://mybatis.org/mybatis-3/zh_CN/index.html 、https://mybatis.net.cn/getting-started.html ；
+- MySQL 下载：https://dev.mysql.com/downloads/mysql/ ；
+- JWT：https://jwt.io/ ；
+- Vue 生态：Vue 官网 https://cn.vuejs.org/ ；Axios 官网 https://www.axios-http.cn/ ；Element Plus：https://element-plus.org/zh-CN/#/zh-CN ；Vue Router：https://router.vuejs.org/zh ；
+- 部署：Nginx 官网 https://nginx.org/ ；Docker 官方文档 https://docs.docker.com/ ；
+- CDN（页面直接引入）：`https://unpkg.com/vue@3/dist/vue.esm-browser.js`、`https://unpkg.com/axios/dist/axios.min.js`；
+- 课件案例中的接口与本机地址（前后端联调示例）：本机后端 `http://localhost:8080`（接口如 `/hello?name=Heima`、`/request`、`/list`、`/item/selectAll`、`/user/getById?id=1`、`/user/saveUser`、`/user/updateUser`、`/user/deleteUser?id=1`、`/users`、`/users/1`、`/depts`）；本机前端与代理 `http://localhost:90`、`http://localhost:90/api/depts`、`http://localhost:5173`、`http://localhost:80`；
+- 课件案例中的资源与 Mock 接口：`https://web-server.itheima.net/emps/list`、`https://mock.apifox.cn/m1/3083103-0-default/emps/list`、`https://mock.apifox.cn/m1/3083103-0-default/emps/update`、`https://apifoxmock.com/m1/3128855-default/depts`；
+- 课件案例中的服务器地址：私服 `http://192.168.150.101:8081/repository/`（maven-releases / maven-snapshots / maven-public）；部署演示地址 `http://192.168.150.200:90`、`http://192.168.150.100:8080`；阿里云 OSS：https://oss-cn-beijing.aliyuncs.com ；
+- HTML 案例中的示例链接：`https://www.cctv.com/`（`<a href>` 示例，非开发链接）。
+
+至此，第一、二、三阶段的笔记与指令集模块全部完成。
+
